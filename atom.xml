@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>世庆的博客</title>
+  
+  <subtitle>世庆的博客</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://sqtian-hhu.github.io/"/>
+  <updated>2020-02-07T06:48:43.865Z</updated>
+  <id>https://sqtian-hhu.github.io/</id>
+  
+  <author>
+    <name>ShiQing</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://sqtian-hhu.github.io/2021/04/21/hello-world/"/>
+    <id>https://sqtian-hhu.github.io/2021/04/21/hello-world/</id>
+    <published>2021-04-21T08:50:57.078Z</published>
+    <updated>2020-02-07T06:48:43.865Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>&#39;tk.mybatis.mapper&#39;</title>
+    <link href="https://sqtian-hhu.github.io/2020/11/16/tk-mybatis-mapper/"/>
+    <id>https://sqtian-hhu.github.io/2020/11/16/tk-mybatis-mapper/</id>
+    <published>2020-11-16T02:45:54.000Z</published>
+    <updated>2021-04-22T11:25:40.306Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Mybatis 与 Hibernate的一个很大的区别就是Mybatis所有的数据库操作语句都需要自己写，&lt;br&gt;对于简单的单表操作来说是比较烦琐的。因此有人就开发了tk.mybatis插件，通过这个插件，&lt;br&gt;可以省略许多简单的单表数据库操作语句而直接调用相对应的dao方法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
+    
+    
+      <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&#39;github_upload&#39;</title>
+    <link href="https://sqtian-hhu.github.io/2020/11/14/github-upload/"/>
+    <id>https://sqtian-hhu.github.io/2020/11/14/github-upload/</id>
+    <published>2020-11-14T08:43:06.000Z</published>
+    <updated>2021-04-22T11:25:40.394Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;github上传项目&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Git" scheme="https://sqtian-hhu.github.io/categories/Git/"/>
+    
+    
+      <category term="代码管理" scheme="https://sqtian-hhu.github.io/tags/%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&#39;计算机网络复习&#39;</title>
+    <link href="https://sqtian-hhu.github.io/2020/11/12/ji-suan-ji-wang-luo-fu-xi/"/>
+    <id>https://sqtian-hhu.github.io/2020/11/12/ji-suan-ji-wang-luo-fu-xi/</id>
+    <published>2020-11-12T06:51:11.000Z</published>
+    <updated>2021-04-22T11:25:40.240Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;计算机网络之基础篇&lt;br&gt;一、计算机网络概述&lt;br&gt;二、物理层&lt;br&gt;三、数据链路层&lt;br&gt;四、网络层&lt;br&gt;五、传输层&lt;br&gt;六、应用层&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="计算机网络" scheme="https://sqtian-hhu.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="计算机基础" scheme="https://sqtian-hhu.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&#39;DataType&#39;</title>
+    <link href="https://sqtian-hhu.github.io/2020/10/26/datatype/"/>
+    <id>https://sqtian-hhu.github.io/2020/10/26/datatype/</id>
+    <published>2020-10-26T10:30:46.000Z</published>
+    <updated>2021-04-22T11:25:40.353Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;数组,字符串,集合等等总结&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
+    
+    
+      <category term="Java基础" scheme="https://sqtian-hhu.github.io/tags/Java%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&#39;JavaNote_SpringMVC_Day03&#39;</title>
+    <link href="https://sqtian-hhu.github.io/2020/07/08/javanote-ssm/"/>
+    <id>https://sqtian-hhu.github.io/2020/07/08/javanote-ssm/</id>
+    <published>2020-07-08T11:01:00.000Z</published>
+    <updated>2021-04-22T11:25:40.338Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Day3-SSM三大框架整合&quot;&gt;&lt;a href=&quot;#Day3-SSM三大框架整合&quot; class=&quot;headerlink&quot; title=&quot;Day3 SSM三大框架整合&quot;&gt;&lt;/a&gt;Day3 SSM三大框架整合&lt;/h2&gt;&lt;p&gt;第一步：搭建整合环境&lt;br&gt;SSM整合可以使用多种方式，我们选用XML+注解的方式&lt;/p&gt;
+&lt;p&gt;整合思路：&lt;br&gt;    1. 搭建环境&lt;br&gt;    2. 搭建Spring配置&lt;br&gt;    3. 使用Spring整合SpringMVC框架&lt;br&gt;    4. 使用Spring整合MyBatis框架&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
+    
+    
+      <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&#39;JavaNote_SpringMVC_Day02&#39;</title>
+    <link href="https://sqtian-hhu.github.io/2020/07/08/javanote-springmvc-day02/"/>
+    <id>https://sqtian-hhu.github.io/2020/07/08/javanote-springmvc-day02/</id>
+    <published>2020-07-08T11:00:55.000Z</published>
+    <updated>2021-04-22T11:25:40.456Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Day2&quot;&gt;&lt;a href=&quot;#Day2&quot; class=&quot;headerlink&quot; title=&quot;Day2&quot;&gt;&lt;/a&gt;Day2&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;搭建环境&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;第一章： 响应数据与结果视图&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;响应的返回值是String类型&lt;br&gt;发送请求-&amp;gt;查出对象-&amp;gt;model对象将数据存入request域中-&amp;gt;页面显示&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;a href=&quot;user/testString&quot;&amp;gt;testString&amp;lt;/a&amp;gt;&amp;lt;br/&amp;gt;
+
+@RequestMapping(&quot;/testString&quot;)
+public String testString(Model model){
+    System.out.println(&quot;testString方法执行了&quot;);
+
+    //模拟从数据库中查询出user对象
+    User user = new User();
+    user.setUsername(&quot;呈呈&quot;);
+    user.setAge(18);
+    user.setPassword(&quot;1201&quot;);
+
+    //model对象存数据
+    model.addAttribute(&quot;user&quot;,user);
+
+
+    return &quot;success&quot;;
+}&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
+    
+    
+      <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&#39;JavaNote_SpringMVC_Day01&#39;</title>
+    <link href="https://sqtian-hhu.github.io/2020/07/08/javanote-springmvc-day01/"/>
+    <id>https://sqtian-hhu.github.io/2020/07/08/javanote-springmvc-day01/</id>
+    <published>2020-07-08T10:59:08.000Z</published>
+    <updated>2021-04-22T11:25:39.990Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;day1&quot;&gt;&lt;a href=&quot;#day1&quot; class=&quot;headerlink&quot; title=&quot;day1&quot;&gt;&lt;/a&gt;day1&lt;/h2&gt;&lt;p&gt;第一章：SpringMVC的基本概念&lt;br&gt;开发架构一般基于两种形式：C/S架构和B/S架构。JavaEE开发中几乎全都是基于B/S架构的开发。&lt;br&gt;B/S架构中，标准的三层架构包括：表现层、业务层、持久层&lt;/p&gt;
+&lt;p&gt;服务器端分成三层框架&lt;/p&gt;
+&lt;p&gt;三层架构(3-tier architecture) 通常意义上的三层架构就是将整个业务应用划分为：表现层（UI）、业务逻辑层（BLL）、数据访问层（DAL）。区分层次的目的即为了“高内聚，低耦合”的思想。&lt;/p&gt;
+&lt;p&gt;表现层（user interface layer）：通俗讲就是展现给用户的界面，即用户在使用一个系统的时候他的所见所得。主要对用户的请求接受，以及数据的返回，为客户端提供应用程序的访问。&lt;/p&gt;
+&lt;p&gt;业务逻辑层（business logic layer）:针对具体问题的操作，也可以说是对数据层的操作，对数据业务逻辑处理。&lt;/p&gt;
+&lt;p&gt;数据访问层（data access layer）:该层直接操作数据库，针对数据的增添、删除、修改、查找等。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
+    
+    
+      <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaNote_Spring_Day04</title>
+    <link href="https://sqtian-hhu.github.io/2020/06/29/javanote-spring-day04/"/>
+    <id>https://sqtian-hhu.github.io/2020/06/29/javanote-spring-day04/</id>
+    <published>2020-06-29T01:57:06.000Z</published>
+    <updated>2021-04-22T11:25:40.044Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;day4&quot;&gt;&lt;a href=&quot;#day4&quot; class=&quot;headerlink&quot; title=&quot;day4&quot;&gt;&lt;/a&gt;day4&lt;/h2&gt;&lt;p&gt;spring中的JDBCTemlate以及Spring事务控制&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;spring中的JdbcTemplate&lt;pre&gt;&lt;code&gt; JdbcTemplate的作用：
+     他就是用于和数据库交互的，实现对表的CRUD操作
+ 如何创建该对象：
+ 对象中的常用方法&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
+    
+    
+      <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaNote_Spring_Day03</title>
+    <link href="https://sqtian-hhu.github.io/2020/06/29/javanote-spring-day03/"/>
+    <id>https://sqtian-hhu.github.io/2020/06/29/javanote-spring-day03/</id>
+    <published>2020-06-29T01:57:03.000Z</published>
+    <updated>2021-04-22T11:25:39.850Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Day3&quot;&gt;&lt;a href=&quot;#Day3&quot; class=&quot;headerlink&quot; title=&quot;Day3&quot;&gt;&lt;/a&gt;Day3&lt;/h2&gt;&lt;p&gt;spring中的app和基于XML以及注解的AOP配置&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;完善我们的account案例&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;分析案例中的问题&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;回顾之前讲过的一个技术: 动态代理&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;动态代理另一种实现方式&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;解决案例中的问题&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;AOP的概念&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;spring中的AOP相关术语&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;spring中基于XML和注解的AOP配置&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; 编码问题，改成utf8
+ &amp;lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:mysql://localhost:3306/lovelycc?characterEncoding=utf8&quot;&amp;gt;&amp;lt;/property&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
+    
+    
+      <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaNote_Spring_Day02</title>
+    <link href="https://sqtian-hhu.github.io/2020/06/29/javanote-spring-day02/"/>
+    <id>https://sqtian-hhu.github.io/2020/06/29/javanote-spring-day02/</id>
+    <published>2020-06-29T01:54:51.000Z</published>
+    <updated>2021-04-22T11:25:40.508Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;day2&quot;&gt;&lt;a href=&quot;#day2&quot; class=&quot;headerlink&quot; title=&quot;day2&quot;&gt;&lt;/a&gt;day2&lt;/h2&gt;&lt;p&gt;spring中基于注解的IOC和ioc的案例&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;spring中ioc的常用注解&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;案例使用xml方式和注解方式实现单表的CRUD操作&lt;br&gt; 持久层技术选择：dbutils&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;改造基于注解的ioc案例，使用纯注解的方式实现&lt;br&gt; spring的一些新注解使用&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;spring和Junit整合&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
+    
+    
+      <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaNote_Spring_Day01</title>
+    <link href="https://sqtian-hhu.github.io/2020/06/29/javanote-spring-day01/"/>
+    <id>https://sqtian-hhu.github.io/2020/06/29/javanote-spring-day01/</id>
+    <published>2020-06-29T01:54:45.000Z</published>
+    <updated>2021-04-22T11:25:40.128Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Day1&quot;&gt;&lt;a href=&quot;#Day1&quot; class=&quot;headerlink&quot; title=&quot;Day1&quot;&gt;&lt;/a&gt;Day1&lt;/h2&gt;&lt;p&gt;Spring框架的概述以及spring中基于XML的IOC配置&lt;/p&gt;
+&lt;p&gt;程序的耦合&lt;br&gt;    耦合：程序的依赖关系&lt;br&gt;        包括：&lt;br&gt;            类之间的依赖&lt;br&gt;            方法间的依赖&lt;br&gt;    解耦：&lt;br&gt;        降低程序间的依赖关系&lt;br&gt;    实际开发中：&lt;br&gt;        应该做到，编译期不依赖，运行时才依赖&lt;br&gt;    解耦的思路：&lt;br&gt;        第一步：使用反射来创建对象，而避免使用new关键字&lt;br&gt;        第二步：通过读取配置文件来获取要创建的对象全限定类名&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
+    
+    
+      <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&#39;JavaWebNote06_Http&#39;</title>
+    <link href="https://sqtian-hhu.github.io/2020/05/13/javawebnote06-http/"/>
+    <id>https://sqtian-hhu.github.io/2020/05/13/javawebnote06-http/</id>
+    <published>2020-05-13T03:26:44.000Z</published>
+    <updated>2021-04-22T11:25:40.172Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;script&gt;
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if (!el.dataset.src) { return; }
+       
+        
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
+    
+    
+      <category term="JavaWeb" scheme="https://sqtian-hhu.github.io/tags/JavaWeb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&#39;JavaWebNote05_Tomcat&#39;</title>
+    <link href="https://sqtian-hhu.github.io/2020/05/13/javawebnote05-tomcat/"/>
+    <id>https://sqtian-hhu.github.io/2020/05/13/javawebnote05-tomcat/</id>
+    <published>2020-05-13T03:26:01.000Z</published>
+    <updated>2021-04-22T11:25:40.419Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Tomcat相关知识&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
+    
+    
+      <category term="JavaWeb" scheme="https://sqtian-hhu.github.io/tags/JavaWeb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&#39;JavaWebNote04_XML&#39;</title>
+    <link href="https://sqtian-hhu.github.io/2020/05/11/javawebnote04-xml/"/>
+    <id>https://sqtian-hhu.github.io/2020/05/11/javawebnote04-xml/</id>
+    <published>2020-05-11T09:21:00.000Z</published>
+    <updated>2021-04-22T11:25:40.435Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;XML&quot;&gt;&lt;a href=&quot;#XML&quot; class=&quot;headerlink&quot; title=&quot;XML&quot;&gt;&lt;/a&gt;XML&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;概念：Extensible Markup Language 可扩展标记语言&lt;br&gt; 可扩展：标签都是自定义的&lt;/p&gt;
+&lt;p&gt; 功能：&lt;br&gt; 存储数据&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; 1. 配置文件
+ 2. 在网络中传输&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; 与HTML的区别&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;xml标签都是自定义的，html标签是预定义的&lt;/li&gt;
+&lt;li&gt;xml的语法严格，html语法松散&lt;/li&gt;
+&lt;li&gt;xml是存储数据的，html是展示数据的&lt;/li&gt;&lt;/ol&gt;&lt;/li&gt;&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
+    
+    
+      <category term="JavaWeb" scheme="https://sqtian-hhu.github.io/tags/JavaWeb/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&#39;JavaNote_Mybatis_Day04&#39;</title>
+    <link href="https://sqtian-hhu.github.io/2020/05/09/javanote-mybatis-day04/"/>
+    <id>https://sqtian-hhu.github.io/2020/05/09/javanote-mybatis-day04/</id>
+    <published>2020-05-09T03:11:51.000Z</published>
+    <updated>2021-04-22T11:25:39.811Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;day4&quot;&gt;&lt;a href=&quot;#day4&quot; class=&quot;headerlink&quot; title=&quot;day4&quot;&gt;&lt;/a&gt;day4&lt;/h2&gt;&lt;p&gt;mybatis的缓存和注解开发&lt;br&gt;mybatis中的加载时机(查询的时机)&lt;br&gt;mybatis中的一级缓存和二级缓存&lt;br&gt;mybatis的注解开发&lt;br&gt;单表CRUD&lt;br&gt;多表查询&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
+    
+    
+      <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&#39;JavaNote_Mybatis_Day03&#39;</title>
+    <link href="https://sqtian-hhu.github.io/2020/05/09/javanote-mybatis-day03/"/>
+    <id>https://sqtian-hhu.github.io/2020/05/09/javanote-mybatis-day03/</id>
+    <published>2020-05-09T03:11:46.000Z</published>
+    <updated>2021-04-22T11:25:39.904Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;day3&quot;&gt;&lt;a href=&quot;#day3&quot; class=&quot;headerlink&quot; title=&quot;day3&quot;&gt;&lt;/a&gt;day3&lt;/h2&gt;&lt;p&gt;mybatis的深入和多表&lt;br&gt;mybatis连接池&lt;br&gt;mybatis事务控制及设计方法&lt;br&gt;mybatis的多表查询&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
+    
+    
+      <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&#39;JavaNote_Mybatis_Day02&#39;</title>
+    <link href="https://sqtian-hhu.github.io/2020/05/09/javanote-mybatis-day02/"/>
+    <id>https://sqtian-hhu.github.io/2020/05/09/javanote-mybatis-day02/</id>
+    <published>2020-05-09T03:11:41.000Z</published>
+    <updated>2021-04-22T11:25:40.019Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Day2&quot;&gt;&lt;a href=&quot;#Day2&quot; class=&quot;headerlink&quot; title=&quot;Day2&quot;&gt;&lt;/a&gt;Day2&lt;/h2&gt;&lt;p&gt;mybatis基本使用&lt;br&gt;mybatis的单表crud操作&lt;br&gt;mybatis的参数和返回值&lt;br&gt;mybatis的dao编写&lt;br&gt;mybatis配置细节&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
+    
+    
+      <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&#39;JavaNote_Mybatis_Day01&#39;</title>
+    <link href="https://sqtian-hhu.github.io/2020/05/09/javanote-mybatis-day01/"/>
+    <id>https://sqtian-hhu.github.io/2020/05/09/javanote-mybatis-day01/</id>
+    <published>2020-05-09T03:11:33.000Z</published>
+    <updated>2021-04-22T11:25:40.084Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Day1&quot;&gt;&lt;a href=&quot;#Day1&quot; class=&quot;headerlink&quot; title=&quot;Day1&quot;&gt;&lt;/a&gt;Day1&lt;/h2&gt;&lt;p&gt;mybatis入门&lt;br&gt;mybatis概述&lt;br&gt;mybatis环境搭建&lt;br&gt;mybatis入门案例&lt;br&gt;自定义mybatis框架&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
+    
+    
+      <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&#39;JavaWebNote03_JS&#39;</title>
+    <link href="https://sqtian-hhu.github.io/2020/05/02/javawebnote03-js/"/>
+    <id>https://sqtian-hhu.github.io/2020/05/02/javawebnote03-js/</id>
+    <published>2020-05-02T01:20:33.000Z</published>
+    <updated>2021-04-22T11:25:40.221Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;JavaScript&quot;&gt;&lt;a href=&quot;#JavaScript&quot; class=&quot;headerlink&quot; title=&quot;JavaScript&quot;&gt;&lt;/a&gt;JavaScript&lt;/h2&gt;&lt;p&gt;概念：一门客户端脚本语言&lt;br&gt;    运行在客户端浏览器中的。每一个浏览器都有JavaScript&lt;br&gt;    脚本语言：不需要编译，直接就可以被浏览器解析执行&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
+    
+    
+      <category term="JavaWeb" scheme="https://sqtian-hhu.github.io/tags/JavaWeb/"/>
+    
+  </entry>
+  
+</feed>
