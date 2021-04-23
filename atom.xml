@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sqtian-hhu.github.io/"/>
-  <updated>2020-02-07T06:48:43.865Z</updated>
+  <updated>2021-04-23T04:33:01.059Z</updated>
   <id>https://sqtian-hhu.github.io/</id>
   
   <author>
@@ -15,6 +15,89 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>springJPA</title>
+    <link href="https://sqtian-hhu.github.io/2021/04/23/springjpa/"/>
+    <id>https://sqtian-hhu.github.io/2021/04/23/springjpa/</id>
+    <published>2021-04-23T04:29:05.000Z</published>
+    <updated>2021-04-23T04:33:01.059Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;day1：orm思想和hibernate以及jpa的概述和jpd的基本操作&lt;br&gt;day2：springdatajpa的运行原理以及基本操作&lt;br&gt;day3：多表操作，复杂查询&lt;/p&gt;
+&lt;p&gt;##day1&lt;br&gt;第一：orm（对象关系映射）思想&lt;br&gt;   
+        
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
+    
+    
+      <category term="SpringJPA" scheme="https://sqtian-hhu.github.io/tags/SpringJPA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tensorflow2</title>
+    <link href="https://sqtian-hhu.github.io/2021/04/23/tensorflow2/"/>
+    <id>https://sqtian-hhu.github.io/2021/04/23/tensorflow2/</id>
+    <published>2021-04-23T04:28:36.000Z</published>
+    <updated>2021-04-23T04:32:34.013Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;##创建一个Tensor&lt;br&gt;    创建全为0的张量: tf.zeros(维度)&lt;br&gt;        维度: 一维 直接写个数&lt;br&gt;              二维 [行,列]&lt;br&gt;              多维 [n,m,j,k…]&lt;br&gt;   
+        
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://sqtian-hhu.github.io/categories/Python/"/>
+    
+    
+      <category term="Tensorflow" scheme="https://sqtian-hhu.github.io/tags/Tensorflow/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis</title>
+    <link href="https://sqtian-hhu.github.io/2021/04/23/redis/"/>
+    <id>https://sqtian-hhu.github.io/2021/04/23/redis/</id>
+    <published>2021-04-23T04:24:16.000Z</published>
+    <updated>2021-04-23T04:27:33.550Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;今日内容&quot;&gt;&lt;a href=&quot;#今日内容&quot; class=&quot;headerlink&quot; title=&quot;今日内容&quot;&gt;&lt;/a&gt;今日内容&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;1. redis
+    1. 概念
+    2. 下载安装
+    3. 命令操作
+        1.
+        
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="https://sqtian-hhu.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="Redis" scheme="https://sqtian-hhu.github.io/tags/Redis/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
@@ -63,7 +146,7 @@
     <link href="https://sqtian-hhu.github.io/2020/11/14/github-upload/"/>
     <id>https://sqtian-hhu.github.io/2020/11/14/github-upload/</id>
     <published>2020-11-14T08:43:06.000Z</published>
-    <updated>2021-04-22T11:25:40.394Z</updated>
+    <updated>2021-04-23T04:26:50.772Z</updated>
     
     <summary type="html">
     
@@ -71,7 +154,7 @@
     
     </summary>
     
-      <category term="Git" scheme="https://sqtian-hhu.github.io/categories/Git/"/>
+      <category term="代码管理" scheme="https://sqtian-hhu.github.io/categories/%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86/"/>
     
     
       <category term="代码管理" scheme="https://sqtian-hhu.github.io/tags/%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86/"/>
@@ -439,66 +522,6 @@ public String testString(Model model){
     
     
       <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&#39;JavaNote_Mybatis_Day02&#39;</title>
-    <link href="https://sqtian-hhu.github.io/2020/05/09/javanote-mybatis-day02/"/>
-    <id>https://sqtian-hhu.github.io/2020/05/09/javanote-mybatis-day02/</id>
-    <published>2020-05-09T03:11:41.000Z</published>
-    <updated>2021-04-22T11:25:40.019Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Day2&quot;&gt;&lt;a href=&quot;#Day2&quot; class=&quot;headerlink&quot; title=&quot;Day2&quot;&gt;&lt;/a&gt;Day2&lt;/h2&gt;&lt;p&gt;mybatis基本使用&lt;br&gt;mybatis的单表crud操作&lt;br&gt;mybatis的参数和返回值&lt;br&gt;mybatis的dao编写&lt;br&gt;mybatis配置细节&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
-    
-    
-      <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&#39;JavaNote_Mybatis_Day01&#39;</title>
-    <link href="https://sqtian-hhu.github.io/2020/05/09/javanote-mybatis-day01/"/>
-    <id>https://sqtian-hhu.github.io/2020/05/09/javanote-mybatis-day01/</id>
-    <published>2020-05-09T03:11:33.000Z</published>
-    <updated>2021-04-22T11:25:40.084Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Day1&quot;&gt;&lt;a href=&quot;#Day1&quot; class=&quot;headerlink&quot; title=&quot;Day1&quot;&gt;&lt;/a&gt;Day1&lt;/h2&gt;&lt;p&gt;mybatis入门&lt;br&gt;mybatis概述&lt;br&gt;mybatis环境搭建&lt;br&gt;mybatis入门案例&lt;br&gt;自定义mybatis框架&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
-    
-    
-      <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&#39;JavaWebNote03_JS&#39;</title>
-    <link href="https://sqtian-hhu.github.io/2020/05/02/javawebnote03-js/"/>
-    <id>https://sqtian-hhu.github.io/2020/05/02/javawebnote03-js/</id>
-    <published>2020-05-02T01:20:33.000Z</published>
-    <updated>2021-04-22T11:25:40.221Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;JavaScript&quot;&gt;&lt;a href=&quot;#JavaScript&quot; class=&quot;headerlink&quot; title=&quot;JavaScript&quot;&gt;&lt;/a&gt;JavaScript&lt;/h2&gt;&lt;p&gt;概念：一门客户端脚本语言&lt;br&gt;    运行在客户端浏览器中的。每一个浏览器都有JavaScript&lt;br&gt;    脚本语言：不需要编译，直接就可以被浏览器解析执行&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
-    
-    
-      <category term="JavaWeb" scheme="https://sqtian-hhu.github.io/tags/JavaWeb/"/>
     
   </entry>
   

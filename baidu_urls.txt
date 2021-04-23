@@ -1,3 +1,6 @@
+https://sqtian-hhu.github.io/2021/04/23/springjpa/
+https://sqtian-hhu.github.io/2021/04/23/tensorflow2/
+https://sqtian-hhu.github.io/2021/04/23/redis/
 https://sqtian-hhu.github.io/2021/04/21/hello-world/
 https://sqtian-hhu.github.io/2020/11/16/tk-mybatis-mapper/
 https://sqtian-hhu.github.io/2020/11/14/github-upload/

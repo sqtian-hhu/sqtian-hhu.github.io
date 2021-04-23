@@ -9,10 +9,9 @@
     <meta name="keywords" content="&#39;AndroidPart1&#39;, 深度学习 故障诊断 Java">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return">
+    <meta name="description" content="第一个应用public class MainActivity extends AppCompatActivity {
+@Override
+protected void onCreate(Bundle savedInstanceState) ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -775,14 +774,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        52
+                        5.9k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        28 分
                     </div>
                     
                 
@@ -799,7 +798,1001 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <script>
+                <h2 id="第一个应用"><a href="#第一个应用" class="headerlink" title="第一个应用"></a>第一个应用</h2><p>public class MainActivity extends AppCompatActivity {</p>
+<pre><code>@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+
+    findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            //当被点击时出发的行为
+            Toast.makeText(MainActivity.this,"爱你哦",Toast.LENGTH_LONG).show();
+        }
+    });
+}</code></pre><p>}</p>
+<p>=&gt; Buile APK</p>
+<h2 id="产品提出了一些需求"><a href="#产品提出了一些需求" class="headerlink" title="产品提出了一些需求"></a>产品提出了一些需求</h2><p>新建一个应用<br>    有一个页面<br>    版本号为1.0.0<br>        D:\ASWork\app\build.gradle中修改<br>            versionCode 1<br>            versionName “1.0.0”<br>    修改应用图标<br>        D:\ASWork\app\src\main\AndroidManifest.xml中修改android:icon=”@mipmap/ic_launcher”<br>        首字母不可大写<br>    添加启动界面</p>
+<hr>
+<!--?xml version="1.0" encoding="utf-8"?-->
+<p><linearlayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/splashBackgroundColor" android:gravity="center"></linearlayout></p>
+<pre><code>&lt;TextView
+    android:id="@+id/title_text_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/splash_text"
+    android:textColor="@color/white"
+    android:textSize="24sp"/&gt;
+
+&lt;Button
+    android:id="@+id/enter_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/button_margin"
+    android:text="@string/click"/&gt;</code></pre>    
+--------------------------------------------------------------------    
+    首页四个按钮,分别进入不同页面传递标题
+        布局
+        跳转
+-------------------------------------------------------------------------        
+public class SplashActivity extends Activity {
+
+<pre><code>//定义按钮开关
+private Button mEnterButton;
+//定义点击触发事件
+private View.OnClickListener mOnClickListener = new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.enter_button:
+                Intent intent = new Intent(SplashActivity.this,MainActivity.class);
+                startActivity(intent);
+                break;
+        }
+    }
+};
+
+@Override
+protected void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_splash);
+    mEnterButton = (Button)findViewById(R.id.enter_button);
+
+    mEnterButton.setOnClickListener(mOnClickListener);
+}</code></pre><h2 id=""><a href="#" class="headerlink" title="}"></a>}</h2><h2 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h2><p>在启动页面停留一秒自动进入下一个页面<br>public class SplashActivity extends Activity {<br>    Handler mHandler = new Handler();<br>    @Override<br>    protected void onCreate(@Nullable Bundle savedInstanceState) {<br>        super.onCreate(savedInstanceState);<br>        setContentView(R.layout.activity_splash);</p>
+<pre><code>    //延迟1000ms后跳转
+    mHandler.postDelayed(new Runnable() {
+        @Override
+        public void run() {
+            //跳转到MainActivity
+            Intent intent = new Intent(SplashActivity.this,MainActivity.class);
+            startActivity(intent);
+        }
+    },1000);
+}</code></pre><p>}</p>
+<p>Activity间传递数据<br>SplashActivity<br>        //获取到textView<br>        TextView textView = (TextView) findViewById(R.id.title_text_view);<br>        final String title = textView.getText().toString();</p>
+<pre><code>    //延迟1000ms后跳转
+    mHandler.postDelayed(new Runnable() {
+        @Override
+        public void run() {
+            //跳转到MainActivity
+            Intent intent = new Intent(SplashActivity.this,MainActivity.class);
+            //把数据传递到下一个页面,先获取这个数据
+            intent.putExtra("title",title);
+            startActivity(intent);
+        }
+    },1000);</code></pre><hr>
+<p>MainActivity<br>        //接收数据,得到intent<br>        Intent intent = getIntent();<br>        if (intent != null){<br>            String title = intent.getStringExtra(“title”);<br>            setTitle(title);<br>        }</p>
+<p>传递对象<br>//对象需要序列化<br>public class UserInfo implements Serializable {<br>    private String mUserName;<br>    private Integer mAge;</p>
+<pre><code>public UserInfo(String mUserName, Integer mAge) {
+    this.mUserName = mUserName;
+    this.mAge = mAge;
+}</code></pre><h2 id="-1"><a href="#-1" class="headerlink" title="}"></a>}</h2><p>SplashActivity<br>            @Override<br>            public void run() {</p>
+<pre><code>            UserInfo userInfo = new UserInfo("CC",18);
+
+            //跳转到MainActivity
+            Intent intent = new Intent(SplashActivity.this,MainActivity.class);
+            //把数据传递到下一个页面,先获取这个数据
+            intent.putExtra("title",title);
+            intent.putExtra("userInfo", userInfo);
+            startActivity(intent);
+        }</code></pre><hr>
+<p>MainActivity<br>        //接收数据,得到intent<br>        Intent intent = getIntent();<br>        if (intent != null){<br>            String title = intent.getStringExtra(“title”);</p>
+<pre><code>        //接收序列化之后的对象
+        UserInfo userInfo = (UserInfo) intent.getSerializableExtra("userInfo");
+        setTitle(userInfo.getmUserName());
+    }</code></pre><hr>
+<p>小问题：<br>intent.putExtra(“title”,title);<br>intent.putExtra(“userInfo”, userInfo);<br>将”title”，”userInfo”提取成常量，方便修改代码，ctrl+alt+C<br>    public static final String TITLE = “title”;<br>    public static final String USER_INFO = “userInfo”;</p>
+<p>获取数据时，传递引用的常量<br>        //接收数据,得到intent<br>        Intent intent = getIntent();<br>        if (intent != null){<br>            String title = intent.getStringExtra(SplashActivity.TITLE);</p>
+<pre><code>        //接收序列化之后的对象
+        UserInfo userInfo = (UserInfo) intent.getSerializableExtra(SplashActivity.USER_INFO);
+        setTitle(userInfo.getmUserName());
+    }</code></pre><p>//ctrl+alt+F 快捷设置全局变量        </p>
+<p>Activity回传数据</p>
+<p>SplashActivity<br>//              startActivity(intent);<br>                //传递出去再接收回传数据<br>                startActivityForResult(intent, REQUEST_CODE);</p>
+<pre><code>@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    Log.i(TAG,"requestCode:"+requestCode+",resultCode:"+resultCode);
+    //04-09 03:56:47.971 4435-4435/com.example.sqtian I/SplashActivity: requestCode:9999,resultCode:1234
+    //判断链接页面是否正确
+    if(requestCode==REQUEST_CODE&amp;&amp;resultCode==MainActivity.RESULT_CODE){
+        if(data != null){
+            String title = data.getStringExtra(TITLE);
+            mTextView.setText(title);
+        }
+    }
+
+}</code></pre><hr>
+<p>MainActivity<br>        findViewById(R.id.button_first).setOnClickListener(new View.OnClickListener() {<br>            @Override<br>            public void onClick(View v) {<br>                Intent intent = new Intent();<br>                intent.putExtra(SplashActivity.TITLE,”我是主页,我送礼回来了”);<br>                setResult(RESULT_CODE,intent);<br>                finish();<br>            }<br>        });</p>
+<h2 id="Activity的生命周期"><a href="#Activity的生命周期" class="headerlink" title="Activity的生命周期"></a>Activity的生命周期</h2><p>onCreate()<br>onStart()<br>onResume()<br>onPause()<br>onStop()<br>onDestroy()<br>onRestart()<br>    @Override<br>    protected void onStart() {<br>        super.onStart();<br>        Log.i(TAG,”onStart”);<br>    }</p>
+<pre><code>@Override
+protected void onResume() {
+    super.onResume();
+    Log.i(TAG,"onResume");
+}
+
+@Override
+protected void onPause() {
+    super.onPause();
+    Log.i(TAG,"onPause");
+}
+
+@Override
+protected void onStop() {
+    super.onStop();
+    Log.i(TAG,"onStop");
+}
+
+@Override
+protected void onDestroy() {
+    super.onDestroy();
+    Log.i(TAG,"onDestroy");
+}
+
+@Override
+protected void onRestart() {
+    super.onRestart();
+    Log.i(TAG,"onRestart");
+}</code></pre><h2 id="控件"><a href="#控件" class="headerlink" title="控件"></a>控件</h2><p>控件View的通用属性:宽高, 颜色, 边距, 是否可见, 内容居中, 点击事件</p>
+<p>TextView 显示文本 CheckedTextView</p>
+<p>EditText 编辑框 hint password lines singlines maxlines<br>phoneNumber等</p>
+<p>Button 点击按钮 .9图</p>
+<p>ImageButton 图片按钮 extends ImageView</p>
+<p>ImageView 图片视图<br>    <imageview android:id="@+id/imageView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@mipmap/cc_background" android:scaletype="center" app:srccompat="@mipmap/cc1"></imageview></p>
+<p>滑动条<br>    <seekbar android:id="@+id/seekBar" android:layout_width="match_parent" android:layout_height="wrap_content"></seekbar></p>
+<p>进度条<br>    <progressbar android:id="@+id/progressBar" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="100" android:progress="50"></progressbar></p>
+<p>WebView：加载网页<br>ListView：显示列表<br>GridView：显示表格式列表<br>ScrollView：内容可滚动视图<br>SufaceView：非常重要的绘图容器</p>
+<h2 id="Android开发布局详解"><a href="#Android开发布局详解" class="headerlink" title="Android开发布局详解"></a>Android开发布局详解</h2><p>五大布局<br>线性布局：LinearLayout<br>&lt;LinearLayout<br>android:orientation=”vertical” 垂直或者水平<br>&lt;TextView<br>android:layout_weight=”1” 设置占屏幕比重<br>相对布局：RelativeLayout<br>android:layout_alignParentRight=”true” 在页面右边<br>android:layout_above=”@+id/button” 在button的上面<br>android:layout_toRightOf=”@+id/button” 在button的右面<br>android:layout_alignTop=”@+id/button” 与button上边缘对齐<br>android:layout_marginLeft=”100dp” 距离左边界100dp<br>android:paddingLeft=”40dp” 内部文字距离边框40dp</p>
+<p>帧布局：FrameLayout<br>可重叠</p>
+<p>绝对布局：AbsoluteLayout<br>表格布局：TableLayout</p>
+<p>布局技巧与优化<br>官方建议布局层次 10层<br>利用相对布局，尽量减少布局层次</p>
+<p>布局引用相同部分<br>    <include layout="@layout/activity_splash"><br>减少视图层级<br><merge><br>需要时才加载<br><viewstub></viewstub></merge></include></p>
+<p>总结:如何优化布局</p>
+<ol>
+<li>减少层次</li>
+<li>删除无用布局</li>
+<li>布局结构要清晰</li>
+<li>选择合适的布局<br>小技巧:</li>
+<li>不要嵌套多个使用layout_weight属性的LinearLayout</li>
+<li>Android lint</li>
+<li>HierarchyViewer</li>
+</ol>
+<h2 id="无比重要的ListView"><a href="#无比重要的ListView" class="headerlink" title="无比重要的ListView"></a>无比重要的ListView</h2><p>常用属性：<br>    listSelector<br>    scrollingCache<br>    cacheColorHint<br>    fastScrollEnabled<br>    ……<br>常用方法<br>    addHeaderView<br>    addFooterView</p>
+<ol>
+<li>设置ListView视图 activity_listview_demo.xml,list_view呈现列表数据</li>
+<li>ListViewDemoActivity中获得list_view,利用phoneBookAdapter将数据与视图绑定</li>
+<li>phoneBookAdapter继承BaseAdapter,getView方法返回视图</li>
+<li>mLayoutInflater.inflate(R.layout.item_phone_book_friend, null)将页面解析为视图</li>
+<li>从解析的视图中获取TextView控键,和数据进行绑定</li>
+</ol>
+<p>public class ListViewDemoActivity extends Activity {</p>
+<pre><code>//ListView视图作为一个容器，房子
+private ListView mphoneBookListView;
+private List&lt;UserInfo&gt; mUserInfos;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_listview_demo);
+    mphoneBookListView = (ListView)findViewById(R.id.list_view);
+    mUserInfos = new ArrayList&lt;&gt;();
+    mUserInfos.add(new UserInfo("西门吹雪", 18));
+    mUserInfos.add(new UserInfo("李寻欢", 17));
+    mUserInfos.add(new UserInfo("楚留香", 20));
+    mUserInfos.add(new UserInfo("陆小凤", 19));
+
+
+
+    //数据列表和数据绑定,adapter适配器，房子里的柜子，柜子放进房子
+    final PhoneBookAdapter phoneBookAdapter = new PhoneBookAdapter(ListViewDemoActivity.this, mUserInfos);
+    //房子(mphoneBookListView)里面有柜子(phoneBookAdapter)，柜子里面有格子(name_text_view)，
+    //格子里面放数据private String[] mNames = {"西门吹雪","李寻欢"}
+    mphoneBookListView.setAdapter(phoneBookAdapter);
+
+    //刷新更新数据
+    phoneBookAdapter.notifyDataSetChanged();
+    //条目点击事件
+    mphoneBookListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView&lt;?&gt; parent, View view, int position, long id) {
+            //点击第一条数据时更新
+            if(position==0){
+                // 新建另外一批数据
+                mUserInfos.clear();
+                mUserInfos.add(new UserInfo("我是新数据一",20));
+                mUserInfos.add(new UserInfo("我是新数据二",20));
+                mUserInfos.add(new UserInfo("我是新数据三",20));
+                // 替换掉老的数据,数据通过PhoneBookAdapter传递,因此要在PhoneBookAdapter中创建refreshData方法
+                // 刷新ListView,让他更新自己的视图
+                phoneBookAdapter.refreshData(mUserInfos);
+            }
+
+
+            Toast.makeText(ListViewDemoActivity.this, mUserInfos.get(position).getmUserName()+"被点击了",Toast.LENGTH_LONG).show();
+        }
+    });
+    //长按事件
+    mphoneBookListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        @Override
+        public boolean onItemLongClick(AdapterView&lt;?&gt; parent, View view, int position, long id) {
+            Toast.makeText(ListViewDemoActivity.this, mUserInfos.get(position).getmUserName()+"被长按了",Toast.LENGTH_LONG).show();
+            return false;
+        }
+    });
+
+}</code></pre><h2 id="-2"><a href="#-2" class="headerlink" title="}"></a>}</h2><p>D:\ASWork\app\src\main\res\layout\activity_listview_demo.xml<br>    <textview android:id="@+id/phone_text_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerhorizontal="true" android:text="@string/phone_book"></textview></p>
+<pre><code>&lt;ListView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/phone_text_view"
+    android:id="@+id/list_view"/&gt;</code></pre><hr>
+<p>public class PhoneBookAdapter extends BaseAdapter {</p>
+<pre><code>private Context mcontext;
+//解析layout
+private LayoutInflater mLayoutInflater;
+
+private List&lt;UserInfo&gt; mUserinfos = new ArrayList&lt;&gt;();
+
+
+public PhoneBookAdapter(Context mcontext, List&lt;UserInfo&gt; userInfos) {
+    this.mcontext = mcontext;
+    this.mUserinfos = userInfos;
+    this.mLayoutInflater = (LayoutInflater) mcontext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+}
+
+@Override
+public int getCount() {
+    // 有多少条数据
+    return mUserinfos.size();
+}
+
+@Override
+public Object getItem(int position) {
+    //返回某一条数据对象
+    return mUserinfos.get(position);
+}
+
+@Override
+public long getItemId(int position) {
+
+    return position;
+}
+
+/**
+ * 每一行数据显示在界面,用户能够看到,就会调用一次geiView
+ * @param position
+ * @param convertView
+ * @param parent
+ * @return
+ */
+@Override
+public View getView(int position, View convertView, ViewGroup parent) {
+    //返回一个视图, 柜子很多层，把数据塞进柜子，item_phone_book_friend
+
+    ViewHolder viewHolder;
+    //空则创建,非空则直接使用,提高代码复用率
+    if(convertView == null){
+        convertView = mLayoutInflater.inflate(R.layout.item_phone_book_friend, null);
+        viewHolder = new ViewHolder();
+        //把viewHolder存到convertView里
+        convertView.setTag(viewHolder);
+
+
+        //把名字数据塞进name_text_view
+        //从实现保存的ViewHolder中获取控件
+        viewHolder.nameTextView     = (TextView) convertView.findViewById(R.id.name_text_view);
+        viewHolder.ageTextView      = (TextView) convertView.findViewById(R.id.age_text_view);
+        viewHolder.avatarImageView = (ImageView) convertView.findViewById(R.id.avatar_image_view);
+    }else{
+        viewHolder = (ViewHolder)convertView.getTag();
+    }
+
+    //和数据进行绑定
+    viewHolder.nameTextView.setText(mUserinfos.get(position).getmUserName());
+    viewHolder.ageTextView.setText(mUserinfos.get(position).getmAge()+"岁");
+    viewHolder.avatarImageView.setImageResource(R.drawable.cc1);
+
+
+    return convertView;
+
+
+}
+//定义一个类把视图先保存起来
+class ViewHolder{
+    TextView nameTextView;
+    TextView ageTextView;
+    ImageView avatarImageView;
+}
+
+public void refreshData(List&lt;UserInfo&gt; userInfos){
+    //刷新数据
+    mUserinfos = userInfos;
+    //刷新视图
+    notifyDataSetChanged();
+}</code></pre><p>}</p>
+<hr>
+<p>D:\ASWork\app\src\main\res\layout\item_phone_book_friend.xml<br>    <imageview android:layout_width="48dp" android:layout_height="48dp" android:id="@+id/avatar_image_view"></imageview></p>
+<pre><code>&lt;TextView
+    android:id="@+id/name_text_view"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="6dp"
+    android:layout_toRightOf="@+id/avatar_image_view"
+    android:text="呈呈" /&gt;
+
+&lt;TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="18岁"
+    android:layout_toRightOf="@+id/avatar_image_view"
+    android:layout_below="@+id/name_text_view"
+    android:id="@+id/age_text_view"/&gt;</code></pre><hr>
+<h2 id="GridView"><a href="#GridView" class="headerlink" title="GridView"></a>GridView</h2><p>显示表格式列表<br>与ListView的相似之处和区别<br>相似之处：<br>    GridView extends AbsListView<br>    ListView extends AbsListView<br>    adapter，数据，点击事件，刷新都一样<br>不同之处：<br>    样式（宫格式）</p>
+<pre><code>&lt;GridView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:numColumns="auto_fit"
+    android:horizontalSpacing="10dp"
+    android:verticalSpacing="10dp"
+    android:id="@+id/grid_view"/&gt;</code></pre><h2 id="ScrollView"><a href="#ScrollView" class="headerlink" title="ScrollView"></a>ScrollView</h2><p>内容可滚动视图<br>不是列表的内容区滚动<br>只支持垂直滚动<br>里面只能由一个视图<br>    <scrollview android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/grid_view_button" android:layout_centerhorizontal="true"><br>        <linearlayout android:layout_height="match_parent" android:layout_width="match_parent" android:orientation="vertical"></linearlayout></scrollview></p>
+<pre><code>        &lt;Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="我是来自于ScrollView中的"/&gt;
+        &lt;Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我是来自于ScrollView中的"/&gt;
+        &lt;Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我是来自于ScrollView中的"/&gt;
+        &lt;Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我是来自于ScrollView中的"/&gt;
+        &lt;Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我是来自于ScrollView中的"/&gt;
+    &lt;/LinearLayout&gt;
+&lt;/ScrollView&gt;</code></pre><h2 id="自定义控件"><a href="#自定义控件" class="headerlink" title="自定义控件"></a>自定义控件</h2><p>px：像素点<br>dp：与像素密度密切相关<br>sp：相当于dp（用来修饰文字）<br>dip：=dp</p>
+<p>文字的尺寸一律用sp单位<br>非文字的尺寸一律使用dp单位<br>偶尔需要使用px单位：例如需要在屏幕上画一条细的分割线：1px</p>
+<p>LayoutInflater：将xml布局解析成实际的视图View</p>
+<p>获得LayoutInflater实例的三种方式：<br>        mLayoutInflater = getLayoutInflater();<br>        mLayoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);<br>        mLayoutInflater = LayoutInflater.from(MainActivity.this);</p>
+<pre><code>    View view = mLayoutInflater.inflate(R.layout.activity_main,null);</code></pre><p>提取布局属性：theme&amp;style<br>    Theme是针对窗体级别的，改变窗体样式<br>    Style是针对窗体元素级别的，改变指定控件或者Layout的样式<br>    抽象view的共同属性<br>    可继承</p>
+<pre><code>&lt;style name="CustomTextView"&gt;
+    &lt;item name="android:background"&gt;@color/blue&lt;/item&gt;
+    &lt;item name="android:textSize"&gt;20sp&lt;/item&gt;
+    &lt;item name="android:textColor"&gt;#FF5722&lt;/item&gt;
+&lt;/style&gt;
+
+&lt;style name="StudyTextView" parent="CustomTextView"&gt;
+    &lt;item name="android:gravity"&gt;right&lt;/item&gt;
+&lt;/style&gt;</code></pre><h2 id="View如何工作"><a href="#View如何工作" class="headerlink" title="View如何工作"></a>View如何工作</h2><p>构造器-&gt;初始化<br>onMesure() 定大小<br>onLayout() 定位置<br>onDraw() 绘制<br>invalidate() 刷新</p>
+<p>自定义控件的三种主要形式</p>
+<ol>
+<li>继承已有的控件来实现自定义控件 如Button extends TextView</li>
+<li>继承一个布局文件实现 如RelativeLayout</li>
+<li>通过view类来实现    </li>
+</ol>
+<p>练习 需求:<br>    1. 做一个圆形的红色按钮<br>    2. 中间有一个白色的数字<br>    3. 数字起始为20<br>    4. 每点击一次减少1</p>
+<hr>
+<p>D:\ASWork\app\src\main\java\com\example\sqtian\TestRedButton.java</p>
+<p>/**</p>
+<ul>
+<li>自定义控件</li>
+<li><ol>
+<li>做一个圆形的红色按钮</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>中间有一个白色的数字</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>数字起始为20</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>每点击一次减少1</li>
+</ol>
+</li>
+<li>author ：HASEE</li>
+<li>date : 2020/4/13 10:20</li>
+<li>package：com.example.sqtian</li>
+<li>description :</li>
+<li>/</li>
+</ul>
+<p>public class TestRedButton extends View implements View.OnClickListener {</p>
+<pre><code>private Paint mPaint;
+private Rect mRect;
+private int mNumber = 20;
+
+private int mBackgroundColor;
+private int mTextSize;
+private int mTextColor;
+
+
+public TestRedButton(Context context) {
+    this(context,null,0);
+}
+
+public TestRedButton(Context context, @Nullable AttributeSet attrs) {
+    this(context, attrs,0);
+}
+
+public TestRedButton(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    super(context, attrs, defStyleAttr);
+    init(context,attrs);
+}
+
+@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+public TestRedButton(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    super(context, attrs, defStyleAttr, defStyleRes);
+    init(context, attrs);
+}
+
+
+
+//绘制
+@Override
+protected void onDraw(Canvas canvas) {
+    super.onDraw(canvas);
+    //给画布设置颜色</code></pre><p>//        mPaint.setColor(Color.RED);<br>        mPaint.setColor(mBackgroundColor);<br>        //canvas画图，画一个圆<br>        canvas.drawCircle(getWidth()/2,getHeight()/2,getWidth()/2 ,mPaint);<br>        //中间有白色数字<br>        mPaint.setColor(mTextColor);<br>        mPaint.setTextSize(mTextSize);<br>        String text = String.valueOf(mNumber);<br>        //文字边距,起始0,结束text.length()<br>        mPaint.getTextBounds(text,0,text.length(),mRect);<br>        int textWedth = mRect.width();<br>        int textHeight = mRect.height();</p>
+<pre><code>    //把文字画在圆圈中间
+    canvas.drawText(text,getWidth()/2-textWedth/2,getHeight()/2+textHeight/2,mPaint);
+
+}
+
+//初始化
+private void init(Context context,AttributeSet attrs) {
+    //画布
+    mPaint = new Paint();
+    //创建一个新的空矩形
+    mRect = new Rect();
+    //点击监听
+    this.setOnClickListener(this);
+
+    //获取自定义的属性
+    @SuppressLint("Recycle") TypedArray typedArray = context.obtainStyledAttributes(attrs,R.styleable.TestRedButton);
+    mBackgroundColor = typedArray.getColor(R.styleable.TestRedButton_backgroundColor, Color.RED);
+    mTextSize = typedArray.getDimensionPixelSize(R.styleable.TestRedButton_textSize,18);//接收dp
+    mTextColor = typedArray.getColor(R.styleable.TestRedButton_textColor,Color.WHITE);
+
+}
+
+@Override
+public void onClick(View v) {
+    //每点击一次减少一
+    if(mNumber&gt;0){
+        mNumber--;
+
+    }else{
+        mNumber = 20;
+    }
+    //刷新界面
+    invalidate();
+
+
+}</code></pre><h2 id="-3"><a href="#-3" class="headerlink" title="}"></a>}</h2><p>D:\ASWork\app\src\main\res\layout\activity_test_red_button.xml</p>
+<p><linearlayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"></linearlayout></p>
+<pre><code>&lt;com.example.sqtian.TestRedButton
+    android:layout_width="300dp"
+    android:layout_height="300dp"
+    app:backgroundColor="@color/blue"
+    app:textColor="@color/splashBackgroundColor"
+    app:textSize="100sp"/&gt;</code></pre>
+
+<hr>
+<p>D:\ASWork\app\src\main\java\com\example\sqtian\TestViewButtonActivity.java</p>
+<p>public class TestViewButtonActivity extends Activity {<br>    @Override<br>    public void onCreate(Bundle savedInstanceState) {<br>        super.onCreate(savedInstanceState);<br>        setContentView(R.layout.activity_test_red_button);<br>    }<br>}</p>
+<hr>
+<p>如何自定义视图属性<br>在哪里创建属性: values中新建源文件<br>可以创建哪些属性<br>D:\ASWork\app\src\main\res\values\attrs.xml</p>
+<resources>
+
+<pre><code>&lt;declare-styleable name="TestRedButton"&gt;
+    &lt;attr name="backgroundColor" format="color"/&gt;
+    &lt;attr name="textSize" format="dimension"/&gt;
+    &lt;attr name="textColor" format="color"/&gt;
+&lt;/declare-styleable&gt;</code></pre></resources>
+-----------------------------------------------------------
+如何使用这些属性
+    代码中引用
+    布局中设置
+
+<hr>
+<pre><code>    //获取自定义的属性
+    @SuppressLint("Recycle") TypedArray typedArray = context.obtainStyledAttributes(attrs,R.styleable.TestRedButton);
+    mBackgroundColor = typedArray.getColor(R.styleable.TestRedButton_backgroundColor, Color.RED);
+    mTextSize = typedArray.getDimensionPixelSize(R.styleable.TestRedButton_textSize,18);//接收dp
+    mTextColor = typedArray.getColor(R.styleable.TestRedButton_textColor,Color.WHITE);</code></pre><hr>
+<h2 id="使用Fragment"><a href="#使用Fragment" class="headerlink" title="使用Fragment"></a>使用Fragment</h2><p>Fragment是activity的界面中的一部分<br>多个Fragment组合到一个activity中<br>多个activity中可重用一个Fragment</p>
+<p>activity大房子,Fragment小房间<br>总结:<br>    Fragment是activity相当于模块化的一段activity<br>    具有自己的生命周期,接收自己的事件<br>    在activity运行时被添加或删除</p>
+<p>使用:<br>    1. Create Fragment<br>        onCreate()<br>        onCreateView()<br>        onPause()<br>    2. Add Fragment<br>        Java Code<br>        Layout<br>    3. Replace Fragment</p>
+<p>在使用fragment的时候,先创建了一个fragment,然后为他创建布局,<br>并在oncreateview中返回载入该视图的后返回的view,<br>在activity的布局文件里,使用xml布局,用fragment的name标签直接引用这个fragment,<br>然后居然爆出来该类不是fragment的错误,表示非常不理解,<br>然后把原来fragment换成android.app.fragment就没有这些问题,<br>于是问题也就慢慢的浮出水面,xml中载入的fragment是使用的android.app.fragment,<br>假设我们的fragment引用的是v4包里面的,就会遇到该类不是fragment的问题.<br>解决的办法要么是全都引用android.app.fragment里面的fragment,<br>否则就使用动态载入的方法去载入该fragment,over,问题记录完成</p>
+<hr>
+<p>D:\ASWork\app\src\main\java\com\example\sqtian\TestFragment.java</p>
+<p>//需要继承android.app.Fragment<br>public class TestFragment extends android.app.Fragment {</p>
+<pre><code>private static final String TAG = TestFragment.class.getSimpleName();
+public static final String ARGUMENT_NAME = "argument_name";
+public static final String ARGUMENT_NUMBER = "argument_number";
+private int mNumber;
+private String mName;
+
+//传递参数进去
+public static TestFragment newInstance(String nameString,int number){
+    TestFragment testFragment = new TestFragment();
+
+    //传递参数
+    Bundle bundle = new Bundle();
+    bundle.putString(ARGUMENT_NAME,nameString);
+    bundle.putInt(ARGUMENT_NUMBER,number);
+    testFragment.setArguments(bundle);
+    return testFragment;
+}
+
+@Override
+public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    Log.i(TAG,"onCreate");
+
+    //获取参数,抽取成全局变量,在onCreateView中就可以直接使用了
+    Bundle bundle = getArguments();
+    if(bundle != null){
+        mName = bundle.getString(ARGUMENT_NAME);
+        mNumber = bundle.getInt(ARGUMENT_NUMBER);
+    }
+}
+
+@Nullable
+@Override
+public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    Log.i(TAG,"onCreateView");
+    View view = inflater.inflate(R.layout.item_phone_book_friend,container,false);
+    //把页面中的控件拿出来
+    TextView nameTextView = (TextView) view.findViewById(R.id.name_text_view);
+    nameTextView.setText(mName);
+
+    return view;
+}</code></pre><h2 id="-4"><a href="#-4" class="headerlink" title="}"></a>}</h2><p>布局使用item_phone_book_friend</p>
+<hr>
+<p>public class TestFragmentActivity extends Activity {<br>    @Override<br>    public void onCreate(Bundle savedInstanceState) {<br>        super.onCreate(savedInstanceState);<br>        //1. 通过界面添加<br>        setContentView(R.layout.activity_test_fragment);</p>
+<pre><code>    //2. 通过代码添加
+    // 获取管理器
+    FragmentManager fragmentManager = getFragmentManager();
+    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+    // 创建一个fragment对象实例
+    TestFragment testFragment =  TestFragment.newInstance("Fragment",15);
+    //需要传递一个ViewGroup,将其添加到ViewGroup
+    fragmentTransaction.add(R.id.fragment_view,testFragment).commit();
+
+
+}</code></pre><h2 id="-5"><a href="#-5" class="headerlink" title="}"></a>}</h2><p>D:\ASWork\app\src\main\res\layout\activity_test_fragment.xml</p>
+<p><relativelayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/blue"></relativelayout></p>
+<pre><code>&lt;fragment
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:name="com.example.sqtian.TestFragment"
+    android:id="@+id/fragment_test"/&gt;
+
+&lt;RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:layout_marginTop="200dp"
+    android:background="@color/white"
+    android:id="@+id/fragment_view"&gt;
+
+&lt;/RelativeLayout&gt;</code></pre>
+
+<hr>
+<h2 id="Handler"><a href="#Handler" class="headerlink" title="Handler"></a>Handler</h2><p>多线程与异步</p>
+<p>什么是Handler<br>发送处理Message和Runnable</p>
+<p>用来做什么<br>定时执行Message和MessageQueue<br>在不同线程中执行</p>
+<p>Message和MessageQueue<br>Message<br>2个整形数值：轻量级存储int类型的数据<br>一个Object：任意对象<br>replyTo：线程通信的时候使用<br>What：用户自定义的消息码让接收者识别消息</p>
+<p>MessageQueue<br>Message的队列<br>每一个线程最多只可以拥有一个<br>Thread-&gt;Looper-&gt;MessageQueue</p>
+<p>Lopper<br>消息泵<br>是MessageQueue的管理者<br>Looper.prepare()<br>每一个Looper对象和一个线程关联<br>Looper.myLooper()可以获得当前线程的Looper对象<br>Looper从MessageQueue中取出Message<br>交由Handler的handleMessage进行处理<br>调用Message.recycle()将其放入Message Pool中</p>
+<p>实践:<br>倒计时功能<br>public class HandlerActivity extends Activity {</p>
+<pre><code>public static final int MESSAGE_CODE = 888888;</code></pre><p>//    //先创建一个Handler<br>//    //直接使用Handler内部类容易出现内存泄漏<br>//    Handler mHandler = new Handler(){<br>//        //重写接收消息的方法<br>//        @Override<br>//        public void handleMessage(@NonNull Message msg) {<br>//            super.handleMessage(msg);<br>//            //接收消息<br>//            switch(msg.what){<br>//                case MESSAGE_CODE:<br>//                    int value = (int) msg.obj;<br>//                    mTextView.setText(String.valueOf(value/1000));<br>//<br>//                    //正在使用的message无法再用,重新创建一个msg<br>//                    msg = Message.obtain();<br>//                    msg.arg1 = 0;<br>//                    msg.arg2 = 1;<br>//                    msg.what = MESSAGE_CODE;<br>//                    //倒计时,每次-1s<br>//                    msg.obj = value-1000;<br>//<br>//                    if(value &gt; 0){<br>//                        //大于0时继续倒计时,循环发送消息<br>//                        sendMessageDelayed(msg,1000);<br>//                    }<br>//                    break;<br>//            }<br>//        }<br>//    };<br>    private TextView mTextView;<br>    private TestHandler mTestHandler = new TestHandler(this);</p>
+<pre><code>//
+public TextView getTextView() {
+    return mTextView;
+}
+
+@Override
+protected void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_handler);
+
+    mTextView = (TextView) findViewById(R.id.handler_text_view);
+
+    //创建一个Message
+    Message message = mTestHandler.obtainMessage();
+
+    message.arg1 = 0;
+    message.arg2 = 1;
+    //消息识别码
+    message.what = MESSAGE_CODE;
+    //传递对象
+    message.obj = 10000;
+    //发送消息,延迟一秒</code></pre><p>//        mHandler.sendMessageDelayed(message,1000);<br>        //用外部类发送<br>        mTestHandler.sendMessageDelayed(message,1000);</p>
+<pre><code>    //handler还可以定时,延时
+    mTestHandler.postDelayed(new Runnable() {
+        @Override
+        public void run() {
+
+        }
+    },1000);
+
+
+}
+
+//用外部类解决内存泄漏问题,继承Handler,activity销毁后,这个类也会自动结束
+public  static class TestHandler extends Handler{
+    //弱引用HandlerActivity
+     public final WeakReference&lt;HandlerActivity&gt; mHandlerActivityWeakReference;
+
+    public TestHandler(HandlerActivity activity) {
+
+        mHandlerActivityWeakReference = new WeakReference&lt;&gt;(activity);
+    }
+
+    @Override
+    public void handleMessage(@NonNull Message msg) {
+        super.handleMessage(msg);
+
+        HandlerActivity handlerActivity = mHandlerActivityWeakReference.get();
+
+        //接收消息
+        switch(msg.what){
+            case MESSAGE_CODE:
+                int value = (int) msg.obj;
+                handlerActivity.getTextView().setText(String.valueOf(value/1000));
+
+                //正在使用的message无法再用,重新创建一个msg
+                msg = Message.obtain();
+                msg.arg1 = 0;
+                msg.arg2 = 1;
+                msg.what = MESSAGE_CODE;
+                //倒计时,每次-1s
+                msg.obj = value-1000;
+
+                if(value &gt; 0){
+                    //大于0时继续倒计时,循环发送消息
+                    sendMessageDelayed(msg,1000);
+                }
+                break;
+        }
+
+    }
+}</code></pre><h2 id="-6"><a href="#-6" class="headerlink" title="}"></a>}</h2><h2 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h2><p>在后台长时间工作的应用主件,不会提供一个用户界面<br>不是单独的进程,也不是线程, 不能做耗时操作,需要new一个线程才可以做耗时操作<br>两种形式: start,stop  bind,unbind</p>
+<p>public class MusicServiceActivity extends Activity implements View.OnClickListener {</p>
+<pre><code>private Button mStartButton;
+private Button mStopButton;
+private MusicService mMusicService;
+private ServiceConnection mServiceConnection = new ServiceConnection() {
+
+    @Override
+    public void onServiceConnected(ComponentName name, IBinder service) {
+        //通过Binder获取了Service
+        MusicService.localBinder locaBinder = (MusicService.localBinder) service;
+        mMusicService = locaBinder.getService();
+        if(mMusicService != null){
+            int progress = mMusicService.getMusicPlayProgress();
+        }
+    }
+
+    @Override
+    public void onServiceDisconnected(ComponentName name) {
+
+    }
+};
+
+
+@Override
+protected void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_music_service);
+
+    mStartButton = findViewById(R.id.start_button);
+    mStopButton = findViewById(R.id.stop_button);
+
+    mStartButton.setOnClickListener(this);
+    mStopButton.setOnClickListener(this);
+
+
+}
+
+@Override
+public void onClick(View v) {
+    switch(v.getId()){
+        case R.id.start_button:
+            //启动服务
+            startService(new Intent(MusicServiceActivity.this,MusicService.class));
+            //bind绑定
+            bindService(new Intent(MusicServiceActivity.this,MusicService.class),mServiceConnection,BIND_AUTO_CREATE);
+
+
+            break;
+        case R.id.stop_button:
+            //如果使用了bind绑定,直接stop就停不掉了,要先解绑
+            unbindService(mServiceConnection);
+            //停止服务
+            stopService(new Intent(MusicServiceActivity.this,MusicService.class));
+            break;
+    }
+}</code></pre><p>}</p>
+<hr>
+<p>IntentService<br>如果想要任务按队列运行,就用IntentService</p>
+<hr>
+<p>public class TestIntentService extends IntentService {<br>    /**<br>     * Creates an IntentService.  Invoked by your subclass’s constructor.<br>     *<br>     * @param name Used to name the worker thread, important only for debugging.<br>     */<br>    public TestIntentService(String name) {<br>        super(name);<br>    }</p>
+<pre><code>@Override
+public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
+    //不能做太多操作, UI线程  如果&gt;10秒 --&gt; ANR application not response 应用无响应
+
+    //如果想做耗时操作,需要新建一个进程
+    Thread thread = new Thread(new Runnable() {
+        @Override
+        public void run() {
+
+        }
+    });
+
+    thread.start();
+
+    return super.onStartCommand(intent, flags, startId);
+}
+
+@Override
+protected void onHandleIntent(@Nullable Intent intent) {
+    // 排队 --&gt; 向MessageQueue 同步操作: 排队领书,处理Intent数据
+
+}</code></pre><h2 id="-7"><a href="#-7" class="headerlink" title="}"></a>}</h2><h2 id="Broadcast"><a href="#Broadcast" class="headerlink" title="Broadcast"></a>Broadcast</h2><p>四大组件之一，广播接收器</p>
+<p>系统使用了很多广播<br>    通知时间改变<br>    电池电量变低<br>    拍摄了照片<br>    改变了语言<br>没有用户界面<br>extends BroadcastReceiver</p>
+<p>需要注册，有两种注册方式<br>    1. 静态注册<br>        在manifest里注册</p>
+<pre><code>    &lt;receiver android:name=".TestBroadcastReceiver"&gt;
+        &lt;intent-filter&gt;
+            &lt;action android:name="com.example.sqtian.broadcast"/&gt;
+        &lt;/intent-filter&gt;
+    &lt;/receiver&gt;
+2. 动态注册
+    在代码里注册
+public class SendBroadcastActivity extends Activity {
+
+    private  TestBroadcastReceiver mTestBroadcastReceiver = new TestBroadcastReceiver();
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        //动态注册广播
+        IntentFilter intentFilter = new IntentFilter();
+
+        intentFilter.addAction("com.example.sqtian.broadcast");
+        registerReceiver(mTestBroadcastReceiver,intentFilter);
+
+    }
+}</code></pre><p>BroadcastReceiver生命周期<br>Register<br>SendBroadcast<br>onReceive<br>unRegister</p>
+<p>适当的用，不能滥用广播<br>信息需要很多地方都收到时，可以用</p>
+<hr>
+<p>public class SendBroadcastActivity extends Activity {</p>
+<pre><code>public static final String COM_EXAMPLE_SQTIAN_BROADCAST = "com.example.sqtian.broadcast";
+private  TestBroadcastReceiver mTestBroadcastReceiver = new TestBroadcastReceiver();
+private Button mSendBroadcastButton;
+
+@Override
+protected void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_test_broadcast);
+
+
+
+    //获取broadcastButton
+
+    mSendBroadcastButton = (Button) findViewById(R.id.send_broadcast_button);
+
+    mSendBroadcastButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent();
+            intent.setAction(COM_EXAMPLE_SQTIAN_BROADCAST);
+            intent.putExtra("toast","this is my toast of broadcast");
+
+            //普通广播
+            sendBroadcast(intent);</code></pre><p>//                //有序广播,有优先级的,类似intentService<br>//                sendOrderedBroadcast()</p>
+<p>//                //本地广播,只在本应用中的广播<br>//                LocalBroadcastManager</p>
+<pre><code>        }
+    });
+}
+
+
+//在onstart中动态注册
+@Override
+protected void onStart() {
+    super.onStart();
+    //动态注册广播
+    IntentFilter intentFilter = new IntentFilter();
+
+    intentFilter.addAction(COM_EXAMPLE_SQTIAN_BROADCAST);
+    registerReceiver(mTestBroadcastReceiver,intentFilter);
+
+}
+
+//在onStop中反注册
+
+
+@Override
+protected void onStop() {
+    super.onStop();
+    unregisterReceiver(mTestBroadcastReceiver);
+}</code></pre><h2 id="-8"><a href="#-8" class="headerlink" title="}"></a>}</h2><p>D:\ASWork\app\src\main\res\layout\activity_test_broadcast.xml<br>    <button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="BroadcastButton" android:id="@+id/send_broadcast_button"></button></p>
+<hr>
+<p>public class TestBroadcastReceiver extends BroadcastReceiver {<br>    @Override<br>    public void onReceive(Context context, Intent intent) {<br>        // receive broadcast 接收,处理数据</p>
+<pre><code>    //之间不能做耗时操作,new一个线程
+    if(intent != null){
+        if(TextUtils.equals(intent.getAction(),SendBroadcastActivity.COM_EXAMPLE_SQTIAN_BROADCAST)){
+            String toastString = intent.getStringExtra("tot");
+            Toast.makeText(context,toastString,Toast.LENGTH_LONG).show();
+        }
+    }
+}</code></pre><p>}</p>
+<hr>
+<h2 id="WebView：加载网页"><a href="#WebView：加载网页" class="headerlink" title="WebView：加载网页"></a>WebView：加载网页</h2><p>网页显示器<br>用处：<br>    加载线上url<br>    加载本地html<br>    和JS进行交互<br>    历史记录<br>    导航</p>
+<p>要在manifest中声明权限 <uses-permission android:name="android.permission.INTERNET"></uses-permission></p>
+<hr>
+<p>public class WebViewButtonActivity extends Activity {</p>
+<pre><code>private WebView mWebView;
+
+public class TestJSEvent{
+    @JavascriptInterface
+    public void showToast(String toast){
+        Toast.makeText(WebViewButtonActivity.this,toast,Toast.LENGTH_LONG).show();
+
+    }
+
+}
+
+@Override
+protected void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_webview);
+
+    mWebView = (WebView) findViewById(R.id.web_view);
+    mWebView.loadUrl("http://www.baidu.com");</code></pre><p>//        // 加载自己的html<br>//        mWebView.loadUrl(“file:///android_asset/HelloWorld.html”);</p>
+<pre><code>    //从百度页面跳转到别的页面,需要与JavaScript交互,打开才可以跳转
+    mWebView.getSettings().setJavaScriptEnabled(true);
+    //JS调用原生App方法showToast,即在HelloWorld.html里调用应用里的方法
+    mWebView.addJavascriptInterface(new TestJSEvent(),"TestApp");</code></pre><p>//        //原生App调用JS<br>//        mWebView.loadUrl(“javascript:(html里方法的名称)”);</p>
+<pre><code>    //让页面在应用内部打开
+    mWebView.setWebViewClient(new WebViewClient(){
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            //是否要重新加载(拦截页面
+            //比如一开始访问的网页失效了,404页面,可以重新加载一个页面
+            if(url.contains("404")){
+                mWebView.loadUrl("http://www.zhihu.com");
+            }
+
+            return super.shouldOverrideUrlLoading(view, url);
+        }
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            //页面开始时,可以设置loading动画
+            super.onPageStarted(view, url, favicon);
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            //页面完成后,隐藏的loading动画
+            super.onPageFinished(view, url);
+        }
+    });</code></pre><p>//        mWebView.setWebChromeClient(new WebChromeClient(){<br>//            @Override<br>//            public void onProgressChanged(WebView view, int newProgress) {<br>//                //进度条<br>//                super.onProgressChanged(view, newProgress);<br>//            }<br>//<br>//            @Override<br>//            public void onReceivedTitle(WebView view, String title) {<br>//                // 获取界面的title<br>//                super.onReceivedTitle(view, title);<br>//            }<br>//<br>//            @Override<br>//            public void onShowCustomView(View view, CustomViewCallback callback) {<br>//                super.onShowCustomView(view, callback);<br>//            }<br>//        });</p>
+<pre><code>}
+
+//让返回时不会直接退出,而是返回上一网页
+@Override
+public void onBackPressed() {
+
+    if(mWebView != null &amp;&amp; mWebView.canGoBack()){</code></pre><p>//            //导航<br>//            WebBackForwardList webBackForwardList = mWebView.copyBackForwardList();<br>//<br>//            WebHistoryItem historyItem = webBackForwardList.getItemAtIndex(0);<br>//<br>//            String historyUrl = historyItem.getUrl();</p>
+<pre><code>        //回退
+        mWebView.goBack();</code></pre><p>//            //前进<br>//            mWebView.goForward();</p>
+<pre><code>    }else{
+        super.onBackPressed();
+    }
+
+}</code></pre><p>}</p>
+<hr>
+<pre><code>&lt;WebView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/web_view"/&gt;</code></pre><hr>
+<p>更深入的使用：<br>    Cookie<br>    History<br>    页面导航<br>    Hybird<br>    如何拦截网络请求<br>    如何显示进度<br>    调试<br>    ……</p>
+<h2 id="Widget"><a href="#Widget" class="headerlink" title="Widget"></a>Widget</h2><p>相当于挂件<br>从一个小Demo做起<br>首先新建一个TestWidget extends AppWidgetProvider<br>在AndroidManifest中声明TestWidget<br>在xml目录定义App Widget的初始化xml文件 setting_widget.xml<br>实现Widget具体布局的widget_layout.xml<br>继承AppWidgetProvider类，实现具体的Widget业务逻辑</p>
+<p>public class TestWidget extends AppWidgetProvider {<br>    public static final String WIDGET_BUTTON_ACTION = “widget_button_action”;<br>    //桌面上的插件和应用需要通信，因此使用了广播机制，AppWidgetProvider extends BroadcastReceiver<br>    //广播需要注册，因此Widget也需要注册</p>
+<pre><code>@Override
+public void onReceive(Context context, Intent intent) {
+    super.onReceive(context, intent);
+
+    //intent不为空且action一致时接收广播信息
+    if(intent != null &amp;&amp; WIDGET_BUTTON_ACTION.equals(intent.getAction())){
+        Log.i(WIDGET_BUTTON_ACTION,"be clicked");
+
+        RemoteViews remoteViews = new RemoteViews(context.getPackageName(),R.layout.widget_layout);
+        remoteViews.setTextViewText(R.id.widget_text_view,"be clicked");
+        remoteViews.setTextColor(R.id.widget_text_view, Color.BLUE);
+
+        //获取appWidgetManager.updateAppWidget更新控件
+        AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+        //没有appWidgetIds,用另一个传ComponentName的方法
+        ComponentName componentName = new ComponentName(context,TestWidget.class);
+        appWidgetManager.updateAppWidget(componentName,remoteViews);
+
+    }
+}
+
+@Override
+public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
+    super.onUpdate(context, appWidgetManager, appWidgetIds);
+    RemoteViews remoteViews = new RemoteViews(context.getPackageName(),R.layout.widget_layout);
+
+    Intent intent = new Intent();
+    intent.setClass(context,TestWidget.class);
+    intent.setAction(WIDGET_BUTTON_ACTION);
+
+    //未来意图,将要执行的intent,点击以后才会发送广播
+    PendingIntent pendingIntent = PendingIntent.getBroadcast(context,0,intent,0);
+    remoteViews.setOnClickPendingIntent(R.id.widget_button,pendingIntent);
+
+    //更新控件
+    appWidgetManager.updateAppWidget(appWidgetIds,remoteViews);
+}</code></pre><p>}</p>
+<hr>
+<p>&lt;appwidget-provider xmlns:android=”<a href="http://schemas.android.com/apk/res/android&quot;" target="_blank" rel="noopener">http://schemas.android.com/apk/res/android"</a><br>    android:layout_width=”match_parent”<br>    android:layout_height=”match_parent”<br>    android:minWidth=”140dp”<br>    android:minHeight=”140dp”<br>    android:previewImage=”@drawable/cc1”                   //预览的图片<br>    android:updatePeriodMillis=”200000”                    //更新周期<br>    android:widgetCategory = “home_screen”                 //挂件安装地点<br>    android:initialLayout=”@layout/widget_layout”&gt;</p>
+
+--------------------------------------------------------------------------------------------------------
+<linearlayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+
+<pre><code>&lt;TextView
+    android:id="@+id/widget_text_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:text="TextView" /&gt;
+
+&lt;Button
+    android:id="@+id/widget_button"
+    android:layout_gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Button" /&gt;</code></pre></linearlayout>
+--------------------------------------------------------------------------------------
+
+<p>其他<br>与service通信<br>Widget控件的交互方法<br>如何做一个桌面播放器Widget</p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1582,7 +2575,7 @@
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">113.7k</span> 字
+                <span class="white-color">126.4k</span> 字
             
 
             
@@ -1813,5 +2806,5 @@ $(function () {
             </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+    <script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
 </html>

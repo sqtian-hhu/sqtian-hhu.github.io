@@ -2,6 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sqtian-hhu.github.io/2021/04/23/springjpa/</loc>
+    
+    <lastmod>2021-04-23T04:33:01.059Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sqtian-hhu.github.io/2021/04/23/tensorflow2/</loc>
+    
+    <lastmod>2021-04-23T04:32:34.013Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sqtian-hhu.github.io/2021/04/23/redis/</loc>
+    
+    <lastmod>2021-04-23T04:27:33.550Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sqtian-hhu.github.io/2020/11/14/github-upload/</loc>
+    
+    <lastmod>2021-04-23T04:26:50.772Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sqtian-hhu.github.io/2020/02/07/myfirstblog/</loc>
+    
+    <lastmod>2021-04-23T04:26:42.142Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sqtian-hhu.github.io/2020/04/27/androidpart2/</loc>
+    
+    <lastmod>2021-04-23T04:21:54.459Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sqtian-hhu.github.io/2020/04/17/androidpart1/</loc>
+    
+    <lastmod>2021-04-23T04:21:27.845Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://sqtian-hhu.github.io/galleries/%E5%85%84%E5%BC%9F%E8%90%8C/index.html</loc>
     
     <lastmod>2021-04-22T11:41:56.153Z</lastmod>
@@ -58,23 +107,9 @@
   </url>
   
   <url>
-    <loc>https://sqtian-hhu.github.io/2020/11/14/github-upload/</loc>
-    
-    <lastmod>2021-04-22T11:25:40.394Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://sqtian-hhu.github.io/2020/03/16/javanote03-exception/</loc>
     
     <lastmod>2021-04-22T11:25:40.380Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sqtian-hhu.github.io/2020/04/27/androidpart2/</loc>
-    
-    <lastmod>2021-04-22T11:25:40.368Z</lastmod>
     
   </url>
   
@@ -145,13 +180,6 @@
     <loc>https://sqtian-hhu.github.io/2020/06/29/javanote-spring-day01/</loc>
     
     <lastmod>2021-04-22T11:25:40.128Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sqtian-hhu.github.io/2020/04/17/androidpart1/</loc>
-    
-    <lastmod>2021-04-22T11:25:40.107Z</lastmod>
     
   </url>
   
@@ -317,14 +345,14 @@
   </url>
   
   <url>
-    <loc>https://sqtian-hhu.github.io/2020/02/07/myfirstblog/</loc>
+    <loc>https://sqtian-hhu.github.io/404.html</loc>
     
-    <lastmod>2020-11-14T08:44:11.076Z</lastmod>
+    <lastmod>2020-06-30T18:09:44.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://sqtian-hhu.github.io/404.html</loc>
+    <loc>https://sqtian-hhu.github.io/categories/index.html</loc>
     
     <lastmod>2020-06-30T18:09:44.000Z</lastmod>
     
@@ -338,14 +366,7 @@
   </url>
   
   <url>
-    <loc>https://sqtian-hhu.github.io/archives/index.html</loc>
-    
-    <lastmod>2020-06-30T18:09:44.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://sqtian-hhu.github.io/categories/index.html</loc>
+    <loc>https://sqtian-hhu.github.io/friends/index.html</loc>
     
     <lastmod>2020-06-30T18:09:44.000Z</lastmod>
     
@@ -366,7 +387,7 @@
   </url>
   
   <url>
-    <loc>https://sqtian-hhu.github.io/friends/index.html</loc>
+    <loc>https://sqtian-hhu.github.io/archives/index.html</loc>
     
     <lastmod>2020-06-30T18:09:44.000Z</lastmod>
     

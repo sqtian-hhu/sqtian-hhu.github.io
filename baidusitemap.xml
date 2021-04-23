@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://sqtian-hhu.github.io/2021/04/23/springjpa/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
+    <loc>https://sqtian-hhu.github.io/2021/04/23/tensorflow2/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
+    <loc>https://sqtian-hhu.github.io/2021/04/23/redis/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
+    <loc>https://sqtian-hhu.github.io/2020/11/14/github-upload/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
+    <loc>https://sqtian-hhu.github.io/2020/02/07/myfirstblog/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
+    <loc>https://sqtian-hhu.github.io/2020/04/27/androidpart2/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
+    <loc>https://sqtian-hhu.github.io/2020/04/17/androidpart1/</loc>
+    <lastmod>2021-04-23</lastmod>
+  </url>  <url>
     <loc>https://sqtian-hhu.github.io/2020/06/29/javanote-spring-day02/</loc>
     <lastmod>2021-04-22</lastmod>
   </url>  <url>
@@ -22,13 +43,7 @@
     <loc>https://sqtian-hhu.github.io/2020/05/13/javawebnote05-tomcat/</loc>
     <lastmod>2021-04-22</lastmod>
   </url>  <url>
-    <loc>https://sqtian-hhu.github.io/2020/11/14/github-upload/</loc>
-    <lastmod>2021-04-22</lastmod>
-  </url>  <url>
     <loc>https://sqtian-hhu.github.io/2020/03/16/javanote03-exception/</loc>
-    <lastmod>2021-04-22</lastmod>
-  </url>  <url>
-    <loc>https://sqtian-hhu.github.io/2020/04/27/androidpart2/</loc>
     <lastmod>2021-04-22</lastmod>
   </url>  <url>
     <loc>https://sqtian-hhu.github.io/2020/10/26/datatype/</loc>
@@ -59,9 +74,6 @@
     <lastmod>2021-04-22</lastmod>
   </url>  <url>
     <loc>https://sqtian-hhu.github.io/2020/06/29/javanote-spring-day01/</loc>
-    <lastmod>2021-04-22</lastmod>
-  </url>  <url>
-    <loc>https://sqtian-hhu.github.io/2020/04/17/androidpart1/</loc>
     <lastmod>2021-04-22</lastmod>
   </url>  <url>
     <loc>https://sqtian-hhu.github.io/2020/05/09/javanote-mybatis-day01/</loc>
@@ -123,9 +135,6 @@
   </url>  <url>
     <loc>https://sqtian-hhu.github.io/2020/03/11/javabasics/</loc>
     <lastmod>2021-04-22</lastmod>
-  </url>  <url>
-    <loc>https://sqtian-hhu.github.io/2020/02/07/myfirstblog/</loc>
-    <lastmod>2020-11-14</lastmod>
   </url>  <url>
     <loc>https://sqtian-hhu.github.io/2021/04/21/hello-world/</loc>
     <lastmod>2020-02-07</lastmod>
