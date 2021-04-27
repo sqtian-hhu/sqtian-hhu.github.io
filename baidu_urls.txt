@@ -1,3 +1,5 @@
+https://sqtian-hhu.github.io/2021/04/27/algorithm/
+https://sqtian-hhu.github.io/2021/04/26/sortsollutions/
 https://sqtian-hhu.github.io/2021/04/23/springjpa/
 https://sqtian-hhu.github.io/2021/04/23/tensorflow2/
 https://sqtian-hhu.github.io/2021/04/23/redis/
