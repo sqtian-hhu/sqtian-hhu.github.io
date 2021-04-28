@@ -782,14 +782,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        6.6k
+                        12.4k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        28 分
+                        54 分
                     </div>
                     
                 
@@ -1388,6 +1388,611 @@ public static void prim(int n, int[][] c) {
         }
 
     }
+}</code></pre><p>}</p>
+<h2 id="四、回溯"><a href="#四、回溯" class="headerlink" title="四、回溯"></a>四、回溯</h2><p>回溯算法基本思想</p>
+<ol>
+<li>适用：求解搜索问题和优化问题</li>
+<li>搜索空间：树，结点对应部分解向量，可行解在树叶上</li>
+<li>搜索过程：采用系统的方法隐含遍历搜索树</li>
+<li>搜索策略： 深度优先，宽度优先，函数优先，宽深结合等</li>
+<li>结点分支判定条件： 满足约束条件-分支扩张解向量不满足约束条件，回溯到该结点的父结点</li>
+<li>结点状态： 动态生成 白结点（尚未访问）  灰结点（正在访问该结点为根的子树） 黑结点（该结点为根的子树遍历完成）</li>
+<li>存储： 当前路径</li>
+</ol>
+<p>经典问题：n后放置、图的着色、装载问题、货郎问题、零一背包</p>
+<p>#案例1. 4后问题</p>
+<p>在4*4的方格棋盘上放置4各皇后,使得没有两个皇后在同一行、同一列<br>也不在同一条45度斜线上<br>问有多少种可能的布局</p>
+<p>解N皇后问题需要遍历解空间树，遍历中要随时判定当前结点棋盘布局是否符合要求，<br>符合要求则继续向下遍历，直至判断得到一个满足约束条件的叶子结点，从而获得一个满足要求的棋盘布局；<br>不符合要求的结点将被舍弃（称之为剪枝），并回溯到上一层的结点继续遍历。<br>当整棵树遍历结束时，已获得所有满足要求的棋盘布局。</p>
+<p>public class n后放置 {<br>    static int resultCount = 0;<br>    /*<br>     * 皇后位置满足约束条件的判定函数<br>     */<br>    private static boolean place(int[] X,int s) {<br>        //判定s行X[s]列位置上的皇后，与1至s-1行上各皇后的位置是否满足约束条件<br>        for(int i = 0; i &lt; s; i++) {</p>
+<pre><code>        if((X[i] == X[s]) || (Math.abs(i-s) == Math.abs(X[i]-X[s]))) { //行差i-s的绝对值 = 列差的绝对值
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+/*
+ * 求解N皇后问题的回溯算法
+ * 棋盘为n*n，函数从第index行起求解皇后的布局，本函数初始调用为tria(queen, 0, n)
+ * arr[n]为可行解
+ */
+
+public static void tria(int[] arr, int i, int n) {
+    //递归终止条件
+    //放完最后一个了
+    if(i &gt;= n) {
+        // TODO 输出X数组（也可以改写算法，比如记录满足约束的棋盘个数）
+        for(int in= 0;in&lt;arr.length;in++){
+            System.out.print(arr[in]+" ");
+        }
+
+        System.out.println();
+        ++resultCount;
+        return;
+    }
+
+    //dfs
+    for(int j = 0; j &lt; n; j++) {
+        //如果第i个皇后放在j位置满足要求,继续tria
+        arr[i] = j;
+        if(place(arr, i)) {
+            tria(arr, i+1, n);
+        }
+    }
+
+}
+
+public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    System.out.println("一共n个皇后");
+    int num = sc.nextInt();
+    int[] queen = new int[num];
+    tria(queen, 0, num);
+
+    System.out.println(resultCount);
+}</code></pre><p>}</p>
+<p>#案例2. 图的着色问题<br>输入：<br>无向连通图G和m种颜色集合用这些颜色给图的顶点着色<br>每个顶点一种颜色。要求是： G的每条边的两个顶点着不同颜色<br>输出：<br>所有可能的着色方案<br>如果不存在着色方案，回答“No”</p>
+<p>
+着色问题的应用
+会场分配问题： 有n项活动需要安排，对于活动i，j，如果i，j时间冲突
+就说i与j不相容。如何分配这些活动，使得每个会场相容且占用会场最少
+
+
+</p><p>public class 图的着色问题 {</p>
+<pre><code>int n;//图的顶点数
+int m;//可用颜色数
+int[][] a;//图的邻接矩阵
+int[] x;//当前解
+long sum;//当前已找到的可着色方案数
+
+public long mcoloring(int mm, int nn, int[][] aa) {
+    n = nn;
+    a = aa;
+    x = new int[n + 1];
+    m = mm;
+    sum = 0;
+    tria(1);
+    return sum;
+}
+
+public void tria(int t) {
+    //递归终止条件
+    if (t &gt; n) {
+        //全部涂完的结果
+        sum++;
+        for (int i = 1; i &lt;= n; i++)
+            System.out.print(x[i] + " ");
+        System.out.println();
+        return;
+    }
+
+    for (int i = 1; i &lt;= m; i++) {
+        //给第t个点上第i种色
+        x[t] = i;
+        //涂色合法则继续涂下一个
+        if (ok(t))//剪枝函数
+            tria(t + 1);
+        //不合法则置为0，不合法的都是0,判断x[j] == x[k]时为false剔除
+        x[t] = 0;
+    }
+
+}
+
+//判断涂色是否合法的方法
+public boolean ok(int k) {
+    for (int j = 1; j &lt;= n; j++) {
+        //与k相连的点且两点颜色相同则判false
+        if (a[k][j] == 1 &amp;&amp; x[j] == x[k])//某条边的两个顶点着不同颜色；a[k][j]=1表示某条边（即边集E中的边）
+            return false;
+    }
+    return true;
+}
+
+public static void main(String[] args) {
+
+    int n = 5;
+    int m = 5;
+    int[][] a = {
+            {-1, -1, -1, -1, -1, -1},
+            {-1, 0, 1, 1, 1, 0},
+            {-1, 1, 0, 1, 1, 1},
+            {-1, 1, 1, 0, 1, 0},
+            {-1, 1, 1, 1, 0, 1},
+            {-1, 0, 1, 0, 1, 0}};
+    图的着色问题 c = new 图的着色问题();
+    System.out.println("着色方案如下：");
+    long sum = c.mcoloring(m, n, a);
+    System.out.println("可行的着色方案数目为：" + sum);
+}</code></pre><p>}</p>
+<p>#案例3. 装载问题<br>有n个集装箱，需要装上两艘载重分别为c1，c2的轮船<br>wi为第i个集装箱的重量，且w1+w2+…+wn&lt;=c1+c2<br>问：是否存在一种合理的装载方案把这n个集装箱装上船？</p>
+<p>输入：集装箱重量 向量，c1，c2<br>算法思想： 令第一艘船的装入量为W1</p>
+<ol>
+<li>用回溯算法求使得c1-W1达到最小的装载方案第一艘船尽可能多装</li>
+<li>若满足 w1+w2+…+wn-W1&lt;=c2，看剩下的第二艘装不装得下，装得下则回答yes，否则回答no</li>
+</ol>
+<p>算法</p>
+<ol>
+<li>从大到小排序</li>
+<li>B &lt;- c1; best &lt;- c1;i &lt;- 1         B为当前空隙，best为最小空隙</li>
+<li>while i&lt;=n do</li>
+<li>if 装入i后重量不超过c1</li>
+<li>then B&lt;-B-wi;x[i]&lt;-1;i&lt;-i+1</li>
+<li>else x[i]&lt;- 0;i&lt;-i+1;</li>
+<li>if B&lt;best then 记录解;best &lt;- B;</li>
+<li>Backtrack(i);   回溯</li>
+<li>if i=1 then return 最优解</li>
+<li>else goto 3</li>
+</ol>
+<p>回溯过程：Backtrack(i)<br>while i&gt;1 and x[i] = 0 do<br>     i &lt;- 1;<br>if x[i] = 1;<br>then x[i] &lt;- 0;<br>     B &lt;- B+wi<br>     i &lt;- i+1</p>
+<p>public class 装载问题{</p>
+<pre><code>static int c;//船的载重量
+static int n;//物品数量
+static int[] w;//物品的重量
+static int cw;//当前船的载重量
+static int bestw;//当前最优载重量（最大载重量）
+static int r;//剩余物品重量-----未考察过的物品的重量，并非没有装载的物品的重量，所以考察到就减去
+
+static int[] X;//是否装载当前深度的物品，装载则X[i]=1，不装载则X[i]=0
+static int[] Xbest;//记录最优解，最优路径
+
+public static void main(String[] args) {
+
+    int w[] = {0, 20, 30, 60, 40, 40};
+    int c = 100;
+    int n = w.length - 1;
+    System.out.print("货物重量为： ");
+    for (int i = 1; i &lt;= n; i++) {
+        System.out.print(w[i] + "  ");
+    }
+    System.out.println();
+    System.out.println("第一艘船载重量为： " + c);
+    System.out.println("第二艘船载重量为： " + c);
+
+    Initialize(w, c);
+    int weight2 = 0;
+    for (int i = 1; i &lt;= n; i++) {
+        weight2 += w[i] * (1 - Xbest[i]);
+    }
+    if (weight2 &gt; c)
+        System.out.println("无解！");
+    else {
+        System.out.println("第一艘船的货物载重为： " + bestw);
+        System.out.println("第二艘船的货物载重为： " + weight2);
+        for (int i = 1; i &lt;= n; i++) {
+            if (Xbest[i] == 1)
+                System.out.println("第" + i + "件物品装入第一艘船");
+        }
+        for (int i = 1; i &lt;= n; i++) {
+            if (Xbest[i] == 0)
+                System.out.println("第" + i + "件物品载入第二艘船");
+        }
+    }
+}
+
+public static int Initialize(int[] weight, int capacity) {
+
+    n = weight.length - 1;
+    w = weight;
+    c = capacity;
+    bestw = 0;
+    cw = 0;
+    r = 0;
+    X = new int[n + 1];
+    Xbest = new int[n + 1];
+    for (int i = 1; i &lt;= n; i++) {
+        r = r + w[i];
+    }//记录最大剩余物品重量，也就是总重量
+    Backtrack(1);
+    return bestw;
+}
+
+public static void Backtrack(int i) {
+    if (i &gt; n) {//i&gt;n，表示已经到叶子节点
+        if (cw &gt; bestw) {
+            for (int j = 1; j &lt;= n; j++)
+                Xbest[j] = X[j];//记录最优路径
+        }
+        bestw = cw;//若cw&lt;bestw，更新bestw=cw
+        return;
+    }
+    r = r - w[i];//计算剩余（未考察）的物品的重量，减去当前考察过的对象的重量
+    //剪枝函数
+    if (cw + w[i] &lt;= c) {//约束函数
+        cw = cw + w[i];//进入子树，则+
+        X[i] = 1;//左子树1，右子树0
+        Backtrack(i + 1);
+        cw = cw - w[i];//到这来表示已经从Backtrack(i+1)里出来，则要复原cw，所以前面+，这里则-，恢复原状。
+    }
+    if (cw + r &gt; bestw) {//限界函数，如果cw+r不大于bestw，则不用进入下一层了，因为进入也不大于bestw
+        //这里不用约束函数，因为不取X[i]=0则一定不会大于c
+        //因为r值是累计的(在Backtrack(i+1)里)，所以已经减了r=r-w[i]已经减去了w[i]，
+        // 当你退出Backtrack(i+1)后，返回上一层回溯，就得恢复r，所以有r=r+w[i]
+        X[i] = 0;
+        Backtrack(i + 1);
+    }
+    r = r + w[i];//递归回退返回上一层时，记得修改r的当前值，如果得不到最优解，
+    // 再取消当前考察的集装箱，标记为未选，因此剩余容量要再加上当前集装箱重量
+}</code></pre><p>}</p>
+<p>#案例4. 货郎问题<br>有n个城市,已知任两个城市之间的距离,求一条每个城市恰好经过一次的回路<br>使得总长度最小</p>
+<p>
+注意哈密顿回路和TSP之间的区别。哈密顿回路问题是要找出是否存在一个旅游线路，每个城市访问一次。
+这里我们知道哈密顿回路存在（因为图是完整的），事实上存在许多这样的回路，
+问题是找到一个最小权重的哈密顿回路。
+
+
+</p><p>public class 货郎问题 {<br>    static int INF = (int) 1e7;//设置无穷大的值为10的七次方<br>    static int N = 100;<br>    static int[][] g = new int[N][N];//地图的无向带权邻接矩阵<br>    static int[] x = new int[N];//记录当前路径<br>    static int[] bestx = new int[N];//记录当前最优路径<br>    static int cl;//当前路径长度<br>    static int bestl;//当前最短路径长度<br>    static int n, m;//城市个数n,边数m</p>
+<pre><code>static void swap(int array[], int a, int b) {//交换函数
+    int temp;
+    temp = array[a];
+    array[a] = array[b];
+    array[b] = temp;
+}
+
+static void Traveling(int t) {
+    if (t &gt; n) {//到达叶子节点
+        /*
+        推销货物的最后一个城市与住地城市有边相连并且路径长度比当前最优值小，说明找到了一条更好的路径，记录相关信息
+         */
+        if (g[x[n]][1] != INF &amp;&amp; (cl + g[x[n]][1] &lt; bestl)) {
+            for (int j = 1; j &lt;= n; j++) {
+                bestx[j] = x[j];
+            }
+            bestl = cl + g[x[n]][1];
+        }
+    } else {//没有到达叶子节点
+        for (int j = t; j &lt;= n; j++) {//搜索扩展节点的所有分支
+            if (g[x[t - 1]][x[j]] != INF &amp;&amp; (cl + g[x[t - 1]][x[j]] &lt; bestl)) {
+                //如果第t-1个城市与第t个城市有边相连并且有可能得到更短的路线
+                swap(x, t, j);//交换两个元素的值
+                cl = cl + g[x[t - 1]][x[t]];
+                Traveling(t + 1);//从第t+1层的扩展结点继续搜索
+                //第t+1层搜索完毕，回溯到第t层原始状态
+                cl = cl - g[x[t - 1]][x[t]];
+                swap(x, t, j);
+            }
+        }
+    }
+}
+
+//初始化函数
+static void init() {
+    bestl = INF;
+    cl = 0;
+    for (int i = 1; i &lt;= n; i++)
+        for (int j = i; j &lt;= n; j++)
+            g[i][j] = g[j][i] = INF;
+    for (int i = 0; i &lt;= n; i++) {
+        x[i] = i;
+        bestx[i] = 0;
+    }
+}
+
+static void print() {
+    System.out.print("最短路径：");
+    for (int i = 1; i &lt;= n; i++) {
+        System.out.print(bestx[i] + "----&gt;");
+    }
+    System.out.println("1");
+    System.out.print("最短路径长度：" + bestl);
+}
+
+public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int u, v, w;//u,v代表城市，w代表城市u,v之间的距离。
+    System.out.println("请输入城市数n：");
+    n = sc.nextInt();
+    init();
+    System.out.println("请输入城市之间的连线数：");
+    m = sc.nextInt();
+    System.out.println("请依次输入两个城市u,v以及之间的距离w:");
+    for (int i = 1; i &lt;= m; i++) {
+        u = sc.nextInt();
+        v = sc.nextInt();
+        w = sc.nextInt();
+        g[u][v] = g[v][u] = w;
+    }
+    Traveling(2);//根据排列树的图，从第二层开始
+    print();
+}</code></pre><p>}</p>
+<p>//<br>//                { 0, 10, 15, 20 },<br>//                        { 10, 0, 35, 25 },<br>//                        { 15, 35, 0, 30 },<br>//                        { 20, 25, 30, 0 }</p>
+<p>//请输入城市数n：<br>//        ４<br>//        请输入城市之间的连线数：<br>//        １２<br>//        请依次输入两个城市u,v以及之间的距离w:<br>//        １　２　１０<br>//        １　３　１５<br>//        １　４　２０<br>//        ２　１　１０<br>//        ２　３　３５<br>//        ２　４　２５<br>//        ３　１　１５<br>//        ３　２　３５　３　４　３０　４　１　２０　４　２　２５　４　３　３０<br>//        最短路径：1—-&gt;2—-&gt;4—-&gt;3—-&gt;1<br>//        最短路径长度：80<br>//        Process finished with exit code 0</p>
+<p>#案例5. 零一背包<br>回溯算法实际上一个类似枚举的搜索尝试过程，主要是在搜索尝试过程中寻找问题的解，当发现已不满足求解条件时，就“回溯”返回，尝试别的路径。回溯法是一种选优搜索法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，<br>这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。<br>许多复杂的，规模较大的问题都可以使用回溯法，有“通用解题方法”的美称。</p>
+<p>有n种物品，每种物品只有一个，第i种物品价值为vi，重量为wi，i=1，2，3…n<br>问如何选择放入背包的物品,使得总重量不超过B而价值达到最大</p>
+<p>用回溯法实现0-1背包问题。<br>在回溯开始之前，首先对于背包中的物品按照单位重量价值进行排序，方便于后面右子树的剪枝操作。<br>在初始化物品的重量和价值时，已经按照单位重量的价值排好了序。<br>一个典型的子集树问题，对于背包中的每一个物品，可以选择放入（左子树）或者不放入（右子树）。<br>依次对每个节点进行搜索，得到最优解。</p>
+<p>public class 零一背包 {<br>    /*<br>     * 物品 A B C D E F G<br>     * 重量 35 30 60 50 40 10 25<br>     * 价值  10  40  30  50  35  40  30<br>     *<br>     * */<br>    //物品数量<br>    int n=7;<br>    //背包容量<br>    int capacity=150;<br>    //物品重量数组<br>    double weight[]= {35,30, 60, 50, 40, 10, 25};<br>    //物品价值数组<br>    double value[]= {10,  40,  30,  50,  35,  40,  30};</p>
+<pre><code>//最大价值
+int maxValue = 0;
+//当前最大价值
+int currentValue;
+//当前重量
+int currentWeight;
+// 装入方法数组
+int[] way = new int[n];
+//最佳装入方法数组
+int[] bestWay = new int[n];
+
+/*
+ * 回溯算法设计
+ * */
+public void backTrack(int t) {
+    // 已经搜索到根节点
+    if (t &gt; n - 1) {
+        if (currentValue &gt; maxValue) {
+            maxValue = currentValue;
+            for (int i = 0; i &lt; n; i++)
+                bestWay[i] = way[i];
+        }
+        return;
+    }
+    // 搜索左边节点
+    if (currentWeight + weight[t] &lt;= capacity) {
+        currentWeight += weight[t];
+        currentValue += value[t];
+        way[t] = 1;
+        //回溯
+        backTrack(t + 1);
+        currentWeight -= weight[t];
+        currentValue -= value[t];
+        way[t] = 0;
+    }
+    // 不装入这个物品，直接搜索右边的节点
+    if (bound(t + 1) &gt;= maxValue) {
+        backTrack(t + 1);
+    }
+}
+
+// 用于计算剩余物品的最高价值上界
+public double bound(int k) {
+    double maxLeft = currentValue;
+    int leftWeight = capacity - currentWeight;
+    // 尽力依照单位重量价值次序装剩余的物品
+    while (k &lt;= n - 1 &amp;&amp; leftWeight &gt; weight[k]) {
+        leftWeight -= weight[k];
+        maxLeft += value[k];
+        k++;
+    }
+    // 不能装时，用下一个物品的单位重量价值折算到剩余空间。
+    if (k &lt;= n - 1) {
+        maxLeft += value[k] / weight[k] * leftWeight;
+    }
+    return maxLeft;
+}
+
+public static void main(String[] args) {
+    零一背包 knspsack2 = new 零一背包();
+    knspsack2.backTrack(0);
+    System.out.println("该背包能够取到的最大价值为:" + knspsack2.maxValue);
+    System.out.println("当前背包的重量为:" + knspsack2.capacity);
+    System.out.println("物品的取出方法为取出的方法为:");
+    for (int i : knspsack2.bestWay)
+        System.out.print(i + "  ");
+}</code></pre><p>}</p>
+<h2 id="五、分支限界"><a href="#五、分支限界" class="headerlink" title="五、分支限界"></a>五、分支限界</h2><p>回溯算法是深度优先，而分支限界是广度优先的一个经典例子<br>回溯法一般遍历整个空间，获取问题的所有解，<br>而分支限界法则是获取一个解(一般来说要获取最优解)</p>
+<p>分支限界是加快搜索速度的一种技术<br>代价函数:<br>    计算函数: 搜索书的结点<br>    值: 极大化问题是以该点为根的子树所有可行解的值的上界(极小化问题的下界)<br>    性质: 对极大化问题父节点代价不小于结点的代价(极小化问题相反)<br>停止分支回溯父结点的依据<br>    1. 不满足约束条件<br>    2. 对于极大化问题,代价函数值小于当前界(对于极小化问题是大于界)</p>
+<p>界的更新:<br>    对极大化问题,如果一个新的可行解的优化函数值大于(极小化问题为小于)当前的界,则把界更新为该可行解的值</p>
+<p>界: 当前得到的可行解的目标函数的最大值(极小化问题相反)<br>界初值: 极大化问题初值为0(极小化问题为最大值)</p>
+<p>经典问题: 圆排列问题、最大团问题、连续邮资问题</p>
+<p>#案例1. 圆排列问题<br>给定n个圆的半径序列，各圆与底线相切排列<br>假定每个圆占大于1的长度，求具有最小长度ln的圆的排列顺序</p>
+<p>解： &lt;i1,i2,…,in&gt;为1，2，…，n的排列<br>部分解向量&lt;i1,i2,…,ik&gt;：表示前k个圆已经排好<br>令B={i1,i2,…,ik}<br>下一个圆选择ik+1</p>
+<p>约束条件：ik+1 属于 {1,2,…,n}-B<br>界：当前得到的最小圆排列长度</p>
+<p>代价函数：<br>     算法已选择好1～k个圆<br>     rk：第k个圆的半径<br>     dk：第k-1个圆到第k个圆的圆心水平距离<br>     xk：第k个圆的圆心坐标，规定x1=0<br>     lk：第1～k个圆的排列长度<br>     Lk：放好1～k个圆以后，对应结点的代价函数值  Lk &lt;= ln<br>xk = xk-1 + dk<br>部分排列长度： lk = xk+rk+r1<br>排列长度ln = xk+ dk+1 + dk+2 + … + dn + rn + r1<br>dk = 开方（（rk + rk-1）平方 - （rk - rk-1）平方）<br>   = 2开方（rk-1 × rk）<br>ln = xk + dk+1 + dk+2 +…+ rn + r1<br>Lk = xk + （2n -2k + 1）r + r1<br>r = min（rij，rk）</p>
+<p>实例：<br>输入： R={1,1,2,2,3,5}<br>      排列 &lt;1，2，3，4，5，6&gt;</p>
+<p>public class 圆排列问题 {</p>
+<pre><code>public int n;//待排列圆的个数
+public float min;//当前最优值
+public float[] x;//当前圆排列圆心横坐标
+public float[] r;//当前圆排列
+public float circlePerm(int nn,float[] rr){
+    n=nn;
+    r=rr;
+    min=1000000;
+    x=new float[n+1];
+    backtrack(1);
+    return min;
+}
+public void backtrack(int t){
+    if(t&gt;n)
+        compute();
+    else{
+        for(int j=t;j&lt;=n;j++){
+            swap(r,t,j);
+            float centerx=center(t);
+            if(centerx+r[t]+r[1]&lt;min){//下界约束
+                x[t]=centerx;
+                backtrack(t+1);
+            }
+            swap(r,t,j);
+        }
+    }
+}
+public void swap(float[] r,int i,int j){
+    float temp=r[i];
+    r[i]=r[j];
+    r[j]=temp;
+}
+public float center(int t){//计算当前所选择圆的圆心横坐标
+    float temp=0;
+    for(int j=1;j&lt;t;j++){
+        float valuex=(float) (x[j]+2.0*Math.sqrt(r[t]*r[j]));
+        if(valuex&gt;temp)
+            temp=valuex;
+    }
+    return temp;
+}
+public void compute(){//计算当前圆排列的长度
+    float low=0;
+    float high=0;
+    for(int i=1;i&lt;=n;i++){
+        if(x[i]-r[i]&lt;low) low=x[i]-r[i];
+        if(x[i]+r[i]&gt;high) high=x[i]+r[i];
+    }
+    if(high-low&lt;min)
+        min=high-low;
+}
+public static void main(String[] args) {
+    int n=3;
+    float[] r={0,1,1,2};//r下标从1开始， 0无用，只是凑数
+    圆排列问题 c=new 圆排列问题();
+    float min=c.circlePerm(n, r);
+    System.out.println("最小圆排列长度为"+min);
+}</code></pre><p>}</p>
+<p>/*<br>输出：<br>最小圆排列长度为7.656854<br>*/</p>
+<p>#案例2. 最大团问题</p>
+<p>问题： 无向图G=&lt;V,E&gt;，求G的最大团<br>G的子图： 点都属于V，边都属于E<br>补图： 原来没边的都有边，有边的没了边</p>
+<p>团： G的完全子图， 即任意两个顶点之间都有边的子图<br>最大团： 顶点数最多的团<br>独立集： 任意两点都没边</p>
+<p>解： &lt;x1,x2,…,xn&gt; 为0-1向量，xk=1表示顶点k属于最大团<br>约束条件： 该顶点与当前团内每个顶点都有边相连<br>界： 当前已检索到的极大团的顶点数<br>代价函数： F = Cn + n - K<br>Cn为目前团的顶点数， k为结点层数</p>
+<p>public class 最大团问题 {</p>
+<pre><code>public int[] x;//当前解（x[i]=1表示i点在最大团中，=0表示不在团中）
+public int n;//图G的顶点数
+public int cn;//当前顶点数
+public int bestn;//当前最大顶点数
+public int[] bestx;//当前最优解
+public int[][] a;//图G的邻接矩阵,0：不连通；1：连通
+public int count;//图G的最大团个数
+public void backtrack(int i){
+    if(i&gt;n){
+        for(int j=1;j&lt;=n;j++){
+            bestx[j]=x[j];
+            System.out.print(x[j]+" ");
+        }
+        System.out.println();
+        bestn=cn;
+        count++;
+        return;
+    }
+    else{
+        boolean ok=true;
+        for(int j=1;j&lt;i;j++){//检查顶点i是否与当前团全部连接
+            if(x[j]==1&amp;&amp;a[i][j]==0){
+                ok=false;
+                break;
+            }
+        }
+        if(ok){//从顶点i到已选入的顶点集中每一个顶点都有边相连
+            //进入左子树
+            x[i]=1;
+            cn++;
+            backtrack(i+1);
+            x[i]=0;
+            cn--;
+        }
+        if(cn+n-i&gt;=bestn){//当前顶点数加上未遍历的课选择顶点&gt;=当前最优顶点数目时才进入右子树;如果不需要找到所有的解，则不需要等于
+            //进入右子树
+            x[i]=0;
+            backtrack(i+1);
+        }
+    }
+}
+public int maxclique(int nn,int[][] aa){
+    //初始化
+    n=nn;
+    a=aa;
+    x=new int[n+1];
+    bestx=x;
+    cn=0;
+    bestn=0;
+    count=0;
+    backtrack(1);
+    return bestn;
+}
+public static void main(String[] args) {
+    int[][] a={{-1,-1,-1,-1,-1,-1},{-1,0,1,0,1,1},{-1,1,0,1,0,1},{-1,0,1,0,0,1},{-1,1,0,0,0,1},{-1,1,1,1,1,0}};//a的下标从1开始，-1的值无用
+    int n=5;
+    最大团问题 m=new 最大团问题();
+    System.out.println("图G的最大团解向量为：");
+    System.out.println("图G的最大团顶点数为："+m.maxclique(n, a));
+    System.out.println("图G的最大团个为："+m.count);
+}</code></pre><p>}</p>
+<p>/*<br>输出：<br>图G的最大团解向量为：<br>1 1 0 0 1<br>1 0 0 1 1<br>0 1 1 0 1<br>图G的最大团顶点数为：3<br>图G的最大团个为：3<br>*/</p>
+<p>#案例3. 连续邮资问题</p>
+<p>连续邮资问题：<br>给定n种不同面值的邮票，每个信封至多贴m张<br>试给出邮票的最佳设计，使得从1开始<br>增量为1的连续邮资区间达到最大</p>
+<p>实例： n=5， m=4<br>设计1： 面值 X = &lt;1，3，11，15，32&gt;<br>        邮资连续区间 {1,2,…,70}<br>设计2： 面值 X = &lt;1，6，10，20，30&gt;<br>        邮资连续区间{1,2,3,4}</p>
+<p>约束条件：在结点x1…xi处，邮资最大连续区间为{1，…,ri}<br>xi+1 的取值范围是<br>{xi+1,…,ri+1}<br>若xi+1&gt;ri+1，ri+1的邮资无法支付<br>yi（j）： 用至多m张面值 xi的邮票加上x1，x2，…，xi-1面值的邮票贴j邮资时的最少邮票数<br>则：<br>yi（j） = min{t + yi-1(j - txi) }<br>y1(j) = j<br>ri = min{j|yi(j) &lt;= m, yi(j+1) &gt; m}</p>
+<p>界： max， m张邮票连续付的最大邮资</p>
+<p>public class 连续邮资问题 {<br>    int m;<br>    int n;<br>    int stamps[];<br>    int maxNum = 0;<br>    int[] tempset;<br>    int current;<br>    int rightPos;<br>    int base;<br>    public 连续邮资问题(int m,int n,int[] stamps){<br>        this.m = m;<br>        this.n = n;<br>        this.stamps = stamps;<br>        check();<br>        printResult();<br>    }</p>
+<pre><code>public void check(){
+    tempset = new int[stamps[(stamps.length-1)]*4+1];
+    maxNum = m;//因为第一个确定是1，所以初始化最大的面值就是 1*m
+    for (int i=1;i&lt;5;i++){
+        int min = Math.max(stamps[i],maxNum)+1;;
+        int max = stamps[i]*m;
+        if (min &lt; stamps[i]+1){
+            return;
+        }
+        maxNum = min-1;
+        tempset[maxNum]=1;
+        if (!checkSpan(min,max,i)){
+            return;
+        }
+    }
+}
+
+public boolean checkSpan(int min,int max,int rightPos){
+    base = min;
+    current=stamps[rightPos];
+    this.rightPos = rightPos;
+    backtrace(0);
+    if (tempset[min] == 0){
+        return false;
+    }
+    for (int i=min;i&lt;max;i++){
+        if (tempset[i] == 0){
+            return true;
+        }
+        else{
+            maxNum++;
+        }
+    }
+    return true;
+}
+
+public void backtrace(int i){
+    if (i &gt;= (m-1)){
+        return;
+    }
+    else{
+        for (int j=0;j&lt;rightPos+1;j++){
+            current += stamps[j];
+            if (current &gt;= base){
+                tempset[current] = 1;
+            }
+            backtrace(i+1);
+            current -= stamps[j];
+        }
+    }
+}
+
+public void printResult(){
+    System.out.println(maxNum);
+}
+
+public static void main(String args[]){
+    int m=4;
+    int n=5;
+    int[] stamps={1,3,11,15,32};
+    new 连续邮资问题(m,n,stamps);
 }</code></pre><p>}</p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -2175,7 +2780,7 @@ public void maoPaoSort(ArrayList&lt;Integer&gt; a
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">135.2k</span> 字
+                <span class="white-color">141k</span> 字
             
 
             
