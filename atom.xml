@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sqtian-hhu.github.io/"/>
-  <updated>2021-04-28T07:54:38.943Z</updated>
+  <updated>2021-05-22T13:03:14.148Z</updated>
   <id>https://sqtian-hhu.github.io/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>操作系统</title>
+    <link href="https://sqtian-hhu.github.io/2021/05/10/cao-zuo-xi-tong-di-er-zhang/"/>
+    <id>https://sqtian-hhu.github.io/2021/05/10/cao-zuo-xi-tong-di-er-zhang/</id>
+    <published>2021-05-10T12:37:02.000Z</published>
+    <updated>2021-05-22T13:03:14.148Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;第二章&quot;&gt;&lt;a href=&quot;#第二章&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="操作系统" scheme="https://sqtian-hhu.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="操作系统" scheme="https://sqtian-hhu.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>操作系统</title>
+    <link href="https://sqtian-hhu.github.io/2021/04/29/cao-zuo-xi-tong-di-yi-zhang/"/>
+    <id>https://sqtian-hhu.github.io/2021/04/29/cao-zuo-xi-tong-di-yi-zhang/</id>
+    <published>2021-04-29T12:37:02.000Z</published>
+    <updated>2021-05-19T06:12:39.455Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;##第一章&lt;/p&gt;
+&lt;p&gt;##操作系统的概念&lt;br&gt;Operating System
+        
+      
+    
+    </summary>
+    
+      <category term="操作系统" scheme="https://sqtian-hhu.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="操作系统" scheme="https://sqtian-hhu.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>Algorithm</title>
@@ -479,54 +532,6 @@ public String testString(Model model){
        
         
       
-    
-    </summary>
-    
-      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
-    
-    
-      <category term="JavaWeb" scheme="https://sqtian-hhu.github.io/tags/JavaWeb/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&#39;JavaWebNote05_Tomcat&#39;</title>
-    <link href="https://sqtian-hhu.github.io/2020/05/13/javawebnote05-tomcat/"/>
-    <id>https://sqtian-hhu.github.io/2020/05/13/javawebnote05-tomcat/</id>
-    <published>2020-05-13T03:26:01.000Z</published>
-    <updated>2021-04-22T11:25:40.419Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Tomcat相关知识&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
-    
-    
-      <category term="JavaWeb" scheme="https://sqtian-hhu.github.io/tags/JavaWeb/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&#39;JavaWebNote04_XML&#39;</title>
-    <link href="https://sqtian-hhu.github.io/2020/05/11/javawebnote04-xml/"/>
-    <id>https://sqtian-hhu.github.io/2020/05/11/javawebnote04-xml/</id>
-    <published>2020-05-11T09:21:00.000Z</published>
-    <updated>2021-04-22T11:25:40.435Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;XML&quot;&gt;&lt;a href=&quot;#XML&quot; class=&quot;headerlink&quot; title=&quot;XML&quot;&gt;&lt;/a&gt;XML&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;概念：Extensible Markup Language 可扩展标记语言&lt;br&gt; 可扩展：标签都是自定义的&lt;/p&gt;
-&lt;p&gt; 功能：&lt;br&gt; 存储数据&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; 1. 配置文件
- 2. 在网络中传输&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; 与HTML的区别&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;xml标签都是自定义的，html标签是预定义的&lt;/li&gt;
-&lt;li&gt;xml的语法严格，html语法松散&lt;/li&gt;
-&lt;li&gt;xml是存储数据的，html是展示数据的&lt;/li&gt;&lt;/ol&gt;&lt;/li&gt;&lt;/ol&gt;
     
     </summary>
     
