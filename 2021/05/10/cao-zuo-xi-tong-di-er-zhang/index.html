@@ -6,13 +6,13 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="进程, 深度学习 故障诊断 Java">
+    <meta name="keywords" content="第二章, 深度学习 故障诊断 Java">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="第二章##进程
+    <meta name="description" content="第二章###进程
 程序：就是一个指令序列进程：程序的一次执行过程
 单道程序程序的代码放在程序段内，程序运行过程处理的数据放在数据段内
-多道程序技术：多道程序并发执行系统为每个运行的程序配置一个数据结构，称为进程控制块（PCB）用来存放进程描述">
+多道程序技术：多道程序并发执行系统为每个运行的程序配置一个数据结构，称为进程控制块（PCB）用来存放进程描">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +20,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>进程 | 世庆的博客</title>
+    <title>第二章 | 世庆的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -619,13 +619,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        进程
+                        第二章
                     </div>
                 </div>
             </div>
@@ -775,14 +775,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        5.4k
+                        12.7k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        18 分
+                        48 分
                     </div>
                     
                 
@@ -799,7 +799,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>##进程</p>
+                <h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>###进程</p>
 <p>程序：就是一个指令序列<br>进程：程序的一次执行过程</p>
 <p>单道程序<br>程序的代码放在程序段内，程序运行过程处理的数据放在数据段内</p>
 <p>多道程序技术：多道程序并发执行<br>系统为每个运行的程序配置一个数据结构，称为进程控制块（PCB）<br>用来存放进程描述信息，进程控制和管理信息，资源分配清单，处理机相关信息</p>
@@ -807,35 +807,35 @@
 <p>PCB是进程存在的唯一标志</p>
 <p>进程的组织方式：<br>链接方式：按照进程状态将PCB分为多个队列，操作系统持有指向各个队列的指针<br>执行指针指向当前处于运行态的指针<br>就绪队列指针指向就绪队列的队首，通常把优先级较高的放在队首<br>阻塞队列指向处于阻塞态的进程</p>
 <p>索引方式：根据进程状态不同，建立几张索引表，操作系统持有指向各个索引表的指针<br>执行指针指向当前处于运行态的指针<br>就绪表<br>阻塞表</p>
-<p>##进程的状态</p>
+<p>###进程的状态</p>
 <p>运行状态，就绪状态，阻塞状态，创建状态，终止状态</p>
 <p>三种基本状态<br>运行态：占有CPU，并在CPU上运行<br>就绪态：拥有了除处理机之外所有需要的资源，但由于没有空闲CPU，暂时不能运行一旦获得处理机即可立即进入运行态<br>阻塞态：等待操作系统分配资源</p>
 <p>进程状态间的转换<br>创建态-&gt;就绪态<br>就绪态&lt;-&gt;运行态 进程被调度进入运行态,时间片到了或处理机被抢占返回就绪态<br>运行态-&gt;阻塞态 进程用系统调用的方式申请某种系统资源,或请求某件事情发生(主动) 进入阻塞态<br>阻塞态-&gt;就绪态 申请的资源被分配,或者等待的事件发生,进入就绪态<br>运行态-&gt;终止态 进程运行结束或运行过程遇到不可修复的错误</p>
-<p>##进程控制<br>进程控制的主要功能是对系统中的所有进程实施有效的管理,它具有创建新进程,撤销已有进程,实现进程状态转换等功能</p>
+<p>###进程控制<br>进程控制的主要功能是对系统中的所有进程实施有效的管理,它具有创建新进程,撤销已有进程,实现进程状态转换等功能</p>
 <p>状态转换时需修改PCB内容和相应队列防止内容与队列不一致发生错误,使用原语实现进程控制</p>
 <p>原语特点: 不允许终端</p>
 <p>关中断指令<br>原语代码<br>开中断指令</p>
-<p>##进程通信<br>指进程之间的信息交换<br>进程是分配系统资源的单位,因此各进程拥有的内存地址空间相互独立</p>
+<p>###进程通信<br>指进程之间的信息交换<br>进程是分配系统资源的单位,因此各进程拥有的内存地址空间相互独立</p>
 <p>为了保证安全,一个进程不能直接访问另一个进程的地址空间.<br>但是进程之间的信息交换又是必须实现的. 为了保证进程间的安全通信,操作系统提供了一些方法</p>
 <p>共享存储<br>    操作系统为进程分配共享空间<br>    两个进程对共享空间互斥访问<br>    1. 基于数据结构的共享: 比如共享空间里只能放一个长度为10的数组,<br>        这种方式速度慢,限制多,是一种低级通信方式<br>    2. 基于存储区的共享: 在内存中画出一块共享存储区,数据的形式,存放位置都由进程控制,而不是操作系统<br>        相比之下更快,是一种高级通信方式</p>
 <p>管道通信<br>    管道是指用于连接读写进程的一个共享文件,实际上就是在内存中开辟一个大小固定的缓冲区<br>    进程1写数据到管道,进程2从管道读数据<br>    1没写满2不能读,2没读空1不能写<br>    各进程互斥访问</p>
 <pre><code>管道只能采用半双工通信,要实现双向通信,需要设置两个管道</code></pre><p>消息传递<br>    进程间的数据交换以格式化的消息为单位. 进程通过操作系统提供的发送消息/接收消息两个原语进行数据交换<br>    1. 直接通信方式<br>        进程通过发送原语创建消息,消息直接挂到接受进程的消息缓冲队列上,接受进程通过接收原语依次读取消息<br>    2. 间接通信方式<br>        消息要先发送到中间实体(信箱)中,系统管理这些消息,具体是哪些进程发,哪些进程收都写在消息头里</p>
-<p>##线程<br>有的进程可能需要同时做很多事，而传统的进程只能串行地执行一系列程序。<br>为此引入线程来增加并发度<br>引入线程后，线程成了程序执行流的最小单位</p>
+<p>###线程<br>有的进程可能需要同时做很多事，而传统的进程只能串行地执行一系列程序。<br>为此引入线程来增加并发度<br>引入线程后，线程成了程序执行流的最小单位</p>
 <p>线程的属性：<br>线程是处理机调度的单位，进程是资源分配的单位<br>多CPU计算机中，各个线程占用不同的cpu<br>每个线程都有一个线程ID，线程控制块（TCB）<br>线程也有就绪，阻塞，运行三种基本状态<br>线程几乎不拥有系统资源<br>同一进程的不同线程间共享进程的资源<br>由于共享内存地址空间，同一进程的线程间通信甚至无需系统干预<br>同一进程中的线程切换，不会引起进程切换，系统开销小<br>不同进程中的线程切换，会引起进程切换，系统开销大</p>
 <p>线程的实现方式<br>用户级线程：从用户角度看的线程<br>内核级线程：从操作系统视角看的线程，内核级线程才是处理机分配的单位</p>
-<p>##处理机调度<br>从就绪队列中按照一定的算法选择一个进程并将处理机分配给它运行，以实现并发</p>
+<p>###处理机调度<br>从就绪队列中按照一定的算法选择一个进程并将处理机分配给它运行，以实现并发</p>
 <p>作业调度：<br>    高级调度，按一定的原则从外存上处于后备队列的作业中挑选一个或多个作业，给他们分配内存等必要资源<br>    并建立相应的进程（建立PCB），以使他们获得竞争处理机的权利。</p>
 <pre><code>高级调度是外存与内存之间的调度，每个作业只调入一次，调出一次，调入时PCB创建，调出时PCB撤销</code></pre><p>内存调度：<br>    中极调度，引入虚拟存储技术后，可将暂时不能运行的进程调至外存等待。<br>    等他重新具备运行条件且内存又稍有空闲时，再重新调入内存<br>    提高内存利用率和系统吞吐量<br>    暂时调出的进程状态为挂起状态，PCB并不会一起调出</p>
 <p>挂起与阻塞的区别：两种状态都是暂不能获得CPU的服务<br>    但挂起态将进程映像调到外存去，阻塞态进程映像还在内存中</p>
 <p>进程调度：<br>    低级调度，从就绪队列中选取一个进程，将处理机分配给他<br>    是操作系统中最基本的一种调度</p>
-<p>##进程调度与进程切换的区别<br>狭义的进程调度指的是从就绪队列中选中一个要运行的进程。<br>这个进程可以是刚刚被暂停执行的进程，也可能是另一个进程，后一种情况需要进程切换<br>进程切换是指一个进程让出处理机，由另一个进程占用处理机的过程</p>
+<p>###进程调度与进程切换的区别<br>狭义的进程调度指的是从就绪队列中选中一个要运行的进程。<br>这个进程可以是刚刚被暂停执行的进程，也可能是另一个进程，后一种情况需要进程切换<br>进程切换是指一个进程让出处理机，由另一个进程占用处理机的过程</p>
 <p>广义的进程调度包含了选择一个进程和进程切换两个步骤</p>
 <p>进程切换的过程主要完成了<br>    1. 对原来运行进程各种数据的保存<br>    2. 对新的进程各种数据的恢复</p>
 <p>进程切换是有代价的，因此如果过于频繁的进行进程调度，切换，必然使整个系统效率降低</p>
-<p>##调度算法的评价指标<br>cpu利用率：指cpu忙碌的时间占总时间的比例<br>系统吞吐量：单位时间内完成作业的数量<br>周转时间：从作业提交给系统到作业完成为止的间隔=作业完成时间-作业提交时间<br>    平均周转时间=各作业周转时间之和/作业数<br>    带权周转时间=作业周转时间/作业实际运行时间 （越小越好）<br>    平均带权周转时间=各作业带权周转时间之和/作业数</p>
+<p>###调度算法的评价指标<br>cpu利用率：指cpu忙碌的时间占总时间的比例<br>系统吞吐量：单位时间内完成作业的数量<br>周转时间：从作业提交给系统到作业完成为止的间隔=作业完成时间-作业提交时间<br>    平均周转时间=各作业周转时间之和/作业数<br>    带权周转时间=作业周转时间/作业实际运行时间 （越小越好）<br>    平均带权周转时间=各作业带权周转时间之和/作业数</p>
 <p>等待时间：进程/作业处于等待处理机状态时间之和，时间越长，用户满意度越低</p>
 <p>响应时间：从用户提交请求到首次产生响应所用的时间</p>
-<p>##调度算法<br>{<br>  先来先服务 FCFS<br>  短作业优先 SJF<br>  高响应比优先 HRRN<br>}</p>
+<p>###调度算法<br>{<br>  先来先服务 FCFS<br>  短作业优先 SJF<br>  高响应比优先 HRRN<br>}</p>
 <ol>
 <li><p>先来先服务 First Come First Serve<br>算法思想： 主要从公平的角度考虑，类似于排队买东西<br>算法规则：按照作业/进程到达的先后顺序进行服务<br>用于作业/进程调度：用于作业调度时，考虑是哪个作业先到达后备队列</p>
 <pre><code>            用于进程调度时，考虑是哪个进程先到达就绪队列</code></pre><p>是否可抢占：非抢占式算法<br>优缺点：<br> 优点：公平，算法实现简单<br> 缺点：排在长作业/进程后面的短作业需要等待很长时间，带权周转时间很大，</p>
@@ -849,7 +849,7 @@
 </li>
 </ol>
 <p>这三种算法一般适合用于早期的批处理系统。</p>
-<p>##适用于交互式系统的调度算法<br>时间片轮转轮转调度算法<br>优先级调度算法<br>多级反馈队列算法</p>
+<p>###适用于交互式系统的调度算法<br>时间片轮转轮转调度算法<br>优先级调度算法<br>多级反馈队列算法</p>
 <ol>
 <li>时间片轮转轮转调度算法 Round-Robin<br>算法思想：公平地，轮流地为各个进程服务，让每个进程在一定时间间隔内都能得到响应<br>算法规则：按照各进程到达就绪队列的顺序，轮流让各个进程执行一个时间片。若进程未在一个时间片内执行完，<pre><code>   则剥夺处理机，将进程重新放到就绪队列队尾重新排队</code></pre>用于作业/进程调度：用于进程调度（只有作业放入内存建立了相应的进程后，才能被分配处理机时间片）<br>是否可抢占：若进程未能在时间片内运行完，将被强行剥夺处理机使用权。属于抢占式算法<br>优缺点：<br> 优：公平，响应快，是用于分时操作系统<br> 缺：高频率的进程切换，因此会有一定开销，不区分任务紧急程度<br>是否会导致饥饿：不会</li>
 </ol>
@@ -915,12 +915,1059 @@
 <li>在”前操作”之后执行V(S)</li>
 <li>在”后操作”之前执行P(S)</li>
 </ol>
-<p>##经典进程互斥同步问题</p>
-<p>##生产者-消费者问题</p>
-<p>##多生产者-多消费者问题</p>
-<p>##吸烟者问题</p>
-<p>##读者-写者问题</p>
-<p>##哲学家进餐问题</p>
+<p>###经典进程互斥同步问题</p>
+<p>####生产者-消费者问题</p>
+<p>/**</p>
+<ul>
+<li>系统中有一组生产者进程和一组消费者进程,生产者进程每次生产一个产品放入缓冲区,消费者进程每次从缓冲区中取出一个产品并使用</li>
+<li>生产者,消费者共享一个初始为空,大小为n的缓冲区</li>
+<li>只有缓冲区没满时,生产者才能把产品放入缓冲区,否则必须等待</li>
+<li>只有缓冲区不空时,消费者才能从中取出产品,否则必须等待</li>
+<li></li>
+<li>关系分析</li>
+<li>同步关系: 缓冲区满时,生产者要等待消费者取走</li>
+<li>缓冲区空时,消费者要等待生产者放入</li>
+<li></li>
+<li>互斥关系: 各进程必须互斥地访问</li>
+<li></li>
+<li>使用semaphore信号量实现</li>
+<li>/</li>
+</ul>
+<p>生产者生产-v—full—p-&gt;消费者消费</p>
+<p>生产者生产&lt;-p—empty—v-消费者消费</p>
+<p>public class 生产者消费者 {<br>    private static Integer count = 0;  // 苹果数量<br>    //创建三个信号量<br>    final Semaphore empty = new Semaphore(5); //同步信号量,表示缓冲区大小<br>    final Semaphore full = new Semaphore(0); // 同步信号量,表示产品的数量,即非空缓冲区的数量<br>    final Semaphore mutex = new Semaphore(1);   // 互斥信号量,实现对缓冲区互斥访问</p>
+<pre><code>public static void main(String[] args) {
+    生产者消费者 test1 = new 生产者消费者();
+    new Thread(test1.new Producer()).start();
+    new Thread(test1.new Consumer()).start();
+
+}
+
+// 生产者生产产品
+class Producer implements Runnable {
+    @Override
+    public void run() {
+        while(true) {
+            try {
+                empty.acquire(); //P(empty) 消耗一个空闲缓冲区
+                mutex.acquire(); //P(mutex) 实现互斥是在同一进程中进行一对PV操作
+                //把产品放入缓冲区
+                Thread.sleep(400);
+                count++;   // 每次生产一个产品,需要0.5秒
+
+                System.out.println(Thread.currentThread().getName()
+                        + "生产者生产，目前总共有" + count);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } finally {
+                mutex.release();  //V(mutex) 互斥操作 解锁
+                full.release();  // V(full) 增加一个产品
+            }
+        }
+    }
+}
+
+//消费者消费产品
+class Consumer implements Runnable {
+    @Override
+    public void run() {
+        while(true) {
+            try {
+                full.acquire();  // P(full) 消耗一个产品
+                mutex.acquire(); // P(mutex) 上锁
+
+                Thread.sleep(100);
+                count--;  // 每次消费一个产品,需要1s
+
+                System.out.println(Thread.currentThread().getName()
+                        + "消费者消费，目前总共有" + count);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } finally {
+                mutex.release();  // V(mutex) 解锁
+                empty.release();  // V(empty) 缓冲区多出一个空间
+            }
+        }
+    }
+}</code></pre><p>}</p>
+<p>通过在同一进程中进行一对P(mutex)v(mutex)操作实现互斥<br>如果P(mutex)操作在P(empty)前,<br>若此时缓冲区已经放满产品,则empty=0,full=n.<br>生产者先执行p(mutex)使mutex变为0,再执行p(empty),由于没有空闲缓冲区,因此生产者阻塞.<br>切回消费者进程<br>消费者进程执行p(mutex),由于mutex=0,即生产者还没有释放对临界资源的锁,因此消费者也被阻塞<br>这就造成了生产者等待消费者释放空闲缓冲区,而消费者又等待生产者释放临界区的情况,出现死锁.</p>
+<p>因此,实现互斥的P操作一定要在实现同步的P操作之后</p>
+<p>####多生产者-多消费者问题</p>
+<p>/**</p>
+<ul>
+<li>桌子上有一直盘子，每次只能向其中放入一个水果。爸爸专向盘子中放苹果，妈妈专向盘子中放橘子，</li>
+<li>儿子专等着吃盘子里的橘子，女儿专等着吃盘子中的苹果。</li>
+<li>只有盘子空时，爸爸或妈妈才可向盘子中放入一个水果。</li>
+<li>仅当盘子中有自己需要的水果时，儿子或女儿可以从盘子中取水果</li>
+<li></li>
+<li>关系分析</li>
+<li>互斥关系: 对缓冲区(盘子)的访问要互斥地进行</li>
+<li>同步关系: 1. 父亲将苹果放入盘子后,女儿才能取苹果</li>
+<li><ol start="2">
+<li>母亲将橘子放入盘子后,儿子才能取橘子</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>只有盘子空时,父亲或母亲才能放入水果</li>
+</ol>
+</li>
+<li>从”事件”的角度考虑,盘子变空事件在放入水果事件之前</li>
+<li></li>
+<li></li>
+<li>/</li>
+</ul>
+<p>public class 多生产者多消费者 {</p>
+<pre><code>final Semaphore mutex = new Semaphore(1);   //实现互斥访问盘子(缓冲区)
+final Semaphore apple = new Semaphore(0);   //盘子中有几个苹果
+final Semaphore orange = new Semaphore(0);  //盘子中有几个橘子
+final Semaphore plate = new Semaphore(1);   //盘子中还可以放多少个水果
+
+
+
+public static void main(String[] args) {
+    多生产者多消费者 test1 = new 多生产者多消费者();
+    new Thread(test1.new dad()).start();
+    new Thread(test1.new mom()).start();
+    new Thread(test1.new daughter()).start();
+    new Thread(test1.new son()).start();
+
+
+}
+
+
+class dad implements Runnable{
+
+    @Override
+    public void run() {
+        while(true){
+            try {
+
+                System.out.println("爸爸正在削苹果");
+                Thread.sleep(600);  //削一个苹果
+                plate.acquire();  //P(plate)
+                mutex.acquire();  //上锁
+
+                Thread.sleep(100);  //把苹果放进盘子
+                System.out.println("爸爸把苹果放进盘子了");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }finally{
+                mutex.release();
+                apple.release();
+            }
+        }
+    }
+}
+
+class mom implements Runnable{
+
+    @Override
+    public void run() {
+        while (true){
+            try {
+
+                System.out.println("妈妈正在剥橘子");
+                Thread.sleep(300);  //剥一个橘子
+                plate.acquire();  //P(plate)
+                mutex.acquire();  //P(mutex) 上锁
+
+                Thread.sleep(100);  //把橘子放进盘子
+                System.out.println("妈妈把橘子放进盘子了");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }finally{
+                mutex.release();
+                orange.release();
+            }
+        }
+    }
+}
+
+class daughter implements Runnable{
+
+
+    @Override
+    public void run() {
+        while (true){
+
+            try {
+                apple.acquire();  //P(apple)
+                mutex.acquire();  //P(mutex) 上锁
+                Thread.sleep(100);  //从盘中取出苹果
+                System.out.println("女儿取出了苹果");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }finally {
+                mutex.release();  //V(mutex)
+                plate.release();  //V(plate)
+                try {
+                    Thread.sleep(1000);  //吃掉苹果
+                    System.out.println("女儿把苹果吃掉了");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+        }
+    }
+}
+
+class son implements Runnable{
+    @Override
+    public void run() {
+        while (true){
+
+            try {
+                orange.acquire();  //P(orange)
+                mutex.acquire();  //P(mutex) 上锁
+                Thread.sleep(100);  //从盘中取出橘子
+                System.out.println("儿子取出了橘子");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }finally {
+                mutex.release();  //V(mutex) 解锁
+                plate.release();  //V(plate)
+                try {
+                    Thread.sleep(500);  //吃掉橘子
+                    System.out.println("儿子把橘子吃掉了");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+        }
+    }
+}</code></pre><p>}</p>
+<p>####吸烟者问题<br>/**</p>
+<ul>
+<li>三个吸烟者和一个供应者进程. 每个吸烟者不停地卷烟并抽掉他,但是要卷起并抽掉,抽烟者需要有三种材料:烟草,纸和胶水</li>
+<li>三个抽烟者中,第一个拥有烟草,第二个拥有纸,第三个拥有胶水.</li>
+<li>供应者进程无限提供三种材料,供应者每次将两种材料放桌子上,拥有剩下材料的抽烟者取走抽烟,并给供应者一个信号完成了,</li>
+<li>供应者就会把另外两种材料放桌子上,让三个抽烟者轮流抽烟</li>
+<li></li>
+<li>关系分析 (从事件的角度来分析)</li>
+<li>互斥关系: 桌子是容量为1的缓冲区,要互斥访问</li>
+<li>同步关系: 1. 桌子上有组合一(纸+胶水)-&gt; 第一个抽烟者取走</li>
+<li><ol start="2">
+<li>桌子上有组合二(烟草+胶水)-&gt; 第二个抽烟者取走</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>桌子上有组合三(烟草+纸)-&gt; 第三个抽烟者取走</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>发出完成信号-&gt;供应者将下一个组合放上</li>
+</ol>
+</li>
+<li></li>
+<li>/</li>
+</ul>
+<p>public class 吸烟者问题 {</p>
+<pre><code>private int i = 0;  //用于实现轮流抽烟
+
+final Semaphore offer1 = new Semaphore(0);  //组合一资源的量
+final Semaphore offer2 = new Semaphore(0);  //组合二资源的量
+final Semaphore offer3 = new Semaphore(0);  //组合三资源的量
+final Semaphore table = new Semaphore(1);  //缓冲区(桌子)是否收到信号放上资源
+
+
+public static void main(String[] args) {
+
+    吸烟者问题 test = new 吸烟者问题();
+
+    new Thread(test.new provider()).start();
+    new Thread(test.new smoker1()).start();
+    new Thread(test.new smoker2()).start();
+    new Thread(test.new smoker3()).start();
+
+}
+
+class provider implements Runnable{
+
+    @Override
+    public void run() {
+        while (true){
+            try {
+                table.acquire();  //P(finish)
+                if (i==0){
+                    Thread.sleep(100);
+                    System.out.println("供应者放上了组合一资源");
+                    offer1.release();
+                }else if (i==1){
+                    Thread.sleep(100);
+                    System.out.println("供应者放上了组合二资源");
+                    offer2.release();
+
+                }else if (i==2){
+                    Thread.sleep(100);
+                    System.out.println("供应者放上了组合三资源");
+                    offer3.release();
+
+                }
+                i = (i+1)%3;
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+class smoker1 implements Runnable{
+    @Override
+    public void run() {
+        while (true){
+            try {
+
+                offer1.acquire();
+                Thread.sleep(100);
+                System.out.println("抽烟者一拿走了材料");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }finally {
+                try {
+                    Thread.sleep(300);
+                    System.out.println("抽烟者一卷好了烟");
+                    Thread.sleep(1000);
+                    System.out.println("抽烟者一抽完了烟");
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }finally {
+                    table.release();  //发出完成信号
+                }
+            }
+        }
+    }
+}
+
+
+class smoker2 implements Runnable{
+    @Override
+    public void run() {
+        while (true){
+            try {
+                offer2.acquire();
+                Thread.sleep(100);
+                System.out.println("抽烟者二拿走了材料");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }finally {
+                try {
+                    Thread.sleep(300);
+                    System.out.println("抽烟者二卷好了烟");
+                    Thread.sleep(1000);
+                    System.out.println("抽烟者二抽完了烟");
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }finally {
+                    table.release();  //发出完成信号
+                }
+            }
+        }
+    }
+}
+
+class smoker3 implements Runnable{
+    @Override
+    public void run() {
+        while (true){
+            try {
+                offer3.acquire();
+                Thread.sleep(100);
+                System.out.println("抽烟者三拿走了材料");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }finally {
+                try {
+                    Thread.sleep(100);
+                    System.out.println("抽烟者三卷好了烟");
+                    Thread.sleep(1000);
+                    System.out.println("抽烟者三抽完了烟");
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }finally {
+                    table.release();  //发出完成信号
+                }
+            }
+        }
+    }
+}</code></pre><p>}</p>
+<p>####读者-写者问题<br>/**</p>
+<ul>
+<li>有读者写者两组并发进程,共享一个文件,当两个或两个以上的读进程同时访问共享数据时,不会有副作用</li>
+<li>若某个写进程和其他进程(读和写)同时访问共享数据时则可能导致数据不一致</li>
+<li>因此要求: 1. 允许多个读者同时对文件读</li>
+<li><ol start="2">
+<li>只允许一个写者往文件中写信息</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>任一写者在完成写操作前不允许其他读者或写者工作</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>写者执行操作前,应让已有的读者和写者全部退出</li>
+</ol>
+</li>
+<li></li>
+<li>关系分析</li>
+<li>互斥关系: 写进程-写进程, 写进程-读进程, 但读与读不互斥</li>
+<li>写者与任何进程都互斥,设置一个互斥信号量rw,在写者访问前后PV</li>
+<li>读者与写者也互斥,因此读者操作前后也要PV</li>
+<li>但读者之间不互斥,所以只让第一个读进程”加锁”, 最后一个读进程”解锁”</li>
+<li>设置一个count来记录当前有几个读进程在访问</li>
+<li></li>
+<li>若两个读进程并发执行, 则有可能先后执行P(rw), 从而使第二个阻塞</li>
+<li>原因在于对count变量的检查和赋值无法一气呵成</li>
+<li>因此要设置mutex保证对count的访问是互斥的</li>
+<li></li>
+<li>潜在问题: 只要有读进程在读,写进程就要一直阻塞等待,可能”饿死”</li>
+<li>增加一个互斥信号量,实现”写优先”</li>
+<li></li>
+<li>/</li>
+</ul>
+<p>public class 读者写者问题 {<br>    private static int count = 0;    //记录当前第几个读进程</p>
+<pre><code>private Semaphore rw = new Semaphore(1);     //用于实现对文件互斥访问,表示当前是否有访问
+private Semaphore mutex = new Semaphore(1);  //用于保证对count变量的互斥访问
+private Semaphore w = new Semaphore(1);      //用于实现"写优先"
+
+public static void main(String[] args) {
+
+    读者写者问题 test = new 读者写者问题();
+
+    new Thread(test.new reader()).start();
+    new Thread(test.new writer()).start();
+    new Thread(test.new reader()).start();
+    new Thread(test.new reader()).start();
+    new Thread(test.new reader()).start();
+    new Thread(test.new reader()).start();
+}
+
+class writer implements Runnable{
+
+    @Override
+    public void run() {
+        while (true){
+            try {
+                w.acquire();   // P(w)
+                rw.acquire();  // P(rw)  对文件访问加锁
+                System.out.println(Thread.currentThread().getName()+"写进程正在写文件");
+                Thread.sleep(100);
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }finally {
+                System.out.println(Thread.currentThread().getName()+"写进程写完了");
+                rw.release();  //写完后加锁
+                w.release();
+            }
+        }
+    }
+}
+
+class reader implements Runnable{
+
+    @Override
+    public void run() {
+        while (true){
+            try {
+                w.acquire();   // P(w)
+
+                mutex.acquire();  // P(mutex) 各读进程互斥访问count
+                if (count == 0){
+                    rw.acquire();  // P(rw)  第一个读进程对文件访问加锁
+                }
+                count++;
+                mutex.release();  // V(mutex)
+
+                w.release();      // V(w)
+
+
+                System.out.println(Thread.currentThread().getName()+"读进程正在读文件");
+                Thread.sleep(1000);
+                System.out.println(Thread.currentThread().getName()+"读进程读完了");
+
+                mutex.acquire();
+                count--;
+                if (count==0){
+                    rw.release();  //最后一个读进程负责解锁
+                }
+                mutex.release();
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}</code></pre><p>}</p>
+<p>读者-写者问题为我们解决复杂的互斥问题提供了一个参考思路.<br>其核心思想在于设置一个计数器count用来记录当前正在访问共享文件的读进程数.<br>我们可以用count的值判断当前进入的进程是否是第一个/最后一个读进程,从而做出不同的处理<br>另外,对count变量的检查和赋值不能一气呵成导致了一些错误,如果需要实现”一气呵成”,自然应该想到用互斥信号量</p>
+<p>####哲学家进餐问题</p>
+<p>/**</p>
+<ul>
+<li>一张桌子上五个哲学家,每两个哲学家间摆一根筷子,桌子中间一碗饭. 哲学家只思考与吃饭. 哲学家思考时不影响他人.</li>
+<li>只有当哲学家饥饿时,才试图拿左右两根筷子(一根一根拿起). 如果筷子在他人手上则需等待.</li>
+<li>只有同时那两根筷子才可以进餐,完毕后继续思考</li>
+<li></li>
+<li>关系分析</li>
+<li>互斥关系: 哲学家与左右邻居对中间的筷子是互斥关系.</li>
+<li>如何避免临界资源分配不当造成死锁是该问题的关键</li>
+<li></li>
+<li>仅当一个哲学家左右两只筷子都可用时才允许他抓起筷子</li>
+<li>/</li>
+</ul>
+<p>如果5个人同时拿起一只筷子,则造成”死锁”<br>如何防止死锁</p>
+<ol>
+<li>可以对哲学家进程施加限制,比如最多允许4个哲学家同时进餐.<br> 这样至少有一个人可以拿两只</li>
+<li>要求奇数号先左后右,偶数号相反<br>这就保证相邻两人只有一人会拿起一只筷子,另一个直接阻塞,就避免了占用一只后再等待另一只的情况</li>
+<li>仅当一个哲学家左右两只筷子都可用时才允许他抓起筷子</li>
+</ol>
+<p>public class 哲学家进餐 {</p>
+<pre><code>Semaphore[] chopsticks = {new Semaphore(1),new Semaphore(1),new Semaphore(1),new Semaphore(1),new Semaphore(1)};
+Semaphore mutex = new Semaphore(1); //互斥的取筷子
+
+public static void main(String[] args) {
+
+    哲学家进餐 test = new 哲学家进餐();
+
+    new Thread(test.new p0()).start();
+    new Thread(test.new p1()).start();
+    new Thread(test.new p2()).start();
+    new Thread(test.new p3()).start();
+    new Thread(test.new p4()).start();
+}
+
+class p0 implements Runnable{
+
+    @Override
+    public void run() {
+        while (true){
+            try {
+                mutex.acquire();
+                chopsticks[0].acquire();   //拿左筷子
+                chopsticks[(0+1)%5].acquire();  //拿右筷子
+                mutex.release();
+
+                System.out.println("哲学家0正在吃饭");
+                Thread.sleep(1000);
+                System.out.println("哲学家0继续思考");
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }finally {
+                chopsticks[0].release();  //放下左筷子
+                chopsticks[(0+1)%5].release();  //放下右筷子
+
+            }
+
+        }
+    }
+}
+
+class p1 implements Runnable{
+
+    @Override
+    public void run() {
+        while (true){
+            try {
+                mutex.acquire();
+                chopsticks[1].acquire();   //拿左筷子
+                chopsticks[(1+1)%5].acquire();  //拿右筷子
+                mutex.release();
+
+                System.out.println("哲学家1正在吃饭");
+                Thread.sleep(1000);
+                System.out.println("哲学家1继续思考");
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }finally {
+                chopsticks[1].release();  //放下左筷子
+                chopsticks[(1+1)%5].release();  //放下右筷子
+            }
+
+        }
+    }
+}
+
+class p2 implements Runnable{
+
+    @Override
+    public void run() {
+        while (true){
+            try {
+                mutex.acquire();
+                chopsticks[2].acquire();   //拿左筷子
+                chopsticks[(2+1)%5].acquire();  //拿右筷子
+                mutex.release();
+
+                System.out.println("哲学家2正在吃饭");
+                Thread.sleep(1000);
+                System.out.println("哲学家2继续思考");
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }finally {
+                chopsticks[2].release();  //放下左筷子
+                chopsticks[(2+1)%5].release();  //放下右筷子
+            }
+
+        }
+    }
+}
+
+class p3 implements Runnable{
+
+    @Override
+    public void run() {
+        while (true){
+            try {
+                mutex.acquire();
+                chopsticks[3].acquire();   //拿左筷子
+                chopsticks[(3+1)%5].acquire();  //拿右筷子
+                mutex.release();
+
+                System.out.println("哲学家3正在吃饭");
+                Thread.sleep(1000);
+                System.out.println("哲学家3继续思考");
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }finally {
+                chopsticks[3].release();  //放下左筷子
+                chopsticks[(3+1)%5].release();  //放下右筷子
+            }
+
+        }
+    }
+}
+
+class p4 implements Runnable{
+
+    @Override
+    public void run() {
+        while (true){
+            try {
+                mutex.acquire();
+                chopsticks[4].acquire();   //拿左筷子
+                chopsticks[(4+1)%5].acquire();  //拿右筷子
+                mutex.release();
+
+                System.out.println("哲学家4正在吃饭");
+                Thread.sleep(1000);
+                System.out.println("哲学家4继续思考");
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }finally {
+                chopsticks[4].release();  //放下左筷子
+                chopsticks[(4+1)%5].release();  //放下右筷子
+            }
+
+        }
+    }
+}</code></pre><p>}</p>
+<p>哲学家进餐问题的关键在于解决进程死锁问题的隐患<br>这些进程之间只存在互斥关系,但是与之前接触到的互斥关系不同的是,每个进程都需要同时持有两个临界资源<br>,因此就有死锁问题的隐患</p>
+<p>###管程<br>信号量机制存在的问题: 编写程序困难,易出错,引入”管程”,一种高级同步机制</p>
+<p>定义: 管程是一种特殊的软件模块<br>由以下组成</p>
+<ol>
+<li>局部于管程的共享数据结构说明</li>
+<li>对该数据结构进行操作的一组过程</li>
+<li>对局部于管程的共享数据设置初始值的语句</li>
+<li>管程有一个名字</li>
+</ol>
+<p>管程的基本特征:</p>
+<ol>
+<li>局部于管程的数据只能被局部于管程的过程所访问</li>
+<li>一个进程只有通过调用管程内的过程才能进入管程访问共享数据</li>
+<li>每次仅允许一个进程在管程内执行某个内部过程</li>
+</ol>
+<p>管程就像把PV操作当作语句封装成函数,这些函数又被封装在管程中</p>
+<p>Java中类似于管程的机制<br>用synchronized关键字描述一个函数,则该函数同一时间段只能被一个线程调用</p>
+<p>public class 多线程案例 {</p>
+<pre><code>public static void main(String[] args){
+    //创建包子对象
+    多线程案例.BaoZi bz = new 多线程案例.BaoZi();
+    //创建包子铺线程,开始生产包子
+    new 多线程案例.BaoZiPu(bz).start();
+    //创建顾客线程,开始吃包子
+    new 多线程案例.ChiHuo(bz).start();
+}
+
+static class BaoZi {
+    //皮
+    String pi;
+    //馅
+    String xian;
+    //包子的状态
+    boolean flag = false;
+}
+
+static class BaoZiPu extends Thread{
+    private BaoZi bz;
+
+    public BaoZiPu(BaoZi bz) {
+        this.bz = bz;
+    }
+
+    //设置线程生产包子
+    @Override
+    public void run() {
+        int count = 0;
+        //让包子一直生产到100个包子
+        while(count&lt;100){
+            //同步技术
+            synchronized (bz){
+                if(bz.flag == true){
+                    //包子铺调用wait方法进入等待状态
+                    try {
+                        bz.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                //被唤醒后生产包子
+                //交替生产两种包子
+                if(count%2 == 0){
+                    //生产薄皮三鲜馅儿
+                    bz.pi = "薄皮";
+                    bz.xian = "三鲜馅儿";
+                }else{
+                    //生产冰皮牛肉大葱馅儿
+                    bz.pi = "冰皮";
+                    bz.xian = "牛肉大葱馅儿";
+                }
+                count++;
+
+                System.out.println("包子铺正在做"+bz.pi+bz.xian+"的包子");
+                //做一个包子五秒钟
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                //做好包子,flag改成有
+                bz.flag = true;
+                bz.notify();
+                System.out.println("包子铺做好了"+bz.pi+bz.xian+"的包子");
+            }
+
+        }
+    }
+}
+
+static class ChiHuo extends Thread {
+    private BaoZi bz;
+
+    public ChiHuo(BaoZi bz) {
+        this.bz = bz;
+    }
+
+    @Override
+    public void run() {
+        int count=0;
+        while(count&lt;100){
+            synchronized (bz){
+                if(bz.flag == false){
+                    try {
+                        bz.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                //被唤醒后吃包子
+                System.out.println("顾客在吃"+bz.pi+bz.xian+"的包子");
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                //吃完包子修改状态为没有
+                bz.flag = false;
+                count++;
+                //唤醒包子铺继续生产
+                bz.notify();
+                System.out.println("顾客把"+bz.pi+bz.xian+"的包子吃完了");
+                System.out.println("--------------------------------------");
+            }
+        }
+    }
+}</code></pre><p>}</p>
+<p>###死锁<br>在并发环境下,各进程因竞争资源而造成的一种互相等待对方手里的资源,导致进程都阻塞,都无法向前推进的现象</p>
+<p>死锁,饥饿,死循环的区别<br>饥饿: 长期得不到想要的资源,某进程无法向前推进的现象<br>死循环: 某进程执行过程中一直跳不出某个循环的现象</p>
+<p>死锁至少两个或两个以上的进程同时发生<br>饥饿可能只有一个进程<br>死锁和饥饿是管理者(操作系统的问题),死循环是被管理者(程序)的问题</p>
+<p>死锁产生的必要条件:<br>    1. 互斥条件: 只有对必须互斥使用的资源的争抢才会导致死锁<br>    2. 不剥夺条件: 进程所获得的资源在未使用完之前,不能由其他进程强行夺走,只能主动释放<br>    3. 请求和保持条件: 进程已经保持了至少一个资源,但又提出了新的资源请求,而该资源已被占有<br>    4. 循环等待条件: 存在一种进程资源的循环等待链, 链中每一个进程已得资源同时被下一进程请求</p>
+<pre><code>注: 发生死锁一定有循环等待,但循环等待不一定死锁</code></pre><p>###死锁的处理</p>
+<p>预防死锁: 破坏四个必要条件之一或几个<br>避免死锁: 用某种方法防止系统进入不安全状态(银行家算法)<br>死锁的检测和解除: 允许死锁的发生,然后采取某种措施接触死锁</p>
+<ol>
+<li><p>预防死锁</p>
+<ol>
+<li><p>破坏互斥<br> 把只能互斥使用的资源改造成允许共享使用<br> Spoling技术, 吧独占设备在逻辑上改造成共享设备</p>
+</li>
+<li><p>破坏不剥夺<br> 方案一: 当某进程请求资源得不到满足时,必须立即释放</p>
+<pre><code> 可能导致饥饿</code></pre><p> 方案二: 由操作系统协助强行剥夺</p>
+<pre><code> 反复申请释放,增大了开销</code></pre></li>
+<li><p>破环请求和保持条件<br> 采用静态分配方法,即进程一次申请所需全部资源,在资源未满足前不让他投入运行<br> 投入运行后这些资源一直归他所有,不会再请求别的资源<br> 资源利用率极低,且可能导致饥饿</p>
+</li>
+<li><p>破坏循环等待<br> 采用顺序资源分配法,首先给系统中的资源编号,规定每个进程必须按编号递增的顺序请求资源<br> 同类资源(即编号相同的资源)一次申请完<br> 原理: 一个进程只有占有小编号的资源是，才有资格申请更大编号的资源。</p>
+<pre><code>   按此规则，以持有大编号资源的进程不可能逆向地回来申请小编号的资源，从而就不会产生循环等待的现象</code></pre><p> 不方便新增设备,可能重新分配所有的编号<br> 进程实际使用资源可能和编号递增顺序不一致,导致资源浪费<br> 必须按规定次序申请资源,用户编程麻烦</p>
+</li>
+</ol>
+</li>
+<li><p>避免死锁<br> 安全序列:</p>
+<pre><code> 指如果系统按照某种序列分配资源,则每个进程都能顺利完成.
+ 只要找出一个安全序列,系统就是安全状态,安全序列可能有多个</code></pre><p> 安全状态一定不会死锁,不安全状态可能会死锁</p>
+<p> 银行家算法</p>
+<pre><code> 核心思想：在进程提出资源申请时，先预判此次分配是否会导致系统进入不安全状态。如果会进入不安全状态，就暂不答应这次请求
+           让该进程先阻塞等待</code></pre><p> 实例：银行家手里有100亿</p>
+<pre><code>   B厂最多会借70亿
+   A厂最多会借40亿
+   T厂最多会借50亿
+   如果借给企业总数达不到企业提出的最大要求，钱就拿不回来
+ 最大需求    已借走   最多还会借</code></pre><p> B      70         20         50<br> A      40         10         30<br> T      50         30         20</p>
+<p> 银行家算法步骤</p>
+<ol>
+<li><p>检查此次申请是否超过了之前声明的最大需求数</p>
+</li>
+<li><p>检查此时系统剩余的可用资源是否还能满足这次请求</p>
+</li>
+<li><p>试探着分配，更改各数据结构</p>
+</li>
+<li><p>用安全性算法检查此次分配是否会导致系统进入不安全状态</p>
+<p>安全性算法步骤<br>检查当前的剩余可用资源是否满足某个进程的最大需求<br>如果可以，就把该进程加入安全序列，并把该进程持有的资源全部回收<br>不断重复上述过程，看最终是否能让所有进程加入安全序列</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>public class 银行家算法 {</p>
+<pre><code>int[] Available = {10, 8, 7};
+int[][] Max = new int[3][3];
+int[][] Alloction = new int[3][3];
+int[][] Need = new int[3][3];
+int[][] Request = new int[3][3];
+int[] Work = new int[3];
+
+int num = 0;//进程编号
+Scanner in = new Scanner(System.in);
+
+public 银行家算法() {
+    // Max={{6,3,2},{5,6,1},{2,3,2}};
+
+}
+
+public void setSystemVariable(){//设置各初始系统变量，并判断是否处于安全状态。
+    setMax();
+    setAlloction();
+    printSystemVariable();
+    SecurityAlgorithm();
+}
+
+public void setMax() {//设置Max矩阵
+    System.out.println("请设置各进程的最大需求矩阵Max：");
+    for (int i = 0; i &lt; 3; i++) {
+        System.out.println("请输入进程P" + i + "的最大资源需求量：");
+        for (int j = 0; j &lt; 3; j++) {
+            Max[i][j] = in.nextInt();
+        }
+    }
+}
+
+public void setAlloction() {//设置已分配矩阵Alloction
+    System.out.println("请设置请各进程分配矩阵Alloction：");
+    for (int i = 0; i &lt; 3; i++) {
+        System.out.println("晴输入进程P" + i + "的分配资源量：");
+        for (int j = 0; j &lt; 3; j++) {
+            Alloction[i][j] = in.nextInt();
+        }
+    }
+    System.out.println("Available=Available-Alloction.");
+    System.out.println("Need=Max-Alloction.");
+    for (int i = 0; i &lt; 3; i++) {//设置Alloction矩阵
+        for (int j = 0; j &lt; 3; j++) {
+            Available[i] = Available[i] - Alloction[j][i];
+        }
+    }
+    for (int i = 0; i &lt; 3; i++) {//设置Need矩阵
+        for (int j = 0; j &lt; 3; j++) {
+            Need[i][j] = Max[i][j] - Alloction[i][j];
+        }
+    }
+}
+
+public void printSystemVariable(){
+    System.out.println("此时资源分配量如下：");
+    System.out.println("进程  "+"   Max   "+"   Alloction "+"    Need  "+"     Available ");
+    for(int i=0;i&lt;3;i++){
+        System.out.print("P"+i+"  ");
+        for(int j=0;j&lt;3;j++){
+            System.out.print(Max[i][j]+"  ");
+        }
+        System.out.print("|  ");
+        for(int j=0;j&lt;3;j++){
+            System.out.print(Alloction[i][j]+"  ");
+        }
+        System.out.print("|  ");
+        for(int j=0;j&lt;3;j++){
+            System.out.print(Need[i][j]+"  ");
+        }
+        System.out.print("|  ");
+        if(i==0){
+            for(int j=0;j&lt;3;j++){
+                System.out.print(Available[j]+"  ");
+            }
+        }
+        System.out.println();
+    }
+}
+
+public void setRequest() {//设置请求资源量Request
+
+
+    System.out.println("请输入请求资源的进程编号：");
+    num= in.nextInt();//设置全局变量进程编号num
+    System.out.println("请输入请求各资源的数量：");
+    for (int j = 0; j &lt; 3; j++) {
+        Request[num][j] = in.nextInt();
+    }
+    System.out.println("即进程P" + num + "对各资源请求Request：(" + Request[num][0] + "," + Request[num][1] + "," + Request[num][2] + ").");
+
+    BankerAlgorithm();
+}
+
+public void BankerAlgorithm() {//银行家算法
+    boolean T=true;
+
+    if (Request[num][0] &lt;= Need[num][0] &amp;&amp; Request[num][1] &lt;= Need[num][1] &amp;&amp; Request[num][2] &lt;= Need[num][2]) {//判断Request是否小于Need
+        if (Request[num][0] &lt;= Available[0] &amp;&amp; Request[num][1] &lt;= Available[1] &amp;&amp; Request[num][2] &lt;= Available[2]) {//判断Request是否小于Alloction
+            for (int i = 0; i &lt; 3; i++) {
+                Available[i] -= Request[num][i];
+                Alloction[num][i] += Request[num][i];
+                Need[num][i] -= Request[num][i];
+            }
+
+        } else {
+            System.out.println("当前没有足够的资源可分配，进程P" + num + "需等待。");
+            T=false;
+        }
+    } else {
+        System.out.println("进程P" + num + "请求已经超出最大需求量Need.");
+        T=false;
+    }
+
+    if(T==true){
+        printSystemVariable();
+        System.out.println("现在进入安全算法：");
+        SecurityAlgorithm();
+    }
+}
+
+
+public void SecurityAlgorithm() {//安全算法
+    boolean[] Finish = {false, false, false};//初始化Finish
+    int count = 0;//完成进程数
+    int circle=0;//循环圈数
+    int[] S=new int[3];//安全序列
+    for (int i = 0; i &lt; 3; i++) {//设置工作向量
+        Work[i] = Available[i];
+    }
+    boolean flag = true;
+    while (count &lt; 3) {
+        if(flag){
+            System.out.println("进程  "+"   Work  "+"   Alloction "+"    Need  "+"     Work+Alloction ");
+            flag = false;
+        }
+        for (int i = 0; i &lt; 3; i++) {
+
+            if (Finish[i]==false&amp;&amp;Need[i][0]&lt;=Work[0]&amp;&amp;Need[i][1]&lt;=Work[1]&amp;&amp;Need[i][2]&lt;=Work[2]) {//判断条件
+                System.out.print("P"+i+"  ");
+                for (int k = 0; k &lt; 3; k++){
+                    System.out.print(Work[k]+"  ");
+                }
+                System.out.print("|  ");
+                for (int j = 0; j&lt;3;j++){
+                    Work[j]+=Alloction[i][j];
+                }
+                Finish[i]=true;//当当前进程能满足时
+                S[count]=i;//设置当前序列排号
+
+                count++;//满足进程数加1
+                for(int j=0;j&lt;3;j++){
+                    System.out.print(Alloction[i][j]+"  ");
+                }
+                System.out.print("|  ");
+                for(int j=0;j&lt;3;j++){
+                    System.out.print(Need[i][j]+"  ");
+                }
+                System.out.print("|  ");
+                for(int j=0;j&lt;3;j++){
+                    System.out.print(Work[j]+"  ");
+                }
+                System.out.println();
+            }
+
+        }
+        circle++;//循环圈数加1
+
+        if(count==3){//判断是否满足所有进程需要
+            System.out.print("此时存在一个安全序列：");
+            for (int i = 0; i&lt;3;i++){//输出安全序列
+                System.out.print("P"+S[i]+" ");
+            }
+            System.out.println("故当前可分配！");
+            break;//跳出循环
+        }
+        if(count&lt;circle){//判断完成进程数是否小于循环圈数
+            count=5;
+            System.out.println("当前系统处于不安全状态，故不存在安全序列。");
+            break;//跳出循环
+        }
+    }
+}</code></pre><p>}</p>
+<ol start="3">
+<li><p>检测和解除<br> 为了能对系统是否已发生了死锁进行检测，必须：</p>
+<ol>
+<li><p>用资源分配图来保存资源的请求和分配信息</p>
+</li>
+<li><p>提供了一种算法，利用上述信息来检测系统是否已进入死锁状态</p>
+<p>资源分配图：<br> 两种节点：</p>
+<pre><code> 进程节点：对应一个进程
+ 资源节点：对应一类资源，一类资源可能有多个</code></pre><p> 两种边：</p>
+<pre><code> 进程节点-&gt;资源节点: 表示进程想申请几个资源,每条边代表一个
+ 资源节点-&gt;进程节点: 表示已经为进程分配了几个资源,每条边代表一个</code></pre><p>一般用矩形表示资源节点,矩形中的圆代表资源<br>稀疏图用邻接表表示, 稠密图用邻接矩阵</p>
+<p>检测死锁的算法</p>
+</li>
+<li><p>在图中找出既不阻塞也不是孤点的进程pi(即找出一条有向边与它相连,<br>且该有向边对应资源的申请数量小于等于系统中已有空闲资源数量),<br>有足够的空闲资源使该进程完成,消去该进程的边,释放资源</p>
+</li>
+<li><p>释放资源可以唤醒某些阻塞的进程,重复操作</p>
+<p>若最终能消除所有边,就称这个图可以完全简化,此时一定没有死锁,否则就发生了死锁</p>
+<p>死锁的解除:<br>一旦检测出死锁的发生,就应该立即解除死锁. 并不是系统中所有进程的死锁状态,<br>用死锁检测算法化简图后还连着边的进程就是死锁进程</p>
+</li>
+<li><p>资源剥夺法<br>挂起某些死锁进程,并抢占他的资源<br>但要防止被挂起后饥饿</p>
+</li>
+<li><p>撤销进程法(终止进程法)<br>强制撤销部分,甚至全部死锁进程,并剥夺资源<br>实现简单,但付出代价很大,可能已经运行快结束了,也要从头再来</p>
+</li>
+<li><p>进程回退法<br>让一个或多个死锁进程回退到足以避免死锁的地步</p>
+<p>决定对哪个进程动手</p>
+</li>
+<li><p>进程优先级 低的先剥夺</p>
+</li>
+<li><p>已执行多长时间 短的先</p>
+</li>
+<li><p>还要多久完成 长的先</p>
+</li>
+<li><p>进程已经使用了多少资源 劫富济贫</p>
+</li>
+<li><p>进程是交互式的还是批处理式 优先杀批处理式的</p>
+</li>
+</ol>
+</li>
+</ol>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1089,7 +2136,7 @@
                     </span>
                     <a href="https://sqtian-hhu.github.io" class="b-link-green">世庆的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2021/05/10/cao-zuo-xi-tong-di-er-zhang/" class="b-link-green">进程</a>
+                    <a href="/2021/05/10/cao-zuo-xi-tong-di-er-zhang/" class="b-link-green">第二章</a>
                 </p>
             </div>
 
@@ -1440,18 +2487,18 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="进程">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="第二章">
                         
-                        <span class="card-title">进程</span>
+                        <span class="card-title">第二章</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            第二章##进程
+                            第二章###进程
 程序：就是一个指令序列进程：程序的一次执行过程
 单道程序程序的代码放在程序段内，程序运行过程处理的数据放在数据段内
-多道程序技术：多道程序并发执行系统为每个运行的程序配置一个数据结构，称为进程控制块（PCB）用来存放进程描述
+多道程序技术：多道程序并发执行系统为每个运行的程序配置一个数据结构，称为进程控制块（PCB）用来存放进程描
                         
                     </div>
                     <div class="publish-info">
@@ -1493,17 +2540,17 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="操作系统">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="第一章">
                         
-                        <span class="card-title">操作系统</span>
+                        <span class="card-title">第一章</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             ##第一章
-##操作系统的概念Operating System 是指控制整个计算机系统的硬件和软件资源，并合理的组织调度计算机的工作和资源的分配，以提供给用户和其他软件方便的接口和环境，它是系统中最基本的系统软件。
-进程：一个程序的执行过程
+###操作系统的概念Operating System 是指控制整个计算机系统的硬件和软件资源，并合理的组织调度计算机的工作和资源的分配，以提供给用户和其他软件方便的接口和环境，它是系统中最基本的系统软件。
+进程：一个程序的执行过
                         
                     </div>
                     <div class="publish-info">
@@ -1701,7 +2748,7 @@
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">148.7k</span> 字
+                <span class="white-color">156k</span> 字
             
 
             
