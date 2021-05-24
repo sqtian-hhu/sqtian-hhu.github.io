@@ -6,13 +6,12 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="&#39;JavaNote01&#39;, 深度学习 故障诊断 Java">
+    <meta name="keywords" content="第三章, 深度学习 故障诊断 Java">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="第二章 日期时间类2.1 Date类    表示日期时间的类，精确到毫秒，特定的瞬间    当前日期：2088-01-01    时间原点：1970-01-01 00:00:00(英国格林威治)
-
-
-public class Demo01D">
+    <meta name="description" content="##第三章
+##内存内存是用于存放数据的硬件。程序执行前需要先放到内存中才能被cpu处理
+逻辑地址与物理地址四个学号分别为0，1，2，3，安排到酒店5，6，7，8号房间0, 1, 2, 3：相对位置 -&amp;gt; 逻辑地址5, 6, 7, 8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +19,7 @@ public class Demo01D">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>&#39;JavaNote01&#39; | 世庆的博客</title>
+    <title>第三章 | 世庆的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -625,7 +624,7 @@ public class Demo01D">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        &#39;JavaNote01&#39;
+                        第三章
                     </div>
                 </div>
             </div>
@@ -737,8 +736,8 @@ public class Demo01D">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java基础/" target="_blank">
-                                <span class="chip bg-color">Java基础</span>
+                            <a href="/tags/内存/" target="_blank">
+                                <span class="chip bg-color">内存</span>
                             </a>
                         
                     </div>
@@ -749,8 +748,8 @@ public class Demo01D">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Java/" class="post-category" target="_blank">
-                                Java
+                            <a href="/categories/操作系统/" class="post-category" target="_blank">
+                                操作系统
                             </a>
                         
                     </div>
@@ -761,13 +760,13 @@ public class Demo01D">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-12
+                    2021-05-24
                 </div>
 
                 <div class="post-author info-break-policy">
                     <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
                     
-                        ShiQing
+                        世庆
                     
                 </div>
 
@@ -775,14 +774,14 @@ public class Demo01D">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2k
+                        3.3k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        9 分
+                        11 分
                     </div>
                     
                 
@@ -799,192 +798,139 @@ public class Demo01D">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="第二章-日期时间类"><a href="#第二章-日期时间类" class="headerlink" title="第二章 日期时间类"></a>第二章 日期时间类</h2><p>2.1 Date类<br>    表示日期时间的类，精确到毫秒，特定的瞬间<br>    当前日期：2088-01-01<br>    时间原点：1970-01-01 00:00:00(英国格林威治)</p>
-<a id="more"></a>
+                <p>##第三章</p>
+<p>##内存<br>内存是用于存放数据的硬件。程序执行前需要先放到内存中才能被cpu处理</p>
+<p>逻辑地址与物理地址<br>四个学号分别为0，1，2，3，安排到酒店5，6，7，8号房间<br>0, 1, 2, 3：相对位置 -&gt; 逻辑地址<br>5, 6, 7, 8: 绝对位置 -&gt; 物理地址</p>
+<p>从写程序到程序运行</p>
+<p>程序员 -编辑-&gt; 源代码文件1 ——&gt;目标模块1 (逻辑地址)<br>               源代码文件2 -编译-&gt;目标模块2    —-链接—-&gt;装入模块 形成完整逻辑地址 —&gt;内存 物理地址<br>               源代码文件3 ——&gt;目标模块3</p>
+<p>编译: 由编译程序将用户源代码编译成若干个目标模块(编译就是把高级语言翻译成机器语言)<br>链接: 由链接程序将编译后形成的一组目标模块,以及所需库函数链接在一起,形成一个完整的装入模块<br>装入(装载): 由装入程序将装入模块装入内存运行<br>###装入的三种方式<br>    完成逻辑地址–&gt;物理地址转换</p>
+<ol>
+<li>绝对装入</li>
+<li>静态重定位</li>
+<li>动态重定位</li>
+</ol>
+<p>绝对装入<br>    在编译时,如果知道程序将放到内存中的哪个位置, 编译程序将产生绝对地址的目标地址<br>    绝对装入只适用于单道程序环境</p>
+<p>静态重定位<br>    装入时转换<br>    由装入程序对地址”重定位”, 根据内存情况,将装入模块装入到内存的适当位置<br>    特点: 装入一个作业时,必须分配其要求的全部内存空间.<br>          如果没有足够的内存,就不能装入<br>          作业一旦进入内存,运行期间就不能再移动<br>    早期多道批处理系统</p>
+<p>动态重定位<br>    运行时转换<br>    装入后并不会立即改为物理地址, 而是把地址转换推迟到程序真正要执行时才进行.<br>    因此装入内存的所有地址依然是逻辑地址.<br>    需要一个重定位寄存器的支持,存放装入模块存放的起始位置<br>    允许程序在内存中发生移动(改变寄存器的值), 还可以分配不连续的地区<br>    现代操作系统</p>
+<p>##内存管理</p>
+<ol>
+<li>OS负责内存空间的分配与回收{连续,非连续}</li>
+<li>OS需要提供某种技术从逻辑上对内存空间进行扩充</li>
+<li>OS需要提供地址转换功能, 负责程序的逻辑地址与物理地址的转换</li>
+<li>OS需要提供内存保护功能,保证各进程在各自存储空间内运行,互不干扰</li>
+</ol>
+<p>两种保护方式</p>
+<ol>
+<li>设置上下限寄存器, 上下限物理地址</li>
+<li>利用重定位寄存器(基址寄存器: 起始物理地址),界地址寄存器(限长寄存器: 最大逻辑地址)</li>
+</ol>
+<p>内存空间的扩充<br>    覆盖技术<br>    交换技术<br>    虚拟存储技术</p>
+<p>###覆盖与交换</p>
+<ol>
+<li><p>覆盖技术<br> 用来解决”程序大小超过物理内存总和”的问题<br> 将程序分为多个段(多个模块).<br> 常用的段常驻内存, 不常用的段在需要时调入内存</p>
+<p> 内存中分为一个”固定区”和若干个”覆盖区”</p>
+<p> 必须由程序员声明覆盖结构,操作系统完成自动覆盖.<br> 缺点: 对用户不透明,增加了用户编程负担<br> 现已经很少使用了</p>
+</li>
+<li><p>交换技术<br> 内存空间紧张时,系统将内存中某些进程暂时换出内存(挂起),<br> 把外存中某些已具备运行条件的进程换入内存(进程在内存与磁盘间动态调度)</p>
+<p> PCB常驻内存</p>
+<p> 中级调度(内存调度), 就是要决定将哪个处于挂起状态的进程重新调入内存</p>
+<p> 磁盘存储分成文件区和对换区<br> 文件区主要用于存放文件, 主要追求存储空间的利用率, 采用离散分配方式<br> 对换区只占磁盘的小部分, 被换出的进程存于此, 采用连续分配方式, 追求换入换出的速度<br> 对换区的I/O速度比文件区更快</p>
+<p> 覆盖是在同一个程序或进程中进行<br> 交换是在不同进程或作业之间进行的</p>
+</li>
+</ol>
+<p>###连续分配管理方式<br>    为用户进程分配的必须是一个连续的内存空间</p>
+<pre><code>单一连续分配
+固定分区分配
+动态分区分配</code></pre><p>单一连续分配<br>    内存被分为系统区和用户区<br>    系统区通常位于内存的低地址部分,用于存放操作系统相关数据;<br>    用户区只能有一道用户程序, 用户程序独占整个用户空间</p>
+<pre><code>优点: 实现简单; 无外部碎片; 可以采用覆盖技术扩充内存;
+      不一定需要采取内存保护
+缺点: 只能用于单用户,单任务的OS中, 有内部碎片(分配给某进程的内存区域中,如果有些部分没有用上, 就是内部碎片);
+      存储器利用率低</code></pre><p>固定分区分配<br>    为了能在内存中装入多道程序,且这些程序不会相互干扰, 将用户空间划分为若干个固定大小的分区,<br>    在每个分区中只装入一道作业</p>
+<pre><code>系统区  分区1  分区2  分区3 ...
 
-<p>public class Demo01Date{<br>    public static void main(String[] args){<br>        System.out.println(System.currentTimeMiLLis());//获取时间原点到当前时间经历了多少毫秒</p>
-<pre><code>}</code></pre><p>}</p>
-<p>public class Demo02Date {<br>    public static void main(String[] args) {<br>//        demo01();<br>        demo02();<br>        demo03();<br>    }</p>
-<pre><code>//成员方法 Long getTime() 把日期转换为毫秒
-private static void demo03() {
-    Date date = new Date();
-    long time = date.getTime();
-    System.out.println(time);//1583119265044
-}
+分区大小相等: 缺乏灵活性, 但适用于一台计算机控制多个相同对象的场合
+分区大小不相等: 增加灵活性, 可以满足不同大小的进程需求
 
-//带参数的构造方法
-//Date(Long date) 传递毫秒值，把毫秒值转换为Date日期
-private static void demo02() {
-    Date date = new Date(1583119265044L);
-    System.out.println(date);
-}
+OS需要建立一个分区说明表来实现各个分区的分配与回收
 
-// Date类空参数构造方法
-private static void demo01() {
-    Date date = new Date();
-    System.out.println(date);
+优点: 实现简单, 无外部碎片
+缺点: 如果程序太大,所有分区都无法满足则只能使用覆盖技术解决, 会产生内部碎片</code></pre><p>动态分区分配<br>    可变分区分配, 这种分配方式不会预先划分内存分区, 而是在进程装入内存时,<br>    根据进程的大小动态地建立分区, 并使分区的大小正好适合进程的需要.<br>    因此分区的大小和数目是可变的</p>
+<pre><code>系统要用什么样的数据结构记录内存的使用情况呢?
+两种常用的数据结构: 空闲分区表
+                    空闲分区链
 
-}</code></pre><p>}</p>
-<p>2.2 DateFormat类<br>    java.text<br>    日期时间格式化子类的抽象类</p>
-<p>public class Demo01DateFormat {<br>    /*<br>    成员方法：<br>    String format(Date date) 按照指定模式，把Date日期格式化为符合模式的字符串<br>    Date parse(String source) 把符合模式的字符串解析为Date日期 throws 抛出异常<br>    构造方法：<br>    SimpleDateFormat(String pattern) 用给定模式构造<br>    y 年 M 月 d 日 H 时 m 分 s 秒<br>    写对应的模式，会把模式替换为对应的日期和时间<br>    ‘yyyy-MM-dd HH:mm:ss’<br>    注意：<br>    模式中的字母不能改，连接模式的符号可以改<br>    ‘yyyy年MM月dd日 HH时mm分ss秒’</p>
-<pre><code> */
+动态分区分配没有内部碎片，但是有外部碎片
+内部碎片：分配给某进程的内存区域中，如果有些部分没有用上
+外部碎片：是指内存中的某些分区由于太小而难以利用
 
-public static void main(String[] args) throws ParseException {
-    demo01();
-    demo02();
-}
+如果内存中空闲空间的总和本来可以满足某进程的要求，但由于进程需要的是一整块连续的内存空间
+因此这些“碎片”不能满足进程的需求
 
-private static void demo01() {
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
-    Date date = new Date();
-    String d = sdf.format(date);
-    System.out.println(date);
-    System.out.println(d);
+可以通过紧凑技术来解决外部碎片，动态重定位装入，修改重定位寄存器
 
-}
+动态分区分配算法
+    当多个空闲分区满足需求时，应该选哪个分区进行分配？
+    1. 首次适应算法
+    2. 最佳适应算法
+    3. 最坏适应算法
+    4. 邻近适应算法
 
-private static void demo02() throws ParseException {
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
-    Date date = sdf.parse("2020年03月02日 13时05分54秒");
-    System.out.println(date);
+首次适应算法
+    思想：每次都从低地址开始查找，找到第一个能满足大小的空闲分区
+    实现：空闲分区以地址递增的次序排列。每次分配内存时顺序查找空闲分区链(或空闲分区表)
+          找到大小能满足要求的第一个空闲分区
 
-}</code></pre><p>}</p>
-<p>2.4 Calendar类<br>    是一个抽象类，里面提供了很多操作日历字段的方法<br>    无法直接创建对象使用，里面有一个静态方法叫个体Instance(),该方法返回Calendar子类对象</p>
-<pre><code>/*</code></pre><p>常用成员方法：<br>public int get(int field): 返回给定日历字段的值<br>public void set(int field,int value): 将指定日历字段设置为给定值<br>public abstract void add(int field,int amount): 根据日历的规则，为给定日历字段添加或减去指定的时间量<br>public Date getTime(): 返回一个表示此Calendar时间值的Date对象</p>
-<p> */<br>public class CalendarClass {<br>    public static void main(String[] args) {</p>
-<pre><code>    demo01();
-}
+最佳适应算法
+    思想: 由于动态分区分配是一种连续分配方式,为各进程分配的空间必须是连续的一整片区域.
+          因此为了保证当"大进程"到来时能有连续的大片空间, 可以尽可能多的留下大片的空闲区
+          即优先使用更小的空闲区
+    实现: 空闲分区按容量递增次序链接. 每次分配内存时顺序查找空闲分区链(或空闲分区表)
+          找到大小能满足要求的第一个空闲分区
+    缺点: 每次都选最小的分区进行分配, 会留下越来越多的,很小的,难以利用的内存块.
+          因此这种方法会产生很多外部碎片
 
-private static void demo01() {
-    Calendar c = Calendar.getInstance();
-    System.out.println(c);
+最坏适应算法
+    又称最大适应算法
+    思想: 为了解决最佳适应算法的问题(即留下太多难以利用的小碎片),可以在每次分配时优先使用最大的连续空闲区
+          这样分配后的空闲区就不会太小,更方便使用. 
+    实现: 空闲分区按容量递减次序链接. 每次分配内存时顺序查找空闲分区链(或空闲分区表)
+          找到大小能满足要求的第一个空闲分区
+    缺点: 每次都选最大的分区进行分配, 虽然可以让分配后留下的空闲区更大更可用,但是这种方式会导致较大的连续空闲去被迅速用完
+          如果之后有大进程到达,就没有内存分区可用了
 
-    int year = c.get(Calendar.YEAR);
-    System.out.println(year);
-    int month = c.get(Calendar.MONTH) + 1;//计算机中从0开始
-    System.out.println(month);
-    int date = c.get(Calendar.DATE);
-    System.out.println(date);
+邻近适应算法
+    思想: 首次适应算法每次都从链头开始查找. 这可能会导致低地址部分出现很多小的空闲分区
+          而每次分配查找时, 都要经过这些分区, 因此也增加了查找的开销.
+          如果每次都从上次查找结束的位置开始检索,就能解决上述问题
+    实现: 空闲分区以地址递增的次序排列。每次分配内存时从上次查找结束的位置查找空闲分区链(或空闲分区表)
+          找到大小能满足要求的第一个空闲分区
 
-    //set 方法
-    c.set(Calendar.YEAR, 200);
-    c.set(Calendar.MONTH, 3);
-    int year2 = c.get(Calendar.YEAR);
-    System.out.println("after setting" + year2);
-    int month2 = c.get(Calendar.MONTH) + 1;//计算机中从0开始
-    System.out.println("after setting" + month2);
-    //同时设置年月日
+首次适应算法每次都要从头开始查找,每次都检索低地址的小分区. 但是这种规则也决定了当低地址部分有更小的分区可以满足需求时
+会更有可能用到低地址部分的小分区, 也会更有可能把高地址部分的大分区保留下来(最佳适应算法的优点)
+邻近适应算法的规则可能会导致无论低地址,高地址部分的空闲分区都有相同的概率被使用,
+也就导致了高地址部分的大分区更可能被使用,从而划分为小分区,最后导致无大分区可用(最大适应算法的缺点)
 
-    c.set(1997, 3, 10);
-    int year3 = c.get(Calendar.YEAR);
-    System.out.println("after setting" + year3);
-    int month3 = c.get(Calendar.MONTH) + 1;//计算机中从0开始
-    System.out.println("after setting" + month3);
+四种算法综合来看，反而是首次适应算法更好</code></pre><p>###非连续分配<br>连续分配方式的缺点<br>支持多道程序的两种连续分配方式</p>
+<ol>
+<li>固定分区分配: 缺乏灵活性, 会产生大量的内部碎片, 内存的利用率很低</li>
+<li>动态分区分配: 会产生很多外部碎片,虽然可以用”紧凑”技术来处理, 但是”紧凑”的时间代价很高</li>
+</ol>
+<p>如果允许将一个进程分散地装入到许多不相邻的分区中, 便可充分地利用内存,而无需再进行”紧凑”<br>基于这一思想, 产生了”非连续分配方式”, 或者称为”离散分配方式”</p>
+<p>连续分配: 为用户进程分配的必须是一个连续的内存空间<br>非连续分配: 为用户进程分配的可以是一些分散的内存空间</p>
+<p>基本分页存储的管理的思想：把内存分为一个个相等的小分区,每个分区就是一个”页框”,页框号从0开始.<br>    再按照分区大小把进程拆分成一个个小部分, 称为页,从0开始. 各个页面不必连续存放</p>
+<p>如何实现了逻辑地址到物理地址的转换<br>    1. 算出逻辑地址对应的页号<br>    2. 要知道该页号对应页面在内存中的起始地址<br>    3. 算出逻辑地址在页面内的偏移量<br>    4. 物理地址=页面地址+页面偏移量</p>
+<pre><code>页号 = 逻辑地址/页面长度
+业内偏移量=逻辑地址%页面长度
 
-    //add方法
-    c.add(Calendar.YEAR, 8);
-    c.add(Calendar.MONTH, -2);
-    int year4 = c.get(Calendar.YEAR);
-    System.out.println("after setting" + year4);
-    int month4 = c.get(Calendar.MONTH) + 1;//计算机中从0开始
-    System.out.println("after setting" + month4);
+如果每个页面大小为2^k B,用二进制表示逻辑地址, 则末尾k位即为页内偏移量
+其余部分就是页号
 
-    //getTime方法
-    Date d = c.getTime();
-    System.out.println(d);
+为了知道进程的每个页面在内存中存放的位置,操作系统要为每个进程建立一张页表
+页表记录每个页面存进哪个页框
 
-}</code></pre><p>}</p>
-<h2 id="第三章-System类"><a href="#第三章-System类" class="headerlink" title="第三章 System类"></a>第三章 System类</h2><p>提供大量静态方法，可以获取与系统相关的信息或系统级操作<br>常用方法：<br>public static long currentTimeNillis(): 返回以毫秒为单位的当前时间<br>public static void arraycopy(Object src,int srcPos,Object dest,int destPos,int,length): 将数组中指定数据拷贝到另一个数组中</p>
-<p>public class Demo01System {<br>    public static void main(String[] args) {<br>        demo01();<br>        demo02();<br>    }</p>
-<pre><code>private static void demo01() {
-    //public static long currentTimeNillis;//返回以毫秒为单位的当前时间,用来看程序的效率
-    //程序开始前，获取一次
-    long s = System.currentTimeMillis();
-    //执行for循环
-    for (int i = 1; i &lt;= 9999; i++) {
-        System.out.println(i);
-    }
+页号  块号(页框号)
 
-    //程序执行后，获取一次毫秒值
-    long e = System.currentTimeMillis();
-    System.out.println("total"+(e-s)+"ms");
-}
-
-
-private static void demo02() {
-    /*public static void arraycopy(Object src,int srcPos,Object dest,int destPos,int,length)
-    src 源数组
-    srcPos 源数组中的起始位置(起始索引)
-    dest 目标数组
-    destPos 目标数组中的起始位置
-    length 要复制的数组元素的数量
-     */
-
-    // 将src前三个数字复制到dest前三个位置上
-    int [] src = new int[]{1,2,3,4,5};
-    int [] dest = {6,7,8,9,0};
-    System.out.println("before copying"+ Arrays.toString(dest));
-    System.arraycopy(src,0,dest,0,3);
-    System.out.println("after copying"+ Arrays.toString(dest));
-
-}</code></pre><p>}</p>
-<h2 id="第四章-StringBuilder类"><a href="#第四章-StringBuilder类" class="headerlink" title="第四章 StringBuilder类"></a>第四章 StringBuilder类</h2><p>String类是常量，创建之后不可改变。进行字符串相加，内存中就会有多个字符串，占用空间多，效率低下<br>StingBuilder类 字符串缓冲区，可以提高字符串的操作效率底层是一个数组，但没有被final修饰，可以改变长度<br>StringBuilder在内存中始终是一个数组，占用空间少，效率高。初始长度16，如果超出容量，会自动扩容</p>
-<p>public class StringBuilderClass {<br>    /*<br>    构造方法：<br>        StringBuilder() 无参构造<br>        StringBuilder(String str) 带参构造，初始化为指定字符串内容，可用于String-&gt;StringBuilder<br>    常用成员方法：<br>         public StringBuilder append(): 添加任意类型数据的字符串形式，并返回当前对象自身<br>         public String toString(): 将当前StringBuilder对象转换为String，可用于StringBuilder-&gt;String</p>
-<pre><code> */
-
-public static void main(String[] args) {
-    //无参构造
-    StringBuilder bu = new StringBuilder();
-    System.out.println("bu:"+bu);
-
-    //带参构造
-    StringBuilder bu2 = new StringBuilder("abc");
-    System.out.println("bu2:"+bu2);
-
-    StringBuilder bu1 = bu.append("abc");//把bu地址赋值给了bu1
-    System.out.println(bu);//"abc"
-    System.out.println(bu1);//"abc"
-    System.out.println(bu==bu1);//比较的是地址，返回true
-    //实际上使用append方法无需接受返回值
-    bu.append(1);
-    System.out.println(bu);
-    //链式编程，返回的是对象，可以直接再调用方法
-    bu.append("China").append("No.").append("1");
-    System.out.println(bu);
-
-
-    //toSting方法
-    String str = "hello";
-    System.out.println("str:"+str);
-    StringBuilder builder = new StringBuilder(str);
-    builder.append("world");
-    System.out.println("builder:"+builder);
-    String s = builder.toString();
-    System.out.println("s:"+s);
-
-}</code></pre><p>}</p>
-<p>// .var 自动生成变量接收当前对象  new StringBuilder(“abc”).var =&gt;StringBuilder bu2 = new StringBuilder(“abc”);</p>
-<h2 id="第五章-包装类"><a href="#第五章-包装类" class="headerlink" title="第五章 包装类"></a>第五章 包装类</h2><p>Java 提供了两个类型系统，基本类型和引用类型，使用基本类型在于效率，然而很多情况，会创建对象使用<br>因为对象可以做更多的功能，如果想要基本类型像对象一样操作，就可以使用基本类型对应的包装类<br>基本类型：byte, short, int, long, float, double, char, boolean<br>包装类：Byte, Short, Integer, Long, Float, Double, Character, Boolean</p>
-<p>装箱拆箱<br>装箱：把基本类型的数据，包装到包装类中<br>    构造方法：<br>        Integer(int value) 构造一个新分配的Integer对象，它表示指定的int值<br>        Integer(String s) 构造一个新分配的Integer对象，它表示String参数所指示的int值<br>            传递的字符串，必须是基本类型的字符串，否则抛出异常，‘100’正确，‘a’异常<br>    静态方法：<br>        static Integer valueOf(int i) 返回一个表示指定的int值的Intger实例<br>        static Integer valueOf(String s) 返回保存指定的String 的值的Integer对象</p>
-<p>拆箱：在包装类中取出基本类型的数据，包装到包装类中<br>    成员方法：<br>    int intValue() 以int类型返回该Integer的值</p>
-<p>public class Demo01Integer {<br>    public static void main(String[] args) {<br>        //装箱<br>        Integer in1 = new Integer(1);//1<br>        System.out.println(in1);//重写了toString方法<br>        Integer in2 = new Integer(“1”);<br>        System.out.println(in2);//1</p>
-<pre><code>    //静态方法
-    Integer in3 = Integer.valueOf("1");
-    System.out.println(in3);
-
-    //拆箱
-    int i = in1.intValue();
-    System.out.println(i);
-
-    //自动装箱
-    Integer in = 1;
-    //自动拆箱
-    in = in+2;//in是包装类，无法运算，会自动转换成int
-
-}</code></pre><p>}</p>
-<p>基本类型与字符串类型之间的互相转换<br>基本类型-&gt;字符串<br>    1. 基本类型的值 +”” 最简单的方法<br>    2. 包装类的静态方法toString(参数)，不是Obeject类的toString()重载<br>    3. String类的静态方法valueOf(参数)<br>        static String valueOf(int i) </p>
-<p>字符串-&gt;基本类型<br>        使用包装类的静态方法parseXXX(“数值类型的字符串”)<br>        Integer类：static int parseInt(String s)<br>        Double类：static double parseDouble(String s)</p>
-<script>
+=&gt; 物理地址=页框起始地址+页内偏移量</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1152,7 +1098,7 @@ public static void main(String[] args) {
                     </span>
                     <a href="https://sqtian-hhu.github.io" class="b-link-green">世庆的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2020/03/12/javanote01/" class="b-link-green">&#39;JavaNote01&#39;</a>
+                    <a href="/2021/05/24/cao-zuo-xi-tong-di-san-zhang/" class="b-link-green">第三章</a>
                 </p>
             </div>
 
@@ -1175,7 +1121,7 @@ public static void main(String[] args) {
         repo: 'shw2018.github.io',
         owner: 'shw2018',
         admin: ["shw2018"],
-        id: '2020/03/12/javanote01/',
+        id: '2021/05/24/cao-zuo-xi-tong-di-san-zhang/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1494,54 +1440,50 @@ public static void main(String[] args) {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/03/12/javanote02-collection/">
+                <a href="/2021/05/24/cao-zuo-xi-tong-di-san-zhang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="'JavaNote02_Collection'">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="第三章">
                         
-                        <span class="card-title">'JavaNote02_Collection'</span>
+                        <span class="card-title">第三章</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            集合学习集合的目标：
-
-会使用集合存储数据
-会遍历集合，把数据取出来
-掌握每种集合的特性
-
-
-
-集合框架Collection接口-&gt;1. List接口 -&gt;2. Set接口定义的是所有单列集合中共性的方法，都可以使用的方法 (没
+                            ##第三章
+##内存内存是用于存放数据的硬件。程序执行前需要先放到内存中才能被cpu处理
+逻辑地址与物理地址四个学号分别为0，1，2，3，安排到酒店5，6，7，8号房间0, 1, 2, 3：相对位置 -&gt; 逻辑地址5, 6, 7, 8
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category" target="_blank">
-                                    Java
+                            <a href="/categories/操作系统/" class="post-category" target="_blank">
+                                    操作系统
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java基础/" target="_blank">
-                        <span class="chip bg-color">Java基础</span>
+                    <a href="/tags/内存/" target="_blank">
+                        <span class="chip bg-color">内存</span>
                     </a>
                     
                 </div>
@@ -1555,37 +1497,34 @@ public static void main(String[] args) {
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/12/javabasics5/">
+                <a href="/2021/05/10/cao-zuo-xi-tong-di-er-zhang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="'JavaBasics5'">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="第二章">
                         
-                        <span class="card-title">'JavaBasics5'</span>
+                        <span class="card-title">第二章</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            内部类一个事物的内部包含另一个事物，一个类内部包含另一个类
-
-
-
-成员内部类修饰符 class 外部类名称{ 修饰符 class内部类名称{ }}内用外随意，外用内一定要内部对象
-
-public class Body {    //外部类的
+                            第二章###进程
+程序：就是一个指令序列进程：程序的一次执行过程
+单道程序程序的代码放在程序段内，程序运行过程处理的数据放在数据段内
+多道程序技术：多道程序并发执行系统为每个运行的程序配置一个数据结构，称为进程控制块（PCB）用来存放进程描
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-12
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category" target="_blank">
-                                    Java
+                            <a href="/categories/操作系统/" class="post-category" target="_blank">
+                                    操作系统
                                 </a>
                             
                             
@@ -1595,8 +1534,8 @@ public class Body {    //外部类的
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java基础/" target="_blank">
-                        <span class="chip bg-color">Java基础</span>
+                    <a href="/tags/进程/" target="_blank">
+                        <span class="chip bg-color">进程</span>
                     </a>
                     
                 </div>

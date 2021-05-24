@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sqtian-hhu.github.io/"/>
-  <updated>2021-05-23T08:19:02.388Z</updated>
+  <updated>2021-05-24T06:55:14.546Z</updated>
   <id>https://sqtian-hhu.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>第三章</title>
+    <link href="https://sqtian-hhu.github.io/2021/05/24/cao-zuo-xi-tong-di-san-zhang/"/>
+    <id>https://sqtian-hhu.github.io/2021/05/24/cao-zuo-xi-tong-di-san-zhang/</id>
+    <published>2021-05-24T01:06:30.000Z</published>
+    <updated>2021-05-24T06:55:14.546Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;##第三章&lt;/p&gt;
+&lt;p&gt;##内存&lt;br&gt;内存是用于存放数据的硬件。程序执行前需要先放到内存中才能被cpu处理&lt;/p&gt;
+&lt;p&gt;逻辑地址与物理地址&lt;br&gt;四个学号分别为0，1，2，3，安排到酒店5，6，7，8号房间&lt;br&gt;0, 1, 2, 3：相对位置 -&amp;gt;
+        
+      
+    
+    </summary>
+    
+      <category term="操作系统" scheme="https://sqtian-hhu.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="内存" scheme="https://sqtian-hhu.github.io/tags/%E5%86%85%E5%AD%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>第二章</title>
     <link href="https://sqtian-hhu.github.io/2021/05/10/cao-zuo-xi-tong-di-er-zhang/"/>
     <id>https://sqtian-hhu.github.io/2021/05/10/cao-zuo-xi-tong-di-er-zhang/</id>
     <published>2021-05-10T12:37:02.000Z</published>
-    <updated>2021-05-23T08:19:02.388Z</updated>
+    <updated>2021-05-24T01:10:39.752Z</updated>
     
     <summary type="html">
     
@@ -38,7 +66,7 @@
       <category term="操作系统" scheme="https://sqtian-hhu.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
-      <category term="操作系统" scheme="https://sqtian-hhu.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <category term="进程" scheme="https://sqtian-hhu.github.io/tags/%E8%BF%9B%E7%A8%8B/"/>
     
   </entry>
   
@@ -47,7 +75,7 @@
     <link href="https://sqtian-hhu.github.io/2021/04/29/cao-zuo-xi-tong-di-yi-zhang/"/>
     <id>https://sqtian-hhu.github.io/2021/04/29/cao-zuo-xi-tong-di-yi-zhang/</id>
     <published>2021-04-29T12:37:02.000Z</published>
-    <updated>2021-05-23T04:17:49.596Z</updated>
+    <updated>2021-05-24T01:10:30.751Z</updated>
     
     <summary type="html">
     
@@ -65,7 +93,7 @@
       <category term="操作系统" scheme="https://sqtian-hhu.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
-      <category term="操作系统" scheme="https://sqtian-hhu.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <category term="概述" scheme="https://sqtian-hhu.github.io/tags/%E6%A6%82%E8%BF%B0/"/>
     
   </entry>
   
@@ -509,36 +537,6 @@ public String testString(Model model){
     
     
       <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&#39;JavaWebNote06_Http&#39;</title>
-    <link href="https://sqtian-hhu.github.io/2020/05/13/javawebnote06-http/"/>
-    <id>https://sqtian-hhu.github.io/2020/05/13/javawebnote06-http/</id>
-    <published>2020-05-13T03:26:44.000Z</published>
-    <updated>2021-04-22T11:25:40.172Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-       
-        
-      
-    
-    </summary>
-    
-      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
-    
-    
-      <category term="JavaWeb" scheme="https://sqtian-hhu.github.io/tags/JavaWeb/"/>
     
   </entry>
   
