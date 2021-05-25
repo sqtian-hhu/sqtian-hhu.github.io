@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sqtian-hhu.github.io/"/>
-  <updated>2021-05-24T06:55:14.546Z</updated>
+  <updated>2021-05-25T10:31:29.827Z</updated>
   <id>https://sqtian-hhu.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>操作系统第四章</title>
+    <link href="https://sqtian-hhu.github.io/2021/05/25/cao-zuo-xi-tong-di-si-zhang/"/>
+    <id>https://sqtian-hhu.github.io/2021/05/25/cao-zuo-xi-tong-di-si-zhang/</id>
+    <published>2021-05-25T10:31:29.000Z</published>
+    <updated>2021-05-25T10:31:29.827Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;script&gt;
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if (!el.dataset.src) { return; }
+       
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>第三章</title>
     <link href="https://sqtian-hhu.github.io/2021/05/24/cao-zuo-xi-tong-di-san-zhang/"/>
     <id>https://sqtian-hhu.github.io/2021/05/24/cao-zuo-xi-tong-di-san-zhang/</id>
     <published>2021-05-24T01:06:30.000Z</published>
-    <updated>2021-05-24T06:55:14.546Z</updated>
+    <updated>2021-05-25T10:30:56.643Z</updated>
     
     <summary type="html">
     
@@ -509,27 +535,6 @@ public String testString(Model model){
 &lt;li&gt;&lt;p&gt;spring和Junit整合&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
-    
-    
-      <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaNote_Spring_Day01</title>
-    <link href="https://sqtian-hhu.github.io/2020/06/29/javanote-spring-day01/"/>
-    <id>https://sqtian-hhu.github.io/2020/06/29/javanote-spring-day01/</id>
-    <published>2020-06-29T01:54:45.000Z</published>
-    <updated>2021-04-22T11:25:40.128Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Day1&quot;&gt;&lt;a href=&quot;#Day1&quot; class=&quot;headerlink&quot; title=&quot;Day1&quot;&gt;&lt;/a&gt;Day1&lt;/h2&gt;&lt;p&gt;Spring框架的概述以及spring中基于XML的IOC配置&lt;/p&gt;
-&lt;p&gt;程序的耦合&lt;br&gt;    耦合：程序的依赖关系&lt;br&gt;        包括：&lt;br&gt;            类之间的依赖&lt;br&gt;            方法间的依赖&lt;br&gt;    解耦：&lt;br&gt;        降低程序间的依赖关系&lt;br&gt;    实际开发中：&lt;br&gt;        应该做到，编译期不依赖，运行时才依赖&lt;br&gt;    解耦的思路：&lt;br&gt;        第一步：使用反射来创建对象，而避免使用new关键字&lt;br&gt;        第二步：通过读取配置文件来获取要创建的对象全限定类名&lt;/p&gt;
     
     </summary>
     
