@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sqtian-hhu.github.io/"/>
-  <updated>2021-05-25T10:33:18.674Z</updated>
+  <updated>2021-05-26T08:38:53.872Z</updated>
   <id>https://sqtian-hhu.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://sqtian-hhu.github.io/2021/05/25/cao-zuo-xi-tong-di-si-zhang/"/>
     <id>https://sqtian-hhu.github.io/2021/05/25/cao-zuo-xi-tong-di-si-zhang/</id>
     <published>2021-05-25T10:31:29.000Z</published>
-    <updated>2021-05-25T10:33:18.674Z</updated>
+    <updated>2021-05-26T08:38:53.872Z</updated>
     
     <summary type="html">
     
@@ -29,11 +29,10 @@
       
         
         
-          &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-       
+          &lt;p&gt;##文件管理&lt;br&gt;文件就是一组有意义的信息/数据集合&lt;/p&gt;
+&lt;p&gt;同一个目录下不允许有重名文件&lt;/p&gt;
+&lt;p&gt;读文件：将文件从外存读入内存，才能让cpu处理&lt;br&gt;写文件：从内存写回外存&lt;/p&gt;
+&lt;p&gt;无结构文件：如文本文件，由一些二进制或字符流组成，又称“流式文件”&lt;
         
       
     
@@ -42,7 +41,7 @@
       <category term="操作系统" scheme="https://sqtian-hhu.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
-      <category term="文件管理" scheme="https://sqtian-hhu.github.io/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86/"/>
+      <category term="文件" scheme="https://sqtian-hhu.github.io/tags/%E6%96%87%E4%BB%B6/"/>
     
   </entry>
   
