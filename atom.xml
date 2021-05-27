@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sqtian-hhu.github.io/"/>
-  <updated>2021-05-26T08:38:53.872Z</updated>
+  <updated>2021-05-27T05:12:40.609Z</updated>
   <id>https://sqtian-hhu.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>操作系统第五章</title>
+    <link href="https://sqtian-hhu.github.io/2021/05/27/cao-zuo-xi-tong-di-wu-zhang/"/>
+    <id>https://sqtian-hhu.github.io/2021/05/27/cao-zuo-xi-tong-di-wu-zhang/</id>
+    <published>2021-05-27T02:48:40.000Z</published>
+    <updated>2021-05-27T05:12:40.609Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;##I/O设备&lt;br&gt;输入输出&lt;br&gt;将数据输入到计算机或接受计算机输出数据的外部设备&lt;br&gt;鼠标键盘–典型的输入设备&lt;br&gt;显示器–输出&lt;br&gt;移动硬盘–输入输出&lt;/p&gt;
+&lt;p&gt;I/O设备的电子部件（I/O控制器）&lt;br&gt;CPU无法直接控制I/O设备的机械部件，因此I/O
+        
+      
+    
+    </summary>
+    
+      <category term="操作系统" scheme="https://sqtian-hhu.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="I/O设备" scheme="https://sqtian-hhu.github.io/tags/I-O%E8%AE%BE%E5%A4%87/"/>
+    
+  </entry>
+  
+  <entry>
     <title>操作系统第四章</title>
     <link href="https://sqtian-hhu.github.io/2021/05/25/cao-zuo-xi-tong-di-si-zhang/"/>
     <id>https://sqtian-hhu.github.io/2021/05/25/cao-zuo-xi-tong-di-si-zhang/</id>
     <published>2021-05-25T10:31:29.000Z</published>
-    <updated>2021-05-26T08:38:53.872Z</updated>
+    <updated>2021-05-27T02:46:26.613Z</updated>
     
     <summary type="html">
     
@@ -507,36 +534,6 @@ public String testString(Model model){
 &lt;li&gt;&lt;p&gt;spring中基于XML和注解的AOP配置&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt; 编码问题，改成utf8
  &amp;lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:mysql://localhost:3306/lovelycc?characterEncoding=utf8&quot;&amp;gt;&amp;lt;/property&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
-    
-    
-      <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaNote_Spring_Day02</title>
-    <link href="https://sqtian-hhu.github.io/2020/06/29/javanote-spring-day02/"/>
-    <id>https://sqtian-hhu.github.io/2020/06/29/javanote-spring-day02/</id>
-    <published>2020-06-29T01:54:51.000Z</published>
-    <updated>2021-04-22T11:25:40.508Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;day2&quot;&gt;&lt;a href=&quot;#day2&quot; class=&quot;headerlink&quot; title=&quot;day2&quot;&gt;&lt;/a&gt;day2&lt;/h2&gt;&lt;p&gt;spring中基于注解的IOC和ioc的案例&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;spring中ioc的常用注解&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;案例使用xml方式和注解方式实现单表的CRUD操作&lt;br&gt; 持久层技术选择：dbutils&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;改造基于注解的ioc案例，使用纯注解的方式实现&lt;br&gt; spring的一些新注解使用&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;spring和Junit整合&lt;/p&gt;
-&lt;/li&gt;
 &lt;/ol&gt;
     
     </summary>

@@ -775,14 +775,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.5k
+                        4.2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        8 分
+                        14 分
                     </div>
                     
                 
@@ -864,7 +864,170 @@
 <li><p>访问控制<br> 每个文件的FCB中增加一个访问控制表, 记录各个用户可对该文件进行哪些操作</p>
 </li>
 </ol>
-<p>##磁盘</p>
+<p>##磁盘<br>磁盘的表面由一些磁性物质组成，可以用这些磁性物质来记录二进制数据<br>磁盘的盘面被划分为一圈圈磁道。<br>一个磁道又被划分成一个个扇区，每个扇区就是一个个“磁盘块”。各个扇区存放的数据量相同</p>
+<p>如何在磁盘中读写数据：<br>    需要把磁头移动到想要读写的扇区所在的磁道。磁盘会转起来，让目标扇区从磁头下面划过，<br>才能完成对扇区的读写操作<br>每个盘面对应一个磁头，所有磁头都是连在同一个磁臂上的，所有盘面中相对位置相同的磁道组成柱面</p>
+<p>可用（柱面号，盘面号，扇区号）来定位任意一个磁盘块。在“文件的物理结构”小节中，文件数据存放在外存中的几号块<br>这个块号就可以转换成（柱面号，盘面号，扇区号）的地址形式</p>
+<ol>
+<li>根据柱面号移动磁臂，让磁头指向指定柱面</li>
+<li>激活指定盘面对应的磁头</li>
+<li>磁盘旋转的过程中，指定的扇区会从磁头下面划过，这样就完成了对指定扇区的读写</li>
+</ol>
+<p>###磁盘调度算法</p>
+<ol>
+<li>先来先服务算法（FCFS）<br>根据进程请求访问磁盘的先后顺序进行调度<br>假设磁头的初始位置是100号磁道，有多个进程先后陆续地请求访问55，58，39，18，90，160，150，38，184号磁道<br>FCFS算法就按顺序依次访问<br>优点：公平，如果请求访问的磁道比较集中的话，算法性能还行<br>缺点：如果有大量进程竞争使用磁盘，请求访问的磁盘很分散，则FCFS在性能上很差，寻道时间长</li>
+</ol>
+<ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><blockquote>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><p>最短寻找时间优先（SSTF）<br>优先处理的磁道是与当前磁头最近的磁道。可以保证每次的寻道时间最短，但是并不能保证总的寻到时间最短<br>贪心算法的思想<br>优点：性能较好，平均寻道时间短<br>缺点：可能产生”饥饿“现象</p>
+<pre><code>   - -&gt;
+ &lt;- - -
+ - - - - &gt;</code></pre></li>
+<li><p>扫描算法（SCAN）<br>SSTF算法会产生饥饿的原因在于：磁头有可能在一个小区域内来回地移动。为了防止这个问题，可以规定，<br>只有磁头移动到最外侧磁道的时候才能往内移动，移动到最内侧磁道的时候才能往外移动。<br>由于磁头移动的方式很像电梯，因此也叫电梯算法<br>优点：性能较好，平均寻道时间较短，不会产生饥饿现象<br>缺点：1.只有到达最边上的磁道时才能改变磁头移动方向，事实上，处理了184号磁道的访问请求之后就不需要再往右移动磁头了<br>   2.SCAN算法对于各个位置磁道的响应频率不平均（假设此时磁头正在往右移动，且刚处理过90号磁道，那么下次处理90号磁道的请求就需要等磁头移动很长一段距离；<br>   而响应了184号磁道的请求之后，很快又可以再次响应184号磁道的请求了）</p>
+<ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>-&gt;|<br>&lt;- - - - - - - - - - -|</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>LOOK调度算法<br>SCAN算法中，只有到达最边上的磁道时才能改变磁头移动方向，事实上，处理了184号磁道的访问请求之后就不需要再往右移动磁头了。<br>LOOK算法就是为了解决这个问题，如果在磁头移动方向上已经没有别的请求，就可以立即改变磁头移动方向（边移动边观察）<br>优点：比起SCAN算法，不需要每次都移动到最外侧或最内侧才改变磁头方向，使寻道时间进一步缩短</p>
+<ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>-&gt;  |<br>&lt;- - - - - - - -   |      </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>循环扫描算法（C-SCAN）<br>SCAN算法对于各个位置磁道的响应频率不平均，而C-SCAN算法就是为了解决这个问题<br>规定只有磁头朝某个特定方向移动时才处理磁道访问请求，而返回时直接快速移动至起始端而不处理任何请求。</p>
+</li>
+</ol>
+<p>优点：比起SCAN来对于各个位置磁道的响应频率很平均<br>缺点：只有到达最边上才改动磁头移动方向，并且急回时只需要返回18号磁道即可，没必要返回最边缘磁道<br>      - - - - - - - -&gt;|<br>&lt;———————|  急回</p>
+<ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>-&gt;|</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="6">
+<li><p>C-LOOK调度算法<br>如果磁头移动方向上已经没有访问请求了，就可以让磁头立即返回到最里面有访问请求的磁道</p>
+<ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>-&gt;    |<br>&lt;————–    |  急回</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>-&gt;   |</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>###减少磁盘延迟时间的方法<br>寻找时间(寻道时间): 启动磁臂,移动磁头所花的时间<br>延迟时间: 将目标扇区转到磁头下面所花的时间<br>传输时间: 读写数据花费的时间</p>
+<p>磁头读入一个扇区数据需要一小段时间处理,如果逻辑上相邻的扇区物理上也相邻,<br>则读入几个连续逻辑扇区可能要很长的”延迟时间”</p>
+<ol>
+<li><p>交替编号<br>即让逻辑上相邻的扇区在物理上有一定的间隔,可以使读取连续的逻辑扇区所需要的延迟时间更小</p>
+</li>
+<li><p>错位命名<br>让相邻盘面的扇区编号错位<br>上一个盘面的扇区读完后需要隔一段时间处理再读下一个盘面的扇区，因此把对应扇区错位可以减少延迟时间</p>
+</li>
+</ol>
+<p>为什么磁盘的物理地址是(柱面号,盘面号,扇区号)而不是(盘面号,柱面号,扇区号)?<br>    读取地址连续的磁盘块时, 采用(柱面号,盘面号,扇区号)的地址结构可以减少磁头移动消耗的时间</p>
+<p>###磁盘初始化<br>低级格式化/物理格式化：划分扇区<br>磁盘分区（C盘，D盘，E盘）<br>逻辑格式化：建立文件系统（建立根目录文件，建立用于存储空间管理的数据结构）</p>
+<p>引导块：计算机启动时需要运行初始化程序（自举程序）来完成初始化<br>ROM（只读存储器，出厂写入，以后不能再改）中存放很小的自举装入程序<br>完整的自举程序存放在启动块（引导块）中，启动块位于磁盘的固定位置。</p>
+<p>坏块的管理：简单的磁盘：逻辑格式化时将坏块标记出来<br>            复杂的磁盘：磁盘控制器维护一个坏块链，并管理备用扇区</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1375,33 +1538,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/25/cao-zuo-xi-tong-di-si-zhang/">
+                <a href="/2021/05/27/cao-zuo-xi-tong-di-wu-zhang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="操作系统第四章">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="操作系统第五章">
                         
-                        <span class="card-title">操作系统第四章</span>
+                        <span class="card-title">操作系统第五章</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ##文件管理文件就是一组有意义的信息/数据集合
-同一个目录下不允许有重名文件
-读文件：将文件从外存读入内存，才能让cpu处理写文件：从内存写回外存
-无结构文件：如文本文件，由一些二进制或字符流组成，又称“流式文件”有结构文件：如数据库表，由
+                            ##I/O设备输入输出将数据输入到计算机或接受计算机输出数据的外部设备鼠标键盘–典型的输入设备显示器–输出移动硬盘–输入输出
+I/O设备的电子部件（I/O控制器）CPU无法直接控制I/O设备的机械部件，因此I/O设备还要有一个电子部件作为C
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-25
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-27
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1414,12 +1574,11 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/文件/" target="_blank">
-                        <span class="chip bg-color">文件</span>
+                    <a href="/tags/I-O设备/" target="_blank">
+                        <span class="chip bg-color">I/O设备</span>
                     </a>
                     
                 </div>
@@ -1645,7 +1804,7 @@
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">166.7k</span> 字
+                <span class="white-color">169.9k</span> 字
             
 
             
