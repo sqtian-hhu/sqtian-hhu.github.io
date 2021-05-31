@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sqtian-hhu.github.io/"/>
-  <updated>2021-05-27T05:12:40.609Z</updated>
+  <updated>2021-05-31T02:18:57.343Z</updated>
   <id>https://sqtian-hhu.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>操作系统第五章</title>
-    <link href="https://sqtian-hhu.github.io/2021/05/27/cao-zuo-xi-tong-di-wu-zhang/"/>
-    <id>https://sqtian-hhu.github.io/2021/05/27/cao-zuo-xi-tong-di-wu-zhang/</id>
-    <published>2021-05-27T02:48:40.000Z</published>
-    <updated>2021-05-27T05:12:40.609Z</updated>
+    <title>JVM</title>
+    <link href="https://sqtian-hhu.github.io/2021/05/30/jvm/"/>
+    <id>https://sqtian-hhu.github.io/2021/05/30/jvm/</id>
+    <published>2021-05-30T07:06:59.000Z</published>
+    <updated>2021-05-31T02:18:57.343Z</updated>
     
     <summary type="html">
     
@@ -29,8 +29,33 @@
       
         
         
-          &lt;p&gt;##I/O设备&lt;br&gt;输入输出&lt;br&gt;将数据输入到计算机或接受计算机输出数据的外部设备&lt;br&gt;鼠标键盘–典型的输入设备&lt;br&gt;显示器–输出&lt;br&gt;移动硬盘–输入输出&lt;/p&gt;
-&lt;p&gt;I/O设备的电子部件（I/O控制器）&lt;br&gt;CPU无法直接控制I/O设备的机械部件，因此I/O
+          &lt;h2 id=&quot;JVM内存空间&quot;&gt;&lt;a href=&quot;#JVM内存空间&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="JAVA" scheme="https://sqtian-hhu.github.io/categories/JAVA/"/>
+    
+    
+      <category term="JVM" scheme="https://sqtian-hhu.github.io/tags/JVM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>操作系统第五章</title>
+    <link href="https://sqtian-hhu.github.io/2021/05/27/cao-zuo-xi-tong-di-wu-zhang/"/>
+    <id>https://sqtian-hhu.github.io/2021/05/27/cao-zuo-xi-tong-di-wu-zhang/</id>
+    <published>2021-05-27T02:48:40.000Z</published>
+    <updated>2021-05-30T08:13:46.226Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;I-O设备&quot;&gt;&lt;a href=&quot;#I-O设备&quot; class=&quot;headerlink&quot;
         
       
     
@@ -77,7 +102,7 @@
     <link href="https://sqtian-hhu.github.io/2021/05/24/cao-zuo-xi-tong-di-san-zhang/"/>
     <id>https://sqtian-hhu.github.io/2021/05/24/cao-zuo-xi-tong-di-san-zhang/</id>
     <published>2021-05-24T01:06:30.000Z</published>
-    <updated>2021-05-25T10:32:38.515Z</updated>
+    <updated>2021-05-30T08:14:30.437Z</updated>
     
     <summary type="html">
     
@@ -85,9 +110,7 @@
       
         
         
-          &lt;p&gt;##第三章&lt;/p&gt;
-&lt;p&gt;##内存&lt;br&gt;内存是用于存放数据的硬件。程序执行前需要先放到内存中才能被cpu处理&lt;/p&gt;
-&lt;p&gt;逻辑地址与物理地址&lt;br&gt;四个学号分别为0，1，2，3，安排到酒店5，6，7，8号房间&lt;br&gt;0, 1, 2, 3：相对位置 -&amp;gt;
+          &lt;h2 id=&quot;第三章&quot;&gt;&lt;a href=&quot;#第三章&quot; class=&quot;headerlink&quot; title=&quot;第三章&quot;&gt;&lt;/a&gt;第三章&lt;/h2&gt;&lt;h2 id=&quot;内存&quot;&gt;&lt;a href=&quot;#内存&quot; class=&quot;headerlink&quot;
         
       
     
@@ -105,7 +128,7 @@
     <link href="https://sqtian-hhu.github.io/2021/05/10/cao-zuo-xi-tong-di-er-zhang/"/>
     <id>https://sqtian-hhu.github.io/2021/05/10/cao-zuo-xi-tong-di-er-zhang/</id>
     <published>2021-05-10T12:37:02.000Z</published>
-    <updated>2021-05-25T10:32:18.943Z</updated>
+    <updated>2021-05-31T00:56:35.348Z</updated>
     
     <summary type="html">
     
@@ -113,7 +136,7 @@
       
         
         
-          &lt;h2 id=&quot;第二章&quot;&gt;&lt;a href=&quot;#第二章&quot; class=&quot;headerlink&quot;
+          &lt;h2 id=&quot;第二章&quot;&gt;&lt;a href=&quot;#第二章&quot; class=&quot;headerlink&quot; title=&quot;第二章&quot;&gt;&lt;/a&gt;第二章&lt;/h2&gt;&lt;h3 id=&quot;进程&quot;&gt;&lt;a href=&quot;#进程&quot; class=&quot;headerlink&quot;
         
       
     
@@ -131,7 +154,7 @@
     <link href="https://sqtian-hhu.github.io/2021/04/29/cao-zuo-xi-tong-di-yi-zhang/"/>
     <id>https://sqtian-hhu.github.io/2021/04/29/cao-zuo-xi-tong-di-yi-zhang/</id>
     <published>2021-04-29T12:37:02.000Z</published>
-    <updated>2021-05-25T10:32:26.290Z</updated>
+    <updated>2021-05-31T00:54:56.876Z</updated>
     
     <summary type="html">
     
@@ -139,8 +162,7 @@
       
         
         
-          &lt;p&gt;##第一章&lt;/p&gt;
-&lt;p&gt;###操作系统的概念&lt;br&gt;Operating System
+          &lt;h2 id=&quot;第一章&quot;&gt;&lt;a href=&quot;#第一章&quot; class=&quot;headerlink&quot; title=&quot;第一章&quot;&gt;&lt;/a&gt;第一章&lt;/h2&gt;&lt;h3 id=&quot;操作系统的概念&quot;&gt;&lt;a href=&quot;#操作系统的概念&quot; class=&quot;headerlink&quot;
         
       
     
@@ -495,45 +517,6 @@ public String testString(Model model){
      他就是用于和数据库交互的，实现对表的CRUD操作
  如何创建该对象：
  对象中的常用方法&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
-    
-    
-      <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaNote_Spring_Day03</title>
-    <link href="https://sqtian-hhu.github.io/2020/06/29/javanote-spring-day03/"/>
-    <id>https://sqtian-hhu.github.io/2020/06/29/javanote-spring-day03/</id>
-    <published>2020-06-29T01:57:03.000Z</published>
-    <updated>2021-04-22T11:25:39.850Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Day3&quot;&gt;&lt;a href=&quot;#Day3&quot; class=&quot;headerlink&quot; title=&quot;Day3&quot;&gt;&lt;/a&gt;Day3&lt;/h2&gt;&lt;p&gt;spring中的app和基于XML以及注解的AOP配置&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;完善我们的account案例&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;分析案例中的问题&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;回顾之前讲过的一个技术: 动态代理&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;动态代理另一种实现方式&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;解决案例中的问题&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;AOP的概念&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;spring中的AOP相关术语&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;spring中基于XML和注解的AOP配置&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt; 编码问题，改成utf8
- &amp;lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:mysql://localhost:3306/lovelycc?characterEncoding=utf8&quot;&amp;gt;&amp;lt;/property&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ol&gt;
     
     </summary>

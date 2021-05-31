@@ -9,8 +9,8 @@
     <meta name="keywords" content="操作系统第五章, 深度学习 故障诊断 Java">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="##I/O设备输入输出将数据输入到计算机或接受计算机输出数据的外部设备鼠标键盘–典型的输入设备显示器–输出移动硬盘–输入输出
-I/O设备的电子部件（I/O控制器）CPU无法直接控制I/O设备的机械部件，因此I/O设备还要有一个电子部件作为C">
+    <meta name="description" content="I/O设备输入输出将数据输入到计算机或接受计算机输出数据的外部设备鼠标键盘–典型的输入设备显示器–输出移动硬盘–输入输出
+I/O设备的电子部件（I/O控制器）CPU无法直接控制I/O设备的机械部件，因此I/O设备还要有一个电子部件作为CPU">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -797,7 +797,7 @@ I/O设备的电子部件（I/O控制器）CPU无法直接控制I/O设备的机�
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>##I/O设备<br>输入输出<br>将数据输入到计算机或接受计算机输出数据的外部设备<br>鼠标键盘–典型的输入设备<br>显示器–输出<br>移动硬盘–输入输出</p>
+                <h2 id="I-O设备"><a href="#I-O设备" class="headerlink" title="I/O设备"></a>I/O设备</h2><p>输入输出<br>将数据输入到计算机或接受计算机输出数据的外部设备<br>鼠标键盘–典型的输入设备<br>显示器–输出<br>移动硬盘–输入输出</p>
 <p>I/O设备的电子部件（I/O控制器）<br>CPU无法直接控制I/O设备的机械部件，因此I/O设备还要有一个电子部件作为CPU和I/O设备机械部件之间的中介</p>
 <p>I/O控制器的功能：<br>    接受和识别CPU发出的命令 – 控制寄存器<br>    向CPU报告设备的状态     – 状态寄存器<br>    数据交换                – 数据寄存器<br>    地址识别</p>
 <p>I/O控制方式<br>    程序直接控制方式<br>    中断驱动方式<br>    DMA方式<br>    通道控制方式</p>
@@ -819,7 +819,7 @@ I/O设备的电子部件（I/O控制器）CPU无法直接控制I/O设备的机�
 <p>设备被看作是一种特殊的文件, 因此每个设备也会有对应的FCB<br>设备保护即如文件保护</p>
 <p>脱机技术: 脱离主机的控制进行的输入输出操作<br>假脱机技术(实现于用户层软件,但也属于I/O核心子系统)</p>
 <p>假脱机(SPOOLing技术)<br>    用软件的方式模拟脱机技术<br>共享打印机:<br>    用SPOOLing技术将独占式打印机”虚拟”成共享打印机</p>
-<p>###设备分配与回收<br>设备分配时应考虑的因素</p>
+<h3 id="设备分配与回收"><a href="#设备分配与回收" class="headerlink" title="设备分配与回收"></a>设备分配与回收</h3><p>设备分配时应考虑的因素</p>
 <ol>
 <li><p>设备的固有属性<br> 独占设备 – 一个时段只能分配一个进程<br> 共享设备 – 宏观上可同时使用<br> 虚拟设备 – 采用SPOOLing技术将独占改造成虚拟的共享设备</p>
 </li>
@@ -830,7 +830,7 @@ I/O设备的电子部件（I/O控制器）CPU无法直接控制I/O设备的机�
 </ol>
 <p>静态分配:<br>    进程运行前为其分配全部资源,运行结束后归还<br>动态分配:<br>    进程运行过程中动态申请</p>
 <p>系统设备表(SDT): 记录了系统中全部设备的情况,每个设备对应一个表目</p>
-<p>###缓冲区<br>单缓冲<br>双缓冲<br>循环缓冲<br>缓冲池</p>
+<h3 id="缓冲区"><a href="#缓冲区" class="headerlink" title="缓冲区"></a>缓冲区</h3><p>单缓冲<br>双缓冲<br>循环缓冲<br>缓冲池</p>
 <p>可以由专门的硬件寄存器组成,也可利用内存作为缓冲区<br>使用硬件作为缓冲区的成本较高,容量也较小,一般利用内存作为缓冲区</p>
 <p>缓冲区的作用:</p>
 <ol>
@@ -1356,49 +1356,46 @@ I/O设备的电子部件（I/O控制器）CPU无法直接控制I/O设备的机�
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/27/cao-zuo-xi-tong-di-wu-zhang/">
+                <a href="/2021/05/30/jvm/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="操作系统第五章">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="JVM">
                         
-                        <span class="card-title">操作系统第五章</span>
+                        <span class="card-title">JVM</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ##I/O设备输入输出将数据输入到计算机或接受计算机输出数据的外部设备鼠标键盘–典型的输入设备显示器–输出移动硬盘–输入输出
-I/O设备的电子部件（I/O控制器）CPU无法直接控制I/O设备的机械部件，因此I/O设备还要有一个电子部件作为C
+                            JVM内存空间用于运行Java字节码的虚拟机，是Java能够跨平台的关键所在每个操作系统的解释器不同，但基于解释器实现的虚拟机是相同的Java程序的具体运行过程：1）Java源文件被编译器编译成字节码文件2）JVM将字节码文件编译成相应操作
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-27
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-30
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/操作系统/" class="post-category" target="_blank">
-                                    操作系统
+                            <a href="/categories/JAVA/" class="post-category" target="_blank">
+                                    JAVA
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/I-O设备/" target="_blank">
-                        <span class="chip bg-color">I/O设备</span>
+                    <a href="/tags/JVM/" target="_blank">
+                        <span class="chip bg-color">JVM</span>
                     </a>
                     
                 </div>
@@ -1625,7 +1622,7 @@ I/O设备的电子部件（I/O控制器）CPU无法直接控制I/O设备的机�
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">169.9k</span> 字
+                <span class="white-color">173.7k</span> 字
             
 
             

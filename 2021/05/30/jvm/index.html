@@ -6,17 +6,10 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="&#39;JavaWebNote01_HTML&#39;, 深度学习 故障诊断 Java">
+    <meta name="keywords" content="JVM, 深度学习 故障诊断 Java">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="web概念概述* JaveWeb：
-    使用Java语言开发基于互联网的项目
-
-* 软件架构
-    1. C/S：客户端/服务器端
-        在用户本地有一个客户端，在远程有一个服务器端
-        如qq，迅雷
-     ">
+    <meta name="description" content="JVM内存空间用于运行Java字节码的虚拟机，是Java能够跨平台的关键所在每个操作系统的解释器不同，但基于解释器实现的虚拟机是相同的Java程序的具体运行过程：1）Java源文件被编译器编译成字节码文件2）JVM将字节码文件编译成相应操作">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>&#39;JavaWebNote01_HTML&#39; | 世庆的博客</title>
+    <title>JVM | 世庆的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -623,13 +616,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        &#39;JavaWebNote01_HTML&#39;
+                        JVM
                     </div>
                 </div>
             </div>
@@ -741,8 +734,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/JavaWeb/" target="_blank">
-                                <span class="chip bg-color">JavaWeb</span>
+                            <a href="/tags/JVM/" target="_blank">
+                                <span class="chip bg-color">JVM</span>
                             </a>
                         
                     </div>
@@ -753,8 +746,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Java/" class="post-category" target="_blank">
-                                Java
+                            <a href="/categories/JAVA/" class="post-category" target="_blank">
+                                JAVA
                             </a>
                         
                     </div>
@@ -765,13 +758,13 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-19
+                    2021-05-30
                 </div>
 
                 <div class="post-author info-break-policy">
                     <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
                     
-                        ShiQing
+                        世庆
                     
                 </div>
 
@@ -779,14 +772,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.9k
+                        3.8k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        12 分
+                        13 分
                     </div>
                     
                 
@@ -803,374 +796,65 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="web概念概述"><a href="#web概念概述" class="headerlink" title="web概念概述"></a>web概念概述</h2><pre><code>* JaveWeb：
-    使用Java语言开发基于互联网的项目
-
-* 软件架构
-    1. C/S：客户端/服务器端
-        在用户本地有一个客户端，在远程有一个服务器端
-        如qq，迅雷
-        优点: 用户体验好
-        缺点: 开发,安装,部署,维护 麻烦
-    2. B/S：浏览器/服务器端
-        只需要一个浏览器，用户通过不同的网址(URL), 客户访问不同的服务器端程序
-        优点:开发,安装,部署,维护 简单
-        缺点: 如果应用过大,用户体验会受到影响,对硬件要求过高
-
-* B/S架构
-    资源分类:
-        1. 静态资源:
-            使用静态网页开发技术发布的资源
-            所用用户访问得到的结果是一样的
-            如: 文本,图片,音频,视频,HTML,CSS,JavaScript
-            如果用户请求的是静态资源,那么服务器会直接将静态资源发送给浏览器,
-            浏览器中内置了静态资源的解析引擎,可以展示这些资源
-
-        2. 动态资源:
-            使用动态网页及时发布的资源
-            所用用户访问得到的结果可能不一样
-            如: jsp/servlet,php,asp...
-            如果用户请求的是动态资源,服务器会执行动态资源,转换为静态资源,再发送给浏览器                </code></pre><p>因此,要学习动态资源,必须先学习静态资源</p>
-<a id="more"></a>
-
-<p>静态资源:<br>    * HTML: 用于搭建基础网页,展示页面内容<br>    * CSS: 用于美化页面,布局页面<br>    * JavaScript: 控制页面的元素,让页面有一些动态效果</p>
-<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ol>
-<li><p>概念: 最基础的网页开发语言<br> Hyper Text Markup Language 超文本标记语言</p>
-<pre><code> 超文本: 超文本是用超链接的方法，将各种不同空间的文字信息组织在一起的网状文本.
- 标记语言: 由标签构成的语言. &lt;标签名称&gt; 如 html,xml. 标记语言不是编程语言</code></pre></li>
-<li><p>快速入门:<br> 语法:</p>
-<pre><code> 1. 后缀名必须为html或者htm
- 2. 标签分为两类
-     1. 围堵标签: 有开始标签和结束标签. 如&lt;html&gt;&lt;/html&gt;
-     2. 自闭和标签: 开始标签和结束标签在一起. 如&lt;br/&gt;            
- 3. 标签可以嵌套:
-     需要正确嵌套,不能你中有我,我中有你
- 4. 在开始标签中可以定义属性,属性是由键值对构成,值需要用引号(单双都可以)引起来
- 5. html的标签不区分大小写,建议使用小写</code></pre></li>
-</ol>
-
-
-<pre><code>&lt;head&gt;
-    &lt;title&gt;title&lt;/title&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-    &lt;font color = 'blue'&gt;Hello World&lt;/font&gt;&lt;br/&gt;
-    &lt;font color = 'red'&gt;Hello World&lt;/font&gt;
-&lt;/body&gt;</code></pre>
-
-
-<ol start="3">
-<li><p>标签</p>
+                <h2 id="JVM内存空间"><a href="#JVM内存空间" class="headerlink" title="JVM内存空间"></a>JVM内存空间</h2><p>用于运行Java字节码的虚拟机，是Java能够跨平台的关键所在<br>每个操作系统的解释器不同，但基于解释器实现的虚拟机是相同的<br>Java程序的具体运行过程：<br>1）Java源文件被编译器编译成字节码文件<br>2）JVM将字节码文件编译成相应操作系统的机器码<br>3）机器码调用相应的操作系统的本地方法库执行相应的方法</p>
+<p>内存区域：寄存器，本地方法区，栈内存，堆内存，方法区</p>
+<p>寄存器：存储当前运行的线程所执行的字节码的行号指示器<br>        线程私有，无内存溢出问题</p>
+<p>虚拟机栈：描述Java方法的执行过程的内存模型，方法执行时虚拟机会为其创建一个栈帧，他在当前栈帧中存储了局部变量表，操作数栈，动态链接，方法出口等信息<br>          线程私有 </p>
+<p>本地方法区：本地方法区与虚拟机栈的作用类似，区别是虚拟机栈为执行Java方法服务，本地方法栈为执行原生方法服务<br>            线程私有</p>
+<p>堆：JVM运行时创建的对象和产生的数据都存在堆中，堆是线程共享的内存区域，也是垃圾收集器进行垃圾回收的最主要内存区域</p>
+<p>方法区：用于存储常量，静态变量，类信息等数据，线程共享</p>
+<p>线程私有与线程共享：<br>    线程私有指区域随线程的创建而创建，随线程的结束而结束。<br>    线程共享指区域随虚拟机的启动而创建，随虚拟机的关闭而销毁。</p>
+<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><h3 id="如何确定垃圾"><a href="#如何确定垃圾" class="headerlink" title="如何确定垃圾"></a>如何确定垃圾</h3><p>Java采用引用计数法和可达性分析来确定对象是否应该被回收</p>
 <ol>
-<li><p>文件标签: 构成html最基本的标签</p>
-<ul>
-<li>html: html文档的根标签</li>
-<li>head: 头标签,用于指定html文档的一些属性,引入外部资源</li>
-<li>title: 标题标签</li>
-<li>body: 体标签</li>
-</ul>
+<li><p>引用计数法<br> 在Java中要操作对象，就必须获取对象的引用，因此可以通过引用计数法来判断对象是否可以被回收<br>在对象添加一个引用时，引用计数+1；在为对象删除一个引用时，引用计数-1；如果一个对象的引用计数=0了，<br>就表示该对象没有被引用，可以被回收<br> 引用计数法容易产生循环引用的问题，循环引用指两个对象相互引用，导致他们的引用一直存在，而不能被回收</p>
 </li>
-<li><p>文本标签: 和文本有关的标签</p>
- <h1> to </h1><h6> 标题标签，字体加大加粗
- <p> 段落标签
- <br> 换行
- </p><hr> 线是一条水平线
-     属性：
-         *color：颜色
-         *width：宽度
-         *size：粗细
-         *align：对齐方式
- <b>：字体加粗
- <i>：字体斜体
- <font>: 字体标签，html5已淘汰
-     *color：颜色 
-         rgb(值1,值2,值3): 值范围:0-255
-         #值1值2值3:值的范围:00-FF之间
-     *size：大小
-
-<pre><code> *face：字体</code></pre> <center>: 居中标签,已过时
- 特殊字符查看特殊字符表
-</center></font></i></b><p></p></h6></li>
-<li><p>图片标签: 展示图片的标签<br> *img: 展示图片</p>
-</li>
-<li><p>列表标签:<br> 有序列表</p>
-<pre><code> *ol
- *li</code></pre><p> 无序列表</p>
-<pre><code> *ul
- *li</code></pre></li>
-<li><p>链接标签</p>
-<pre><code> *a: 定义一个超链接
-     属性:
-     *href:指定访问资源的url,也可以访问本地资源
-     *target:指定打开资源的方式</code></pre></li>
-<li><p>div和span:默认没有效果,共css设计</p>
-<pre><code> div: 会换行   块级标签
- span: 文本信息在一行展示,行内标签 内联标签</code></pre></li>
-<li><p>语义化标签: html5中为了提高程序可读性,提供了一些标签</p>
- <header>
- <footer>    </footer></header></li>
-<li><p>表格标签:<br> *table: 定义表格</p>
-<pre><code> width：宽度
- border：边框
- cellpadding：定义内容和单元格距离
- cellspacing：定义单元格之间的距离，如果指定为0，则单元格的线会合为一条
- bgcolor：背景色
- align：对齐方式</code></pre><p> *tr: 定义行</p>
-<pre><code> bgcolor：背景色
- align：对齐方式</code></pre><p> *td: 定义单元格</p>
-<pre><code> colspan: 合并列,占几列
- rowspan: 合并行</code></pre><p> *th: 定义表头单元格</p>
- : 表格标题标签
- :表示表格头部分,没有效果,增加可读性
- :表示表格体部分
- :表示表格脚部分,永远在最下面展示
-
+<li><p>可达性分析<br> 为了解决引用计数法的循环引用问题，Java还采用了可达性分析来判断对象是否可以回收。<br> 首先定义一些GC Roots 对象，然后以这些GC Roots对象作为起点向下搜索，<br> 如果在GC Roots和一个对象之间没有可达路径，则称该对象是不可达的<br> 不可达对象要经过至少两次标记才被回收。</p>
 </li>
 </ol>
+<h3 id="回收算法"><a href="#回收算法" class="headerlink" title="回收算法"></a>回收算法</h3><p>Java中常用的回收算法有标记清除，复制算法，标记整理和分代收集</p>
+<ol>
+<li><p>标记清除算法<br> 标记清除算法是基础的垃圾回收算法，其过程分为标记和清除两个阶段。<br>标记阶段标记出所友需要回收的对象，在清除阶段清除可回收的对象并释放其所占用的内存<br>  由于标记清理算法在清理对象后没有重新整理可用的内存空间，因此如果内存中可被召回的小对象居多<br>则会引起内存碎片化的问题，继而引起大对象无法获得连续可用空间的问题</p>
+</li>
+<li><p>复制算法<br> 为了解决标记清理算法内存碎片化的问题，复制算法首先将内存划分为大小相等的两个区域<br>新生成的对象都被存放在区域1中，在区域1存满后会进行一次标记，并将标记的对象复制到区域2中<br>然后直接清理整个区域1的内存<br> 复制算法的内存清理效率高且易实现，但由于同一时间只有一个内存区域能用，因此存在大量内存浪费<br>同时，当系统中有大量长时间存活的对象时，这些对象将在内存区域1和2之间反复复制而影响系统效率</p>
+</li>
+<li><p>标记整理算法<br> 首先进行一次标记，标记完成后将存活的对象移到内存的另一端，把这一端的对象清除并释放内存</p>
 </li>
 </ol>
-<p>案例 旅游网首页<br>早期没有css时,使用table布局<br>某一行只有一个单元格,就用<br>有多个单元格则嵌套表格<table></table>    </p>
-<pre><code>9. 表单标签
-    表单:
-        概念: 用于采集用户输入的数据
-        form
-            *action: 指定提交数据的url
-            *method: 指定提交方式
-                分类: 一个有七种,常见两种
-                    get:
-                        1. 请求参数会在地址栏中显示
-                        2. 请求参数长度有限制
-                        3. 不太安全
-                    post:
-                        1. 请求参数不会在地址栏中显示,会封装在请求体中(HTTP协议后讲解)
-                        2. 请求参数长度没有限制
-                        3. 比较安全
-        表单项中的数据要想被提交: 必须指定name属性
-
-    表单项标签:
-        input: 可以通过type属性值,改变元素展示的样式
-            type属性:
-                text: 文本输入框
-                    value="" 默认文本,输入时不会自动消失
-                    placeholder = "请输入用户名" 提示文本,输入时会自动消失
-                password: 密码输入框
-                radio: 单选框
-                    注意
-                    1.要想多个单选框实现单选的效果,则多个单选框的name属性值必须一样
-                    2. 一般会给每一个单选框提供value属性,指定其被选中后提交的值
-                    3. checked属性可以指定默认选项
-                checkbox: 复选框,每一个选项也要提供value属性
-                file: 文件选择框
-                hidden: 隐藏域,用于提交一些信息
-                submit: 提交按钮,将数据上传到服务器
-                button: 就一个按钮
-                image: src= "" 图片按钮
-        lable:指定输入项的文字描述信息
-            注意:
-                label的for属性与input的id属性值对应,点击label区域会让input输入框获取焦点
-
-        select: 下拉列表
-            子元素: option, 指定列表项
-
-        textarea: 文本域
-            cols: 指定列数,每一行多少字符
-            rows: 指定行数</code></pre><h2 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a>html代码</h2>
-
-<meta name="generator" content="Hexo 3.9.0">
-    <meta charset="UTF-8">
-    <title>你好世界</title>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css">
-
-    <!--注释-->
-    <!--    br 换行-->
-    我有一壶酒，<br>
-    可以慰风尘。<br>
-    <b>尽倾江湖中，</b><br>
-    <i>赠饮天下人。</i><br>
-
-<pre><code>&lt;br&gt;
-&lt;font color="red" size="5" face = "楷体"&gt;恒山飞剑&lt;/font&gt;
-
-&lt;!--    标题标签 h1-h6--&gt;
-
-&lt;h1&gt;恒山飞剑&lt;/h1&gt;
-&lt;h2&gt;恒山飞剑&lt;/h2&gt;
-&lt;h3&gt;恒山飞剑&lt;/h3&gt;
-&lt;h4&gt;恒山飞剑&lt;/h4&gt;
-&lt;h5&gt;恒山飞剑&lt;/h5&gt;
-&lt;h6&gt;恒山飞剑&lt;/h6&gt;
-
-&lt;!--    段落标签 p--&gt;
-&lt;p&gt;
-著名武侠小说家，新派武侠小说泰斗，与金庸、梁羽生、温瑞安并称为中国武侠小说四大宗师。代表作有《多情剑客无情剑》、《绝代双骄》、《英雄无泪》等。古龙把武侠小说引入了经典文学的殿堂，将戏剧、推理、诗歌等元素带入传统武侠，又将自己独特的人生哲学融入其中，使中外经典镕铸一炉，开创了近代武侠小说新纪元，将武侠文学推上了一个新的高峰。
-&lt;/p&gt;
-
-&lt;!--显示一条水平线 hr--&gt;
-&lt;hr color = "red" width = "200" size = "5" align="left" /&gt;
-
-&lt;!--    img 展示一张图片--&gt;
-&lt;!-- ./表示当前目录, ../ 表示上一级目录    --&gt;
-&lt;img src="../image/1394699790.jpg" alt="mc" width="900" height="600"/&gt;
-
-&lt;!-- 有序列表 ol start 从第几开始 --&gt;
-&lt;ol type="a" start="3"&gt;
-    &lt;li&gt;早上起床干的事情&lt;/li&gt;
-    &lt;li&gt;睁眼&lt;/li&gt;
-    &lt;li&gt;看手机&lt;/li&gt;
-    &lt;li&gt;穿衣服&lt;/li&gt;
-    &lt;li&gt;洗漱&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;!-- 超链接 a href:跳转页面--&gt;
-&lt;a href="https://www.baidu.com/"&gt;点我&lt;/a&gt;
-&lt;!-- target默认self,在本页面打开链接, blank则新建空白页面打开,也可以设置点击图片打开--&gt;
-&lt;a href="https://www.baidu.com/" target="_blank"&gt;&lt;img src="../image/1.png"&gt;&lt;/a&gt;
-
-
-&lt;!--
-div: 会换行   块级标签
-span: 文本信息在一行展示,行内标签 内联标签
---&gt;
-&lt;span&gt;东海仙灵&lt;/span&gt;
-&lt;span&gt;吐纳法&lt;/span&gt;
-
-&lt;div&gt;东海仙灵&lt;/div&gt;
-&lt;div&gt;吐纳法&lt;/div&gt;
-
-&lt;!--    定义表格--&gt;
-
-&lt;table border="1" width="50%" cellpadding="0" cellspacing="0" bgcolor="#facbd7" align="center"&gt;
-    &lt;thead&gt;
-        &lt;caption&gt;学生信息表&lt;/caption&gt;
-        &lt;tr&gt;
-            &lt;th&gt;编号&lt;/th&gt;
-            &lt;th&gt;姓名&lt;/th&gt;
-            &lt;th&gt;成绩&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-        &lt;tr&gt;
-            &lt;td&gt;1&lt;/td&gt;
-            &lt;td&gt;小龙女&lt;/td&gt;
-            &lt;td&gt;100&lt;/td&gt;
-        &lt;/tr&gt;
-
-        &lt;tr&gt;
-            &lt;td&gt;2&lt;/td&gt;
-            &lt;td&gt;杨过&lt;/td&gt;
-            &lt;td&gt;50&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
-
-    &lt;tfoot&gt;
-        &lt;tr&gt;
-            &lt;td&gt;3&lt;/td&gt;
-            &lt;td&gt;尹志平&lt;/td&gt;
-            &lt;td&gt;10&lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tfoot&gt;
-
-&lt;/table&gt;
-
-
-&lt;!--
-    表单标签
-    form: 用于定义表单的,可以定义一个范围,范围代表采集用户数据的范围
-    包裹起来的部分才会提交
-    --&gt;</code></pre><form action="#" method="get">
-    <label for="username">用户名:</label> <input type="text" name="username" placeholder="请输入用户名" id="username"><br>
-    密码: <input type="password" name="password" placeholder="请输入密码"><br>
-    性别: <input type="radio" name="gender" value="male" checked=""> 男
-          <input type="radio" name="gender" value="female"> 女
-    <br>
-
-<pre><code>爱好: &lt;input type="checkbox" name="hobby" value="sing"&gt; 唱
-    &lt;input type="checkbox" name="hobby" value="dance"&gt; 跳
-    &lt;input type="checkbox" name="hobby" value="rap" checked&gt; Rap
-    &lt;input type="checkbox" name="hobby" value="basketball"&gt; 篮球
-&lt;br&gt;
-
-图片: &lt;input type="file" name="file"&gt;
-&lt;br&gt;
-
-隐藏域: &lt;input type="hidden" name="id" value="aaa"&gt;
-&lt;br&gt;
-
-取色器: &lt;input type="color" name="color"&gt;&lt;br&gt;
-
-生日: &lt;input type="date" name="birthday"&gt;&lt;br&gt;
-
-邮箱: &lt;input type="email" name="email"&gt;&lt;br&gt;
-年龄: &lt;input type="number" name="age"&gt;&lt;br&gt;
-省份:&lt;select name="province"&gt;
-        &lt;option value=""&gt;--请选择---&lt;/option&gt;
-        &lt;option value="1"&gt;北京&lt;/option&gt;
-        &lt;option value="2"&gt;上海&lt;/option&gt;
-        &lt;option value="3"&gt;江苏&lt;/option&gt;
-    &lt;/select&gt;
-自我描述:
-    &lt;textarea cols="20" rows="5"&gt;&lt;/textarea&gt;
-
-&lt;br&gt;
-&lt;input type="submit" value="登录"&gt;</code></pre></form>
-
-
-
-<pre><code>&lt;!--    自定义表单--&gt;</code></pre><form action="#" method="post">
-    <pre><code>    &lt;tr&gt;
-        &lt;td&gt;&lt;label for="password"&gt;密码&lt;/label&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;input type="password" name="password" id="password"&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-
-    &lt;tr&gt;
-        &lt;td&gt;&lt;label for="email"&gt;Email&lt;/label&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;input type="email" name="email" id="email"&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-
-    &lt;tr&gt;
-        &lt;td&gt;&lt;label for="name"&gt;姓名&lt;/label&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;input type="text" name="name" id="name"&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-
-    &lt;tr&gt;
-        &lt;td&gt;&lt;label for="tel"&gt;手机号&lt;/label&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;input type="text" name="tel" id="tel"&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-
-    &lt;tr&gt;
-        &lt;td&gt;性别&lt;/td&gt;
-        &lt;td&gt;&lt;input type="radio" name="gender" value="male"&gt;男
-            &lt;input type="radio" name="gender" value="female"&gt;女 &lt;/td&gt;
-    &lt;/tr&gt;
-
-    &lt;tr&gt;
-        &lt;td&gt;&lt;label for="birthday"&gt;出生日期&lt;/label&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;input type="date" name="birthday" id="birthday"&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-
-    &lt;tr&gt;
-        &lt;td&gt;&lt;label for="checkcode"&gt;验证码&lt;/label&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;input type="text" name="checkcode" id="checkcode"&gt;
-            &lt;img src="img/"&gt;
-        &lt;/td&gt;
-    &lt;/tr&gt;
-
-
-&lt;/table&gt;</code></pre><table border="1" align="center" width="500">
-        <tbody><tr>
-            <td><label for="user">用户名</label></td>
-            <td><input type="text" name="username" id="user"></td>
-        </tr>
-
-</tbody></table></form>
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script>
-
-----------------------------------------------------------------------------------------
-
-<script>
+<h3 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h3><pre><code>分代收集算法根据对象的不同类型将内存划分为新生代，老年代，永久代</code></pre><p>其中新生代占1/3左右堆空间，老年代占2/3左右堆空间，永久代一般指方法区。<br>新生代又被分为Eden区，ServivorFrom区和ServivorTo区，Eden区默认占新生代空间的8/10；<br>ServivorFrom区和ServivorTo区分别占1/10。</p>
+<p>新生代：<br>    新生代主要存放新生成的对象，其特点是对象数量多但是生命周期短，在每次进行垃圾回收时都有大量对象被回收<br>新生代的GC过程叫做MinorGC，采用复制算法实现</p>
+<p>Eden区：Java新创建的对象首先会被存放在Eden区，如果新创建的对象属于大对象，责备直接放进老年代，<br>        在Eden区的内存不足时会触发MinorGC，对新生代进行一次回收<br>ServivorTo区：保留这一次MinorGC的幸存者<br>ServivorFrom区：将上一次MinorGC的幸存者作为这一次MinorGC的被扫描者</p>
+<p>MinorGC：<br>    1）对Eden区和ServivorFrom区进行一次标记，将标记后的存活对象复制到ServivorTo区，同时所有存活对象年龄加一<br>       如果ServivorTo区内存空间不够或者对象属于大对象或者对象年龄达到了老年代标准，则直接将其复制到老年代，<br>    2）清空Eden区和ServivorFrom区<br>    3）将ServivorTo和ServivorFrom区对换，原来的ServivorTo区变成了下一次GC的ServivorFrom区</p>
+<p>老年代：<br>    老年代主要存放大对象和生命周期长的对象，因此可回收的对象相对较少。<br>老年代的GC过程叫做MajorGC，在老年代，对象比较稳定，MajorGC不会频繁触发。<br>在进行MajorGC之前，JVM会进行一次MinorGC，如果仍然出现老年代空间不足或者找不到足够大的空间分配给新创建的大对象时，会触发MajorGC<br>MajorGC采用标记整理法，首先对老年代中所有对象进行一次扫描并标记存活的对象，<br>然后回收未被标记的对象，并释放内存空间<br>    因为要先扫描老年代的所有对象再回收，所以MajorGC时间较长。MajorGC的标记清除算法会产生内存碎片，<br>在老年代没有内存空间可分配时，会抛出Out Of Memory异常；</p>
+<p>永久代：<br>    永久代指内存永久保护区域，主要存放Class和Meta（元数据）的信息<br>Class在类加载时被放入永久代，永久代与老年代和新生代不同，GC不会在程序运行期间对永久代的内存进行清理<br>这也导致了永久代的内存会随着加载的Class文件增加而增加，在加载的Class文件过多时就会抛出Out of Memory 异常</p>
+<h3 id="四种引用类型"><a href="#四种引用类型" class="headerlink" title="四种引用类型"></a>四种引用类型</h3><p>在Java中一切皆对象，对象的操作是通过该对象的引用实现的，Java中的引用类型有4种</p>
+<ol>
+<li>强引用<br> 在java中最常见的就是强引用,把对象赋给一个引用变量时,这个引用变量就是一个强引用.<br> 有强引用的对象一定为可达性状态, 所以不会被垃圾回收,因此强引用是造成Java内存泄漏的主要原因</li>
+<li>软引用<br> 如果一个对象只有软引用, 则在系统内存空间不足时该对象将被回收 </li>
+<li>弱引用<br> 如果一个对象只有弱引用, 则在垃圾回收过程中一定会被回收</li>
+<li>虚引用<br> 虚引用主要用于跟踪对象的垃圾回收状态</li>
+</ol>
+<h3 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h3><p>JVM针对新生代和老年代分别提供了多种不同的垃圾回收器<br>针对新生代: Serial(单线程, 复制算法), ParNew(多线程,复制算法), Parallel Scavenge(多线程,复制算法)<br>针对老年代: Serial Old(单线程,标记整理法), Parallel Old(多线程,标记整理法),CMS,<br>针对不同区域: G1</p>
+<p>CMS:<br>    CMS垃圾收集器是为老年代设计的垃圾收集器,其主要目的是达到最短的垃圾回收停顿时间.<br>主要包含四个步骤:</p>
+<p>1) 初始标记: 只标记和GC Roots直接关联的对象, 速度很快, 需要暂停所有工作线程<br>2) 并发标记: 和用户线程一起工作, 执行GC Roots跟踪标记过程, 不需要暂停工作线程<br>3) 重新标记: 在并发标记过程中用户线程继续运行, 导致在垃圾回收过程中部分对象的状态发生变化,<br>             为了确保这部分对象的状态正确性,需要对这部分重新标记并暂停工作线程<br>4) 并发清除: 和用户线程一起工作, 执行清除GC Roots不可达对象的任务, 不需要暂停工作线程</p>
+<pre><code>CMS垃圾收集器在和用户线程一起工作时(并发标记和并发清除)不需要暂停用户线程,</code></pre><p>有效缩短了垃圾回收时系统的停顿时间,同时由于CMS垃圾收集器和用户线程一起工作,因此其并行度和效率也有所提升.</p>
+<h3 id="Java网络编程模型"><a href="#Java网络编程模型" class="headerlink" title="Java网络编程模型"></a>Java网络编程模型</h3><p>待学</p>
+<h2 id="类加载机制"><a href="#类加载机制" class="headerlink" title="类加载机制"></a>类加载机制</h2><h3 id="JVM类加载阶段"><a href="#JVM类加载阶段" class="headerlink" title="JVM类加载阶段"></a>JVM类加载阶段</h3><p>JVM的类加载分为5个阶段: 加载, 验证, 准备, 解析, 初始化<br>在类初始化完成后就可以使用该类的信息, 在一个类不再被需要时就可以从JVM中卸载</p>
+<ol>
+<li>加载<br> 指JVM读取Class文件,并且根据Class文件描述创建Java.lang.Class对象的过程.<br>类加载过程主要包含将Class文件读取到运行时区域的方法内, 在堆中创建Class对象,并封装类在方法区的数据结构的过程<br>在读取Class文件时既可以通过文件的形式读取,也可以通过jar包,war包读取,还可以通过代理自动生成Class或其他方式获取</li>
+<li>验证<br> 主要用于确保Class文件符合当前虚拟机的要求, 保障虚拟机自身安全,只有通过验证的Class文件才能被JVM加载</li>
+<li>准备<br> 主要工作是在方法区中为类变量分配内存空间并设置类中变量的初始值.<br>初始值指不同数据类型的默认值, 需要注意的是final类型的变量和非final类型的变量在准备阶段的数据初始化不同，<br>非final类型的变量在准备阶段的初始值是数据类型的默认值，对变量赋值是在对象初始化阶段<br>final类型的变量在编译后会生成对应的ConstantValue属性，虚拟机在准备阶段会根据ConstantValue属性直接赋值</li>
+<li>解析<br> JVM会将常量池中的符号引用替换成直接引用</li>
+<li>初始化<br> 主要通过执行类构造器的<client>方法为类进行初始化。<br><client>方法是在编译阶段由编译器自动收集类中静态语句块和静态变量的赋值操作组成的.<br>只有在父类的<client>方法都执行成功后,子类的<client>方法才可以被执行.<br>在一个类中既没有静态变量赋值操作也没有静态代码块时,编译器不会为该类生成<client>方法</client></client></client></client></client></li>
+</ol>
+<h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><pre><code>JVM提供了3种类加载器,分别是启动类加载器,扩展类加载器和应用程序类加载器</code></pre><ol>
+<li>启动类加载器: 负责加载Java_HOME/lib目录中的类库, 或通过-Xbootclasspath参数指定路径中被虚拟机认可的类库</li>
+<li>扩展类加载器: 负责加载Java_HOME/lib/ext 目录中的类库, 或通过java.ext.dirs系统变量加载指定路径中的类库</li>
+<li>应用程序类加载器: 负责加载用户路径(classpath)上的类库<br>除了上述三种类加载器,也可以通过继承java.lang.ClassLoader实现自定义的类加载器</li>
+</ol>
+<h3 id="双亲委派机制"><a href="#双亲委派机制" class="headerlink" title="双亲委派机制"></a>双亲委派机制</h3><pre><code>JVM通过双亲委派机制对类进行加载.</code></pre><p>双亲委派机制指一个类在收到类加载请求后不会尝试自己加载这个类,而是把该类加载请求向上委派给其父类去完成,<br>其父类在接收到该类加载请求后又会将其委派给自己的父类, 以此类推, 这样所有的类加载请求都被向上委派到启动类加载器中.<br>若父类加载器在接收到类加载请求后发现自己也无法加载该类(通常原因是该类的Class文件在父类的类加载路径中不存在),<br>则父类会将该信息反馈给子类并向下委派子类加载器加载该类,直到该类被成功加载,若找不到该类,则JVM会抛出ClassNotFound异常<br>    双亲委派机制的类加载流程</p>
+<p>1) 将自定义加载器挂载到应用程序类加载器.<br>2) 应用程序类加载器将类加载请求委托给扩展类加载器<br>3) 扩展类加载器将类加载请求委托给启动类加载器<br>4) 启动类加载器在加载路径下查找并加载Class文件, 如果未找到目标Class文件, 则交由扩展类加载器加载<br>5) 扩展类加载器在加载路径下查找并加载Class文件, 如果未找到目标Class文件, 则交由应用程序类加载器<br>6) 应用程序类加载器在加载路径下查找并加载Class文件, 如果未找到目标Class文件,则交由自定义加载器加载<br>7) 在自定义加载器下查找并加载用户指定目录下的Class文件,如果未找到Class文件,则抛出ClassNotFOund异常</p>
+<pre><code>双亲委派机制的核心是保障类的唯一性和安全性. 无论哪个类加载器加载该类, 最终都将类加载请求委托给启动类加载器加载, </code></pre><p>这样就保证了类加载的唯一性. 如果在JVM中存在包名和类名相同的两个类,则该类就无法被加载,JVM也无法完成类加载流程</p>
+<h3 id="双亲委派机制-1"><a href="#双亲委派机制-1" class="headerlink" title="双亲委派机制"></a>双亲委派机制</h3><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1338,7 +1022,7 @@ span: 文本信息在一行展示,行内标签 内联标签
                     </span>
                     <a href="https://sqtian-hhu.github.io" class="b-link-green">世庆的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2020/04/19/javawebnote01-html/" class="b-link-green">&#39;JavaWebNote01_HTML&#39;</a>
+                    <a href="/2021/05/30/jvm/" class="b-link-green">JVM</a>
                 </p>
             </div>
 
@@ -1361,7 +1045,7 @@ span: 文本信息在一行展示,行内标签 内联标签
         repo: 'shw2018.github.io',
         owner: 'shw2018',
         admin: ["shw2018"],
-        id: '2020/04/19/javawebnote01-html/',
+        id: '2021/05/30/jvm/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1680,47 +1364,48 @@ span: 文本信息在一行展示,行内标签 内联标签
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/04/27/androidpart2/">
+                <a href="/2021/05/30/jvm/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="'AndroidPart2'">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="JVM">
                         
-                        <span class="card-title">'AndroidPart2'</span>
+                        <span class="card-title">JVM</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Android 网络与数据的存储使用SharedPerferences方便地存储数据数据持久化适用于存储一些简单的数据
-public class ListViewDemoActivity extends Activity implement
+                            JVM内存空间用于运行Java字节码的虚拟机，是Java能够跨平台的关键所在每个操作系统的解释器不同，但基于解释器实现的虚拟机是相同的Java程序的具体运行过程：1）Java源文件被编译器编译成字节码文件2）JVM将字节码文件编译成相应操作
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/安卓/" class="post-category" target="_blank">
-                                    安卓
+                            <a href="/categories/JAVA/" class="post-category" target="_blank">
+                                    JAVA
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/安卓开发/" target="_blank">
-                        <span class="chip bg-color">安卓开发</span>
+                    <a href="/tags/JVM/" target="_blank">
+                        <span class="chip bg-color">JVM</span>
                     </a>
                     
                 </div>
@@ -1734,33 +1419,32 @@ public class ListViewDemoActivity extends Activity implement
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/17/androidpart1/">
+                <a href="/2021/05/27/cao-zuo-xi-tong-di-wu-zhang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="'AndroidPart1'">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="操作系统第五章">
                         
-                        <span class="card-title">'AndroidPart1'</span>
+                        <span class="card-title">操作系统第五章</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            第一个应用public class MainActivity extends AppCompatActivity {
-@Override
-protected void onCreate(Bundle savedInstanceState) 
+                            I/O设备输入输出将数据输入到计算机或接受计算机输出数据的外部设备鼠标键盘–典型的输入设备显示器–输出移动硬盘–输入输出
+I/O设备的电子部件（I/O控制器）CPU无法直接控制I/O设备的机械部件，因此I/O设备还要有一个电子部件作为CPU
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-17
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-27
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/安卓/" class="post-category" target="_blank">
-                                    安卓
+                            <a href="/categories/操作系统/" class="post-category" target="_blank">
+                                    操作系统
                                 </a>
                             
                             
@@ -1770,8 +1454,8 @@ protected void onCreate(Bundle savedInstanceState)
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/安卓开发/" target="_blank">
-                        <span class="chip bg-color">安卓开发</span>
+                    <a href="/tags/I-O设备/" target="_blank">
+                        <span class="chip bg-color">I/O设备</span>
                     </a>
                     
                 </div>
