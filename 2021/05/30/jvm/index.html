@@ -746,8 +746,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/JAVA/" class="post-category" target="_blank">
-                                JAVA
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                Java
                             </a>
                         
                     </div>
@@ -772,7 +772,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        3.8k
+                        3.9k
                     </div>
                     
 
@@ -844,7 +844,7 @@
 <li>验证<br> 主要用于确保Class文件符合当前虚拟机的要求, 保障虚拟机自身安全,只有通过验证的Class文件才能被JVM加载</li>
 <li>准备<br> 主要工作是在方法区中为类变量分配内存空间并设置类中变量的初始值.<br>初始值指不同数据类型的默认值, 需要注意的是final类型的变量和非final类型的变量在准备阶段的数据初始化不同，<br>非final类型的变量在准备阶段的初始值是数据类型的默认值，对变量赋值是在对象初始化阶段<br>final类型的变量在编译后会生成对应的ConstantValue属性，虚拟机在准备阶段会根据ConstantValue属性直接赋值</li>
 <li>解析<br> JVM会将常量池中的符号引用替换成直接引用</li>
-<li>初始化<br> 主要通过执行类构造器的<client>方法为类进行初始化。<br><client>方法是在编译阶段由编译器自动收集类中静态语句块和静态变量的赋值操作组成的.<br>只有在父类的<client>方法都执行成功后,子类的<client>方法才可以被执行.<br>在一个类中既没有静态变量赋值操作也没有静态代码块时,编译器不会为该类生成<client>方法</client></client></client></client></client></li>
+<li>初始化<br> 主要通过执行类构造器的<client>方法为类进行初始化。<br><client>方法是在编译阶段由编译器自动收集类中静态代码块和静态变量的赋值操作组成的.<br>只有在父类的<client>方法都执行成功后,子类的<client>方法才可以被执行.<br>在一个类中既没有静态变量赋值操作也没有静态代码块时,编译器不会为该类生成<client>方法</client></client></client></client></client></li>
 </ol>
 <h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><pre><code>JVM提供了3种类加载器,分别是启动类加载器,扩展类加载器和应用程序类加载器</code></pre><ol>
 <li>启动类加载器: 负责加载Java_HOME/lib目录中的类库, 或通过-Xbootclasspath参数指定路径中被虚拟机认可的类库</li>
@@ -854,7 +854,9 @@
 <h3 id="双亲委派机制"><a href="#双亲委派机制" class="headerlink" title="双亲委派机制"></a>双亲委派机制</h3><pre><code>JVM通过双亲委派机制对类进行加载.</code></pre><p>双亲委派机制指一个类在收到类加载请求后不会尝试自己加载这个类,而是把该类加载请求向上委派给其父类去完成,<br>其父类在接收到该类加载请求后又会将其委派给自己的父类, 以此类推, 这样所有的类加载请求都被向上委派到启动类加载器中.<br>若父类加载器在接收到类加载请求后发现自己也无法加载该类(通常原因是该类的Class文件在父类的类加载路径中不存在),<br>则父类会将该信息反馈给子类并向下委派子类加载器加载该类,直到该类被成功加载,若找不到该类,则JVM会抛出ClassNotFound异常<br>    双亲委派机制的类加载流程</p>
 <p>1) 将自定义加载器挂载到应用程序类加载器.<br>2) 应用程序类加载器将类加载请求委托给扩展类加载器<br>3) 扩展类加载器将类加载请求委托给启动类加载器<br>4) 启动类加载器在加载路径下查找并加载Class文件, 如果未找到目标Class文件, 则交由扩展类加载器加载<br>5) 扩展类加载器在加载路径下查找并加载Class文件, 如果未找到目标Class文件, 则交由应用程序类加载器<br>6) 应用程序类加载器在加载路径下查找并加载Class文件, 如果未找到目标Class文件,则交由自定义加载器加载<br>7) 在自定义加载器下查找并加载用户指定目录下的Class文件,如果未找到Class文件,则抛出ClassNotFOund异常</p>
 <pre><code>双亲委派机制的核心是保障类的唯一性和安全性. 无论哪个类加载器加载该类, 最终都将类加载请求委托给启动类加载器加载, </code></pre><p>这样就保证了类加载的唯一性. 如果在JVM中存在包名和类名相同的两个类,则该类就无法被加载,JVM也无法完成类加载流程</p>
-<h3 id="双亲委派机制-1"><a href="#双亲委派机制-1" class="headerlink" title="双亲委派机制"></a>双亲委派机制</h3><script>
+<h3 id="实例初始化"><a href="#实例初始化" class="headerlink" title="实例初始化"></a>实例初始化</h3><pre><code>实例初始化就是执行&lt;init&gt;方法, &lt;init&gt;方法由编译器自动收集类中非静态代码块和非静态变量的赋值操作组成的.
+非静态实例变量显示赋值代码和非静态代码块从上而下顺序执行,而对应构造器代码最后执行.
+每次创建实例对象,调用对应构造器,执行的就是对应&lt;init&gt;方法</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1364,48 +1366,47 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/30/jvm/">
+                <a href="/2021/06/02/cheng-cheng-chou-bei-xiao-zhuan-lan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="JVM">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="呈呈抽背小专栏">
                         
-                        <span class="card-title">JVM</span>
+                        <span class="card-title">呈呈抽背小专栏</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JVM内存空间用于运行Java字节码的虚拟机，是Java能够跨平台的关键所在每个操作系统的解释器不同，但基于解释器实现的虚拟机是相同的Java程序的具体运行过程：1）Java源文件被编译器编译成字节码文件2）JVM将字节码文件编译成相应操作
+                            SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企业应用程序的开发，使开发人员只需关注业务需要本身
+主要包括七个模块：Spring Context：提供框架式的Bean访问方式以及企业级的功能Spring Core
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-30
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-06-02
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JAVA/" class="post-category" target="_blank">
-                                    JAVA
+                            <a href="/categories/呈呈专栏/" class="post-category" target="_blank">
+                                    呈呈专栏
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JVM/" target="_blank">
-                        <span class="chip bg-color">JVM</span>
+                    <a href="/tags/高频重点/" target="_blank">
+                        <span class="chip bg-color">高频重点</span>
                     </a>
                     
                 </div>
@@ -1419,7 +1420,7 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/27/cao-zuo-xi-tong-di-wu-zhang/">
+                <a href="/2021/05/27/cao-zuo-xi-tong/cao-zuo-xi-tong-di-wu-zhang/">
                     <div class="card-image">
                         
                         
@@ -1630,7 +1631,7 @@ I/O设备的电子部件（I/O控制器）CPU无法直接控制I/O设备的机�
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">173.7k</span> 字
+                <span class="white-color">175.3k</span> 字
             
 
             

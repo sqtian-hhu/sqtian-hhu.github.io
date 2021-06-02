@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sqtian-hhu.github.io/"/>
-  <updated>2021-05-31T02:18:57.343Z</updated>
+  <updated>2021-06-02T12:58:20.028Z</updated>
   <id>https://sqtian-hhu.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>呈呈抽背小专栏</title>
+    <link href="https://sqtian-hhu.github.io/2021/06/02/cheng-cheng-chou-bei-xiao-zhuan-lan/"/>
+    <id>https://sqtian-hhu.github.io/2021/06/02/cheng-cheng-chou-bei-xiao-zhuan-lan/</id>
+    <published>2021-06-02T10:43:07.000Z</published>
+    <updated>2021-06-02T12:58:20.028Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Spring&quot;&gt;&lt;a href=&quot;#Spring&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="呈呈专栏" scheme="https://sqtian-hhu.github.io/categories/%E5%91%88%E5%91%88%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="高频重点" scheme="https://sqtian-hhu.github.io/tags/%E9%AB%98%E9%A2%91%E9%87%8D%E7%82%B9/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JVM</title>
     <link href="https://sqtian-hhu.github.io/2021/05/30/jvm/"/>
     <id>https://sqtian-hhu.github.io/2021/05/30/jvm/</id>
     <published>2021-05-30T07:06:59.000Z</published>
-    <updated>2021-05-31T02:18:57.343Z</updated>
+    <updated>2021-05-31T04:28:50.045Z</updated>
     
     <summary type="html">
     
@@ -35,7 +61,7 @@
     
     </summary>
     
-      <category term="JAVA" scheme="https://sqtian-hhu.github.io/categories/JAVA/"/>
+      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
     
     
       <category term="JVM" scheme="https://sqtian-hhu.github.io/tags/JVM/"/>
@@ -44,8 +70,8 @@
   
   <entry>
     <title>操作系统第五章</title>
-    <link href="https://sqtian-hhu.github.io/2021/05/27/cao-zuo-xi-tong-di-wu-zhang/"/>
-    <id>https://sqtian-hhu.github.io/2021/05/27/cao-zuo-xi-tong-di-wu-zhang/</id>
+    <link href="https://sqtian-hhu.github.io/2021/05/27/cao-zuo-xi-tong/cao-zuo-xi-tong-di-wu-zhang/"/>
+    <id>https://sqtian-hhu.github.io/2021/05/27/cao-zuo-xi-tong/cao-zuo-xi-tong-di-wu-zhang/</id>
     <published>2021-05-27T02:48:40.000Z</published>
     <updated>2021-05-30T08:13:46.226Z</updated>
     
@@ -70,8 +96,8 @@
   
   <entry>
     <title>操作系统第四章</title>
-    <link href="https://sqtian-hhu.github.io/2021/05/25/cao-zuo-xi-tong-di-si-zhang/"/>
-    <id>https://sqtian-hhu.github.io/2021/05/25/cao-zuo-xi-tong-di-si-zhang/</id>
+    <link href="https://sqtian-hhu.github.io/2021/05/25/cao-zuo-xi-tong/cao-zuo-xi-tong-di-si-zhang/"/>
+    <id>https://sqtian-hhu.github.io/2021/05/25/cao-zuo-xi-tong/cao-zuo-xi-tong-di-si-zhang/</id>
     <published>2021-05-25T10:31:29.000Z</published>
     <updated>2021-05-27T02:46:26.613Z</updated>
     
@@ -99,8 +125,8 @@
   
   <entry>
     <title>操作系统第三章</title>
-    <link href="https://sqtian-hhu.github.io/2021/05/24/cao-zuo-xi-tong-di-san-zhang/"/>
-    <id>https://sqtian-hhu.github.io/2021/05/24/cao-zuo-xi-tong-di-san-zhang/</id>
+    <link href="https://sqtian-hhu.github.io/2021/05/24/cao-zuo-xi-tong/cao-zuo-xi-tong-di-san-zhang/"/>
+    <id>https://sqtian-hhu.github.io/2021/05/24/cao-zuo-xi-tong/cao-zuo-xi-tong-di-san-zhang/</id>
     <published>2021-05-24T01:06:30.000Z</published>
     <updated>2021-05-30T08:14:30.437Z</updated>
     
@@ -125,8 +151,8 @@
   
   <entry>
     <title>操作系统第二章</title>
-    <link href="https://sqtian-hhu.github.io/2021/05/10/cao-zuo-xi-tong-di-er-zhang/"/>
-    <id>https://sqtian-hhu.github.io/2021/05/10/cao-zuo-xi-tong-di-er-zhang/</id>
+    <link href="https://sqtian-hhu.github.io/2021/05/10/cao-zuo-xi-tong/cao-zuo-xi-tong-di-er-zhang/"/>
+    <id>https://sqtian-hhu.github.io/2021/05/10/cao-zuo-xi-tong/cao-zuo-xi-tong-di-er-zhang/</id>
     <published>2021-05-10T12:37:02.000Z</published>
     <updated>2021-05-31T00:56:35.348Z</updated>
     
@@ -151,8 +177,8 @@
   
   <entry>
     <title>操作系统第一章</title>
-    <link href="https://sqtian-hhu.github.io/2021/04/29/cao-zuo-xi-tong-di-yi-zhang/"/>
-    <id>https://sqtian-hhu.github.io/2021/04/29/cao-zuo-xi-tong-di-yi-zhang/</id>
+    <link href="https://sqtian-hhu.github.io/2021/04/29/cao-zuo-xi-tong/cao-zuo-xi-tong-di-yi-zhang/"/>
+    <id>https://sqtian-hhu.github.io/2021/04/29/cao-zuo-xi-tong/cao-zuo-xi-tong-di-yi-zhang/</id>
     <published>2021-04-29T12:37:02.000Z</published>
     <updated>2021-05-31T00:54:56.876Z</updated>
     
@@ -492,32 +518,6 @@ public String testString(Model model){
 &lt;p&gt;表现层（user interface layer）：通俗讲就是展现给用户的界面，即用户在使用一个系统的时候他的所见所得。主要对用户的请求接受，以及数据的返回，为客户端提供应用程序的访问。&lt;/p&gt;
 &lt;p&gt;业务逻辑层（business logic layer）:针对具体问题的操作，也可以说是对数据层的操作，对数据业务逻辑处理。&lt;/p&gt;
 &lt;p&gt;数据访问层（data access layer）:该层直接操作数据库，针对数据的增添、删除、修改、查找等。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
-    
-    
-      <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaNote_Spring_Day04</title>
-    <link href="https://sqtian-hhu.github.io/2020/06/29/javanote-spring-day04/"/>
-    <id>https://sqtian-hhu.github.io/2020/06/29/javanote-spring-day04/</id>
-    <published>2020-06-29T01:57:06.000Z</published>
-    <updated>2021-04-22T11:25:40.044Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;day4&quot;&gt;&lt;a href=&quot;#day4&quot; class=&quot;headerlink&quot; title=&quot;day4&quot;&gt;&lt;/a&gt;day4&lt;/h2&gt;&lt;p&gt;spring中的JDBCTemlate以及Spring事务控制&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;spring中的JdbcTemplate&lt;pre&gt;&lt;code&gt; JdbcTemplate的作用：
-     他就是用于和数据库交互的，实现对表的CRUD操作
- 如何创建该对象：
- 对象中的常用方法&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ol&gt;
     
     </summary>
     

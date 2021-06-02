@@ -6,11 +6,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="操作系统第一章, 深度学习 故障诊断 Java">
+    <meta name="keywords" content="呈呈抽背小专栏, 深度学习 故障诊断 Java">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="第一章操作系统的概念Operating System 是指控制整个计算机系统的硬件和软件资源，并合理的组织调度计算机的工作和资源的分配，以提供给用户和其他软件方便的接口和环境，它是系统中最基本的系统软件。
-进程：一个程序的执行过程。执行前需">
+    <meta name="description" content="SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企业应用程序的开发，使开发人员只需关注业务需要本身
+主要包括七个模块：Spring Context：提供框架式的Bean访问方式以及企业级的功能Spring Core">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>操作系统第一章 | 世庆的博客</title>
+    <title>呈呈抽背小专栏 | 世庆的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -617,13 +617,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        操作系统第一章
+                        呈呈抽背小专栏
                     </div>
                 </div>
             </div>
@@ -735,8 +735,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/概述/" target="_blank">
-                                <span class="chip bg-color">概述</span>
+                            <a href="/tags/高频重点/" target="_blank">
+                                <span class="chip bg-color">高频重点</span>
                             </a>
                         
                     </div>
@@ -747,8 +747,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/操作系统/" class="post-category" target="_blank">
-                                操作系统
+                            <a href="/categories/呈呈专栏/" class="post-category" target="_blank">
+                                呈呈专栏
                             </a>
                         
                     </div>
@@ -759,7 +759,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-29
+                    2021-06-02
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -773,14 +773,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.4k
+                        1.5k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        8 分
+                        5 分
                     </div>
                     
                 
@@ -797,54 +797,43 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><h3 id="操作系统的概念"><a href="#操作系统的概念" class="headerlink" title="操作系统的概念"></a>操作系统的概念</h3><p>Operating System 是指控制整个计算机系统的硬件和软件资源，<br>并合理的组织调度计算机的工作和资源的分配，以提供给用户和其他软件方便的接口和环境，<br>它是系统中最基本的系统软件。</p>
-<p>进程：一个程序的执行过程。执行前需要将该程序放到内存中，才能被cpu处理</p>
-<h3 id="操作系统的功能和目标"><a href="#操作系统的功能和目标" class="headerlink" title="操作系统的功能和目标"></a>操作系统的功能和目标</h3><p>操作系统提供的功能：处理机管理，存储器管理，文件管理，设备管理<br>向用户提供服务：命令接口：联机命令接口：说一句做一句，交互式<br>                          脱机命令接口：说一堆做一堆，批处理<br>                程序接口：由一组系统调用组成<br>对硬件机器的扩展：扩充机器</p>
-<p>操作系统的特征：并发，共享，虚拟，异步</p>
-<p>并发：指多个事件在同一时间间隔内发生<br>      宏观上同时，微观上交替<br>并行：指多个事件在同一时刻发生</p>
-<p>一个单核处理器同一时刻只能执行一个程序，操作系统负责协调，多个程序交替执行</p>
-<p>共享：资源共享有互斥共享：某些资源同一时间段内只允许一个进程访问<br>                同时共享：允许一个时间段内多个进行访问</p>
-<p>虚拟：把物理上的实体变为若干个逻辑上的对应物，前者实际存在，后者是用户感受到的<br>    一个程序需要放入内存并给他分配cpu才能执行<br>    虚拟技术：时分复用/空分复用</p>
-<p>异步：在多道程序环境下，允许多个程序并发执行，由于资源有限，进程不是一贯到底的，而是走走停停</p>
-<h3 id="OS的发展与分类"><a href="#OS的发展与分类" class="headerlink" title="OS的发展与分类"></a>OS的发展与分类</h3><p>手工操作阶段：<br>    主要缺点：用户独占全机，人机速度矛盾导致资源利用率极低<br>批处理阶段：<br>    单道批处理系统：引入脱机输入/输出技术(用磁带完成)<br>                    并监督程序负责控制作业的输入输出<br>        主要优点:缓解了一定程度的人机速度矛盾,资源利用率有所提升<br>        主要缺点:内存中仅有一道程序运行,只有该程序运行结束后才能调入下一道程序运行.<br>                 cpu有大量的时间是在空闲等待I/O完成. 资源利用率依然很低</p>
-<pre><code>多道批处理系统: 每次往内存中输入多道程序,流水线原理
-    主要优点: 多道程序并发执行,共享计算机资源. 资源利用率大幅提升,
-        cpu和其他资源保持"忙碌"状态,系统吞吐量增大.
-    主要缺点: 用户响应时间长,没有人机交互功能
-              (用户提交自己的作业后就只能等待计算机处理完成,中间不能控制自己的作业执行)</code></pre><p>分时操作系统: 计算机以时间片为单位轮流为各个用户/作业服务,各个用户可通过终端与计算机进行交互<br>    主要优点: 用户请求可以被及时响应,解决了人机交互问题. 允许多个用户同时使用一台计算机,并且用户对计算机的操作相互独立,感受不到别人的存在<br>    主要缺点: 不能优先处理一些紧急任务. 操作系统对各个用户/作业都是完全公平的, 循环地为每个用户/作业服务一个时间片,不区分任务的紧急性.</p>
-<p>实时操作系统: 计算机收到外部信号后及时进行处理,并且要在严格的时限内处理完事件.实时操作系统的主要特点是及时性和可靠性<br>    主要优点: 能够优先响应一些紧急任务,某些紧急任务不需要时间片排队<br>        硬实时系统: 必须在绝对严格的规定时间内完成处理<br>        软实时系统: 能接受偶尔违反时间规定</p>
-<p>网络操作系统: 把网络中各个计算机有机地结合起来, 实现数据传送功能,实现网络中各种资源的共享和各台计算机之间的通信<br>分布式操作系统: 主要特点是分布性和并发性. 系统中的各台计算机地位相同, 任何工作都可以分布在这些计算机上,由他们并行、协同完成这个任务<br>个人计算机操作系统: 如Windows MacOS 方便个人使用</p>
-<h3 id="操作系统的运行机制和体系结构"><a href="#操作系统的运行机制和体系结构" class="headerlink" title="操作系统的运行机制和体系结构"></a>操作系统的运行机制和体系结构</h3><p>运行机制{<br>    两种指令{<br>        特权指令<br>        非特权指令<br>    }<br>    两种处理器状态{<br>        核心态<br>        用户态<br>    }<br>    两种程序{<br>        内核程序<br>        应用程序<br>    }<br>}</p>
-<p>操作系统内核{<br>    时钟管理<br>    中断处理<br>    原语<br>    对系统资源进行管理的功能{<br>        进程管理<br>        存储器管理<br>        设备管理<br>    }<br>}</p>
-<p>操作系统的体系结构{<br>    大内核<br>    微内核<br>}</p>
-<p>指令: 就是处理器能识别、执行的最基本命令<br>有的指令有很高的权限,如内存清零指令,如果用户程序可以将其他用户的内存数据随意清除,显然很危险<br>=&gt; 特权指令: 不允许用户程序使用<br>   非特权指令: 如普通的运算指令</p>
-<p>cpu如何判断当前是否可以执行特权指令<br>=&gt; 用户态(目态) 只能使用非特权指令<br>   核心态(管态)</p>
-<p>=&gt; 内核程序<br>   应用程序</p>
-<p>内核是计算机上配置的底层软件,是操作系统最基本,最核心的部分</p>
-<p>大内核: 将操作系统的主要功能模块都作为系统内核,运行在核心态<br>    优点: 高性能<br>    缺点: 内核代码庞大,结构混乱,难以维护</p>
-<p>微内核: 只把最基本的功能保留在内核<br>    优点: 内核功能少,结构清晰,方便维护<br>    缺点: 需要频繁地在核心态和用户态之间切换,性能低</p>
-<p>类比: 操作系统的体系结构问题与企业的管理问题很相似<br>      内核就是企业的管理层,负责一些重要的工作. 只有管理层才能执行特权指令,<br>      普通员工只能执行非特权指令. 用户态,核心态之间的切换相当于普通员工与管理层之间的工作交接</p>
-<h3 id="中断和异常"><a href="#中断和异常" class="headerlink" title="中断和异常"></a>中断和异常</h3><p>为了解决单道处理的问题,人们发明了操作系统,引入中断机制,实现了多道程序并发执行<br>本质: 发生中断就意味着需要操作系统介入,开展管理工作</p>
-<ol>
-<li>当中断发生时,cpu立即进入核心态</li>
-<li>当中断发生后,当前运行的进程暂停运行,并由操作系统内核对中断进行处理</li>
-<li>对于不同的中断信号,会进行不同的处理</li>
+                <h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><p>Spring是一个轻量级的IOC容器和AOP容器框架<br>目的是简化企业应用程序的开发，使开发人员只需关注业务需要本身</p>
+<p>主要包括七个模块：<br>Spring Context：提供框架式的Bean访问方式以及企业级的功能<br>Spring Core：核心类库，所有功能都依赖于该类库，提供IOC和DI服务<br>Spring MVC：提供面向Web应用的Model-view-controller<br>Spring Web：提供基本的面向Web的综合特性<br>Spring AOP：提供AOP服务<br>Spring Dao：对JDBC的抽象封装，简化了数据访问异常的处理，并能统一管理JDBC事务<br>Spring ORM：对现有的ORM框架的支持</p>
+<h3 id="Spring的优点"><a href="#Spring的优点" class="headerlink" title="Spring的优点"></a>Spring的优点</h3><ol>
+<li>Spring属于低侵入式框架, 代码污染率较低<br>低侵入式: 去除此框架后, 只需要修改一些配置信息,不需要大量修改代码</li>
+<li>Spring的依赖注入机制将对象之间的依赖关系交由框架处理, 降低了组件的耦合度</li>
+<li>Spring提供了AOP技术, 能够对一些通用任务集中式管理, 从而提供更好的复用</li>
+<li>Spring提供了对主流框架的集成支持</li>
 </ol>
-<p>问题: 用户态,核心态之间的切换是怎么实现的<br>用户态切换到核心态是通过中断实现的,并且中断是唯一途径<br>核心态切换到用户态是通过执行一个特权指令,将程序状态字(PSW)的标志位设置为”用户态”</p>
-<p>中断分为内中断和外中断<br>内中断: 也称异常,例外,陷入. 信号的来源: CPU内部, 与当前执行的指令有关<br>    自愿中断: 指令中断<br>    强迫中断: 硬件中断/软件中断<br>外中断: 外设请求, 人工干预</p>
-<h3 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h3><p>操作系统作为用户和计算机硬件之间的接口,需要向上提供一些简单易用的服务.<br>主要包括命令接口和程序接口. 其中程序接口由一组系统调用组成</p>
-<p>应用程序通过系统调用请求系统的服务. 系统中的各种共享资源都由操作系统统一掌管,<br>因此,在用户程序中,凡是与资源有关的操作(如存储分配,I/O操作,文件管理等)<br>都必须通过系统调用的方式向操作系统提出服务请求,由操作系统代为完成.<br>这样可以保证系统的稳定性和安全性,防止用户进行非法操作.</p>
-<p>系统调用的相关处理需要在核心态下进行</p>
-<p>凡是与资源有关的操作,会直接影响到其他进程的操作,一定需要操作系统的介入,即需要系统调用来实现</p>
-<p>分类: 设备管理,文件管理,进程控制,进程通信,内存管理</p>
-<p>系统调用的过程:</p>
+<h3 id="理解Spring-IOC"><a href="#理解Spring-IOC" class="headerlink" title="理解Spring IOC"></a>理解Spring IOC</h3><p>IOC就是控制反转, 指将创建对象的控制转移给Spring框架来管理, Spring利用Java反射机制, 根据配置文件创建实例并管理实例之间的依赖关系<br>Spring IOC有三种注入方式: 构造器注入, Setter方法注入, 根据注解注入</p>
+<p>DI指依赖注入, 和控制反转是同一个概念的不同角度的描述, 即应用程序在运行时利用IOC容器来动态地注入对象需要的外部依赖<br>*控制的什么反转了? 其实就是获得依赖对象的方式反转了</p>
+<h3 id="理解Spring-AOP"><a href="#理解Spring-AOP" class="headerlink" title="理解Spring AOP"></a>理解Spring AOP</h3><p>OOP指面向对象, 面向对象允许开发者定义纵向的关系, 但不适用于定义横向的关系, 会导致大量代码重复, 不利于各个模块的重用</p>
+<p>AOP指面向切面, 就是对面向对象的一种补充, 用于将那些与业务无关,但对多个对象产生影响的公共行为逻辑抽取封装成一个可重用模块,<br>这个模块就被称为”切面”, 利用切面减少系统中的重复代码, 降低了模块间的耦合度, 提高了系统的可维护性.</p>
+<p>AOP实现的关键在于代理模式, AOP代理主要分为静态代理和动态代理. 静态代理的代表是AspectJ, 动态代理则以Spring AOP为代表</p>
 <ol>
-<li>传递系统调用参数</li>
-<li>执行陷入指令(中断)</li>
-<li>执行系统调用相应服务程序</li>
-<li>返回用户程序</li>
+<li>AspectJ是静态代理, 又称编译时增强. AOP框架会在编译阶段生成AOP代理类, 并将切面织入到Java字节码中,<br>运行时就是增强之后的AOP对象</li>
+<li>Spring AOP是动态代理, AOP框架不会去修改字节码, 而是每次运行时临时为方法生成一个AOP对象,<br>这个AOP对象包含了目标对象的所有方法, 并且在特定的切点做了增强处理.</li>
 </ol>
-<p>系统调用发生在用户态,对系统调用的处理发生在核心态<br>执行陷入指令会产生内中断,使处理器从用户态进入核心态.</p>
+<p>Spring AOP代理主要有两种形式: JDK动态代理和CGLIB动态代理</p>
+<ol>
+<li><p>JDK动态代理只提供接口的代理, 不支持类的代理,要求被代理类实现接口.<br>JDK动态代理的核心是InvocationHandler接口和Proxy类, 在获取代理对象时使用Proxy类来动态创建目标类的代理类<br>即最终真正的代理类, 这个类继承自Proxy类并实现了我们定义的接口,当代理对象调用真实对象的方法时,<br>InvocationHandler通过invoke()方法反射来调用目标类中的代码, 动态地将横切逻辑和业务编织在一起</p>
+</li>
+<li><p>如果代理类没有实现接口,那么Spring AOP会选择使用CGLIB来动态代理目标类.<br>CGLIB是一个代码生成的类库, 可以在运行时动态地生成指定类的一个子类对象,<br>并覆盖其中特定方法以及添加增强代码,从而实现AOP<br>CGLIB是用继承的方式做的动态代理, 因此, 如果某个类被标记为final, 那么它无法使用CGLIB做动态代里</p>
+</li>
+</ol>
+<h2 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h2><p>Mybatis是一个半ORM框架, 它内部封装了JDBC, 开发时只需要关注SQL语句本身, 不需要花费精力去处理加载驱动, 创建连接,<br>创建statement等繁杂的过程. 程序员直接编写原生态SQL语句, 可以严格控制SQL执行性能, 灵活度高</p>
+<p>ORM思想: 指对象关系映射, 主要目的是操作实体类就相当于操作数据库表.<br>         需要建立两个映射思想: 1. 建立实体类到表的关系 2. 建立实体类中属性和表中字段的关系</p>
+<h3 id="Mybatis的优点"><a href="#Mybatis的优点" class="headerlink" title="Mybatis的优点"></a>Mybatis的优点</h3><ol>
+<li>基于SQL语句编程，相当灵活，不会对应用程序或者数据库的现有设计造成任何影响，SQL写在XML里，解除sql与程序代码的耦合，便于统一管理；<br>提供XML标签，支持编写动态SQL语句，并可重用。</li>
+<li>与JDBC相比，减少了50%以上的代码量，消除了JDBC大量冗余的代码，不需要手动开关连接；</li>
+<li>很好的与各种数据库兼容（因为MyBatis使用JDBC来连接数据库，所以只要JDBC支持的数据库MyBatis都支持）。</li>
+<li>能够与Spring很好的集成；</li>
+<li>提供映射标签，支持对象与数据库的ORM字段关系映射；提供对象关系映射标签，支持对象关系组件维护。</li>
+</ol>
+<h3 id="Mybatis的缺点"><a href="#Mybatis的缺点" class="headerlink" title="Mybatis的缺点"></a>Mybatis的缺点</h3><ol>
+<li>SQL语句的编写工作量较大，尤其当字段多、关联表多时，对开发人员编写SQL语句的功底有一定要求。</li>
+<li>SQL语句依赖于数据库，导致数据库移植性差，不能随意更换数据库。</li>
+</ol>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1013,7 +1002,7 @@
                     </span>
                     <a href="https://sqtian-hhu.github.io" class="b-link-green">世庆的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2021/04/29/cao-zuo-xi-tong-di-yi-zhang/" class="b-link-green">操作系统第一章</a>
+                    <a href="/2021/06/02/cheng-cheng-chou-bei-xiao-zhuan-lan/" class="b-link-green">呈呈抽背小专栏</a>
                 </p>
             </div>
 
@@ -1036,7 +1025,7 @@
         repo: 'shw2018.github.io',
         owner: 'shw2018',
         admin: ["shw2018"],
-        id: '2021/04/29/cao-zuo-xi-tong-di-yi-zhang/',
+        id: '2021/06/02/cheng-cheng-chou-bei-xiao-zhuan-lan/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1355,48 +1344,49 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/05/10/cao-zuo-xi-tong-di-er-zhang/">
+                <a href="/2021/06/02/cheng-cheng-chou-bei-xiao-zhuan-lan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="操作系统第二章">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="呈呈抽背小专栏">
                         
-                        <span class="card-title">操作系统第二章</span>
+                        <span class="card-title">呈呈抽背小专栏</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            第二章进程程序：就是一个指令序列进程：程序的一次执行过程
-单道程序程序的代码放在程序段内，程序运行过程处理的数据放在数据段内
-多道程序技术：多道程序并发执行系统为每个运行的程序配置一个数据结构，称为进程控制块（PCB）用来存放进程描述信息，
+                            SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企业应用程序的开发，使开发人员只需关注业务需要本身
+主要包括七个模块：Spring Context：提供框架式的Bean访问方式以及企业级的功能Spring Core
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-06-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/操作系统/" class="post-category" target="_blank">
-                                    操作系统
+                            <a href="/categories/呈呈专栏/" class="post-category" target="_blank">
+                                    呈呈专栏
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/进程/" target="_blank">
-                        <span class="chip bg-color">进程</span>
+                    <a href="/tags/高频重点/" target="_blank">
+                        <span class="chip bg-color">高频重点</span>
                     </a>
                     
                 </div>
@@ -1410,41 +1400,31 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/04/27/algorithm/">
+                <a href="/2021/05/30/jvm/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Algorithm">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="JVM">
                         
-                        <span class="card-title">Algorithm</span>
+                        <span class="card-title">JVM</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            五大常用算法一、分治分治策略：    1、将原始问题划分或归结为规模较小的子问题。
-2、递归或者迭代求解每个子问题
-
-3、将子问题的解综合得到原问题的解
-
-注意：
-1、子问题与原问题的性质完全一样
-
-2、子问题之间可以彼此独立求解
-
-3、递
+                            JVM内存空间用于运行Java字节码的虚拟机，是Java能够跨平台的关键所在每个操作系统的解释器不同，但基于解释器实现的虚拟机是相同的Java程序的具体运行过程：1）Java源文件被编译器编译成字节码文件2）JVM将字节码文件编译成相应操作
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-27
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-30
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category" target="_blank">
-                                    算法
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                    Java
                                 </a>
                             
                             
@@ -1454,8 +1434,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/算法/" target="_blank">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/JVM/" target="_blank">
+                        <span class="chip bg-color">JVM</span>
                     </a>
                     
                 </div>
@@ -1630,7 +1610,7 @@
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">173.7k</span> 字
+                <span class="white-color">175.3k</span> 字
             
 
             
