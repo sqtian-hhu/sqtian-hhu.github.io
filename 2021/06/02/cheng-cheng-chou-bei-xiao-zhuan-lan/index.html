@@ -9,8 +9,9 @@
     <meta name="keywords" content="呈呈抽背小专栏, 深度学习 故障诊断 Java">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企业应用程序的开发，使开发人员只需关注业务需要本身
-主要包括七个模块：Spring Context：提供框架式的Bean访问方式以及企业级的功能Spring Core">
+    <meta name="description" content="
+SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企业应用程序的开发，使开发人员只需关注业务需要本身
+主要包括七个模块：Spring Context：提供框架式的Bean访问方式以及企业级的功能Spring Cor">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -773,14 +774,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.2k
+                        3.6k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        7 分
+                        12 分
                     </div>
                     
                 
@@ -797,7 +798,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><p>Spring是一个轻量级的IOC容器和AOP容器框架<br>目的是简化企业应用程序的开发，使开发人员只需关注业务需要本身</p>
+                <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://raw.githubusercontent.com/sqtian-hhu/images/main/images/friends/5.jpg" alt="冲冲冲"></p>
+<h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><p>Spring是一个轻量级的IOC容器和AOP容器框架<br>目的是简化企业应用程序的开发，使开发人员只需关注业务需要本身</p>
 <p>主要包括七个模块：<br>Spring Context：提供框架式的Bean访问方式以及企业级的功能<br>Spring Core：核心类库，所有功能都依赖于该类库，提供IOC和DI服务<br>Spring MVC：提供面向Web应用的Model-view-controller<br>Spring Web：提供基本的面向Web的综合特性<br>Spring AOP：提供AOP服务<br>Spring Dao：对JDBC的抽象封装，简化了数据访问异常的处理，并能统一管理JDBC事务<br>Spring ORM：对现有的ORM框架的支持</p>
 <h3 id="Spring的优点"><a href="#Spring的优点" class="headerlink" title="Spring的优点"></a>Spring的优点</h3><ol>
 <li>Spring属于低侵入式框架, 代码污染率较低<br>低侵入式: 去除此框架后, 只需要修改一些配置信息,不需要大量修改代码</li>
@@ -846,6 +848,44 @@
 <li>可重复读(REPEATABLE READ)：在一个事务开始后，其他事务对数据库的修改在本事务中不可见，直到本事务提交或回滚。<br>但是，其他事务的insert/delete操作对该事务是可见的，也就是说，该隔离级别并不能避免幻读问题。<br>(MySQL默认)</li>
 <li>串行化(SERIALIZABLE)：最高级别的隔离，只允许事务串行执行。</li>
 </ol>
+<h3 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h3><p>索引是对数据库表中一个或多个列的值进行排序的数据结构，以协助快速查询，更新数据库表中数据。<br>索引的实现通常使用BTree及其变种，索引加速了数据访问，因为存储引擎不会再去扫描整张表得到需要的数据，<br>相反，他从根节点开始，根节点保存了子节点的指针，存储引擎根据指针快速寻找数据<br>常用索引：哈希索引，全文索引，BTree索引，B+Tree索引</p>
+<h2 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h2><p>Spring MVC 是一个基于Java的实现了MVC设计模式的轻量级Web框架，通过把Model，View，Controller分离，<br>将Web层进行解耦，把复杂的Web应用分成逻辑清晰的几部分，简化开发，减少出错，方便组内开发人员之间的配合。</p>
+<h3 id="Spring-MVC的优点"><a href="#Spring-MVC的优点" class="headerlink" title="Spring MVC的优点"></a>Spring MVC的优点</h3><ol>
+<li>可以支持各种视图技术，而不仅仅局限于JSP</li>
+<li>与Spring框架集成</li>
+<li>清晰地角色分配：前端控制器，处理器映射器，处理器适配器，视图解析器</li>
+<li>支持各种请求资源的映射策略</li>
+</ol>
+<h3 id="MVC与三层架构"><a href="#MVC与三层架构" class="headerlink" title="MVC与三层架构"></a>MVC与三层架构</h3><p>三层架构是一个分层式的软件体系架构设计，适用于所有项目<br>MVC模式是为了让前端与业务逻辑以及数据分开，只使用在Web项目中</p>
+<p>三层架构：<br>表现层(UI):与用户交互的界面。可以用于接收用户输入的数据和显示处理后的数据<br>业务逻辑层(BLL):是UI与DAL的桥梁, 实现业务逻辑处理<br>数据访问层(DAL):关联着数据库, 实现对数据的增删改查</p>
+<p>MVC模式<br>Model模型: 负责数据库操作, 以及业务逻辑的实现, 是MVC的主体<br>View视图: 用户与系统之间的交互界面<br>Controller控制器: 根据用户的输入, 控制用户界面数据显示和更新对象状态.起到控制整个业务流程的作用,实现view层跟Model层的协同工作.</p>
+<h3 id="Spring-MVC流程"><a href="#Spring-MVC流程" class="headerlink" title="Spring MVC流程"></a>Spring MVC流程</h3><ol>
+<li>用户发送请求至DispatcherServlet;</li>
+<li>DispatcherServlet收到请求后, 调用HandlerMapping处理器映射器,请求获取Handler;</li>
+<li>处理器映射器根据url请求找到具体的处理器Handler, 生成处理器对象及处理器拦截器, 一并返回给前端控制器;</li>
+<li>前端控制器调用HandlerAdapter处理器适配器,请求执行Handler;</li>
+<li>HandlerAdapter经过适配调用具体的处理器处理业务逻辑;</li>
+<li>处理器处理完成返回ModelAndView</li>
+<li>处理器适配器将处理器执行结果返回给前端控制器</li>
+<li>前端控制器将ModelAndView传给视图解析器ViewResolver进行解析</li>
+<li>视图解析器解析之后返回具体View</li>
+<li>前端控制器对View进行渲染视图, 即将Model数据填充到View中去</li>
+<li>前端控制器响应用户</li>
+</ol>
+<h3 id="Spring-MVC常用注解"><a href="#Spring-MVC常用注解" class="headerlink" title="Spring MVC常用注解"></a>Spring MVC常用注解</h3><p>@RequestMapping:<br>用于处理请求url映射的注解, 可用在类或方法上.用在类上表示类中的所有响应请求的方法都是以该地址作为父路径.<br>@RequestBody:<br>注解实现接收http请求的json数据, 将json转换为java对象<br>@ResponseBody:<br>注解实现将Controller方法返回对象转化为json对象响应给客户</p>
+<h3 id="如何解决POST请求以及GET请求中文乱码问题"><a href="#如何解决POST请求以及GET请求中文乱码问题" class="headerlink" title="如何解决POST请求以及GET请求中文乱码问题"></a>如何解决POST请求以及GET请求中文乱码问题</h3><p>POST: 在配置文件中配置一个CharacterEncodingFilter过滤器, 编码设置成UTF-8<br>GET: 修改tomcat配置文件添加编码与工程编码一致</p>
+<h2 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h2><p>SpringBoot是Spring开源组织下的子项目, 是Spring组件一站式解决方案, 主要是简化了使用Spring的难度, 减省了繁重的配置.<br>提供了各种启动器, 开发者能快速上手</p>
+<h3 id="Spring-Boot的优势"><a href="#Spring-Boot的优势" class="headerlink" title="Spring Boot的优势"></a>Spring Boot的优势</h3><p>SpringBoot最大的优势就是”约定优于配置”. 约定优于配置是一种软件开发范式, 开发人员按照约定的方式来进行编程, 可以减少开发人员需做决定的数量, 让开发更简单灵活<br>具体的优点有</p>
+<ol>
+<li>容易上手, 提升开发效率, 为Spring开发提供一个更快更广泛的入门体验</li>
+<li>开箱即用, 远离繁琐的配置</li>
+<li>提供了一系列大型项目通用的非业务性功能, 例如: 内嵌服务器, 安全管理, 运行数据监控, 运行状态检查和外部化配置</li>
+<li>避免大量的Maven导入和各种版本冲突</li>
+</ol>
+<h3 id="“约定优于配置”的具体产品体现在哪里"><a href="#“约定优于配置”的具体产品体现在哪里" class="headerlink" title="“约定优于配置”的具体产品体现在哪里"></a>“约定优于配置”的具体产品体现在哪里</h3><p>SpringBoot Starter, SpringBoot JPA都是”约定优于配置”的一种体现. 都是通过”约定优于配置”的设计思路来设计的<br>SpringBoot Starter在启动的过程中会根据约定的信息对资源进行初始化<br>SpringBoot JPA通过约定的方式来自动生成sql, 避免大量无效代码编写.</p>
+<h3 id="Spring-Boot-核心注解-主要是由哪几个注解组成的"><a href="#Spring-Boot-核心注解-主要是由哪几个注解组成的" class="headerlink" title="Spring Boot 核心注解, 主要是由哪几个注解组成的?"></a>Spring Boot 核心注解, 主要是由哪几个注解组成的?</h3><p>启动类注解: @SpringBootApplication<br>主要包含了以下三个注解:<br>@SpringBootConfiguration: 组合了@Configuration注解, 实现配置文件功能<br>@EnableAutoConfiguration: 打开自动配置的功能, 也可以关闭某个自动配置的选项<br>@ComponentScan: Spring组件扫描</p>
+<h3 id="SpringBoot-Starter的工作原理"><a href="#SpringBoot-Starter的工作原理" class="headerlink" title="SpringBoot Starter的工作原理"></a>SpringBoot Starter的工作原理</h3><p>SpringBoot在启动的时候,按照约定去读取SpringBoot Starter中的配置信息, 再根据配置信息对资源进行初始化, 并注入到Spring容器中.<br>这样Spring Boot启动完毕后, 就已经准备好了一切资源, 使用过程直接注入对应的Bean资源即可.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://raw.githubusercontent.com/sqtian-hhu/images/main/images/friends/24.jpg" alt="全文背诵"></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1373,8 +1413,9 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企业应用程序的开发，使开发人员只需关注业务需要本身
-主要包括七个模块：Spring Context：提供框架式的Bean访问方式以及企业级的功能Spring Core
+                            
+SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企业应用程序的开发，使开发人员只需关注业务需要本身
+主要包括七个模块：Spring Context：提供框架式的Bean访问方式以及企业级的功能Spring Cor
                         
                     </div>
                     <div class="publish-info">
@@ -1622,7 +1663,7 @@
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">176k</span> 字
+                <span class="white-color">177.4k</span> 字
             
 
             
