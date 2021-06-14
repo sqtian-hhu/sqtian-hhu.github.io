@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sqtian-hhu.github.io/"/>
-  <updated>2021-06-04T11:55:33.194Z</updated>
+  <updated>2021-06-14T09:17:40.518Z</updated>
   <id>https://sqtian-hhu.github.io/</id>
   
   <author>
@@ -17,11 +17,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>力扣剑指</title>
+    <link href="https://sqtian-hhu.github.io/2021/06/14/li-kou/li-kou-jian-zhi/"/>
+    <id>https://sqtian-hhu.github.io/2021/06/14/li-kou/li-kou-jian-zhi/</id>
+    <published>2021-06-14T05:52:59.000Z</published>
+    <updated>2021-06-14T09:17:40.518Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;leetcode-剑指offer&quot;&gt;&lt;a href=&quot;#leetcode-剑指offer&quot; class=&quot;headerlink&quot; title=&quot;leetcode 剑指offer&quot;&gt;&lt;/a&gt;leetcode 剑指offer&lt;/h3&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>呈呈抽背小专栏</title>
     <link href="https://sqtian-hhu.github.io/2021/06/02/cheng-cheng-chou-bei-xiao-zhuan-lan/"/>
     <id>https://sqtian-hhu.github.io/2021/06/02/cheng-cheng-chou-bei-xiao-zhuan-lan/</id>
     <published>2021-06-02T10:43:07.000Z</published>
-    <updated>2021-06-04T11:55:33.194Z</updated>
+    <updated>2021-06-07T11:23:06.386Z</updated>
     
     <summary type="html">
     
@@ -255,8 +277,8 @@
   
   <entry>
     <title>springJPA</title>
-    <link href="https://sqtian-hhu.github.io/2021/04/23/springjpa/"/>
-    <id>https://sqtian-hhu.github.io/2021/04/23/springjpa/</id>
+    <link href="https://sqtian-hhu.github.io/2021/04/23/java-kuang-jia/springjpa/"/>
+    <id>https://sqtian-hhu.github.io/2021/04/23/java-kuang-jia/springjpa/</id>
     <published>2021-04-23T04:29:05.000Z</published>
     <updated>2021-04-23T04:33:01.059Z</updated>
     
@@ -360,8 +382,8 @@
   
   <entry>
     <title>&#39;tk.mybatis.mapper&#39;</title>
-    <link href="https://sqtian-hhu.github.io/2020/11/16/tk-mybatis-mapper/"/>
-    <id>https://sqtian-hhu.github.io/2020/11/16/tk-mybatis-mapper/</id>
+    <link href="https://sqtian-hhu.github.io/2020/11/16/java-kuang-jia/tk-mybatis-mapper/"/>
+    <id>https://sqtian-hhu.github.io/2020/11/16/java-kuang-jia/tk-mybatis-mapper/</id>
     <published>2020-11-16T02:45:54.000Z</published>
     <updated>2021-04-22T11:25:40.306Z</updated>
     
@@ -420,8 +442,8 @@
   
   <entry>
     <title>&#39;DataType&#39;</title>
-    <link href="https://sqtian-hhu.github.io/2020/10/26/datatype/"/>
-    <id>https://sqtian-hhu.github.io/2020/10/26/datatype/</id>
+    <link href="https://sqtian-hhu.github.io/2020/10/26/java-ji-chu/datatype/"/>
+    <id>https://sqtian-hhu.github.io/2020/10/26/java-ji-chu/datatype/</id>
     <published>2020-10-26T10:30:46.000Z</published>
     <updated>2021-04-22T11:25:40.353Z</updated>
     
@@ -440,8 +462,8 @@
   
   <entry>
     <title>&#39;JavaNote_SpringMVC_Day03&#39;</title>
-    <link href="https://sqtian-hhu.github.io/2020/07/08/javanote-ssm/"/>
-    <id>https://sqtian-hhu.github.io/2020/07/08/javanote-ssm/</id>
+    <link href="https://sqtian-hhu.github.io/2020/07/08/java-kuang-jia/javanote-ssm/"/>
+    <id>https://sqtian-hhu.github.io/2020/07/08/java-kuang-jia/javanote-ssm/</id>
     <published>2020-07-08T11:01:00.000Z</published>
     <updated>2021-04-22T11:25:40.338Z</updated>
     
@@ -461,8 +483,8 @@
   
   <entry>
     <title>&#39;JavaNote_SpringMVC_Day02&#39;</title>
-    <link href="https://sqtian-hhu.github.io/2020/07/08/javanote-springmvc-day02/"/>
-    <id>https://sqtian-hhu.github.io/2020/07/08/javanote-springmvc-day02/</id>
+    <link href="https://sqtian-hhu.github.io/2020/07/08/java-kuang-jia/javanote-springmvc-day02/"/>
+    <id>https://sqtian-hhu.github.io/2020/07/08/java-kuang-jia/javanote-springmvc-day02/</id>
     <published>2020-07-08T11:00:55.000Z</published>
     <updated>2021-04-22T11:25:40.456Z</updated>
     
@@ -493,31 +515,6 @@ public String testString(Model model){
 
     return &quot;success&quot;;
 }&lt;/code&gt;&lt;/pre&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
-    
-    
-      <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&#39;JavaNote_SpringMVC_Day01&#39;</title>
-    <link href="https://sqtian-hhu.github.io/2020/07/08/javanote-springmvc-day01/"/>
-    <id>https://sqtian-hhu.github.io/2020/07/08/javanote-springmvc-day01/</id>
-    <published>2020-07-08T10:59:08.000Z</published>
-    <updated>2021-04-22T11:25:39.990Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;day1&quot;&gt;&lt;a href=&quot;#day1&quot; class=&quot;headerlink&quot; title=&quot;day1&quot;&gt;&lt;/a&gt;day1&lt;/h2&gt;&lt;p&gt;第一章：SpringMVC的基本概念&lt;br&gt;开发架构一般基于两种形式：C/S架构和B/S架构。JavaEE开发中几乎全都是基于B/S架构的开发。&lt;br&gt;B/S架构中，标准的三层架构包括：表现层、业务层、持久层&lt;/p&gt;
-&lt;p&gt;服务器端分成三层框架&lt;/p&gt;
-&lt;p&gt;三层架构(3-tier architecture) 通常意义上的三层架构就是将整个业务应用划分为：表现层（UI）、业务逻辑层（BLL）、数据访问层（DAL）。区分层次的目的即为了“高内聚，低耦合”的思想。&lt;/p&gt;
-&lt;p&gt;表现层（user interface layer）：通俗讲就是展现给用户的界面，即用户在使用一个系统的时候他的所见所得。主要对用户的请求接受，以及数据的返回，为客户端提供应用程序的访问。&lt;/p&gt;
-&lt;p&gt;业务逻辑层（business logic layer）:针对具体问题的操作，也可以说是对数据层的操作，对数据业务逻辑处理。&lt;/p&gt;
-&lt;p&gt;数据访问层（data access layer）:该层直接操作数据库，针对数据的增添、删除、修改、查找等。&lt;/p&gt;
     
     </summary>
     

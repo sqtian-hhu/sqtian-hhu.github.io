@@ -1,0 +1,2835 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+    <!-- shw2018 洪卫  modify 2019.08.15-->
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="力扣剑指, 深度学习 故障诊断 Java">
+    <meta name="baidu-site-verification" content="fmlEuI34ir">
+    <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
+    <meta name="description" content="leetcode 剑指offer01.数组中重复的数字利用count数组存0~n-1出现的次数, 当其&amp;gt;1时说明是重复元素
+class Solution {    public int findRepeatNumber(int[] n">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>力扣剑指 | 世庆的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/aos/3.0.0-beta.6/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/lightgallery/1.6.12/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <style type="text/css">
+        
+            
+            code[class*="language-"],
+            pre[class*="language-"] {
+                white-space: pre !important;
+            }
+
+        
+    </style>
+
+    <script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    
+    
+        <script>
+            (function(){
+                var bp = document.createElement('script');
+                var curProtocol = window.location.protocol.split(':')[0];
+                if (curProtocol === 'https') {
+                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+                }
+                else {
+                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(bp, s);
+            })();
+        </script>
+    
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+    <body>
+
+        <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">世庆的博客</span>
+                </a>
+            </div>
+            
+
+
+<!-- <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/AV" class="waves-effect waves-light">
+            
+            <i class="fa fa-music"></i>
+            
+            <span>视听</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/galleries" class="waves-effect waves-light">
+            
+            <i class="fa fa-photo"></i>
+            
+            <span>相册</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于我</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-envelope"></i>
+            
+            <span>留言板</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul> -->
+
+<!-- 支持二级菜单特性 洪卫 shw2018 modify 2019.09.17  -->
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right nav-menu">
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/" class="waves-effect waves-light">
+              
+                <i class="fa fa-home"></i>
+              
+              <span>首页</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/tags" class="waves-effect waves-light">
+              
+                <i class="fa fa-tags"></i>
+              
+              <span>标签</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/categories" class="waves-effect waves-light">
+              
+                <i class="fa fa-bookmark"></i>
+              
+              <span>分类</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/archives" class="waves-effect waves-light">
+              
+                <i class="fa fa-archive"></i>
+              
+              <span>归档</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/AV" class="waves-effect waves-light">
+              
+                <i class="fa fa-music"></i>
+              
+              <span>视听</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/galleries" class="waves-effect waves-light">
+              
+                <i class="fa fa-photo"></i>
+              
+              <span>相册</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/about" class="waves-effect waves-light">
+              
+                <i class="fa fa-user-circle-o"></i>
+              
+              <span>关于我</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/contact" class="waves-effect waves-light">
+              
+                <i class="fa fa-envelope"></i>
+              
+              <span>留言板</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/friends" class="waves-effect waves-light">
+              
+                <i class="fa fa-address-book"></i>
+              
+              <span>友情链接</span>
+            </a>
+
+            
+      </li>
+    
+
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">世庆的博客</div>
+        <div class="logo-desc">
+            
+            河海大学 | 计算机与信息学院 | 信号与信息处理
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/AV" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-music"></i>
+                
+                视听
+            </a>
+        </li>
+        
+        <li>
+            <a href="/galleries" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-photo"></i>
+                
+                相册
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于我
+            </a>
+        </li>
+        
+        <li>
+            <a href="/contact" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-envelope"></i>
+                
+                留言板
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/sqtian-hhu/" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+   
+   
+<!-- 支持二级菜单特性 洪卫 shw2018 modify 2019.09.17  -->
+<!-- <ul class="menu-list mobile-menu-list">
+    
+        <li class="m-nav-item">
+                
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-home"></i>
+                        
+                        首页
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/tags" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-tags"></i>
+                        
+                        标签
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/categories" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-bookmark"></i>
+                        
+                        分类
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/archives" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-archive"></i>
+                        
+                        归档
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/AV" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-music"></i>
+                        
+                        视听
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/galleries" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-photo"></i>
+                        
+                        相册
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/about" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-user-circle-o"></i>
+                        
+                        关于我
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/contact" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-envelope"></i>
+                        
+                        留言板
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/friends" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-address-book"></i>
+                        
+                        友情链接
+                    </a>
+              
+            </li>
+        
+
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/sqtian-hhu/" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul> -->
+
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/sqtian-hhu/" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+        
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        力扣剑指
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- shw2018 洪卫  modify 2019.08.15-->
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+            
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-06-14
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                        世庆
+                    
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        9.2k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        47 分
+                    </div>
+                    
+                
+                
+                
+                        <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv" ></span>
+    
+                
+
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="leetcode-剑指offer"><a href="#leetcode-剑指offer" class="headerlink" title="leetcode 剑指offer"></a>leetcode 剑指offer</h3><h2 id="01-数组中重复的数字"><a href="#01-数组中重复的数字" class="headerlink" title="01.数组中重复的数字"></a>01.数组中重复的数字</h2><p>利用count数组存0~n-1出现的次数, 当其&gt;1时说明是重复元素</p>
+<p>class Solution {<br>    public int findRepeatNumber(int[] nums){<br>        int[] count = new int[nums.length];<br>        for(int n:nums){<br>            count[n]++;<br>            if(count[n]&gt;1) return n;<br>        }</p>
+<pre><code>    return -1;
+
+}</code></pre><p>}</p>
+<h2 id="02-二维数组中的查找"><a href="#02-二维数组中的查找" class="headerlink" title="02.二维数组中的查找"></a>02.二维数组中的查找</h2><p>查找是否包含该数, 从右上角开始搜索</p>
+<p>class Solution {<br>    public boolean findNumberIn2DArray(int[][] matrix, int target) {<br>        // 判空<br>        if(matrix==null||matrix.length==0||matrix[0].length==0) return false;</p>
+<pre><code>    int m = 0;
+    int n = matrix[0].length-1;
+    while(m&lt;matrix.length&amp;&amp;n&gt;=0){
+        // 如果==, 返回
+        if(matrix[m][n]==target){
+            return true;
+        }
+        // 如果&lt;target, 说明第m行都比target小
+        else if(matrix[m][n]&lt;target){
+            m++;
+        }
+        // 如果&gt;target, 说明第n列都比target大
+        else{
+            n--;
+        }
+    }
+    return false;
+}</code></pre><p>}</p>
+<h2 id="03-替换空格"><a href="#03-替换空格" class="headerlink" title="03.替换空格"></a>03.替换空格</h2><p>we are -&gt; we%20are</p>
+<p>class Solution {<br>    public String replaceSpace(String s) {<br>        // 判空<br>        if(s==null||s.length()==0) return s;<br>        // 转成char数组<br>        char[] ch = s.toCharArray();<br>        char[] res = new char[3*ch.length];<br>        int index=0;<br>        for(int i=0;i&lt;ch.length;i++){<br>            if(ch[i]==’ ‘) {<br>                res[index++]=’%’;<br>                res[index++]=’2’;<br>                res[index++]=’0’;<br>            }<br>            else{<br>                res[index++]=ch[i];<br>            }<br>        }<br>        return new String(res,0,index);<br>    }<br>}</p>
+<h2 id="04-从尾到头打印链表"><a href="#04-从尾到头打印链表" class="headerlink" title="04.从尾到头打印链表"></a>04.从尾到头打印链表</h2><p>1,3,2 -&gt; 2,3,1</p>
+<p>class Solution {<br>    public int[] reversePrint(ListNode head) {<br>        int len = 0;<br>        ListNode cur = head;<br>        // 先求出链表长度<br>        while(cur!=null){<br>            len++;<br>            cur = cur.next;<br>        }<br>        // 从后往前装入数组<br>        int[] res = new int[len];<br>        cur = head;<br>        while(cur!=null){<br>            res[–len] = cur.val;<br>            cur = cur.next;<br>        }<br>        return res;<br>    }<br>}</p>
+<h2 id="05-重建二叉树"><a href="#05-重建二叉树" class="headerlink" title="05.重建二叉树"></a>05.重建二叉树</h2><p>给出前序,中序, 重建树<br>递归, 按照前序顺序重建节点 dfs(pre,in,null)<br>递归终止条件: 按前序已建立好所有节点,或者到了中序的截断点</p>
+<p>class Solution {<br>    // 前序<br>    int preindex;<br>    // 中序<br>    int inindex;<br>    public TreeNode buildTree(int[] preorder, int[] inorder) {<br>        preindex = 0;<br>        inindex = 0;<br>        return dfs(preorder,inorder,null);<br>    }<br>    // pre:前序 in:中序 finish:分段截断点<br>    // 功能：重建finish节点前的所有节点<br>    TreeNode dfs(int[] pre,int[] in,TreeNode finish){<br>        // 递归终止条件<br>        // 如果按照前序遍历已经重建好了所有节点，或者到了中序里的截断点<br>        if(preindex==pre.length||(finish!=null&amp;&amp;finish.val==in[inindex])) return null;</p>
+<pre><code>    // 重建根节点: 前序遍历
+    TreeNode r = new TreeNode(pre[preindex]);
+    preindex++;
+
+    // 左 递归 中序遍历r之前的节点
+    r.left = dfs(pre,in,r);
+    inindex++;
+
+    // 右
+    r.right = dfs(pre,in,finish);
+
+    return r;
+}</code></pre><p>}</p>
+<h2 id="06-用两个栈实现队列"><a href="#06-用两个栈实现队列" class="headerlink" title="06.用两个栈实现队列"></a>06.用两个栈实现队列</h2><p>添加时A直接存入, 删除时B中有元素则从B中弹出, 没有则将A中的全部元素弹入B中, 再弹出B顶</p>
+<p>class CQueue {<br>    Stack<integer> A;<br>    Stack<integer> B;</integer></integer></p>
+<pre><code>public CQueue() {
+    A = new Stack&lt;&gt;();
+    B = new Stack&lt;&gt;();
+}
+
+public void appendTail(int value) {
+    // 添加时直接添加
+    A.push(value);
+}
+
+public int deleteHead() {
+    // 删除时倒到B中删除，B作为一个缓冲区使用
+    // 如果B中此时有值，直接从B中返回
+    if(!B.isEmpty()) return B.pop();
+    else{
+        while(!A.isEmpty()){
+            B.push(A.pop());
+        }
+        if(!B.isEmpty()) return B.pop();
+    }
+
+    return -1;
+}</code></pre><p>}</p>
+<h2 id="07-斐波那契数列"><a href="#07-斐波那契数列" class="headerlink" title="07.斐波那契数列"></a>07.斐波那契数列</h2><p>F(0)=0;F(1)=1<br>F(n)=F(n-1)+F(n-2)</p>
+<p>class Solution {<br>    public int fib(int n) {<br>        int a = 0;<br>        int b = 1;</p>
+<pre><code>    for(int i=0;i&lt;n;i++){
+        int temp = a%1000000007;
+        a = b%1000000007;
+        b = temp+a;
+    }
+
+    return a%1000000007;
+}</code></pre><p>}</p>
+<p>变题: 青蛙跳台阶,矩形覆盖<br>F(0)=1;F(1)=1<br>F(n)=F(n-1)+F(n-2)</p>
+<p>class Solution {<br>    public int numWays(int n) {<br>        int a = 1;<br>        int b = 1;</p>
+<pre><code>    for(int i=0;i&lt;n;i++){
+        int t = a%1000000007;
+        a = b%1000000007;
+        b = a+t;
+    }
+
+    return a%1000000007;
+}</code></pre><p>}</p>
+<p>变态跳台阶<br>一次跳1~n级, 跳上n级多少种方法</p>
+<p>每个台阶跳或不跳, 最后一个必跳 =&gt;求2^(n-1)</p>
+<h2 id="08-旋转数组的最小数字"><a href="#08-旋转数组的最小数字" class="headerlink" title="08.旋转数组的最小数字"></a>08.旋转数组的最小数字</h2><p>找临界点: 二分</p>
+<p>class Solution {<br>    public int minArray(int[] numbers) {<br>        //找临界点：二分<br>        //1. 没有翻转的情况<br>        int l=0,r=numbers.length-1;<br>        if(numbers[0]&lt;numbers[r]) return numbers[0];<br>        //2. 3451222的情况<br>        while(r&gt;0&amp;&amp;numbers[r]==numbers[r-1]) r–;</p>
+<pre><code>    //二分
+    int p = numbers[0];
+    int mid = 0;
+    while(l&lt;r){
+        mid = l+(r-l)/2;
+        if(numbers[mid]&gt;=p) l=mid+1;
+        if(numbers[mid]&lt;p) r =mid;
+    }
+    return numbers[r];
+}</code></pre><p>}</p>
+<h2 id="09-矩阵中的路径"><a href="#09-矩阵中的路径" class="headerlink" title="09.矩阵中的路径"></a>09.矩阵中的路径</h2><p>深度优先二维搜索 dfs(board,word,i,j,0)</p>
+<p>class Solution {<br>    int m;<br>    int n;<br>    public boolean exist(char[][] board, String word) {<br>        //深度优先<br>        if(board==null||board.length==0||board[0].length==0) return false;<br>        m=board.length;<br>        n=board[0].length;<br>        for(int i=0;i&lt;m;i++){<br>            for(int j=0;j&lt;n;j++){<br>                if(dfs(board,word,i,j,0)) return true;<br>            }<br>        }<br>        return false;<br>    }<br>    //b:字母矩阵 word:单词 i,j 起点 s:单词检索索引<br>    boolean dfs(char[][] b,String word,int i,int j,int s){<br>        //递归终止条件</p>
+<pre><code>    //越界或者不等 返回false
+    if(i&lt;0||i&gt;=m||j&lt;0||j&gt;=n||b[i][j]!=word.charAt(s)) return false;
+    //如果上面没有返回false且word全走完了 返回true
+    if(s==word.length()-1) return true;
+    char temp = b[i][j];
+    //利用'*'代替visited标记
+    b[i][j] = '*';
+    //搜索上下左右
+    boolean res = dfs(b,word,i+1,j,s+1)||dfs(b,word,i-1,j,s+1)||dfs(b,word,i,j+1,s+1)||dfs(b,word,i,j-1,s+1);
+
+    //回溯
+    b[i][j] = temp;
+
+    return res;
+}</code></pre><p>}</p>
+<h2 id="10-机器人运动范围"><a href="#10-机器人运动范围" class="headerlink" title="10.机器人运动范围"></a>10.机器人运动范围</h2><p>dfs(x,y,xh,yh)</p>
+<p>class Solution {<br>    //visited记录已经访问的位置<br>    boolean[][] visited;<br>    int target;<br>    int M;<br>    int N;<br>    public int movingCount(int m, int n, int k) {<br>        //深度优先<br>        M=m;<br>        N=n;<br>        target = k;<br>        visited = new boolean[M][N];<br>        //传入起点, x的位和xh,y的位和yh<br>        return dfs(0,0,0,0);<br>    }<br>    //x,y 起点 xh:x位和 yh:y位和<br>    int dfs(int x,int y,int xh,int yh){<br>        //终止条件:越界||已访问||超过规定k<br>        if(x&lt;0||x&gt;=M||y&lt;0||y&gt;=N||visited[x][y]||(xh+yh)&gt;target) return 0;<br>        visited[x][y] = true;<br>        //19-&gt;20 和小了8<br>        //18-&gt;19 和大了1<br>        return 1+ dfs(x+1,y,(x+1)%10==0?xh-8:xh+1,yh)+dfs(x,y+1,xh,(y+1)%10==0?yh-8:yh+1);<br>    }<br>}</p>
+<h2 id="11-剪绳子"><a href="#11-剪绳子" class="headerlink" title="11.剪绳子"></a>11.剪绳子</h2><p>动态规划</p>
+<p>class Solution {<br>    public int cuttingRope(int n) {<br>        //动态规划<br>        //dp[i]=max(dp[i],dp[i-j]<em>j,(i-j)</em>j)<br>        if(n&lt;1) return 0;<br>        //1. 初始化dp<br>        int[] dp = new int[n+1];<br>        dp[1] = 1;<br>        //2. 遍历更新<br>        for(int i=2;i&lt;=n;i++){<br>            for(int j=1;j&lt;i;j++){<br>                dp[i] = Math.max(Math.max(dp[i-j]<em>j,(i-j)</em>j),dp[i]);<br>            }<br>        }<br>        return dp[n];<br>    }<br>}</p>
+<h2 id="12-剪绳子-取模"><a href="#12-剪绳子-取模" class="headerlink" title="12.剪绳子(取模)"></a>12.剪绳子(取模)</h2><p>贪心</p>
+<p>class Solution {<br>    public int cuttingRope(int n) {<br>        //需要取模的话就不能用动态规划了<br>        //贪心算法<br>        //尽可能地取3，最后余数可能是0，1，2<br>        //0：结果即为所有三相乘<br>        //1：取出一个三，2<em>2&gt;3</em>1<br>        //2: 所有三相乘再*2<br>        if(n&lt;1) return 0;<br>        if(n==1) return 1;<br>        if(n==2) return 1;<br>        if(n==3) return 2;</p>
+<pre><code>    int e=1000000007;
+    //res一定要用long类型,不然大数会出错
+    long res = 1;   
+    if(n%3==2) {
+        n-=2;
+        res=2;
+    }
+    else if(n%3==1){
+        n-=4;
+        res = 4;
+    }
+
+    while(n&gt;0){
+        res*=3;
+        res = res%e;
+        n-=3;
+    }
+    return (int)res%e;
+}</code></pre><p>}</p>
+<h2 id="13-二进制中1的个数"><a href="#13-二进制中1的个数" class="headerlink" title="13.二进制中1的个数"></a>13.二进制中1的个数</h2><p>0001011 =&gt; 3<br>利用n&amp;(n-1)每次消去一个1</p>
+<p>public class Solution {<br>    // you need to treat n as an unsigned value<br>    public int hammingWeight(int n) {<br>        //n&amp;(n-1)<br>        int count = 0;<br>        while(n!=0){<br>            n = n&amp;(n-1);<br>            count++;<br>        }<br>        return count;<br>    }<br>}</p>
+<h2 id="14-数值的整数次方"><a href="#14-数值的整数次方" class="headerlink" title="14.数值的整数次方"></a>14.数值的整数次方</h2><p>快速幂写法 x^p</p>
+<p>class Solution {<br>    public double myPow(double x, int n) {<br>        //快速幂写法<br>        if(n==0&amp;&amp;x==0) return -1;<br>        else if(n==0) return 1;<br>        else if(x==0) return 0;<br>        //用long接收，防止越界<br>        long p = n;</p>
+<pre><code>    if(p&lt;0){
+        x = 1/x;
+        p = -p;
+    }    
+    double res = 1.0;
+    while(p&gt;0){
+        if((p&amp;1)==1) res*=x;
+        x *=x;
+        p &gt;&gt;=1;
+
+    }
+    return res;
+}</code></pre><p>}</p>
+<h2 id="15-打印从1到最大的n位数"><a href="#15-打印从1到最大的n位数" class="headerlink" title="15.打印从1到最大的n位数"></a>15.打印从1到最大的n位数</h2><p>1,2,3…</p>
+<p>class Solution {<br>    public int[] printNumbers(int n) {<br>        //打印1~10^n-1<br>        //快速幂求上界<br>        long p = n;<br>        int x = 10;<br>        int r = 1;<br>        while(p!=0){<br>            if((p&amp;1)==1) r*=x;<br>            x *=x;<br>            p &gt;&gt;=1;<br>        }<br>        //打印<br>        int[] res = new int[r-1];<br>        for(int i=0;i&lt;r-1;i++){<br>            res[i] = i+1;<br>        }<br>        return res;<br>    }<br>}</p>
+<h2 id="16-删除链表的节点"><a href="#16-删除链表的节点" class="headerlink" title="16.删除链表的节点"></a>16.删除链表的节点</h2><p>class Solution {<br>    public ListNode deleteNode(ListNode head, int val) {<br>        if(head==null) return null;<br>        //先搜索再删除<br>        //dummy 哨兵节点<br>        ListNode dummy = new ListNode(0);<br>        dummy.next = head;<br>        //双指针移动<br>        ListNode pre = dummy;<br>        while(head!=null){<br>            if(head.val==val){<br>                pre.next = head.next;<br>            }<br>            pre = pre.next;<br>            head = head.next;<br>        }<br>        return dummy.next;<br>    }<br>}</p>
+<h2 id="17-正则式匹配"><a href="#17-正则式匹配" class="headerlink" title="17.正则式匹配"></a>17.正则式匹配</h2><p>动态规划</p>
+<p>class Solution {<br>    public boolean isMatch(String s, String p) {<br>        //动态规划<br>        //dp[i][j]: 表示s的前i个和p的前j个相匹配，即0<del>i-1和0</del>j-1匹配<br>        int m = s.length();<br>        int n = p.length();<br>        boolean[][] dp = new boolean[m+1][n+1];</p>
+<pre><code>    for(int i=0;i&lt;=m;i++){
+        for(int j=0;j&lt;=n;j++){
+            //初始化 dp[0][0]=true,其余dp[i][0]=false;
+            if(j==0){
+                dp[i][0] = (i==0);
+
+            }else{
+                //如果不是*
+                if(p.charAt(j-1)!='*'){
+                    //如果s[i-1]和p[i-1]相匹配，则前i个与前j个匹配情况同上一个相同
+                    if(i&gt;0&amp;&amp;(s.charAt(i-1)==p.charAt(j-1)||p.charAt(j-1)=='.')){
+                        dp[i][j] = dp[i-1][j-1];
+                    }
+                }
+                //如果是'*'
+                else{
+                    //'*'若取零,则前ij个的匹配情况就和前i j-2个的匹配相同
+                    if(j&gt;=2){
+
+                        dp[i][j] |= dp[i][j-2];
+                    }
+                    //'*'不取零,就要看前i j-1个是否相匹配
+                    //s[i-1]和p[j-2]比较，相等则匹配情况与前i-1 j个相同，i继续往后匹配
+                    if(j&gt;=2&amp;&amp;i&gt;0&amp;&amp;(s.charAt(i-1)==p.charAt(j-2)||p.charAt(j-2)=='.')){
+                        dp[i][j] |= dp[i-1][j];
+                    }
+                }
+            }
+        }
+    }
+    return dp[m][n];
+}</code></pre><p>}</p>
+<h2 id="18-表示数值的字符串"><a href="#18-表示数值的字符串" class="headerlink" title="18.表示数值的字符串"></a>18.表示数值的字符串</h2><p>class Solution {<br>    public boolean isNumber(String s) {<br>        char[] ch = s.trim().toCharArray();<br>        if(ch==null||ch.length==0) return false;<br>        //设置标志位记录前面是否出现过该元素<br>        boolean e = false;<br>        boolean dot = false;<br>        boolean num = false;</p>
+<pre><code>    for(int i=0;i&lt;ch.length;i++){
+        if(ch[i]&gt;='0'&amp;&amp;ch[i]&lt;='9'){
+            num=true;
+        }
+        else if(ch[i]=='e'||ch[i]=='E'){
+            //如果是e, e前面一定有数字,不能有e,且e之后一定得有数字
+            if(!num||e) return false;
+            e = true;
+            //重置num,便于判断后面有没有数字
+            num = false;
+        }
+        else if(ch[i]=='.'){
+            //.前面不能有e,不能有.
+            if(dot||e) return false;
+            dot=true;
+        }
+        else if(ch[i]=='+'||ch[i]=='-'){
+            //符号出现在第一位或者e后面一位,否则不对
+            if(i!=0&amp;&amp;ch[i-1]!='e'&amp;&amp;ch[i-1]!='E') return false;
+        }
+        else{
+            return false;
+        }
+    }
+    return num;
+}</code></pre><p>}</p>
+<h2 id="19-调整数组顺序使奇数位于偶数前面"><a href="#19-调整数组顺序使奇数位于偶数前面" class="headerlink" title="19.调整数组顺序使奇数位于偶数前面"></a>19.调整数组顺序使奇数位于偶数前面</h2><p>解1:暴力搜索,可以不改变相对顺序<br>解2:快排,但相对顺序可能发生改变</p>
+<p>class Solution {<br>    public int[] exchange(int[] nums) {<br>        //快排<br>        if(nums==null||nums.length==0) return nums;<br>        int l = 0,r = nums.length-1;</p>
+<pre><code>    while(l&lt;r){
+        //r从右往左找奇数
+        while(l&lt;r&amp;&amp;nums[r]%2==0) r--;
+        //l从左往右找偶数
+        while(l&lt;r&amp;&amp;nums[l]%2==1) l++;
+
+        if(l&lt;r){
+            int temp = nums[l];
+            nums[l] = nums[r];
+            nums[r] = temp;
+        }
+    }
+    return nums;
+}</code></pre><p>}</p>
+<h2 id="20-链表中倒数第k个节点"><a href="#20-链表中倒数第k个节点" class="headerlink" title="20.链表中倒数第k个节点"></a>20.链表中倒数第k个节点</h2><p>class Solution {<br>    public ListNode getKthFromEnd(ListNode head, int k) {<br>        //双指针<br>        //快指针先跑k个节点，然后两个一起跑<br>        //当快指针到底时，慢指针就停在解上<br>        ListNode fast = head;<br>        for(int i=0;i&lt;k;i++){<br>            if(fast==null) return null;<br>            fast = fast.next;<br>        }<br>        ListNode slow = head;<br>        while(fast!=null){<br>            slow=slow.next;<br>            fast=fast.next;<br>        }<br>        return slow;</p>
+<pre><code>}</code></pre><p>}</p>
+<h2 id="21-反转链表"><a href="#21-反转链表" class="headerlink" title="21.反转链表"></a>21.反转链表</h2><p>pre,cur,next一起后移</p>
+<p>class Solution {<br>    public ListNode reverseList(ListNode head) {<br>        ListNode pre = null;<br>        ListNode next = null;<br>        while(head!=null){<br>            next = head.next;<br>            head.next = pre;<br>            pre = head;<br>            head = next;<br>        }</p>
+<pre><code>    return pre;
+}</code></pre><p>}</p>
+<h2 id="22-合并两个排序的链表"><a href="#22-合并两个排序的链表" class="headerlink" title="22.合并两个排序的链表"></a>22.合并两个排序的链表</h2><p>归并排序改写</p>
+<p>class Solution {<br>    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {<br>        //参考归并排序最后的合并阶段<br>        ListNode dummy = new ListNode(0);<br>        ListNode res = dummy;<br>        while(l1!=null&amp;&amp;l2!=null){<br>            if(l1.val&lt;l2.val){<br>                res.next=l1;<br>                l1=l1.next;<br>            }else{<br>                res.next=l2;<br>                l2=l2.next;<br>            }<br>            res=res.next;<br>        }<br>        //多出来的部分直接接在res后面<br>        if(l1!=null){<br>            res.next=l1;<br>        }<br>        if(l2!=null){<br>            res.next=l2;<br>        }</p>
+<pre><code>    return dummy.next;
+}</code></pre><p>}</p>
+<h2 id="23-树的子结构"><a href="#23-树的子结构" class="headerlink" title="23.树的子结构"></a>23.树的子结构</h2><p>class Solution {<br>    public boolean isSubStructure(TreeNode A, TreeNode B) {<br>        if(B==null||A==null) return false;</p>
+<pre><code>    //递归找到值相等的根,进入递归方法判断是否结构相同
+    if(A.val==B.val){
+        if(sub(A,B)) return true;
+    }
+
+    return isSubStructure(A.left,B)||isSubStructure(A.right,B);
+}
+
+boolean sub(TreeNode r1,TreeNode r2){
+    //如果r2到了最后都顺利 说明匹配正确
+    if(r2==null) return true;
+    //如果r1空了还没匹配出结果或者值不一样，返回false
+    if(r1==null||r1.val!=r2.val) return false;
+
+    //递归 要求左右结构都相同
+    return sub(r1.left,r2.left)&amp;&amp;sub(r1.right,r2.right);
+}</code></pre><p>}</p>
+<h2 id="24-二叉树的镜像"><a href="#24-二叉树的镜像" class="headerlink" title="24.二叉树的镜像"></a>24.二叉树的镜像</h2><p>递归 左=右 右=左</p>
+<p>class Solution {<br>    public TreeNode mirrorTree(TreeNode root) {<br>        if(root==null) return null;<br>        TreeNode temp = root.left;<br>        root.left = mirrorTree(root.right);<br>        root.right = mirrorTree(temp);<br>        return root;<br>    }<br>}</p>
+<h2 id="25-对称的二叉树"><a href="#25-对称的二叉树" class="headerlink" title="25.对称的二叉树"></a>25.对称的二叉树</h2><p>递归 判断节点是否相同<br>A.左=B.右  A.右=B.左</p>
+<p>class Solution {<br>    public boolean isSymmetric(TreeNode root) {<br>        if(root==null) return true;<br>        //递归<br>        //判断左右是否对称<br>        return dfs(root.left,root.right);<br>    }</p>
+<pre><code>boolean dfs(TreeNode A,TreeNode B){
+    if(A==null&amp;&amp;B==null) return true;
+    if(A==null||B==null||A.val!=B.val) return false;
+    //左等于右 右等于左
+    return dfs(A.left,B.right)&amp;&amp;dfs(A.right,B.left);
+}</code></pre><p>}</p>
+<h2 id="26-顺时针打印矩阵"><a href="#26-顺时针打印矩阵" class="headerlink" title="26.顺时针打印矩阵"></a>26.顺时针打印矩阵</h2><p>设置标志位,每次打印完判断是否继续</p>
+<p>class Solution {<br>    public int[] spiralOrder(int[][] matrix) {<br>        if(matrix==null||matrix.length==0||matrix[0].length==0) return new int[0];<br>        int m = matrix.length;<br>        int n = matrix[0].length;<br>        int[] res = new int[m*n];<br>        int index=0;<br>        //设置四个标志位<br>        int up=0,down=matrix.length-1;<br>        int left=0,right=matrix[0].length-1;<br>        while(left&lt;=right&amp;&amp;up&lt;=down){<br>            //先从左往右<br>            for(int i=left;i&lt;=right;i++){<br>                res[index++]=matrix[up][i];<br>            }<br>            //判断是否继续从上往下<br>            if(++up&gt;down) break;</p>
+<pre><code>        //从上而下
+        for(int i=up;i&lt;=down;i++){
+            res[index++]=matrix[i][right];
+        }
+        if(--right&lt;left) break;
+
+        //从右往左
+        for(int i=right;i&gt;=left;i--){
+            res[index++]=matrix[down][i];
+        }
+        if(--down&lt;up) break;
+
+        //从下往上
+        for(int i=down;i&gt;=up;i--){
+            res[index++]=matrix[i][left];
+        }
+        if(++left&gt;right) break;
+    }
+    return res;
+}</code></pre><p>}</p>
+<h2 id="27-包含min函数的栈"><a href="#27-包含min函数的栈" class="headerlink" title="27.包含min函数的栈"></a>27.包含min函数的栈</h2><p>class MinStack {</p>
+<pre><code>//利用两个堆栈
+//一个正常存，一个存当前最小元素
+/** initialize your data structure here. */
+Stack&lt;Integer&gt; A;
+Stack&lt;Integer&gt; B;
+public MinStack() {
+    A=new Stack&lt;&gt;();
+    B=new Stack&lt;&gt;();
+}
+
+public void push(int x) {
+    //如果B空或者B当前peek不是最小值，把x加到B中
+    if(B.isEmpty()||B.peek()&gt;=x) B.push(x);
+    A.push(x);
+
+}
+
+public void pop() {
+    //如果B不空且A当前弹出的就是最小值，则B也要弹出
+    if(!B.isEmpty()&amp;&amp;B.peek().equals(A.peek())) B.pop();
+    A.pop();
+}
+
+public int top() {
+    return A.peek();
+}
+
+public int min() {
+    return B.peek();
+}</code></pre><p>}</p>
+<h2 id="28-栈的压入、弹出序列"><a href="#28-栈的压入、弹出序列" class="headerlink" title="28.栈的压入、弹出序列"></a>28.栈的压入、弹出序列</h2><p>class Solution {<br>    public boolean validateStackSequences(int[] pushed, int[] popped) {<br>        //用LinkedList模拟实现<br>        LinkedList<integer> q = new LinkedList&lt;&gt;();<br>        int index=0;<br>        for(int p:pushed){<br>            //模拟入栈<br>            q.add(p);<br>            //模拟出栈<br>            //如果popped还有且当前栈顶就是要弹出的值，一直弹出<br>            if(q.size()&gt;0&amp;&amp;index&lt;popped.length&amp;&amp;popped[index]==q.get(q.size()-1)){<br>                while(q.size()&gt;0&amp;&amp;index&lt;popped.length&amp;&amp;popped[index]==q.get(q.size()-1)){<br>                    q.remove(q.size()-1);<br>                    index++;<br>                }<br>            }<br>        }<br>        return q.size()==0;<br>    }<br>}</integer></p>
+<h2 id="29-从上到下打印二叉树"><a href="#29-从上到下打印二叉树" class="headerlink" title="29.从上到下打印二叉树"></a>29.从上到下打印二叉树</h2><p>利用队列层序遍历</p>
+<p>class Solution {<br>    public int[] levelOrder(TreeNode root) {<br>        if(root==null) return new int[0];<br>        //按顺序存进队列，先进先出<br>        //从头拉出来的顺序就是层序遍历<br>        LinkedList<treenode> q = new LinkedList&lt;&gt;();<br>        ArrayList<integer> ans = new ArrayList&lt;&gt;();<br>        q.add(root);<br>        while(!q.isEmpty()){<br>            TreeNode r = q.poll();<br>            ans.add(r.val);<br>            if(r.left!=null) q.add(r.left);<br>            if(r.right!=null) q.add(r.right);</integer></treenode></p>
+<pre><code>    }
+
+    int[] res = new int[ans.size()];
+    for(int i=0;i&lt;ans.size();i++){
+        res[i]=ans.get(i);
+    }
+    return res;
+
+}</code></pre><p>}</p>
+<h2 id="30-从上到下分层打印二叉树"><a href="#30-从上到下分层打印二叉树" class="headerlink" title="30.从上到下分层打印二叉树"></a>30.从上到下分层打印二叉树</h2><p>同样利用队列</p>
+<p>class Solution {<br>    public List&lt;List<integer>&gt; levelOrder(TreeNode root) {<br>        //同样利用队列<br>        //但要在每一层遍历一次<br>        List&lt;List<integer>&gt; res = new ArrayList&lt;&gt;();</integer></integer></p>
+<pre><code>    if(root==null) return res;
+
+    LinkedList&lt;TreeNode&gt; q = new LinkedList&lt;&gt;();
+    q.add(root);
+
+    while(!q.isEmpty()){
+        int size = q.size();
+        List&lt;Integer&gt; temp = new ArrayList&lt;&gt;();
+        for(int i=0;i&lt;size;i++){
+
+            TreeNode r = q.poll();
+            temp.add(r.val);
+            if(r.left!=null) q.add(r.left);
+            if(r.right!=null) q.add(r.right);
+
+        }
+        res.add(temp);
+
+    } 
+
+    return res;
+
+}</code></pre><p>}</p>
+<h2 id="31-从上到下之字形打印二叉树"><a href="#31-从上到下之字形打印二叉树" class="headerlink" title="31.从上到下之字形打印二叉树"></a>31.从上到下之字形打印二叉树</h2><p>count计数判断奇偶层</p>
+<p>class Solution {<br>    public List&lt;List<integer>&gt; levelOrder(TreeNode root) {<br>        List&lt;List<integer>&gt; res = new ArrayList&lt;&gt;();<br>        if(root==null) return res;<br>        //利用队列存节点<br>        //每层遍历一次<br>        //设置count计数，偶数层从前往后，奇数层从后往前</integer></integer></p>
+<pre><code>    LinkedList&lt;TreeNode&gt; q = new LinkedList&lt;&gt;();
+    q.add(root);
+
+    int count=0;
+    while(!q.isEmpty()){
+        int size=q.size();
+        LinkedList&lt;Integer&gt; temp = new LinkedList&lt;&gt;();
+        for(int i=0;i&lt;size;i++){
+            TreeNode r = q.poll();
+            if(r.left!=null) q.add(r.left);
+            if(r.right!=null) q.add(r.right);
+
+            if(count%2==0) temp.add(r.val);
+            if(count%2==1) temp.addFirst(r.val);
+        }
+        count++;
+        res.add(temp);
+    }
+
+    return res;
+}</code></pre><p>}</p>
+<h2 id="32-二叉搜索树的后序遍历序列"><a href="#32-二叉搜索树的后序遍历序列" class="headerlink" title="32.二叉搜索树的后序遍历序列"></a>32.二叉搜索树的后序遍历序列</h2><p>class Solution {<br>    public boolean verifyPostorder(int[] postorder) {<br>        //二叉搜索树：左&lt;根&lt;右<br>        //后序遍历： 左右根<br>        //递归<br>        return dfs(postorder,0,postorder.length-1);<br>    }</p>
+<pre><code>//判断这一段是否满足规律
+boolean dfs(int[] p,int start,int end){
+    if(start&gt;=end) return true;
+
+    int l=start;
+    int root = p[end];
+    //左边都比根小，找到左右分界点先
+    while(p[l]&lt;root) l++;
+
+    int m = l;
+    //右边都比根大
+    while(p[l]&gt;root) l++;
+
+    //此时如果l没有顺利到最后，说明不满足规则
+    if(l!=end) return false;
+
+    //递归判断子问题
+    return dfs(p,start,m-1)&amp;&amp;dfs(p,m,end-1);
+
+}</code></pre><p>}</p>
+<h2 id="33-二叉树中和为某一值的路径"><a href="#33-二叉树中和为某一值的路径" class="headerlink" title="33.二叉树中和为某一值的路径"></a>33.二叉树中和为某一值的路径</h2><p>深度优先搜索,每层减一次值<br>回溯</p>
+<p>class Solution {<br>    LinkedList<integer> path;<br>    List&lt;List<integer>&gt; res;<br>    int T;<br>    public List&lt;List<integer>&gt; pathSum(TreeNode root, int target) {<br>        path = new LinkedList&lt;&gt;();<br>        res = new ArrayList&lt;&gt;();<br>        T = target;</integer></integer></integer></p>
+<pre><code>    dfs(root);
+
+    return res;
+}
+
+void dfs(TreeNode r){
+    if(r==null) return;
+
+
+    T -= r.val;
+    path.add(r.val);
+    //添加得出的解
+    if(T==0&amp;&amp;r.right==null&amp;&amp;r.left==null){
+        res.add(new LinkedList(path));
+    }        
+    dfs(r.left);
+
+    dfs(r.right);
+
+    //回溯
+    path.removeLast();
+    T += r.val;
+}</code></pre><p>}</p>
+<h2 id="34-复杂链表的复制"><a href="#34-复杂链表的复制" class="headerlink" title="34.复杂链表的复制"></a>34.复杂链表的复制</h2><p>class Solution {<br>    public Node copyRandomList(Node head) {<br>        if(head==null) return null;<br>        //1.复制成11<code>22</code>33`<br>        copy(head);<br>        //2.复制random的链<br>        random(head);<br>        //3.分离<br>        return divide(head);<br>    }</p>
+<pre><code>void copy(Node head){
+    Node clone = head;
+    while(head!=null){
+        clone = new Node(head.val);
+        clone.next = head.next;
+        head.next = clone;
+        head = clone.next;
+    }
+}
+void random(Node head){
+    //clone.random=head.random.next
+    Node clone = null;
+    while(head!=null){
+        clone = head.next;
+        if(head.random!=null){
+            clone.random = head.random.next;
+        }
+        head = clone.next;
+    }
+}
+
+Node divide(Node head){
+    Node dummy = head.next;
+    Node clone = dummy;
+
+    head.next=clone.next;
+    head = head.next;
+    while(head!=null){
+
+        clone.next=head.next;
+        clone=head.next;
+
+        head.next=clone.next;
+        head=clone.next;
+    }
+    return dummy;
+}</code></pre><p>}</p>
+<h2 id="35-二叉搜索树与双向链表"><a href="#35-二叉搜索树与双向链表" class="headerlink" title="35.二叉搜索树与双向链表"></a>35.二叉搜索树与双向链表</h2><p>中序遍历</p>
+<p>class Solution {<br>    ArrayList<node> res;<br>    public Node treeToDoublyList(Node root) {<br>        if(root==null) return null;<br>        //二叉搜索树：左&lt;根&lt;右<br>        //因此中序遍历是递增的,按中序遍历构造节点即可<br>        res = new ArrayList&lt;&gt;();<br>        dfs(root);<br>        int s = res.size();<br>        Node dummy = res.get(0);</node></p>
+<pre><code>    Node pre = res.get(s-1);
+    for(int i=0;i&lt;s;i++){
+        Node cur = res.get(i);
+        cur.left=pre;
+        pre.right=cur;
+        pre = cur;
+    }
+    return dummy;
+
+}
+
+void dfs(Node r){
+    if(r==null) return;
+
+    dfs(r.left);
+
+    res.add(r);
+
+    dfs(r.right);
+
+}</code></pre><p>}</p>
+<h2 id="36-序列化二叉树"><a href="#36-序列化二叉树" class="headerlink" title="36.序列化二叉树"></a>36.序列化二叉树</h2><p>public class Codec {</p>
+<pre><code>// Encodes a tree to a single string.
+public String serialize(TreeNode root) {
+    //判空 
+    if(root==null) return null;
+
+    LinkedList&lt;TreeNode&gt; q = new LinkedList&lt;&gt;();
+    q.add(root);
+    StringBuilder strb = new StringBuilder("[");
+    //层序遍历,空值补上null
+    while(!q.isEmpty()){
+        TreeNode r = q.poll();
+        if(r!=null) {
+            strb.append(r.val+",");
+            q.add(r.left);
+            q.add(r.right);
+        }
+        else strb.append("null,");
+
+    }
+    //删除最后一个 ，
+    strb.deleteCharAt(strb.length()-1);
+    strb.append("]");
+    return strb.toString();
+}
+
+// Decodes your encoded data to tree.
+public TreeNode deserialize(String data) {
+    //判空
+    if(data==null||data.length()==0) return null;
+
+    LinkedList&lt;TreeNode&gt; q = new LinkedList&lt;&gt;();
+    String[] str = data.substring(1,data.length()-1).split(",");
+
+    TreeNode root = new TreeNode(Integer.valueOf(str[0]));
+    q.add(root);
+    int index = 1;
+    while(!q.isEmpty()){
+        TreeNode r = q.poll();
+        //先重建左节点
+        if(!str[index].equals("null")){
+            r.left = new TreeNode(Integer.valueOf(str[index]));
+            q.add(r.left);
+
+        }
+        index++;
+        //再重建右节点
+        if(!str[index].equals("null")){
+            r.right = new TreeNode(Integer.valueOf(str[index]));
+            q.add(r.right);
+        }
+        index++;
+    }
+    return root;
+}</code></pre><p>}</p>
+<h2 id="37-字符串的排列"><a href="#37-字符串的排列" class="headerlink" title="37.字符串的排列"></a>37.字符串的排列</h2><p>全排列</p>
+<p>class Solution {<br>    //hash存放去重的结果<br>    HashSet<string> hash;<br>    boolean[] visited;<br>    public String[] permutation(String s) {<br>        hash = new HashSet&lt;&gt;();<br>        char[] ch = s.toCharArray();<br>        visited = new boolean[ch.length];</string></p>
+<pre><code>    dfs(ch,"");
+
+    String[] res = new String[hash.size()];
+    Iterator it = hash.iterator();
+    int i = 0;
+    while(it.hasNext()){
+        res[i++] = it.next().toString();
+    }
+
+    return res;
+}
+//ch：字符数组 ans：已经拼接的答案
+void dfs(char[] ch,String ans){
+    if(ans.length()==ch.length){
+        hash.add(ans);
+        return;
+    }
+
+    for(int i=0;i&lt;ch.length;i++){
+
+        if(!visited[i]){
+            visited[i] = true;
+            dfs(ch,ans+ch[i]);
+            //回溯
+            visited[i] = false;
+        }
+
+    }
+} </code></pre><p>}</p>
+<h2 id="38-数组中出现次数超过一半的数字"><a href="#38-数组中出现次数超过一半的数字" class="headerlink" title="38.数组中出现次数超过一半的数字"></a>38.数组中出现次数超过一半的数字</h2><p>候选者法<br>手上拿着可能的数，下一个一样的就留着，不一样就从手上减掉一个</p>
+<p>class Solution {<br>    public int majorityElement(int[] nums) {<br>        //候选者法<br>        int count = 1;<br>        int pos = nums[0];</p>
+<pre><code>    for(int i=1;i&lt;nums.length;i++){
+        //count==0说明手上没有候选，把当前元素加入候选
+        if(count==0){
+            pos = nums[i];
+            count = 1;
+        }
+        //count&gt;=1说明目前有
+        else if(count &gt;=1){
+            if(pos == nums[i]){
+                count++;
+            }else{
+                count--;
+            }
+        }
+    }
+    //最后再验证一下
+    count=0;
+    for(int n : nums){
+        if(n==pos) count++;
+    }
+    return count&gt;nums.length/2?pos:-1;
+}</code></pre><p>}</p>
+<h2 id="39-最小的k个数"><a href="#39-最小的k个数" class="headerlink" title="39.最小的k个数"></a>39.最小的k个数</h2><p>排序+遍历</p>
+<p>class Solution {<br>    public int[] getLeastNumbers(int[] arr, int k) {<br>        Arrays.sort(arr);<br>        int[] res = new int[k];<br>        for(int i=0;i&lt;k;i++){<br>            res[i] = arr[i];<br>        }<br>        return res;<br>    }<br>}</p>
+<h2 id="40-数据流中的中位数"><a href="#40-数据流中的中位数" class="headerlink" title="40.数据流中的中位数"></a>40.数据流中的中位数</h2><p>利用大根堆和小根堆</p>
+<p>class MedianFinder {<br>    //大根堆堆顶最大，存小的一部分数<br>    //小根堆堆顶最小，存小的一部分数<br>    PriorityQueue<integer> A;<br>    PriorityQueue<integer> B;<br>    public MedianFinder() {<br>        //大根堆<br>        A = new PriorityQueue&lt;&gt;((x,y)-&gt;(y-x));<br>        //小根堆<br>        B = new PriorityQueue&lt;&gt;();<br>    }<br>    public void addNum(int num) {<br>        //两个队轮流存，<br>        //第一轮先存进大根堆<br>        //大根堆存小数，先放进小根堆比一下再弹进大根堆<br>        if(A.size()==B.size()){<br>            B.add(num);<br>            A.add(B.poll());<br>        }else{<br>            A.add(num);<br>            B.add(A.poll());<br>        }<br>    }</integer></integer></p>
+<pre><code>public double findMedian() {
+    //如果两个堆一样大中位数就是堆顶的中位数
+    //如果不相等，就是A的堆顶
+    return A.size()==B.size()?(A.peek()+B.peek())/2.0:A.peek()/1.0;
+}</code></pre><p>}</p>
+<h2 id="41-连续子数组的最大和"><a href="#41-连续子数组的最大和" class="headerlink" title="41.连续子数组的最大和"></a>41.连续子数组的最大和</h2><p>动态规划<br>利用nums[i]存i之前的最大和</p>
+<p>class Solution {<br>    public int maxSubArray(int[] nums) {<br>        if(nums==null||nums.length==0) return 0;<br>        //动态规划<br>        //利用nums[i]来表示前面的最大和<br>        int res = nums[0];<br>        for(int i=1;i&lt;nums.length;i++){<br>            //dp[i-1]和0比较，大于0就加上，小于0就不用加进解里<br>            nums[i] += Math.max(nums[i-1],0);<br>            res = Math.max(nums[i],res);<br>        }<br>        return res;<br>    }<br>}</p>
+<h2 id="42-1-n整数中1出现的次数"><a href="#42-1-n整数中1出现的次数" class="headerlink" title="42.1~n整数中1出现的次数"></a>42.1~n整数中1出现的次数</h2><p>设置3个标志位 high cur low, cur从个位开始左移</p>
+<p>class Solution {<br>    public int countDigitOne(int n) {<br>        //设置3个标志位<br>        //high cur low<br>        //遍历：cur从个位移到最高位<br>        //cur在十位上时：cur上的1一共出现了多少次<br>        //cur=0  45 0 5  00 1 0<del>44 1 9 一共450个 = high*10<br>        //cur=1  45 1 5  00 1 0</del>45 1 5 一共456个 = high<em>10+low+1<br>        //cur=2  45 2 5  00 1 0~45 1 9 一共460个 = (high+1)</em>10</p>
+<pre><code>    //公式一样，从个位开始遍历
+
+    int high = n/10,cur=n%10,low=0;
+    int x=1;
+    int count = 0;
+    while(high!=0||cur!=0){
+        if(cur==0){
+            count += high*x;}
+        else if(cur==1){
+            count += high*x+low+1;}
+        else {
+            count += (high+1)*x;}
+        //标志位左移
+        low += x*cur;
+        cur = high%10;
+        high /=10;
+        x *=10;
+    } 
+    return count;
+}</code></pre><p>}</p>
+<h2 id="43-数字序列中某一位数字"><a href="#43-数字序列中某一位数字" class="headerlink" title="43.数字序列中某一位数字"></a>43.数字序列中某一位数字</h2><p>class Solution {<br>    public int findNthDigit(int n) {<br>        //1. 确定在几位数里<br>        //0-9     9个数字<br>        //10-99   10<em>9</em>2个数字<br>        //100-999 100<em>9</em>3个数字<br>        int digit = 1;<br>        long start = 1;<br>        long count = 9;<br>        while(n&gt;count){<br>            n -= count;<br>            digit++;<br>            start <em>= 10;<br>            count = start</em>digit*9;<br>        }<br>        //2. 确定在那个数字里<br>        //start+(n-1)/digit<br>        long num = start+(n-1)/digit;</p>
+<pre><code>    //3. 确定数字
+    //在num的第(n-1)%digit位
+    return Long.toString(num).charAt((n-1)%digit)-'0';
+}</code></pre><p>}</p>
+<h2 id="44-把数组排成最小的数"><a href="#44-把数组排成最小的数" class="headerlink" title="44.把数组排成最小的数"></a>44.把数组排成最小的数</h2><p>重写快排, 排在前面更小的就往前换,排在后面更小的就往后换</p>
+<p>class Solution {<br>    public String minNumber(int[] nums) {<br>        //重写快排，对字符串用compareTo比较，拼接起来小的就往前放<br>        //1. 把int[]换成String[]<br>        int len = nums.length;<br>        String[] strs = new String[len];<br>        for(int i=0;i&lt;len;i++){<br>            strs[i] = String.valueOf(nums[i]);<br>        }<br>        //快排<br>        QuickSort(strs,0,len-1);</p>
+<pre><code>    StringBuilder res = new StringBuilder();
+    for(String s:strs){
+        res.append(s);
+    }
+    return res.toString();
+}
+
+void QuickSort(String[] s,int start,int end){
+    if(start&gt;=end) return;
+
+    int l = start,r = end;
+    String p = s[start];
+    while(l&lt;r){
+        while(l&lt;r&amp;&amp;(p+s[r]).compareTo(s[r]+p)&lt;=0) r--;
+        while(l&lt;r&amp;&amp;(s[l]+p).compareTo(p+s[l])&lt;=0) l++;
+
+        if(l&lt;r){
+            String temp = s[l];
+            s[l] = s[r];
+            s[r] = temp;
+        }
+    }
+
+    s[start] = s[r];
+    s[r] = p;
+
+    QuickSort(s,start,r);
+    QuickSort(s,r+1,end);
+}</code></pre><p>}</p>
+<h2 id="45-把数字翻译成字符串"><a href="#45-把数字翻译成字符串" class="headerlink" title="45.把数字翻译成字符串"></a>45.把数字翻译成字符串</h2><p>动态规划<br>[i-2][i-1]如果在0~25之间,则这两个数字有两种翻译 dp[i]=dp[i-1]+dp[i-2]<br>否则只有一种翻译 dp[i] = dp[i-1]</p>
+<p>class Solution {<br>    public int translateNum(int num) {<br>        //动态规划<br>        //dp[i] 前i个一共有多少种翻译<br>        //如果str(i-2)str(i-1)在10-25之间 则可以分开翻译也可以合并翻译 dp[i] = dp[i-1]+dp[i-2]<br>        //否则 只能分开翻译 dp[i] = dp[i-1]<br>        String str = String.valueOf(num);<br>        int n = str.length();<br>        int[] dp = new int[n+1];</p>
+<pre><code>    //初始化
+    dp[0] = 1;
+    dp[1] = 1;
+
+    for(int i=2;i&lt;=n;i++){
+        String temp = str.substring(i-2,i);
+        if(temp.compareTo("10")&gt;=0&amp;&amp;temp.compareTo("25")&lt;=0) dp[i] = dp[i-1]+dp[i-2];
+        else dp[i]=dp[i-1];
+    }
+
+    return dp[n];
+}</code></pre><p>}</p>
+<h2 id="46-礼物的最大值"><a href="#46-礼物的最大值" class="headerlink" title="46.礼物的最大值"></a>46.礼物的最大值</h2><p>经典二维动态规划</p>
+<p>class Solution {<br>    public int maxValue(int[][] grid) {<br>        //经典二维动态规划<br>        //f[i][j] = f[i][j]+max(f[i-1][j],f[i][j-1])</p>
+<pre><code>    int m = grid.length,n=grid[0].length;
+
+    for(int i=0;i&lt;m;i++){
+        for(int j=0;j&lt;n;j++){
+            //初始化边界
+            if(i==0&amp;&amp;j==0) continue;
+            else if(i==0) grid[i][j] += grid[i][j-1];
+            else if(j==0) grid[i][j] += grid[i-1][j];
+            //更新
+            else grid[i][j] += Math.max(grid[i-1][j],grid[i][j-1]);
+        }
+    }
+
+    return grid[m-1][n-1];
+}</code></pre><p>}</p>
+<h2 id="47-最长不含重复字符的子字符串"><a href="#47-最长不含重复字符的子字符串" class="headerlink" title="47.最长不含重复字符的子字符串"></a>47.最长不含重复字符的子字符串</h2><p>class Solution {<br>    public int lengthOfLongestSubstring(String s) {<br>        //hashMap存字符和最后出现的索引</p>
+<pre><code>    HashMap&lt;Character,Integer&gt; hash = new HashMap&lt;&gt;();
+
+    //不重复字符串的起点
+    int left = 0;
+    int res = 0;
+    for(int i=0;i&lt;s.length();i++){
+        char c = s.charAt(i);
+        //如果c重复了，当前字符串就不满足要求了，重选起点
+        //新left = 当前重复字符上一次出现的位置后一个索引和旧left的大者
+        if(hash.containsKey(c)) left = Math.max(left,hash.get(c)+1);
+        hash.put(c,i);
+
+        res = Math.max(res,i-left+1);
+
+    }
+    return res;
+}</code></pre><p>}</p>
+<h2 id="48-丑数"><a href="#48-丑数" class="headerlink" title="48.丑数"></a>48.丑数</h2><p>class Solution {<br>    public int nthUglyNumber(int n) {<br>        //丑数=前面某一个丑数乘上2，3或5得到的<br>        //设置一个数组记录前面与2，3，5相乘的索引<br>        //每次从乘上2，3，5后的三个备选数里选最小的</p>
+<pre><code>    int[] pos = new int[3];
+    int[] res = new int[n];
+    res[0] = 1;
+    for(int i=1;i&lt;n;i++){
+        //三个备选数
+        int a = res[pos[0]]*2;
+        int b = res[pos[1]]*3;
+        int c = res[pos[2]]*5;
+
+        int min = Math.min(Math.min(a,b),c);
+        res[i] = min;
+        //重复的要跳掉
+        if(a==min) pos[0]++;
+        if(b==min) pos[1]++;
+        if(c==min) pos[2]++;
+    }
+    return res[n-1];
+}</code></pre><p>}</p>
+<h2 id="49-第一个只出现一次的字符"><a href="#49-第一个只出现一次的字符" class="headerlink" title="49.第一个只出现一次的字符"></a>49.第一个只出现一次的字符</h2><p>class Solution {<br>    //hashmap存储是否重复</p>
+<pre><code>public char firstUniqChar(String s) {
+    char[] ch = s.toCharArray();
+
+    HashMap&lt;Character,Boolean&gt; hash = new HashMap&lt;&gt;();
+    for(char c:ch){
+        hash.put(c,!hash.containsKey(c));
+    }
+
+    for(char c:ch){
+        if(hash.get(c)) return c;
+    }
+
+    return ' ';
+}</code></pre><p>}</p>
+<h2 id="50-数组中的逆序对"><a href="#50-数组中的逆序对" class="headerlink" title="50.数组中的逆序对"></a>50.数组中的逆序对</h2><p>重写归并排序</p>
+<p>class Solution {<br>    int[] temp;<br>    public int reversePairs(int[] nums) {<br>        //重写归并算法<br>        //一路二分，最后归并<br>        if(nums==null||nums.length&lt;=0) return 0;<br>        temp = new int[nums.length];</p>
+<pre><code>    return mergeSort(nums,0,nums.length-1);
+}
+
+int mergeSort(int[] nums,int start,int end){
+    if(start&gt;=end) return 0;
+    int l = start,r = end;
+    //一路二分
+    int mid = l+(r-l)/2;
+    int leftc = mergeSort(nums,start,mid);
+    int rightc = mergeSort(nums,mid+1,end);
+    //归并
+    int cross = merge(nums,start,mid,end);
+    return cross+leftc+rightc;
+}
+
+int merge(int[] nums,int start,int mid,int end){
+
+    //先存进临时数组
+    for(int i=start;i&lt;=end;i++){
+        temp[i] = nums[i];
+    }
+
+    int l=start,r=mid+1;
+    int count = 0;
+    for(int index=start;index&lt;=end;index++){
+        //如果temp[l]的值比temp[r]大的话，l后面的都比它大，
+        //这就存在mid-l+1个逆序对
+        if(l&gt;mid){
+            nums[index] = temp[r++];
+        }
+        else if(r&gt;end){
+            nums[index] = temp[l++];
+        }
+        else if(temp[l]&gt;temp[r]){
+            nums[index] = temp[r++];
+            count+=(mid-l+1);
+        }else{
+            nums[index] = temp[l++];
+        }
+    }
+    return count;
+
+}</code></pre><p>}</p>
+<h2 id="51-两个链表的第一个公共节点"><a href="#51-两个链表的第一个公共节点" class="headerlink" title="51.两个链表的第一个公共节点"></a>51.两个链表的第一个公共节点</h2><p>双指针<br>p1走完A再走B，p2走完B再走A，相遇的就是公共点<br>public class Solution {<br>    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {<br>        if(headA==null|headB==null) return null;<br>        ListNode p1 = headA;<br>        ListNode p2 = headB;</p>
+<pre><code>    while(p1!=p2){
+        p1 = p1 == null?headB:p1.next;
+        p2 = p2 == null?headA:p2.next;
+    }
+
+    return p1;
+}</code></pre><p>}</p>
+<h2 id="52-在排序数组中查找数字"><a href="#52-在排序数组中查找数字" class="headerlink" title="52.在排序数组中查找数字"></a>52.在排序数组中查找数字</h2><p>统计一个数字在排序数组中出现的次数</p>
+<p>class Solution {<br>    public int search(int[] nums, int target) {<br>        //二分法找临界点<br>        int l = 0,r = nums.length;<br>        //先找左边界<br>        //左边都比target小<br>        while(l&lt;r){<br>            int mid = l+(r-l)/2;<br>            if(nums[mid]&lt;target) l=mid+1;<br>            if(nums[mid]&gt;=target) r=mid;</p>
+<pre><code>    }
+    int left = l;
+
+    //再找右边界
+    //右边都比target大
+    l = 0;
+    r = nums.length;
+    while(l&lt;r){
+        int mid = l+(r-l)/2;
+        if(nums[mid]&lt;=target) l=mid+1;
+        if(nums[mid]&gt;target) r =mid;
+    }
+    return r-left;
+}</code></pre><p>}</p>
+<h2 id="53-0-n-1中缺失的数字"><a href="#53-0-n-1中缺失的数字" class="headerlink" title="53.0~n-1中缺失的数字"></a>53.0~n-1中缺失的数字</h2><p>二分</p>
+<p>class Solution {<br>    public int missingNumber(int[] nums) {<br>        //二分<br>        int l=0,r=nums.length;<br>        int mid = 0;<br>        while(l&lt;r){<br>            mid = l+(r-l)/2;<br>            if(mid==nums[mid]) l=mid+1;<br>            else r = mid;<br>        }<br>        return l;<br>    }<br>}</p>
+<h2 id="54-二叉搜索树的第k大节点"><a href="#54-二叉搜索树的第k大节点" class="headerlink" title="54.二叉搜索树的第k大节点"></a>54.二叉搜索树的第k大节点</h2><p>左&lt;中&lt;右 中序遍历即为递增</p>
+<p>class Solution {<br>    int res;<br>    int t;<br>    public int kthLargest(TreeNode root, int k) {</p>
+<pre><code>    //二叉搜索树: 左&lt;中&lt;右
+    //所以中序遍历是递增的,反过来遍历
+    t=k;
+    dfs(root);
+    return res;
+
+}
+void dfs(TreeNode r){
+    if(r==null) return ;
+    dfs(r.right);
+    t--;
+    if(t==0){
+        res = r.val;
+    }
+
+    dfs(r.left);
+}</code></pre><p>}</p>
+<h2 id="55-二叉树的深度"><a href="#55-二叉树的深度" class="headerlink" title="55.二叉树的深度"></a>55.二叉树的深度</h2><p>class Solution {<br>    public int maxDepth(TreeNode root) {<br>        //递归<br>        if(root==null) return 0;</p>
+<pre><code>    return 1+Math.max(maxDepth(root.left),maxDepth(root.right));
+}</code></pre><p>}</p>
+<h2 id="56-平衡二叉树"><a href="#56-平衡二叉树" class="headerlink" title="56.平衡二叉树"></a>56.平衡二叉树</h2><p>class Solution {<br>    public boolean isBalanced(TreeNode root) {<br>        //利用深度的方法判断平衡<br>        if(root==null) return true;<br>        if(Math.abs(Depth(root.left)-Depth(root.right))&gt;1) return false;</p>
+<pre><code>    return isBalanced(root.left)&amp;&amp;isBalanced(root.right);
+}
+
+int Depth(TreeNode r){
+    if(r==null) return 0;
+    return 1+Math.max(Depth(r.left),Depth(r.right));
+}</code></pre><p>}</p>
+<h2 id="57-数组中数字出现的次数-2次"><a href="#57-数组中数字出现的次数-2次" class="headerlink" title="57.数组中数字出现的次数(2次)"></a>57.数组中数字出现的次数(2次)</h2><p>数组中的数其余都是出现了两次,找出两个只出现了一次的数</p>
+<p>class Solution {<br>    public int[] singleNumbers(int[] nums) {<br>        //利用异或<br>        //最后得到的是res1^res2<br>        //0^A=A  A^A=0<br>        int sum = 0;<br>        for(int n:nums){<br>            sum ^=n;<br>        }</p>
+<pre><code>    //找sum中1的位置即两个解相异的位
+    int index = 0;
+    while((sum &gt;&gt; index &amp;1) !=1) index++;
+
+    //按此相异的位分成两组异或
+    int res1 = 0;
+    for(int n:nums){
+        if((n &gt;&gt; index&amp;1)==1) res1^=n;
+    }
+    int[] res = {res1,sum^res1};
+    return res;
+}</code></pre><p>}</p>
+<h2 id="58-数组中数字出现的次数-3次"><a href="#58-数组中数字出现的次数-3次" class="headerlink" title="58.数组中数字出现的次数(3次)"></a>58.数组中数字出现的次数(3次)</h2><p>一个数字出现了1次,其余出现了3次<br>hashMap存数字和出现次数</p>
+<p>class Solution {<br>    public int singleNumber(int[] nums) {<br>        HashMap&lt;Integer,Integer&gt; hash = new HashMap&lt;&gt;();<br>        for(int n:nums){<br>            if(hash.containsKey(n)) hash.put(n,hash.get(n)+1);<br>            else hash.put(n,1);<br>        }</p>
+<pre><code>    for(int n:nums){
+        if(hash.get(n)==1) return n;
+    }
+
+    return -1;
+}</code></pre><p>}</p>
+<h2 id="59-和为s的两个数字"><a href="#59-和为s的两个数字" class="headerlink" title="59.和为s的两个数字"></a>59.和为s的两个数字</h2><p>sum=nums[l]+nums[r],向中间移动</p>
+<p>class Solution {<br>    public int[] twoSum(int[] nums, int target) {<br>            //双指针<br>            int l=0,r=nums.length-1;<br>            int sum = nums[l]+nums[r];</p>
+<pre><code>        while(l&lt;r){
+            sum = nums[l]+nums[r];
+            if(sum==target){
+                return new int[] {nums[l],nums[r]};
+            }
+            else if(sum&lt;target){
+                l++;
+            }else{
+                r--;
+            }
+        }
+
+        return null;
+}</code></pre><p>}</p>
+<h2 id="60-和为s的连续正数序列"><a href="#60-和为s的连续正数序列" class="headerlink" title="60.和为s的连续正数序列"></a>60.和为s的连续正数序列</h2><p>暴力遍历</p>
+<p>class Solution {<br>    public int[][] findContinuousSequence(int target) {<br>        ArrayList&lt;ArrayList<integer>&gt; res = new ArrayList&lt;&gt;();</integer></p>
+<pre><code>    for(int i=1;i&lt;target;i++){
+        int sum=0;
+        int j = i;
+        ArrayList&lt;Integer&gt; temp = new ArrayList&lt;&gt;(); 
+        while(sum&lt;target){
+            sum+=j;
+            temp.add(j);
+            if(sum==target){
+                res.add(temp);
+            }
+            j++;
+        }
+    }
+    if(res.size()==0) return new int[0][];
+    int[][] ans = new int[res.size()][];
+    for(int i=0;i&lt;res.size();i++){
+        int s = res.get(i).size();
+        int[] temp = new int[s];
+        for(int j=0;j&lt;s;j++){
+            temp[j] = res.get(i).get(j);
+        }
+        ans[i] = temp;
+    }
+    return ans;
+}</code></pre><p>}</p>
+<h2 id="61-翻转单词的顺序"><a href="#61-翻转单词的顺序" class="headerlink" title="61.翻转单词的顺序"></a>61.翻转单词的顺序</h2><p>class Solution {<br>    public String reverseWords(String s) {<br>        String[] ss = s.trim().split(“ “);<br>        if(ss==null||ss.length==0) return “”;<br>        StringBuilder res = new StringBuilder();<br>        for(int i=ss.length-1;i&gt;0;i–){<br>            //“s  ss” split出来的是”s” “” “ss” 要判断中间的””<br>            if(ss[i].equals(“”)) continue;<br>            res.append(ss[i]);<br>            res.append(“ “);<br>        }</p>
+<pre><code>    res.append(ss[0]);
+
+    return res.toString();
+}</code></pre><p>}</p>
+<h2 id="62-左旋转字符串"><a href="#62-左旋转字符串" class="headerlink" title="62.左旋转字符串"></a>62.左旋转字符串</h2><p>class Solution {<br>    public String reverseLeftWords(String s, int n) {<br>        if(n&gt;=s.length()) return s;<br>        //左开右闭<br>        return s.substring(n,s.length())+s.substring(0,n);<br>    }<br>}</p>
+<h2 id="63-滑动窗口的最大值"><a href="#63-滑动窗口的最大值" class="headerlink" title="63.滑动窗口的最大值"></a>63.滑动窗口的最大值</h2><p>采用双端队列，队列中的头节点保存的数据比后面的要大。<br>比如当前假如的数据比队尾的数字大，说明当前这个数字最起码在从现在起到后面的过程中可能是最大值，而之前队尾的数字不可能最大了，所以要删除队尾元素。<br>此外，还要判断队头的元素是否超过size长度，由于存储的是下标，所以可以计算得到；特别说明，我们在双端队列中保存的数字是传入的向量的下标；</p>
+<p>class Solution {<br>    public int[] maxSlidingWindow(int[] nums, int k) {<br>        //LinkedList 用作队列<br>        LinkedList<integer> deque = new LinkedList&lt;&gt;();</integer></p>
+<pre><code>    //先判断窗口可不可行
+    if(k&lt;=0||k&gt;nums.length) return new int[0];
+    int[] res = new int[nums.length - k + 1];
+    // 未形成窗口
+    for(int i = 0; i &lt; k; i++) {
+        while(!deque.isEmpty() &amp;&amp; deque.peekLast() &lt; nums[i])
+            deque.removeLast();
+        deque.addLast(nums[i]);
+    }
+    res[0] = deque.peekFirst();
+    // 形成窗口后
+    for(int i = k; i &lt; nums.length; i++) {
+        if(deque.peekFirst() == nums[i - k])
+            deque.removeFirst();
+        while(!deque.isEmpty() &amp;&amp; deque.peekLast() &lt; nums[i])
+            deque.removeLast();
+        deque.addLast(nums[i]);
+        res[i - k + 1] = deque.peekFirst();
+    }
+    return res;
+
+}</code></pre><p>}</p>
+<h2 id="64-队列的最大值"><a href="#64-队列的最大值" class="headerlink" title="64.队列的最大值"></a>64.队列的最大值</h2><p>窗口不滑动</p>
+<p>class MaxQueue {<br>    //队列常规存取<br>    LinkedList<integer> que;<br>    //双端队列维护最大值<br>    LinkedList<integer> deq;<br>    public MaxQueue() {<br>        que = new LinkedList<integer>();<br>        deq = new LinkedList<integer>();<br>    }</integer></integer></integer></integer></p>
+<pre><code>public int max_value() {
+    //deq队首即为最大值
+    return deq.size()==0?-1:deq.peekFirst();
+}
+
+public void push_back(int value) {
+    //que正常存取
+    que.add(value);
+
+    //存入算法与滑动窗口最大值相同
+    //只是窗口就是整个队列
+    while(!deq.isEmpty()&amp;&amp;deq.peekLast()&lt;value){
+        deq.removeLast();
+    }
+    deq.add(value);
+}
+
+public int pop_front() {
+    int v = que.size()&gt;0?que.poll():-1;
+    if(deq.size()&gt;0&amp;&amp;v==deq.peekFirst()) deq.poll();
+    return v;
+}</code></pre><p>}</p>
+<h2 id="65-n个骰子的点数"><a href="#65-n个骰子的点数" class="headerlink" title="65.n个骰子的点数"></a>65.n个骰子的点数</h2><p>动态规划 dp[i][j]表示 i个骰子投出j点的次数</p>
+<p>class Solution {<br>    public double[] dicesProbability(int n) {<br>        //n个骰子，有n~6n种点数 解的长度为6n-n+1<br>        //总数是6^n次<br>        //概率=dp[i][j]/6^n<br>        //dp[i][j]表示 i个骰子投出j点的次数<br>        double all = Math.pow(6,n);</p>
+<pre><code>    //动态规划
+    double[] res = new double[5*n+1];
+    int[][] dp = new int[n+1][6*n+1];
+
+    //初始化
+    dp[0][0] = 1;
+    //遍历更新
+    //n个骰子
+    for(int i=1;i&lt;=n;i++){
+        //n~6n种点数
+        for(int j=1;j&lt;=6*n;j++){
+            //最后一投1~6
+            for(int k = 1;k&lt;=Math.min(j,6);k++){
+                dp[i][j] += dp[i-1][j-k];
+            }
+        }
+    } 
+
+    for(int i=n;i&lt;=6*n;i++){
+        res[i-n] = dp[n][i]/all;
+    }
+    return res;
+}</code></pre><p>}</p>
+<h2 id="66-扑克牌中的顺子"><a href="#66-扑克牌中的顺子" class="headerlink" title="66.扑克牌中的顺子"></a>66.扑克牌中的顺子</h2><p>class Solution {<br>    public boolean isStraight(int[] nums) {<br>        //1. 先排序<br>        Arrays.sort(nums);<br>        //2. 去掉0<br>        int l=0,r=nums.length;<br>        while(nums[l]==0) l++;<br>        //3. 有重复的指定不是<br>        for(int i=l;i&lt;r-1;i++){<br>            if(nums[i]==nums[i+1]) return false;<br>        }<br>        //4. 再次前提下，只要max-min&lt;=4 必是顺子<br>        return nums[r-1]-nums[l]&lt;=4;</p>
+<pre><code>}</code></pre><p>}</p>
+<h2 id="67-圆圈中最后剩下的数字"><a href="#67-圆圈中最后剩下的数字" class="headerlink" title="67.圆圈中最后剩下的数字"></a>67.圆圈中最后剩下的数字</h2><p>约瑟夫环</p>
+<p>class Solution {<br>    public int lastRemaining(int n, int m) {<br>        //n    0,1,2,…,m-2, m,m+1,m+2,…n<br>        //n-1                 0,1,2,…n-m<br>        //n个数字，删掉一个后，n-1个数字的结果是同一个<br>        //但重新编号 存在对应的映射<br>        //f(n)=(f(n-1)+m)%n</p>
+<pre><code>    if(n==0) return 0;
+    return (lastRemaining(n-1,m)+m)%n;
+
+}</code></pre><p>}</p>
+<h2 id="68-股票的最大利润"><a href="#68-股票的最大利润" class="headerlink" title="68.股票的最大利润"></a>68.股票的最大利润</h2><p>class Solution {<br>    public int maxProfit(int[] prices) {<br>        if(prices==null||prices.length==0) return 0;<br>        int res = 0;<br>        //i前的最小价格<br>        int minv = prices[0];<br>        for(int i=0;i&lt;prices.length;i++){<br>            res = Math.max(res,prices[i]-minv);<br>            //更新i前的最小值<br>            minv = Math.min(minv,prices[i]);<br>        }<br>        return res;<br>    }<br>}</p>
+<h2 id="69-求1-2-3-…-n"><a href="#69-求1-2-3-…-n" class="headerlink" title="69.求1+2+3+…+n"></a>69.求1+2+3+…+n</h2><p>不用乘除法,for循环等等</p>
+<p>用try catch 实现判断</p>
+<p>class Solution {<br>    int [] a = new int[1];<br>    public int sumNums(int n) {<br>        //利用trycatch实现判断<br>        try{<br>            a[n] =0;</p>
+<pre><code>    }catch(Exception e){
+        return n+sumNums(n-1);
+    }
+
+    return 0;
+}</code></pre><p>}</p>
+<h2 id="70-不用加减乘除做加法"><a href="#70-不用加减乘除做加法" class="headerlink" title="70.不用加减乘除做加法"></a>70.不用加减乘除做加法</h2><p>class Solution {<br>    public int add(int a, int b) {<br>        //运用逻辑运算<br>        //异或算非进位上的和<br>        //相与再左移一位算进位的和<br>        //用b来存进位和<br>        while(b!=0){<br>            int c = a^b;<br>            b = a&amp;b;<br>            b &lt;&lt;=1;<br>            a = c;<br>        }</p>
+<pre><code>    return a;
+}</code></pre><p>}</p>
+<h2 id="71-构建乘积数组"><a href="#71-构建乘积数组" class="headerlink" title="71.构建乘积数组"></a>71.构建乘积数组</h2><p>class Solution {<br>    public int[] constructArr(int[] a) {<br>        //两边分别乘好，再相乘<br>        int n=a.length;<br>        int[] b = new int[n];<br>        int p = 1;<br>        for(int i=0;i&lt;n;i++){<br>            b[i] = p; //b[0] = 1  ,b[1] = a[0], b[2] = a[0]*a[1] 都是前半部分<br>            p *=a[i];<br>        }</p>
+<pre><code>    p = 1;
+    //再循环乘一波后半部分
+    for(int i = n-1;i&gt;=0;i--){
+        b[i] *=p; //b[n-1] = b[n-1]*1 b[n-2] = b[n-2]*a[n-1]从后往前乘上后半部分
+        p*=a[i];
+    }
+
+    return b;
+}</code></pre><p>}</p>
+<h2 id="72-把字符串转换成整数"><a href="#72-把字符串转换成整数" class="headerlink" title="72.把字符串转换成整数"></a>72.把字符串转换成整数</h2><p>class Solution {<br>    public int strToInt(String str) {<br>        char[] ch = str.trim().toCharArray();<br>        if(ch==null||ch.length==0) return 0;<br>        int sign = 1;<br>        int index = 1;<br>        //用于判断最大值<br>        int temp = 214748364;<br>        if(ch[0]==’-‘) sign=-1;<br>        else if(ch[0]!=’+’) index = 0;<br>        int res = 0;<br>        for(int i=index;i&lt;ch.length;i++){<br>            //不是数字，直接返回<br>            if(ch[i]&lt;’0’||ch[i]&gt;’9’) break;<br>            //超过边界，返回最大值<br>            if(res&gt;temp ||(res==temp&amp;&amp;ch[i]&gt;’7’)){<br>                return sign==1?Integer.MAX_VALUE:Integer.MIN_VALUE;<br>            }<br>            //拼接上数字<br>            res = res<em>10+ch[i]-‘0’;<br>        }<br>        return res</em>sign;<br>    }<br>}</p>
+<h2 id="73-二叉搜索树的最近公共祖先"><a href="#73-二叉搜索树的最近公共祖先" class="headerlink" title="73.二叉搜索树的最近公共祖先"></a>73.二叉搜索树的最近公共祖先</h2><p>class Solution {<br>    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {<br>        //二叉搜索树 左&lt;根&lt;右<br>        //递归<br>        //如果p&gt;r且q&gt;r 说明都在r右边 向右搜索<br>        //如果p&lt;r且q&lt;r 说明都在r左边 向左搜索<br>        if(p.val&gt;root.val&amp;&amp;q.val&gt;root.val) return lowestCommonAncestor(root.right,p,q);<br>        if(p.val&lt;root.val&amp;&amp;q.val&lt;root.val) return lowestCommonAncestor(root.left,p,q);<br>        return root;<br>    }<br>}</p>
+<h2 id="74-二叉树的最近公共祖先"><a href="#74-二叉树的最近公共祖先" class="headerlink" title="74.二叉树的最近公共祖先"></a>74.二叉树的最近公共祖先</h2><p>class Solution {<br>    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {<br>        //递归</p>
+<pre><code>    //向下搜索 如果都在左边说明公共节点在左边 如果都在右边说明公共节点在右边
+
+    //递归终止条件：返回null或者找到了p或q
+    if(root==null||root==p||root==q) return root;
+
+    //搜索左边有没有p或q
+    TreeNode left = lowestCommonAncestor(root.left,p,q);
+    //搜索右边有没有p或q
+    TreeNode right = lowestCommonAncestor(root.right,p,q);
+
+    //如果left==null 说明都在右边 继续搜索右边
+    if(left==null) return right;
+    //如果right==null 说明都在左边 继续搜索左边
+    if(right==null) return left;
+
+    //左右都不为空 说明pq在root的一左一右 此时root即为公共节点
+    return root;
+
+}</code></pre><p>}</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力!</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.bmp" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.bmp" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+            
+            
+            <div class="reprint1">
+                <p>
+                    <span class="reprint1-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://sqtian-hhu.github.io" class="b-link-green">世庆的博客</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2021/06/14/li-kou/li-kou-jian-zhi/" class="b-link-green">力扣剑指</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+        clientSecret: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+        repo: 'shw2018.github.io',
+        owner: 'shw2018',
+        admin: ["shw2018"],
+        id: '2021/06/14/li-kou/li-kou-jian-zhi/',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+    /* valine 评论框增加背景图片 */
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("") 100% 100% no-repeat;
+    }
+
+    #vcomments input[type=text],
+    #vcomments input[type=email],
+    #vcomments input[type=url],
+    #vcomments textarea {
+        box-sizing: border-box;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #42b983;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    /* 修复评论第一行位置错位 */
+    .v .vlist .vcard {
+    padding-top: 2.5em !important ;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div id="vcomments" class="card-content"></div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="/libs//libs/jQuery-emoji/dist/css/jquery.emoji.css">
+<script src="/libs//libs/jQuery-emoji/dist/js/jquery.emoji.min.js"></script>
+<script src="/libs//libs/jQuery-emoji/dist/js/emoji.list.js"></script> -->
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'XXXXXXXXXXXXXXXXXXXXXXXX',
+        appKey: 'XXXXXXXXXXXXXXXXXXXXXX',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go',
+
+    });
+
+//     function parse_emoji() {
+//     jQuery(".vcontent").emojiParse({
+//       basePath: '/libs/jQuery-emoji/images/emoji',
+//       icons: emojiLists   // 注：详见 js/emoji.list.js
+//     });
+//   }
+  
+//   setTimeout(function() {
+//     // jQuery emoji 解析
+//     parse_emoji();
+//     // jquery emoji 初始化
+//     jQuery(".veditor").emoji({
+//       showTab: true,
+//       animation: 'slide',
+//       basePath: '/libs/jQuery-emoji/images/emoji',
+//       icons: emojiLists  // 注：详见 js/emoji.list.js
+//     });
+//     jQuery(".vmore").on("click", function() {
+//       setTimeout(function() {
+//         parse_emoji();
+//       }, 500);
+//     });
+//   }, 800)
+
+</script>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/06/14/li-kou/li-kou-jian-zhi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="力扣剑指">
+                        
+                        <span class="card-title">力扣剑指</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            leetcode 剑指offer01.数组中重复的数字利用count数组存0~n-1出现的次数, 当其&gt;1时说明是重复元素
+class Solution {    public int findRepeatNumber(int[] n
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-06-14
+                            </span>
+                        <span class="publish-author">
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/06/02/cheng-cheng-chou-bei-xiao-zhuan-lan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="呈呈抽背小专栏">
+                        
+                        <span class="card-title">呈呈抽背小专栏</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企业应用程序的开发，使开发人员只需关注业务需要本身
+主要包括七个模块：Spring Context：提供框架式的Bean访问方式以及企业级的功能Spring Cor
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-06-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/呈呈专栏/" class="post-category" target="_blank">
+                                    呈呈专栏
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/高频重点/" target="_blank">
+                        <span class="chip bg-color">高频重点</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 世庆的博客<br />'
+            + '作者: ShiQing<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+        <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&copy; 2019 田世庆. 
+
+            <br>
+            <span id="sitetime"></span><span class="my-face">ღゝ◡╹)ノ♡</span>
+            <br>
+
+            
+
+            
+                    
+                        <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        总访问量: <span id="busuanzi_value_site_pv" class="white-color"></span>
+                    
+        
+                    
+                        <span id="busuanzi_container_site_uv" style='display:none'></span>
+                        人次&nbsp; | &nbsp;访客人数: <span id="busuanzi_value_site_uv" class="white-color"></span> 人
+                    
+    
+            
+
+            
+                &nbsp; | &nbsp;字数统计:&nbsp;
+                <span class="white-color">190k</span> 字
+            
+
+            
+            <br>
+
+        </div>
+
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/sqtian-hhu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+ 
+    <a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=2528393970@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=2528393970&site=qq&menu=yes" class="tooltipped" target="_blank" data-tooltip="访问我的QQ空间" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+
+        var t1 = Date.UTC(2020, 02, 01, 00, 00, 00); //北京时间2019-8-1 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *
+            minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours +
+            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒" ;
+    } /*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+
+
+
+
+
+        <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+        <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+        <script src="https://cdn.bootcss.com/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://cdn.bootcss.com/masonry/4.2.2/masonry.pkgd.min.js"></script>
+        <script src="https://cdn.bootcss.com/aos/3.0.0-beta.6/aos.js"></script>
+        <script src="https://cdn.bootcss.com/scrollprogress/3.0.2/scrollProgress.min.js"></script>
+        <script src="https://cdn.bootcss.com/lightgallery/1.6.12/js/lightgallery-all.min.js"></script>
+        <script src="/js/matery.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+        
+            <script src="/libs/others/clicklove.js"></script>
+        
+
+        
+            <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
+
+        <!-- 洪卫 shw2018 add 2019.08.28 -->
+        <script type="text/javascript">
+            var OriginTitile = document.title,
+                st;
+            document.addEventListener("visibilitychange", function () {
+                document.hidden ? (document.title = "看不见我~看不见我~", clearTimeout(st)) : (document.title =
+                    "(๑•̀ㅂ•́) ✧被发现了～", st = setTimeout(function () {
+                        document.title = OriginTitile
+                    }, 3e3))
+            })
+        </script>
+
+        <!-- 鼠标点击烟花爆炸效果  洪卫 shw2018 add 2019.09.09 -->
+        
+
+        <!-- 背景雪花飘落特效 -->
+        
+            <script type="text/javascript">
+            //只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+            }
+            </script>
+        
+
+        <!-- 鼠标点击文字特效 -->
+        
+            <script src="/js/wenzi.js" type="text/javascript"></script>
+        
+
+        <!-- 背景雪花飘落特效  -->
+        
+
+        <!-- 在线聊天工具   -->
+        
+            <script src="//code.tidio.co/xxxxxxxxxxxxxxxxxxxxxxxxxxx.js"></script>
+            <!--  在线聊天位置自定义  洪卫 shw2018 add 2019.09.13  -->
+            <script> 
+                $(document).ready(function () {
+
+                    setInterval(change_Tidio, 50);  
+                    function change_Tidio() { 
+
+                        var tidio=$("#tidio-chat iframe");
+                        if(tidio.css("display")=="block"&& $(window).width()>977 ){
+                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"80px":"20px";   
+                            document.getElementById("tidio-chat-iframe").style.right="-15px";   
+                            document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
+                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                        } 
+                        else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
+                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;   
+                            document.getElementById("tidio-chat-iframe").style.right="-15px"; 
+                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                        }
+                        else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
+                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;   
+                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                        }
+
+                        if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
+                            document.getElementById("tidio-chat-iframe").style.zIndex="998";
+                        }
+                    } 
+                }); 
+            </script>
+        
+
+        <!-- 背景 canvas-nest  -->
+        
+            <script type="text/javascript">
+            var windowWidth = $(window).width();
+            if (windowWidth > 992) {
+                document.write('<script type="text/javascript" color="0,0,255" pointColor="0,0,255" opacity= "0.8" zIndex="--1" count="150"src="/libs/background/canvas-nest.js"><\/script>');
+            }
+            </script>
+        
+
+        <!-- 背景静止彩带  -->
+        
+
+        <!-- 背景动态彩带 -->
+        
+            <script type="text/javascript">
+            var windowWidth = $(window).width();
+            if (windowWidth > 992) {
+                document.write('<script type="text/javascript" src="/libs/background/ribbon-dynamic.js"><\/script>');
+            }
+            </script>
+        
+
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>

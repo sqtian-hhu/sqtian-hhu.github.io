@@ -1,0 +1,2330 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+    <!-- shw2018 洪卫  modify 2019.08.15-->
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="&#39;JavaNote11_JDBC&#39;, 深度学习 故障诊断 Java">
+    <meta name="baidu-site-verification" content="fmlEuI34ir">
+    <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
+    <meta name="description" content="JDBC
+JDBC基本概念 Java DataBase Connectivity Java数据库连接，Java语言操作数据库 JDBC本质：官方定义了一套操作所有关系型数据库的规则(接口),各个厂商去实现这套接口,提供数据库驱动jar包.
+">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>&#39;JavaNote11_JDBC&#39; | 世庆的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/aos/3.0.0-beta.6/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/lightgallery/1.6.12/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <style type="text/css">
+        
+            
+            code[class*="language-"],
+            pre[class*="language-"] {
+                white-space: pre !important;
+            }
+
+        
+    </style>
+
+    <script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?46e79e71af0709a5b9106bf20cecc493";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    
+    
+        <script>
+            (function(){
+                var bp = document.createElement('script');
+                var curProtocol = window.location.protocol.split(':')[0];
+                if (curProtocol === 'https') {
+                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+                }
+                else {
+                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(bp, s);
+            })();
+        </script>
+    
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+    <body>
+
+        <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">世庆的博客</span>
+                </a>
+            </div>
+            
+
+
+<!-- <a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/AV" class="waves-effect waves-light">
+            
+            <i class="fa fa-music"></i>
+            
+            <span>视听</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/galleries" class="waves-effect waves-light">
+            
+            <i class="fa fa-photo"></i>
+            
+            <span>相册</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于我</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/contact" class="waves-effect waves-light">
+            
+            <i class="fa fa-envelope"></i>
+            
+            <span>留言板</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul> -->
+
+<!-- 支持二级菜单特性 洪卫 shw2018 modify 2019.09.17  -->
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right nav-menu">
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/" class="waves-effect waves-light">
+              
+                <i class="fa fa-home"></i>
+              
+              <span>首页</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/tags" class="waves-effect waves-light">
+              
+                <i class="fa fa-tags"></i>
+              
+              <span>标签</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/categories" class="waves-effect waves-light">
+              
+                <i class="fa fa-bookmark"></i>
+              
+              <span>分类</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/archives" class="waves-effect waves-light">
+              
+                <i class="fa fa-archive"></i>
+              
+              <span>归档</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/AV" class="waves-effect waves-light">
+              
+                <i class="fa fa-music"></i>
+              
+              <span>视听</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/galleries" class="waves-effect waves-light">
+              
+                <i class="fa fa-photo"></i>
+              
+              <span>相册</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/about" class="waves-effect waves-light">
+              
+                <i class="fa fa-user-circle-o"></i>
+              
+              <span>关于我</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/contact" class="waves-effect waves-light">
+              
+                <i class="fa fa-envelope"></i>
+              
+              <span>留言板</span>
+            </a>
+
+            
+      </li>
+    
+      <li class="hide-on-med-and-down nav-item" >
+
+        
+            <a href="/friends" class="waves-effect waves-light">
+              
+                <i class="fa fa-address-book"></i>
+              
+              <span>友情链接</span>
+            </a>
+
+            
+      </li>
+    
+
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">世庆的博客</div>
+        <div class="logo-desc">
+            
+            河海大学 | 计算机与信息学院 | 信号与信息处理
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/AV" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-music"></i>
+                
+                视听
+            </a>
+        </li>
+        
+        <li>
+            <a href="/galleries" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-photo"></i>
+                
+                相册
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于我
+            </a>
+        </li>
+        
+        <li>
+            <a href="/contact" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-envelope"></i>
+                
+                留言板
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/sqtian-hhu/" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+   
+   
+<!-- 支持二级菜单特性 洪卫 shw2018 modify 2019.09.17  -->
+<!-- <ul class="menu-list mobile-menu-list">
+    
+        <li class="m-nav-item">
+                
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-home"></i>
+                        
+                        首页
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/tags" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-tags"></i>
+                        
+                        标签
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/categories" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-bookmark"></i>
+                        
+                        分类
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/archives" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-archive"></i>
+                        
+                        归档
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/AV" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-music"></i>
+                        
+                        视听
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/galleries" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-photo"></i>
+                        
+                        相册
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/about" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-user-circle-o"></i>
+                        
+                        关于我
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/contact" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-envelope"></i>
+                        
+                        留言板
+                    </a>
+              
+            </li>
+        
+        <li class="m-nav-item">
+                
+                    <a href="/friends" class="waves-effect waves-light">
+                        
+                        <i class="fa fa-fw fa-address-book"></i>
+                        
+                        友情链接
+                    </a>
+              
+            </li>
+        
+
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/sqtian-hhu/" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul> -->
+
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/sqtian-hhu/" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+        
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        &#39;JavaNote11_JDBC&#39;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- shw2018 洪卫  modify 2019.08.15-->
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java基础/" target="_blank">
+                                <span class="chip bg-color">Java基础</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                Java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-04-06
+                </div>
+
+                <div class="post-author info-break-policy">
+                    <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
+                    
+                        ShiQing
+                    
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        3.4k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        16 分
+                    </div>
+                    
+                
+                
+                
+                        <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv" ></span>
+    
+                
+
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><ol>
+<li><p>JDBC基本概念<br> Java DataBase Connectivity<br> Java数据库连接，Java语言操作数据库<br> JDBC本质：官方定义了一套操作所有关系型数据库的规则(接口),各个厂商去实现这套接口,提供数据库驱动jar包.</p>
+<pre><code>       我们可以使用这套接口编程,真正执行的代码时驱动jar包中的实现类</code></pre><p> 期望使用统一的一套Java代码可以操作所有关系型数据库。<br> 每一个厂商写类自己数据库的JDBC实现类</p>
+</li>
+</ol>
+<a id="more"></a>
+
+<ol start="2">
+<li><p>快速入门<br> 步骤:</p>
+<pre><code> 1. 导入驱动jar包
+     1. 复制jar文件到项目的libs目录下
+     2. 右键--&gt;add as Library
+
+ 2. 注册驱动
+ 3. 获取数据库连接对象 Connection
+ 4. 定义sql
+ 5. 获取执行sql语句的对象 Statement
+ 6. 执行sql,接受返回结果
+ 7. 处理结果
+ 8. 释放资源</code></pre></li>
+</ol>
+<p>/**</p>
+<ul>
+<li>JDBC快速入门</li>
+<li>/<br>public class JdbcDemo1 {<br>  public static void main(String[] args) throws Exception {<pre><code>  //1. 导入驱动jar包 mysql-connector-java-8.0.19.jar
+  //2. 注册驱动
+  Class.forName("com.mysql.cj.jdbc.Driver");
+  //3. 获取数据库连接对象
+  Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lovelycc?serverTimezone=UTC", "root", "root");
+  //4. 定义sql语句
+  String sql = "update hero set weight = 57 where id = 1";
+  //5. 获取执行sql的对象 Statement
+  Statement statement = connection.createStatement();
+  //6. 执行sql
+  int count = statement.executeUpdate(sql);
+  //7. 处理结果
+  System.out.println(count);
+  //8. 释放资源
+  statement.close();
+  connection.close();</code></pre>  }<br>}</li>
+</ul>
+<ol start="3">
+<li><p>详解各个对象</p>
+</li>
+<li><p>DriverManager: 驱动管理对象<br> 功能:</p>
+<pre><code> 1. 注册驱动: 告诉程序该使用哪一个数据库驱动jar
+     Class.forName("com.mysql.cj.jdbc.Driver");
+     在com.mysql.cj.jdbc.Driver类中存在静态代码块注册驱动
+
+     注意: mysql5之后的驱动jar包可以省略注册驱动的步骤
+
+ 2. 获取数据库连接
+     方法: static Connection getConnection(String url, String user, String password)
+     参数:
+         url: 指定连接的路径
+             语法: jdbc:mysql://ip地址(域名):端口号/数据库名称
+                   jdbc:mysql://localhost:3306/lovelycc
+                   如果连接本机,端口是默认的3306,可以省略成jdbc:mysql:///lovelycc
+         user:用户名 root
+         password:密码 root</code></pre></li>
+<li><p>Connection: 数据库连接对象</p>
+<ol>
+<li>功能:<ol>
+<li>获取执行sql的对象<br> Statement createStatement()<br> PreparedStatement prepareStatement(String sql)</li>
+<li>管理事务:<br> 开启事务: setAutoCommit(boolean autoCommit): 调用该方法设置参数为false,即开启事务<br> 提交事务: commit()<br> 回滚事务: rollback()</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Statement: 执行sql的对象<br> 用于执行静态SQL语句并返回其生成结果的对象</p>
+<ol>
+<li>执行sql<ol>
+<li>boolean execute(String sql): 可以执行任意的sql (了解)</li>
+<li>int executeUpdate(String sql): 执行DML(insert,update,delete)语句,DDL(create,alter,drop)语句<br> 返回值: 影响的行数,可以通过这个影响的行数判断DML语句是否执行成功,返回值&gt;0成功,反之失败</li>
+<li>ResultSet executeQuery(String sql): 执行DQL(select)语句</li>
+</ol>
+</li>
+<li>练习:<ol>
+<li>hero表 添加一条记录</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<hr>
+<p>/*<br>    hero表练习insert<br> */<br>public class JdbcDemo2 {<br>    public static void main(String[] args) {<br>        Connection connection = null;<br>        Statement statement = null;<br>        //1. 注册驱动<br>        try {<br>            Class.forName(“com.mysql.cj.jdbc.Driver”);<br>            //2. 定义sql<br>            String sql = “insert into hero values(0,’楚留香’,18,60,188)”;<br>            //3. 获取Connection对象<br>            connection = DriverManager.getConnection(“jdbc:mysql://localhost:3306/lovelycc?serverTimezone=GMT%2B8&amp;useUnicode=true&amp;characterEncoding=utf8”, “root”, “root”);<br>            //4. 获取执行sql的Statement对象<br>            statement = connection.createStatement();<br>            //5. 执行sql<br>            int count = statement.executeUpdate(sql);<br>            //6. 处理结果,影响的行数<br>            if(count&gt;0){<br>                System.out.println(“添加成功”);<br>            }else{<br>                System.out.println(“添加失败”);<br>            }<br>        } catch (ClassNotFoundException e) {<br>            e.printStackTrace();<br>        } catch (SQLException e) {<br>            e.printStackTrace();<br>        }finally{<br>            //7. 释放资源<br>            //避免空指针异常<br>            if(statement != null){<br>                try {<br>                    statement.close();<br>                } catch (SQLException e) {<br>                    e.printStackTrace();<br>                }<br>            }</p>
+<pre><code>        if(connection != null){
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+}</code></pre><p>}</p>
+<hr>
+<pre><code>    2. hero表 修改记录</code></pre><p>String sql = “update hero set name = ‘陆小凤’ where id = 9”;</p>
+<pre><code>    3. hero表 删除一条记录</code></pre><p>String sql = “update hero set name = ‘delete from hero where name = ‘ww’”;</p>
+<pre><code>    4. DDL(create,alter,drop)语句</code></pre><p>String sql = “create table student (id int , name varchar(20))”;<br>…<br>//处理结果 DDL语句statement.executeUpdate返回值一直为0<br>sout(count)</p>
+<pre><code>    tips: 1. The server time... 时区问题: url后面加上serverTimezone=GMT%2B8
+          2. 中文写进mysql变成???: url后面加上 useUnicode=true&amp;characterEncoding=utf8
+          最终写成: "jdbc:mysql://localhost:3306/lovelycc?serverTimezone=GMT%2B8&amp;useUnicode=true&amp;characterEncoding=utf8"</code></pre><ol start="4">
+<li><p>ResultSet: 结果集对象, 封装查询结果<br> boolean next(): 游标向下移动一行,判断当前行是否有数据,有数据为true<br> getXxx(): 获取Xxx类型的数据</p>
+<pre><code> 参数: int: 代表列的编号,从1开始 如: getString(1)
+       String: 代表列名称 如getDouble("weight")</code></pre><p> 使用步骤:</p>
+<ol>
+<li>游标向下移动一行</li>
+<li>判断是否有数据</li>
+<li>获取数据</li>
+</ol>
+</li>
+</ol>
+<hr>
+<p>public class JdbcDemo3 {<br>    public static void main(String[] args) {<br>        Connection connection = null;<br>        Statement statement = null;<br>        ResultSet resultSet = null;<br>        //1. 注册驱动<br>        try {<br>            Class.forName(“com.mysql.cj.jdbc.Driver”);<br>            //2. 定义sql<br>            String sql = “select * from hero “;<br>            //3. 获取Connection对象<br>            connection = DriverManager.getConnection(“jdbc:mysql://localhost:3306/lovelycc?serverTimezone=GMT%2B8&amp;useUnicode=true&amp;characterEncoding=utf8”, “root”, “root”);<br>            //4. 获取执行sql的Statement对象<br>            statement = connection.createStatement();<br>            //5. 执行sql<br>            resultSet = statement.executeQuery(sql);<br>            //6. 处理结果,影响的行数<br>//            //6.1 游标向下移动一行<br>//            resultSet.next();<br>            //6.2 获取数据</p>
+<pre><code>        //while循环判断
+        while(resultSet.next()){
+            int id = resultSet.getInt(1);
+            String name = resultSet.getString("name");
+            double weight = resultSet.getDouble("weight");
+            System.out.println(id+"号选手"+name+"重达"+weight+"KG");
+        }
+
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }finally{
+        //7. 释放资源
+        //避免空指针异常
+        if (resultSet != null) {
+            try {
+                resultSet.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(statement != null){
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(connection != null){
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}</code></pre><h2 id=""><a href="#" class="headerlink" title="}"></a>}</h2><pre><code>练习:
+定义一个方法,查询hero表的数据将其封装为对象,然后装载集合,返回,打印
+1. 定义Hero类
+2. 定义方法 public List&lt;Hero&gt; findAll(){}
+3. 实现方法 select * from hero;</code></pre><p>/*<br>    封装Hero表数据的JavaBean<br> */</p>
+<hr>
+<p>public class Hero {<br>    //定义成封装类比较好,可以接受null<br>    private Integer id;<br>    private String name;<br>    private Integer age;<br>    private Double weight;<br>    private Double height;</p>
+<pre><code>@Override
+public String toString() {
+    return "Hero{" +
+        "id=" + id +
+        ", name='" + name + '\'' +
+        ", age=" + age +
+        ", weight=" + weight +
+        ", height=" + height +
+        '}';
+}
+
+public int getId() {
+    return id;
+}
+
+public void setId(int id) {
+    this.id = id;
+}
+
+public String getName() {
+    return name;
+}
+
+public void setName(String name) {
+    this.name = name;
+}
+
+public int getAge() {
+    return age;
+}
+
+public void setAge(int age) {
+    this.age = age;
+}
+
+public double getWeight() {
+    return weight;
+}
+
+public void setWeight(double weight) {
+    this.weight = weight;
+}
+
+public double getHeight() {
+    return height;
+}
+
+public void setHeight(double height) {
+    this.height = height;
+}</code></pre><p>}</p>
+<hr>
+<p>/*<br>    定义一个方法,查询hero表的数据将其封装<br> */<br>public class JdbcDemo4 {<br>    public static void main(String[] args) {<br>        List<hero> list = new JdbcDemo4().findAll();<br>        System.out.println(list);<br>        System.out.println(list.size());</hero></p>
+<pre><code>}
+
+/*
+    查询所有H象
+ */
+public List&lt;Hero&gt; findAll(){
+    Connection connection = null;
+    Statement statement = null;
+    ResultSet resultSet = null;
+    List&lt;Hero&gt; list = null;
+
+    //1. 注册驱动
+    try {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        //2. 定义sql
+        String sql = "select * from hero ";
+        //3. 获取Connection对象
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/lovelycc?serverTimezone=GMT%2B8&amp;useUnicode=true&amp;characterEncoding=utf8", "root", "root");
+        //4. 获取执行sql的Statement对象
+        statement = connection.createStatement();
+        //5. 执行sql
+        resultSet = statement.executeQuery(sql);
+        //6. 遍历结果集,封装对象,装载集合
+        list = new ArrayList&lt;Hero&gt;();
+
+        //while循环判断
+        while(resultSet.next()){
+            int id = resultSet.getInt("ID");
+            String name = resultSet.getString("name");
+            int age = resultSet.getInt("age");
+            double weight = resultSet.getDouble("weight");
+            double height = resultSet.getDouble("height");
+            //创建Hero对象,并赋值
+            Hero hero = new Hero();
+            hero.setId(id);
+            hero.setName(name);
+            hero.setAge(age);
+            hero.setWeight(weight);
+            hero.setHeight(height);
+
+            //装载集合
+            list.add(hero);
+        }
+
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }finally{
+        //7. 释放资源
+        //避免空指针异常
+        if (resultSet != null) {
+            try {
+                resultSet.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(statement != null){
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if(connection != null){
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    return list;
+}</code></pre><h2 id="-1"><a href="#-1" class="headerlink" title="}"></a>}</h2><p>代码重复度太高<br>抽取JDBC工具类: JDBCUtils<br>目的: 简化书写<br>分析:<br>    1. 抽取注册驱动<br>    2. 抽取一个方法获取连接对象<br>        需求：不想传递参数，太麻烦，还得保证工具类的通用性<br>        解决：配置文件<br>            jdbc.properties<br>                url=<br>                user=<br>                password=<br>    3. 抽取一个方法释放资源</p>
+<p>/*<br>    JDBC工具类<br> */<br>public class JDBCUtils {<br>    private static String url;<br>    private static String user;<br>    private  static String password;<br>    private static  String driver;</p>
+<pre><code>/*
+    配置文件的读取,只需要读取一次即可拿到这些值.使用静态代码块
+ */
+static{
+    try {
+        //读取资源文件,获取值.
+        //1. 创建Properties集合类
+        Properties pro = new Properties();
+
+        //获取src路径下的文件的方式 ---&gt; ClassLoader 类加载器
+        //如果路径中存在空格，则会报系统找不到路径错误
+        ClassLoader classLoader = JDBCUtils.class.getClassLoader();
+        URL res = classLoader.getResource("jdbc.properties");
+        String path = res.toURI.getPath();//URL对象转换成字符串前，先调用toURI()方法
+
+        //2. 加载文件</code></pre><p>//            pro.load(new FileReader(“D:\IntelliJ IDEA Community Edition 2019.3.1\JDBCNote\jdbc\src\jdbc.properties”));<br>                pro.load(new FileReader(path));<br>            //3. 获取数据<br>            url = pro.getProperty(“url”);<br>            user = pro.getProperty(“user”);<br>            password = pro.getProperty(“password”);<br>            driver = pro.getProperty(“driver”);<br>            //注册驱动<br>            Class.forName(driver);<br>        } catch (IOException e) {<br>            e.printStackTrace();<br>        } catch (ClassNotFoundException e) {<br>            e.printStackTrace();<br>        } catch (URISyntaxException e) {<br>            e.printStackTrace();<br>        }<br>    }</p>
+<pre><code>/*
+    获取连接
+    返回连接对象
+ */
+
+public static Connection getConnection() throws SQLException {
+    return DriverManager.getConnection(url,user,password);
+}
+
+
+public static void close(Statement stmt, Connection conn){
+        if(stmt != null){
+            try {
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        if(conn != null){
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+}
+//重载方法
+public static void close(ResultSet res,Statement stmt, Connection conn){
+    if(res != null){
+        try {
+            res.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    if(stmt != null){
+        try {
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    if(conn != null){
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre><h2 id="-2"><a href="#-2" class="headerlink" title="}"></a>}</h2><p>public List<hero> findAll2(){<br>        Connection connection = null;<br>        Statement statement = null;<br>        ResultSet resultSet = null;<br>        List<hero> list = null;</hero></hero></p>
+<pre><code>    //1. 注册驱动
+    try {
+        //1. 获取Connection对象
+        connection = JDBCUtils.getConnection();
+        //2. 定义sql
+        String sql = "select * from hero ";
+        //4. 获取执行sql的Statement对象
+        statement = connection.createStatement();
+        //5. 执行sql
+        resultSet = statement.executeQuery(sql);
+        //6. 遍历结果集,封装对象,装载集合
+        list = new ArrayList&lt;Hero&gt;();
+
+        //while循环判断
+        while(resultSet.next()){
+            int id = resultSet.getInt("ID");
+            String name = resultSet.getString("name");
+            int age = resultSet.getInt("age");
+            double weight = resultSet.getDouble("weight");
+            double height = resultSet.getDouble("height");
+            //创建Hero对象,并赋值
+            Hero hero = new Hero();
+            hero.setId(id);
+            hero.setName(name);
+            hero.setAge(age);
+            hero.setWeight(weight);
+            hero.setHeight(height);
+
+            //装载集合
+            list.add(hero);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }finally{
+        //7. 释放资源
+        //避免空指针异常
+        JDBCUtils.close(resultSet,statement,connection);
+    }
+    return list;
+}</code></pre><p>练习:<br>    需求:<br>        1. 通过键盘录入用户名和密码<br>        2. 判断用户是否登录成功<br>            SELECT * FROM USER WHERE username = “” and password = “”;<br>            如果sql有查询结果,则成功,反之失败<br>    步骤:<br>        1. 创建数据库表 user表<br>CREATE TABLE USER(<br>    id INT PRIMARY KEY AUTO_INCREMENT,<br>    username VARCHAR(32),<br>    PASSWORD VARCHAR(32)<br>);<br>SELECT * FROM USER;<br>INSERT INTO USER VALUES(0,’西门吹雪’,’123’);<br>INSERT INTO USER VALUES(0,’陆小凤’,’456’);<br>SELECT * FROM USER;</p>
+<pre><code>    2. 创建登录方法</code></pre><p>public class JDBCDemo5 {<br>    public static void main(String[] args) {<br>        //1. 键盘录入<br>        Scanner sc = new Scanner(System.in);<br>        System.out.println(“请输入用户名:”);<br>        String username = sc.nextLine();<br>        System.out.println(“请输入密码:”);<br>        String password = sc.nextLine();</p>
+<pre><code>    boolean flag = new JDBCDemo5().login(username, password);
+    if (flag){
+        System.out.println("登录成功");
+    }else{
+        System.out.println("登陆失败");
+    }
+
+    //2. 调用方法
+
+    //3. 判断结果,输出不同语句
+}
+
+/*
+    登录方法
+ */
+public boolean login(String username,String password){
+    Connection connection = null;
+    Statement statement = null;
+    ResultSet resultSet = null;
+    if (username == null || password == null){
+        return false;
+    }
+    //连接数据库判断是否登陆成功
+    try {
+        connection = JDBCUtils.getConnection();
+        //定义sql
+        String sql = "select * from user where username = '"+username+"' and password = '"+password+"'";
+        statement = connection.createStatement();
+        resultSet = statement.executeQuery(sql);
+        //判断是否有数据,有则登陆成功
+        return resultSet.next();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }finally{
+        JDBCUtils.close(resultSet,statement,connection);
+    }
+    return false;
+}</code></pre><h2 id="-3"><a href="#-3" class="headerlink" title="}"></a>}</h2><ol start="5">
+<li><p>PreparedStatement: 执行sql的对象</p>
+<ol>
+<li><p>SQL注入问题: 在拼接sql时,有一些sql的特殊关键字参与字符串拼接,会造成安全性问题</p>
+<ol>
+<li>输入用户名随便,输入密码: a’ or ‘a’ = ‘a<br>select * from user where username = ‘sssss’ and password = ‘a’ or ‘a’ = ‘a’<br>最后恒为true,从而登陆成功</li>
+</ol>
+</li>
+<li><p>解决sql注入问题: 使用PreparedStatement对象来解决</p>
+</li>
+<li><p>预编译的SQL: 参数使用?作为占位符</p>
+</li>
+<li><p>步骤:</p>
+<ol>
+<li><p>导入驱动jar包</p>
+</li>
+<li><p>注册驱动</p>
+</li>
+<li><p>获取数据库连接对象 Connection</p>
+</li>
+<li><p>定义sql<br> 注意: sql的参数使用?作为占位符,如 select * from user where username = ? and password = ?;</p>
+</li>
+<li><p>获取执行sql语句的对象 PreparedStatement Connection.prepareStatement(String sql)</p>
+</li>
+<li><p>给?赋值<br> 方法: setXxx(参数1,参数2);</p>
+<pre><code> 参数1: ?的位置
+ 参数2: ?的值</code></pre></li>
+<li><p>执行sql,接受返回结果,不需要再传递sql语句</p>
+</li>
+<li><p>处理结果</p>
+</li>
+<li><p>释放资源<br>public boolean login(String username,String password){<br>Connection connection = null;<br>PreparedStatement preparedstatement = null;<br>ResultSet resultSet = null;<br>if (username == null || password == null){<br> return false;<br>}<br>//连接数据库判断是否登陆成功<br>try {<br> connection = JDBCUtils.getConnection();<br> //定义sql<br>//            String sql = “select * from user where username = ‘“+username+”‘ and password = ‘“+password+”‘“;<br> String sql = “select * from user where username = ? and password = ?”;</p>
+<p> preparedstatement = connection.prepareStatement(sql);<br> //给问号赋值<br> preparedstatement.setString(1,username);<br> preparedstatement.setString(2,password);<br> //不需要再传递sql了<br> resultSet = preparedstatement.executeQuery();<br> //判断是否有数据,有则登陆成功<br> return resultSet.next();<br>} catch (SQLException e) {<br> e.printStackTrace();<br>}finally{<br> JDBCUtils.close(resultSet,preparedstatement,connection);<br>}<br>return false;<br>}</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<hr>
+<p>注意: 后期都会使用PreparedStatement对象来完成增删改查的操作<br>    1. 可以防止SQL注入<br>    2. 效率更高</p>
+<h2 id="JDBC控制事务"><a href="#JDBC控制事务" class="headerlink" title="JDBC控制事务"></a>JDBC控制事务</h2><pre><code>1. 事务: 一个包含多个步骤的业务操作.如果这个业务操作被事务管理,则这多个步骤要么同时成功,要么同时失败.
+2. 操作:
+    开启事务: setAutoCommit(boolean autoCommit): 调用该方法设置参数为false,即开启事务
+        在执行sql之前开启事务
+    提交事务: commit()
+        当所有sql都执行完提交事务
+    回滚事务: rollback()
+        在catch中回滚事务
+3. 使用Connection对象来管理事务</code></pre><p>银行转账案例:</p>
+<p>CREATE TABLE account(<br>    id INT PRIMARY KEY AUTO_INCREMENT,<br>    NAME VARCHAR(32),<br>    balance DOUBLE<br>);<br>INSERT INTO account VALUES(0,’西门吹雪’,2000.55);<br>INSERT INTO account VALUES(0,’陆小凤’,3000.77);<br>SELECT * FROM account;</p>
+<hr>
+<p>/*<br>    事务操作<br> */<br>public class JDBCDemo6 {<br>    public static void main(String[] args) {<br>        Connection connection = null;<br>        PreparedStatement preparedStatement1 = null;<br>        PreparedStatement preparedStatement2 = null;<br>        try {<br>            connection = JDBCUtils.getConnection();</p>
+<pre><code>        //开启事务, 中间出现异常则停止转账,不然钱就不翼而飞了
+        connection.setAutoCommit(false);
+
+        //陆小凤-500,西门吹雪+500
+        String sql1 = "update account set balance = balance-? where name = ?";
+        String sql2 = "update account set balance = balance+? where name = ?";
+
+        preparedStatement1 = connection.prepareStatement(sql1);
+        preparedStatement2 = connection.prepareStatement(sql2);
+        preparedStatement1.setDouble(1,300);
+        preparedStatement1.setString(2,"陆小凤");
+        preparedStatement2.setDouble(1,300);
+        preparedStatement2.setString(2,"西门吹雪");
+        preparedStatement1.executeUpdate();
+
+        //手动制造异常
+        int x = 3/0;
+        preparedStatement2.executeUpdate();
+
+        //提交事务
+        connection.commit();
+        //改成Exception,不管出现什么异常都进入回滚,回到事务开启之前的状态
+    } catch (Exception e) {
+        //事务回滚
+        try {
+            if(connection!=null){
+                connection.rollback();
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        e.printStackTrace();
+    }finally {
+        JDBCUtils.close(preparedStatement1,connection);
+        JDBCUtils.close(preparedStatement2,null);
+    }
+}</code></pre><h2 id="-4"><a href="#-4" class="headerlink" title="}"></a>}</h2><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力!</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.bmp" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.bmp" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+            
+            
+            <div class="reprint1">
+                <p>
+                    <span class="reprint1-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="https://sqtian-hhu.github.io" class="b-link-green">世庆的博客</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2020/04/06/java-ji-chu/javanote11-jdbc/" class="b-link-green">&#39;JavaNote11_JDBC&#39;</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+        clientSecret: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+        repo: 'shw2018.github.io',
+        owner: 'shw2018',
+        admin: ["shw2018"],
+        id: '2020/04/06/java-ji-chu/javanote11-jdbc/',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+    /* valine 评论框增加背景图片 */
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("") 100% 100% no-repeat;
+    }
+
+    #vcomments input[type=text],
+    #vcomments input[type=email],
+    #vcomments input[type=url],
+    #vcomments textarea {
+        box-sizing: border-box;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #42b983;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    /* 修复评论第一行位置错位 */
+    .v .vlist .vcard {
+    padding-top: 2.5em !important ;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div id="vcomments" class="card-content"></div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="/libs//libs/jQuery-emoji/dist/css/jquery.emoji.css">
+<script src="/libs//libs/jQuery-emoji/dist/js/jquery.emoji.min.js"></script>
+<script src="/libs//libs/jQuery-emoji/dist/js/emoji.list.js"></script> -->
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'XXXXXXXXXXXXXXXXXXXXXXXX',
+        appKey: 'XXXXXXXXXXXXXXXXXXXXXX',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go',
+
+    });
+
+//     function parse_emoji() {
+//     jQuery(".vcontent").emojiParse({
+//       basePath: '/libs/jQuery-emoji/images/emoji',
+//       icons: emojiLists   // 注：详见 js/emoji.list.js
+//     });
+//   }
+  
+//   setTimeout(function() {
+//     // jQuery emoji 解析
+//     parse_emoji();
+//     // jquery emoji 初始化
+//     jQuery(".veditor").emoji({
+//       showTab: true,
+//       animation: 'slide',
+//       basePath: '/libs/jQuery-emoji/images/emoji',
+//       icons: emojiLists  // 注：详见 js/emoji.list.js
+//     });
+//     jQuery(".vmore").on("click", function() {
+//       setTimeout(function() {
+//         parse_emoji();
+//       }, 500);
+//     });
+//   }, 800)
+
+</script>
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/04/06/java-ji-chu/javanote12-jdbcdatesource/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="'JavaNote12_JDBCDateSource'">
+                        
+                        <span class="card-title">'JavaNote12_JDBCDateSource'</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            数据库连接池
+概念：其实就是一个容器（集合），存放数据库连接的容器 当系统初始化好后，容器被创建，容器中会申请一些连接对象，当用户来访问数据库时， 从容器中获取连接对象，用户访问完之后，会将连接对象归还给容器
+
+好处： 1. 节约资源 2.
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-06
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java基础/" target="_blank">
+                        <span class="chip bg-color">Java基础</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/04/02/java-ji-chu/javanote10-reflect/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="'JavaNote10_Reflect'">
+                        
+                        <span class="card-title">'JavaNote10_Reflect'</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Junit单元测试测试分类：    1. 黑盒测试：不需要写代码，给输入值，看程序是否能够输出期望的值
+2. 白盒测试：需要写代码，关注程序具体的执行流程
+
+junit使用：白盒测试    步骤：    1.定义一个测试类（测试用例）   
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java基础/" target="_blank">
+                        <span class="chip bg-color">Java基础</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 世庆的博客<br />'
+            + '作者: ShiQing<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+        <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&copy; 2019 田世庆. 
+
+            <br>
+            <span id="sitetime"></span><span class="my-face">ღゝ◡╹)ノ♡</span>
+            <br>
+
+            
+
+            
+                    
+                        <span id="busuanzi_container_site_pv" style='display:none'></span>
+                        总访问量: <span id="busuanzi_value_site_pv" class="white-color"></span>
+                    
+        
+                    
+                        <span id="busuanzi_container_site_uv" style='display:none'></span>
+                        人次&nbsp; | &nbsp;访客人数: <span id="busuanzi_value_site_uv" class="white-color"></span> 人
+                    
+    
+            
+
+            
+                &nbsp; | &nbsp;字数统计:&nbsp;
+                <span class="white-color">190k</span> 字
+            
+
+            
+            <br>
+
+        </div>
+
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/sqtian-hhu" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+ 
+    <a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=2528393970@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=2528393970&site=qq&menu=yes" class="tooltipped" target="_blank" data-tooltip="访问我的QQ空间" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+
+        var t1 = Date.UTC(2020, 02, 01, 00, 00, 00); //北京时间2019-8-1 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *
+            minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " + diffYears + " 年 " + diffDays + " 天 " + diffHours +
+            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒" ;
+    } /*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+
+
+
+
+
+        <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+        <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+        <script src="https://cdn.bootcss.com/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://cdn.bootcss.com/masonry/4.2.2/masonry.pkgd.min.js"></script>
+        <script src="https://cdn.bootcss.com/aos/3.0.0-beta.6/aos.js"></script>
+        <script src="https://cdn.bootcss.com/scrollprogress/3.0.2/scrollProgress.min.js"></script>
+        <script src="https://cdn.bootcss.com/lightgallery/1.6.12/js/lightgallery-all.min.js"></script>
+        <script src="/js/matery.js"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+        
+            <script src="/libs/others/clicklove.js"></script>
+        
+
+        
+            <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        
+
+        <!-- 洪卫 shw2018 add 2019.08.28 -->
+        <script type="text/javascript">
+            var OriginTitile = document.title,
+                st;
+            document.addEventListener("visibilitychange", function () {
+                document.hidden ? (document.title = "看不见我~看不见我~", clearTimeout(st)) : (document.title =
+                    "(๑•̀ㅂ•́) ✧被发现了～", st = setTimeout(function () {
+                        document.title = OriginTitile
+                    }, 3e3))
+            })
+        </script>
+
+        <!-- 鼠标点击烟花爆炸效果  洪卫 shw2018 add 2019.09.09 -->
+        
+
+        <!-- 背景雪花飘落特效 -->
+        
+            <script type="text/javascript">
+            //只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+            }
+            </script>
+        
+
+        <!-- 鼠标点击文字特效 -->
+        
+            <script src="/js/wenzi.js" type="text/javascript"></script>
+        
+
+        <!-- 背景雪花飘落特效  -->
+        
+
+        <!-- 在线聊天工具   -->
+        
+            <script src="//code.tidio.co/xxxxxxxxxxxxxxxxxxxxxxxxxxx.js"></script>
+            <!--  在线聊天位置自定义  洪卫 shw2018 add 2019.09.13  -->
+            <script> 
+                $(document).ready(function () {
+
+                    setInterval(change_Tidio, 50);  
+                    function change_Tidio() { 
+
+                        var tidio=$("#tidio-chat iframe");
+                        if(tidio.css("display")=="block"&& $(window).width()>977 ){
+                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"80px":"20px";   
+                            document.getElementById("tidio-chat-iframe").style.right="-15px";   
+                            document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
+                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                        } 
+                        else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
+                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;   
+                            document.getElementById("tidio-chat-iframe").style.right="-15px"; 
+                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                        }
+                        else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
+                            document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;   
+                            document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                        }
+
+                        if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
+                            document.getElementById("tidio-chat-iframe").style.zIndex="998";
+                        }
+                    } 
+                }); 
+            </script>
+        
+
+        <!-- 背景 canvas-nest  -->
+        
+            <script type="text/javascript">
+            var windowWidth = $(window).width();
+            if (windowWidth > 992) {
+                document.write('<script type="text/javascript" color="0,0,255" pointColor="0,0,255" opacity= "0.8" zIndex="--1" count="150"src="/libs/background/canvas-nest.js"><\/script>');
+            }
+            </script>
+        
+
+        <!-- 背景静止彩带  -->
+        
+
+        <!-- 背景动态彩带 -->
+        
+            <script type="text/javascript">
+            var windowWidth = $(window).width();
+            if (windowWidth > 992) {
+                document.write('<script type="text/javascript" src="/libs/background/ribbon-dynamic.js"><\/script>');
+            }
+            </script>
+        
+
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+</html>
