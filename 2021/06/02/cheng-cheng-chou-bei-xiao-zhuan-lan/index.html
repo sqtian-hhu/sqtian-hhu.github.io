@@ -774,14 +774,14 @@ SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企�
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        7.1k
+                        7.5k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        24 分
+                        26 分
                     </div>
                     
                 
@@ -823,7 +823,19 @@ SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企�
 <li><p>如果代理类没有实现接口,那么Spring AOP会选择使用CGLIB来动态代理目标类.<br>CGLIB是一个代码生成的类库, 可以在运行时动态地生成指定类的一个子类对象,<br>并覆盖其中特定方法以及添加增强代码,从而实现AOP<br>CGLIB是用继承的方式做的动态代理, 因此, 如果某个类被标记为final, 那么它无法使用CGLIB做动态代里</p>
 </li>
 </ol>
-<h2 id="Spring-Bean生命周期"><a href="#Spring-Bean生命周期" class="headerlink" title="Spring Bean生命周期"></a>Spring Bean生命周期</h2><h2 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h2><p>Mybatis是一个半ORM框架, 它内部封装了JDBC, 开发时只需要关注SQL语句本身, 不需要花费精力去处理加载驱动, 创建连接, 创建statement等繁杂的过程. 程序员直接编写原生态SQL语句, 可以严格控制SQL执行性能, 灵活度高</p>
+<h2 id="Spring-Bean生命周期"><a href="#Spring-Bean生命周期" class="headerlink" title="Spring Bean生命周期"></a>Spring Bean生命周期</h2><p>Spring Bean的完整生命周期从创建Spring容器开始，直到最终Spring容器销毁Bean，这其中包含了一系列关键点。</p>
+<ol>
+<li>Spring启动，查找并加载需要被Spring管理的bean，进行Bean的实例化</li>
+<li>spring按bean定义信息配置bean的所有属性</li>
+<li>检查Aware相关接口并设置相关依赖:<br>(如果Bean实现了BeanNameAware接口的话，Spring将Bean的Id传递给setBeanName()方法<br> 如果Bean实现了BeanFactoryAware接口的话，Spring将调用setBeanFactory()方法，将BeanFactory容器实例传入<br> 如果Bean实现了ApplicationContextAware接口的话，Spring将调用Bean的setApplicationContext()方法，将bean所在应用上下文引用传入进来。)</li>
+<li>如果Bean实现了BeanPostProcessor接口，Spring就将调用他们的postProcessBeforeInitialization()方法进行前置处理。</li>
+<li>如果Bean实现了InitializingBean接口，Spring将调用他们的afterPropertiesSet()方法。类似的，</li>
+<li>如果bean使用init-method声明了初始化方法，该方法也会被调用</li>
+<li>如果Bean实现了BeanPostProcessor接口，Spring就将调用他们的postProcessAfterInitialization()方法进行后置处理。</li>
+<li>此时，Bean已经准备就绪，可以被应用程序使用了。他们将一直保留在Bean工厂中直到不再需要为止。</li>
+<li>如果bean实现了DisposableBean接口，Spring将调用它的destory()接口方法，同样，如果bean使用了destory-method 声明销毁方法，该方法也会被调用</li>
+</ol>
+<h2 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h2><p>Mybatis是一个半ORM框架, 它内部封装了JDBC, 开发时只需要关注SQL语句本身, 不需要花费精力去处理加载驱动, 创建连接, 创建statement等繁杂的过程. 程序员直接编写原生态SQL语句, 可以严格控制SQL执行性能, 灵活度高</p>
 <p>ORM思想: 指对象关系映射, 主要目的是操作实体类就相当于操作数据库表.<br>         需要建立两个映射思想: 1. 建立实体类到表的关系 2. 建立实体类中属性和表中字段的关系</p>
 <h3 id="Mybatis的优点"><a href="#Mybatis的优点" class="headerlink" title="Mybatis的优点"></a>Mybatis的优点</h3><ol>
 <li>基于SQL语句编程，相当灵活，不会对应用程序或者数据库的现有设计造成任何影响，SQL写在XML里，解除sql与程序代码的耦合，便于统一管理；<br>提供XML标签，支持编写动态SQL语句，并可重用。</li>
@@ -1720,7 +1732,7 @@ class Solution {    public int findRepeatNumber(int[] n
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">190.1k</span> 字
+                <span class="white-color">190.4k</span> 字
             
 
             
