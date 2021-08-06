@@ -736,8 +736,8 @@ SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企�
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/高频重点/" target="_blank">
-                                <span class="chip bg-color">高频重点</span>
+                            <a href="/tags/总结/" target="_blank">
+                                <span class="chip bg-color">总结</span>
                             </a>
                         
                     </div>
@@ -774,14 +774,14 @@ SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企�
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        7.9k
+                        8.7k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        27 分
+                        30 分
                     </div>
                     
                 
@@ -945,8 +945,16 @@ SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企�
 <li>OPT（Optimal replacement）最优置换算法：理论的最优，理论；就是要保证置换出去的是不再被使用的页，或者是在实际内存中最晚使用的算法。</li>
 </ol>
 <h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><h3 id="网络分层"><a href="#网络分层" class="headerlink" title="网络分层"></a>网络分层</h3><p>OSI七层模型(法定标准):<br>物理层-&gt;链路层-&gt;网络层-&gt;传输控制层-&gt;会话层-&gt;表示层-&gt;应用层</p>
-<p>TCP/IP五层模型(事实标准):<br>应用层: 支持各种网络应用  FTP, SMTP, HTTP<br>传输层: 进程-进程的数据传输  TCP, UDP<br>网络层: 源主机到目的主机的数据分组路由与转发  IP, ICMP, OSRF<br>数据链路层: 把网络层传下来的数据报组装成帧<br>物理层: 比特传输</p>
-<h3 id="TCP-和-UDP的区别"><a href="#TCP-和-UDP的区别" class="headerlink" title="TCP 和 UDP的区别"></a>TCP 和 UDP的区别</h3><p>TCP提供面向连接的、可靠的数据流传输，而UDP提供的是非面向连接的、不可靠的数据流传输<br>TCP传输单位成为TCP报文段，UDP传输单位成为用户数据包<br>TCP注重数据安全性，UDP数据传输快，因为不需要连接等待<br>TCP是面向字节流，UDP面向报文<br>TCP是点对点连接，UDP一对一，一对多，多对多都可以<br>TCP适合用于网页，邮件等，UDP适合用于视频，语音广播等</p>
+<p>TCP/IP五层模型(事实标准):<br>应用层: 支持各种网络应用  TFTP, SMTP, HTTP，Telnet，DNS<br>传输层: 进程-进程的数据传输  TCP, UDP<br>网络层: 源主机到目的主机的数据分组路由与转发  IP, ICMP，ARP，RARP<br>数据链路层: 把网络层传下来的数据报组装成帧<br>物理层: 比特传输</p>
+<p>发送数据的过程：</p>
+<ol>
+<li>应用层程序发送数据</li>
+<li>传输层把发送的数据分成多个报文段</li>
+<li>网络层对每个报文段加上源主机ip地址和目的主机ip地址（DNS获取），封装成IP数据报</li>
+<li>数据链路层在IP数据报上再加上源主机MAC地址和目的主机MAC地址（ARP协议获取）</li>
+<li>物理层传输数据</li>
+</ol>
+<h3 id="TCP-和-UDP的区别（传输层）"><a href="#TCP-和-UDP的区别（传输层）" class="headerlink" title="TCP 和 UDP的区别（传输层）"></a>TCP 和 UDP的区别（传输层）</h3><p>TCP提供面向连接的、可靠的数据流传输，而UDP提供的是非面向连接的、不可靠的数据流传输<br>TCP借助三次握手建立连接四次挥手断开连接来保障传输的可靠性，而UDP在传输数据前不建立连接，想传送时就直接抓取来自应用程序的数据并尽可能快地发送到网络上。<br>TCP传输单位成为TCP报文段，UDP传输单位成为用户数据包；<br>TCP注重数据安全性，UDP数据传输快，更具实时性；<br>TCP是面向字节流，UDP面向报文<br>TCP是点对点连接，UDP一对一，一对多，多对多传输都可以<br>TCP适合用于网页，邮件等，UDP适合用于视频，语音广播等</p>
 <p>TCP对应的协议：<br>FTP:定义了文件传输协议，使用21端口<br>Telnet：一种用于远程登录的端口，使用23端口，用户可以以自己的身份连接到远程的计算机上。<br>SMTP：邮件传送协议，用于发送邮件。服务器开放的是25端口<br>POP3：它是和SMTP对应，POP3用于接收邮件。POP3协议所用的是110端口。<br>HTTP ：是从Web服务器传输超文本到本地浏览器的传送协议<br>UDP对应的协议：<br>DNS协议：用于域名解析服务，将域名地址转换为IP地址。DNS用的是53号端口。<br>SNMP：简单网络管理协议，使用161号端口，使用来管理网络设备<br>TFTP ：简单文件传输协议，该协议是在熟知的端口69上使用UDP服务。</p>
 <h3 id="TCP三次握手四次挥手"><a href="#TCP三次握手四次挥手" class="headerlink" title="TCP三次握手四次挥手"></a>TCP三次握手四次挥手</h3><p>TCP协议是面向连接的,可靠的传输协议<br>面向连接: 三次握手之后, 双方当开辟资源接收信息</p>
 <p>为什么三次?<br>当客户端第一次发送连接请求syn后, 服务器端接收成功后返回一个syn和ack响应.<br>此时两端完成了两次握手, 从客户端的角度, 客户端已经确认了往返连接是相通的.<br>但从服务器角度, 只接收到了客户端的syn,还不确定服务器端回复的syn和ack响应是否被客户端收到,<br>即还不确定服务器端向客户端是否连通. 因此客户端收到服务器端的返回后需要在发送一次ack,<br>服务器端接收到此ack响应后即完成了三次握手, 此时就保证了连接的可靠.</p>
@@ -957,7 +965,7 @@ SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企�
 <li>服务器端将关闭链路前需要发送的数据发给客户端, 完成后发送一个终止标志位FIN, 表示数据发送完毕, 请求关闭服务器到客户端的链路</li>
 <li>客户端在接收到这个最终FIN后, 发送一个ACK=1的消息给服务器端, 并断开服务器到客户端的链路.</li>
 </ol>
-<h3 id="HTTP原理"><a href="#HTTP原理" class="headerlink" title="HTTP原理"></a>HTTP原理</h3><p>HTTP是一个无状态的协议, 无状态指在客户端和服务器之间不需要建立持久的连接,在一个客户端向服务器发出请求且服务器端收到该请求并返回响应后, 本次通信结束, HTTP连接将被关闭, 服务器不保留连接的相关信息.</p>
+<h3 id="HTTP原理（应用层）"><a href="#HTTP原理（应用层）" class="headerlink" title="HTTP原理（应用层）"></a>HTTP原理（应用层）</h3><p>HTTP是一个无状态的协议, 无状态指在客户端和服务器之间不需要建立持久的连接,在一个客户端向服务器发出请求且服务器端收到该请求并返回响应后, 本次通信结束, HTTP连接将被关闭, 服务器不保留连接的相关信息.</p>
 <p>HTTPS是以安全为目标的HTTP通道, 它在HTTP中加入SSL层以提高数据传输的安全性.<br>HTTP被用于在Web浏览器和网站服务器之间传递信息, 但以明文方式发送内容, 不提供任何方式的数据加密,<br>如果攻击者截取了Web浏览器和网站服务器之间的传输报文, 就可以直接读懂.<br>为了数据安全, HTTPS在HTTP基础上加入了SSL协议, SSL依靠证书来验证服务器的身份,<br>并对浏览器和服务器之间的通信进行数据加密, 以保障传输的安全性.</p>
 <h3 id="路由器和交换机的区别"><a href="#路由器和交换机的区别" class="headerlink" title="路由器和交换机的区别"></a>路由器和交换机的区别</h3><ol>
 <li>路由器工作在网络层，而交换机一般工作在链路层;</li>
@@ -972,9 +980,18 @@ SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企�
 <li>get传输量小,因为受URL长度限制,但效率较低, post可以传输大量数据,所以上传文件时只能用post方式</li>
 <li>get是不安全的,因为URL是可见的,可能会泄露私密信息,如密码等, post较get安全</li>
 </ol>
-<h3 id="DNS域名系统"><a href="#DNS域名系统" class="headerlink" title="DNS域名系统"></a>DNS域名系统</h3><p>根域名服务器<br>顶级域名服务器：管理该顶级域名服务器注册的所有二级域名<br>权限域名服务器：负责一个区的域名服务器<br>本地域名服务器</p>
+<h3 id="DNS域名系统（应用层）"><a href="#DNS域名系统（应用层）" class="headerlink" title="DNS域名系统（应用层）"></a>DNS域名系统（应用层）</h3><p>根域名服务器<br>顶级域名服务器：管理该顶级域名服务器注册的所有二级域名<br>权限域名服务器：负责一个区的域名服务器<br>本地域名服务器</p>
 <p>当需要把主机名解析成IP地址时，应用进程调用解析程序，并成为DNS的一个客户，把待解析的域名放在DNS请求报文中，以UDP用户数据报方式发给本地域名服务器，本地域名服务器查找域名后，把对应的IP地址放在回答报文中返回，应用进程获得目的主机的IP地址后即可进行。<br>递归查询：（靠别人）比较少用<br>    首先当一个主机发出DNS查询请求时，先查找本机缓存，查询不到再把这个查询请求报文发给本地域名服务器，<br>    如果在本地域名服务器的高速缓存中没有查询到，本地域名服务器会向根域名服务器发送请求<br>    根域名服务器根据顶级域名向下查询顶级域名服务器，顶级域名服务器再根据二级域名向下查询权限域名服务器，直到查询出域名对应的IP。<br>迭代查询：（靠自己）<br>    首先当一个主机发出DNS查询请求时，先查找本机缓存，查询不到再把这个查询请求报文发给本地域名服务器，<br>    如果在本地域名服务器的高速缓存中没有查询到，本地域名服务器会向根域名服务器发送请求，<br>    根域名服务器告诉本地域名服务器顶级域名对应的顶级域名服务器，本地域名服务器再向顶级域名服务器发送请求，<br>    顶级域名服务器告诉本地服务器二级域名对应的权限域名服务器，本地服务器再向权限域名服务器发送请求，<br>    直到查询出域名对应的IP。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://raw.githubusercontent.com/sqtian-hhu/images/main/images/friends/24.jpg" alt="全文背诵"></p>
+<h3 id="NAT网络地址转换（网络层）"><a href="#NAT网络地址转换（网络层）" class="headerlink" title="NAT网络地址转换（网络层）"></a>NAT网络地址转换（网络层）</h3><p>NAT：网络地址转换技术，将私网地址和公网地址进行转换，实现私网用户能在公网上通信，一般配置在网络路由器或防火墙上。<br>NAT实际上实现的是私有地址和公有地址的一对一映射，并不能很好的解决公有地址短缺的问题。<br>现在的网络地址转换技术更多的是指NAPT网络端口地址转换技术，主机中利用IP：端口号来表示进程，IP数据报送达NAT路由器，NAT路由器会根据NAT转换表查找数据报中IP端口号映射的NAT路由器中的端口号，让后用NAT路由器的公网IP和查到的端口号替换原来数据报中的源主机IP和端口号，然后把更新的IP数据报发送出去，实现在公网上的通信。</p>
+<h3 id="ARP协议（网络层）"><a href="#ARP协议（网络层）" class="headerlink" title="ARP协议（网络层）"></a>ARP协议（网络层）</h3><p>在实际网络的链路上传送数据帧时，最终必须使用MAC地址。ARP协议实现IP地址与MAC地址的映射，用来获取目的IP对应的MAC地址<br>IP数据报中包含源主机IP地址和目的主机IP地址，首先检查ARP高速缓存，有对应表项则写入MAC帧，没有先把源主机IP地址和目的IP相与，看是否是同一个网段下，<br>如果是同一个网段，就广播ARP请求分组：源IP|目的IP|源MAC|全1广播地址, 目的主机收到后返回单播ARP响应分组: 目的IP|目的MAC, 源主机获取到目的MAC后加入封装。<br>如果不是同一个网段，下一跳就应该是默认网关，广播ARP请求分组：主机IP|网关IP|主机MAC|全1广播地址, 网关返回单播ARP响应分组: 网关IP|网关MAC,源主机获取网关MAC后封装进IP数据报。</p>
+<h3 id="DHCP协议（应用层）"><a href="#DHCP协议（应用层）" class="headerlink" title="DHCP协议（应用层）"></a>DHCP协议（应用层）</h3><p>动态主机配置协议，使用UDP协议工作。给内部的网络和网络服务供应商自动的分配IP地址。</p>
+<ol>
+<li>主机广播DHCP发现报文，尝试找到网络中的服务器获取一个IP地址。</li>
+<li>DHCP服务器广播DHCP提供报文，服务器拟分配给主机一个IP地址及相关配置，先到先得。</li>
+<li>主机广播DHCP请求报文，主机向服务器请求提供IP地址</li>
+<li>DHCP服务器广播DHCP确认报文，正式将IP地址分配给主机。</li>
+</ol>
+<h3 id="链路状态路由算法OSPF"><a href="#链路状态路由算法OSPF" class="headerlink" title="链路状态路由算法OSPF"></a>链路状态路由算法OSPF</h3><h3 id="距离向量路由算法RIP"><a href="#距离向量路由算法RIP" class="headerlink" title="距离向量路由算法RIP"></a>距离向量路由算法RIP</h3><p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://raw.githubusercontent.com/sqtian-hhu/images/main/images/friends/24.jpg" alt="全文背诵"></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1734,7 +1751,7 @@ class Solution {    public int findRepeatNumber(int[] n
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">190.9k</span> 字
+                <span class="white-color">192k</span> 字
             
 
             
