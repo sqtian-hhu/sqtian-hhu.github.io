@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sqtian-hhu.github.io/"/>
-  <updated>2021-08-06T12:23:41.022Z</updated>
+  <updated>2021-08-08T10:24:45.004Z</updated>
   <id>https://sqtian-hhu.github.io/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微信小程序总结</title>
+    <link href="https://sqtian-hhu.github.io/2021/08/08/ji-chu-zheng-li/wei-xin-xiao-cheng-xu-zong-jie/"/>
+    <id>https://sqtian-hhu.github.io/2021/08/08/ji-chu-zheng-li/wei-xin-xiao-cheng-xu-zong-jie/</id>
+    <published>2021-08-08T07:07:26.000Z</published>
+    <updated>2021-08-08T10:24:45.004Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;微信短视频分享小程序&quot;&gt;&lt;a href=&quot;#微信短视频分享小程序&quot; class=&quot;headerlink&quot; title=&quot;微信短视频分享小程序&quot;&gt;&lt;/a&gt;微信短视频分享小程序&lt;/h2&gt;&lt;h3 id=&quot;主程序&quot;&gt;&lt;a href=&quot;#主程序&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="项目整理" scheme="https://sqtian-hhu.github.io/categories/%E9%A1%B9%E7%9B%AE%E6%95%B4%E7%90%86/"/>
+    
+    
+      <category term="项目整理" scheme="https://sqtian-hhu.github.io/tags/%E9%A1%B9%E7%9B%AE%E6%95%B4%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基础整理</title>
+    <link href="https://sqtian-hhu.github.io/2021/08/08/ji-chu-zheng-li/ji-chu-zheng-li/"/>
+    <id>https://sqtian-hhu.github.io/2021/08/08/ji-chu-zheng-li/ji-chu-zheng-li/</id>
+    <published>2021-08-08T05:03:07.000Z</published>
+    <updated>2021-08-08T10:24:48.645Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="呈呈专栏" scheme="https://sqtian-hhu.github.io/categories/%E5%91%88%E5%91%88%E4%B8%93%E6%A0%8F/"/>
+    
+    
+      <category term="总结" scheme="https://sqtian-hhu.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
   
   <entry>
     <title>git</title>
@@ -66,8 +118,8 @@
   
   <entry>
     <title>呈呈抽背小专栏</title>
-    <link href="https://sqtian-hhu.github.io/2021/06/02/cheng-cheng-chou-bei-xiao-zhuan-lan/"/>
-    <id>https://sqtian-hhu.github.io/2021/06/02/cheng-cheng-chou-bei-xiao-zhuan-lan/</id>
+    <link href="https://sqtian-hhu.github.io/2021/06/02/ji-chu-zheng-li/cheng-cheng-chou-bei-xiao-zhuan-lan/"/>
+    <id>https://sqtian-hhu.github.io/2021/06/02/ji-chu-zheng-li/cheng-cheng-chou-bei-xiao-zhuan-lan/</id>
     <published>2021-06-02T10:43:07.000Z</published>
     <updated>2021-06-18T11:58:35.512Z</updated>
     
@@ -92,8 +144,8 @@
   
   <entry>
     <title>JVM</title>
-    <link href="https://sqtian-hhu.github.io/2021/05/30/jvm/"/>
-    <id>https://sqtian-hhu.github.io/2021/05/30/jvm/</id>
+    <link href="https://sqtian-hhu.github.io/2021/05/30/ji-chu-zheng-li/jvm/"/>
+    <id>https://sqtian-hhu.github.io/2021/05/30/ji-chu-zheng-li/jvm/</id>
     <published>2021-05-30T07:06:59.000Z</published>
     <updated>2021-05-31T04:28:50.045Z</updated>
     
@@ -277,8 +329,8 @@
   
   <entry>
     <title>SortSollutions.md</title>
-    <link href="https://sqtian-hhu.github.io/2021/04/26/sortsollutions/"/>
-    <id>https://sqtian-hhu.github.io/2021/04/26/sortsollutions/</id>
+    <link href="https://sqtian-hhu.github.io/2021/04/26/ji-chu-zheng-li/sortsollutions/"/>
+    <id>https://sqtian-hhu.github.io/2021/04/26/ji-chu-zheng-li/sortsollutions/</id>
     <published>2021-04-26T08:15:45.000Z</published>
     <updated>2021-04-26T12:25:57.833Z</updated>
     
@@ -463,47 +515,6 @@
     
     
       <category term="计算机基础" scheme="https://sqtian-hhu.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&#39;DataType&#39;</title>
-    <link href="https://sqtian-hhu.github.io/2020/10/26/java-ji-chu/datatype/"/>
-    <id>https://sqtian-hhu.github.io/2020/10/26/java-ji-chu/datatype/</id>
-    <published>2020-10-26T10:30:46.000Z</published>
-    <updated>2021-04-22T11:25:40.353Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;数组,字符串,集合等等总结&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
-    
-    
-      <category term="Java基础" scheme="https://sqtian-hhu.github.io/tags/Java%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&#39;JavaNote_SpringMVC_Day03&#39;</title>
-    <link href="https://sqtian-hhu.github.io/2020/07/08/java-kuang-jia/javanote-ssm/"/>
-    <id>https://sqtian-hhu.github.io/2020/07/08/java-kuang-jia/javanote-ssm/</id>
-    <published>2020-07-08T11:01:00.000Z</published>
-    <updated>2021-04-22T11:25:40.338Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Day3-SSM三大框架整合&quot;&gt;&lt;a href=&quot;#Day3-SSM三大框架整合&quot; class=&quot;headerlink&quot; title=&quot;Day3 SSM三大框架整合&quot;&gt;&lt;/a&gt;Day3 SSM三大框架整合&lt;/h2&gt;&lt;p&gt;第一步：搭建整合环境&lt;br&gt;SSM整合可以使用多种方式，我们选用XML+注解的方式&lt;/p&gt;
-&lt;p&gt;整合思路：&lt;br&gt;    1. 搭建环境&lt;br&gt;    2. 搭建Spring配置&lt;br&gt;    3. 使用Spring整合SpringMVC框架&lt;br&gt;    4. 使用Spring整合MyBatis框架&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="https://sqtian-hhu.github.io/categories/Java/"/>
-    
-    
-      <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
     
   </entry>
   

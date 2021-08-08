@@ -6,10 +6,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="JVM, 深度学习 故障诊断 Java">
+    <meta name="keywords" content="SortSollutions.md, 深度学习 故障诊断 Java">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="JVM内存空间用于运行Java字节码的虚拟机，是Java能够跨平台的关键所在每个操作系统的解释器不同，但基于解释器实现的虚拟机是相同的Java程序的具体运行过程：1）Java源文件被编译器编译成字节码文件2）JVM将字节码文件编译成相应操作">
+    <meta name="description" content="八大排序1. 冒泡排序冒泡排序原理：相邻元素两两比较，大的往后放，第一次完毕，最大值出现在了最大索引处public class 冒泡排序 {
+public void maoPaoSort(ArrayList&amp;lt;Integer&amp;gt; a">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>JVM | 世庆的博客</title>
+    <title>SortSollutions.md | 世庆的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -622,7 +623,7 @@
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        JVM
+                        SortSollutions.md
                     </div>
                 </div>
             </div>
@@ -734,8 +735,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/JVM/" target="_blank">
-                                <span class="chip bg-color">JVM</span>
+                            <a href="/tags/排序算法/" target="_blank">
+                                <span class="chip bg-color">排序算法</span>
                             </a>
                         
                     </div>
@@ -746,8 +747,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Java/" class="post-category" target="_blank">
-                                Java
+                            <a href="/categories/算法/" class="post-category" target="_blank">
+                                算法
                             </a>
                         
                     </div>
@@ -758,7 +759,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-30
+                    2021-04-26
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -772,14 +773,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        3.9k
+                        1.9k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        13 分
+                        8 分
                     </div>
                     
                 
@@ -796,67 +797,256 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="JVM内存空间"><a href="#JVM内存空间" class="headerlink" title="JVM内存空间"></a>JVM内存空间</h2><p>用于运行Java字节码的虚拟机，是Java能够跨平台的关键所在<br>每个操作系统的解释器不同，但基于解释器实现的虚拟机是相同的<br>Java程序的具体运行过程：<br>1）Java源文件被编译器编译成字节码文件<br>2）JVM将字节码文件编译成相应操作系统的机器码<br>3）机器码调用相应的操作系统的本地方法库执行相应的方法</p>
-<p>内存区域：寄存器，本地方法区，栈内存，堆内存，方法区</p>
-<p>寄存器：存储当前运行的线程所执行的字节码的行号指示器<br>        线程私有，无内存溢出问题</p>
-<p>虚拟机栈：描述Java方法的执行过程的内存模型，方法执行时虚拟机会为其创建一个栈帧，他在当前栈帧中存储了局部变量表，操作数栈，动态链接，方法出口等信息<br>          线程私有 </p>
-<p>本地方法区：本地方法区与虚拟机栈的作用类似，区别是虚拟机栈为执行Java方法服务，本地方法栈为执行原生方法服务<br>            线程私有</p>
-<p>堆：JVM运行时创建的对象和产生的数据都存在堆中，堆是线程共享的内存区域，也是垃圾收集器进行垃圾回收的最主要内存区域</p>
-<p>方法区：用于存储常量，静态变量，类信息等数据，线程共享</p>
-<p>线程私有与线程共享：<br>    线程私有指区域随线程的创建而创建，随线程的结束而结束。<br>    线程共享指区域随虚拟机的启动而创建，随虚拟机的关闭而销毁。</p>
-<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><h3 id="如何确定垃圾"><a href="#如何确定垃圾" class="headerlink" title="如何确定垃圾"></a>如何确定垃圾</h3><p>Java采用引用计数法和可达性分析来确定对象是否应该被回收</p>
-<ol>
-<li><p>引用计数法<br> 在Java中要操作对象，就必须获取对象的引用，因此可以通过引用计数法来判断对象是否可以被回收<br>在对象添加一个引用时，引用计数+1；在为对象删除一个引用时，引用计数-1；如果一个对象的引用计数=0了，<br>就表示该对象没有被引用，可以被回收<br> 引用计数法容易产生循环引用的问题，循环引用指两个对象相互引用，导致他们的引用一直存在，而不能被回收</p>
-</li>
-<li><p>可达性分析<br> 为了解决引用计数法的循环引用问题，Java还采用了可达性分析来判断对象是否可以回收。<br> 首先定义一些GC Roots 对象，然后以这些GC Roots对象作为起点向下搜索，<br> 如果在GC Roots和一个对象之间没有可达路径，则称该对象是不可达的<br> 不可达对象要经过至少两次标记才被回收。</p>
-</li>
-</ol>
-<h3 id="回收算法"><a href="#回收算法" class="headerlink" title="回收算法"></a>回收算法</h3><p>Java中常用的回收算法有标记清除，复制算法，标记整理和分代收集</p>
-<ol>
-<li><p>标记清除算法<br> 标记清除算法是基础的垃圾回收算法，其过程分为标记和清除两个阶段。<br>标记阶段标记出所友需要回收的对象，在清除阶段清除可回收的对象并释放其所占用的内存<br>  由于标记清理算法在清理对象后没有重新整理可用的内存空间，因此如果内存中可被召回的小对象居多<br>则会引起内存碎片化的问题，继而引起大对象无法获得连续可用空间的问题</p>
-</li>
-<li><p>复制算法<br> 为了解决标记清理算法内存碎片化的问题，复制算法首先将内存划分为大小相等的两个区域<br>新生成的对象都被存放在区域1中，在区域1存满后会进行一次标记，并将标记的对象复制到区域2中<br>然后直接清理整个区域1的内存<br> 复制算法的内存清理效率高且易实现，但由于同一时间只有一个内存区域能用，因此存在大量内存浪费<br>同时，当系统中有大量长时间存活的对象时，这些对象将在内存区域1和2之间反复复制而影响系统效率</p>
-</li>
-<li><p>标记整理算法<br> 首先进行一次标记，标记完成后将存活的对象移到内存的另一端，把这一端的对象清除并释放内存</p>
-</li>
-</ol>
-<h3 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h3><pre><code>分代收集算法根据对象的不同类型将内存划分为新生代，老年代，永久代</code></pre><p>其中新生代占1/3左右堆空间，老年代占2/3左右堆空间，永久代一般指方法区。<br>新生代又被分为Eden区，ServivorFrom区和ServivorTo区，Eden区默认占新生代空间的8/10；<br>ServivorFrom区和ServivorTo区分别占1/10。</p>
-<p>新生代：<br>    新生代主要存放新生成的对象，其特点是对象数量多但是生命周期短，在每次进行垃圾回收时都有大量对象被回收<br>新生代的GC过程叫做MinorGC，采用复制算法实现</p>
-<p>Eden区：Java新创建的对象首先会被存放在Eden区，如果新创建的对象属于大对象，责备直接放进老年代，<br>        在Eden区的内存不足时会触发MinorGC，对新生代进行一次回收<br>ServivorTo区：保留这一次MinorGC的幸存者<br>ServivorFrom区：将上一次MinorGC的幸存者作为这一次MinorGC的被扫描者</p>
-<p>MinorGC：<br>    1）对Eden区和ServivorFrom区进行一次标记，将标记后的存活对象复制到ServivorTo区，同时所有存活对象年龄加一<br>       如果ServivorTo区内存空间不够或者对象属于大对象或者对象年龄达到了老年代标准，则直接将其复制到老年代，<br>    2）清空Eden区和ServivorFrom区<br>    3）将ServivorTo和ServivorFrom区对换，原来的ServivorTo区变成了下一次GC的ServivorFrom区</p>
-<p>老年代：<br>    老年代主要存放大对象和生命周期长的对象，因此可回收的对象相对较少。<br>老年代的GC过程叫做MajorGC，在老年代，对象比较稳定，MajorGC不会频繁触发。<br>在进行MajorGC之前，JVM会进行一次MinorGC，如果仍然出现老年代空间不足或者找不到足够大的空间分配给新创建的大对象时，会触发MajorGC<br>MajorGC采用标记整理法，首先对老年代中所有对象进行一次扫描并标记存活的对象，<br>然后回收未被标记的对象，并释放内存空间<br>    因为要先扫描老年代的所有对象再回收，所以MajorGC时间较长。MajorGC的标记清除算法会产生内存碎片，<br>在老年代没有内存空间可分配时，会抛出Out Of Memory异常；</p>
-<p>永久代：<br>    永久代指内存永久保护区域，主要存放Class和Meta（元数据）的信息<br>Class在类加载时被放入永久代，永久代与老年代和新生代不同，GC不会在程序运行期间对永久代的内存进行清理<br>这也导致了永久代的内存会随着加载的Class文件增加而增加，在加载的Class文件过多时就会抛出Out of Memory 异常</p>
-<h3 id="四种引用类型"><a href="#四种引用类型" class="headerlink" title="四种引用类型"></a>四种引用类型</h3><p>在Java中一切皆对象，对象的操作是通过该对象的引用实现的，Java中的引用类型有4种</p>
-<ol>
-<li>强引用<br> 在java中最常见的就是强引用,把对象赋给一个引用变量时,这个引用变量就是一个强引用.<br> 有强引用的对象一定为可达性状态, 所以不会被垃圾回收,因此强引用是造成Java内存泄漏的主要原因</li>
-<li>软引用<br> 如果一个对象只有软引用, 则在系统内存空间不足时该对象将被回收 </li>
-<li>弱引用<br> 如果一个对象只有弱引用, 则在垃圾回收过程中一定会被回收</li>
-<li>虚引用<br> 虚引用主要用于跟踪对象的垃圾回收状态</li>
-</ol>
-<h3 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h3><p>JVM针对新生代和老年代分别提供了多种不同的垃圾回收器<br>针对新生代: Serial(单线程, 复制算法), ParNew(多线程,复制算法), Parallel Scavenge(多线程,复制算法)<br>针对老年代: Serial Old(单线程,标记整理法), Parallel Old(多线程,标记整理法),CMS,<br>针对不同区域: G1</p>
-<p>CMS:<br>    CMS垃圾收集器是为老年代设计的垃圾收集器,其主要目的是达到最短的垃圾回收停顿时间.<br>主要包含四个步骤:</p>
-<p>1) 初始标记: 只标记和GC Roots直接关联的对象, 速度很快, 需要暂停所有工作线程<br>2) 并发标记: 和用户线程一起工作, 执行GC Roots跟踪标记过程, 不需要暂停工作线程<br>3) 重新标记: 在并发标记过程中用户线程继续运行, 导致在垃圾回收过程中部分对象的状态发生变化,<br>             为了确保这部分对象的状态正确性,需要对这部分重新标记并暂停工作线程<br>4) 并发清除: 和用户线程一起工作, 执行清除GC Roots不可达对象的任务, 不需要暂停工作线程</p>
-<pre><code>CMS垃圾收集器在和用户线程一起工作时(并发标记和并发清除)不需要暂停用户线程,</code></pre><p>有效缩短了垃圾回收时系统的停顿时间,同时由于CMS垃圾收集器和用户线程一起工作,因此其并行度和效率也有所提升.</p>
-<h3 id="Java网络编程模型"><a href="#Java网络编程模型" class="headerlink" title="Java网络编程模型"></a>Java网络编程模型</h3><p>待学</p>
-<h2 id="类加载机制"><a href="#类加载机制" class="headerlink" title="类加载机制"></a>类加载机制</h2><h3 id="JVM类加载阶段"><a href="#JVM类加载阶段" class="headerlink" title="JVM类加载阶段"></a>JVM类加载阶段</h3><p>JVM的类加载分为5个阶段: 加载, 验证, 准备, 解析, 初始化<br>在类初始化完成后就可以使用该类的信息, 在一个类不再被需要时就可以从JVM中卸载</p>
-<ol>
-<li>加载<br> 指JVM读取Class文件,并且根据Class文件描述创建Java.lang.Class对象的过程.<br>类加载过程主要包含将Class文件读取到运行时区域的方法内, 在堆中创建Class对象,并封装类在方法区的数据结构的过程<br>在读取Class文件时既可以通过文件的形式读取,也可以通过jar包,war包读取,还可以通过代理自动生成Class或其他方式获取</li>
-<li>验证<br> 主要用于确保Class文件符合当前虚拟机的要求, 保障虚拟机自身安全,只有通过验证的Class文件才能被JVM加载</li>
-<li>准备<br> 主要工作是在方法区中为类变量分配内存空间并设置类中变量的初始值.<br>初始值指不同数据类型的默认值, 需要注意的是final类型的变量和非final类型的变量在准备阶段的数据初始化不同，<br>非final类型的变量在准备阶段的初始值是数据类型的默认值，对变量赋值是在对象初始化阶段<br>final类型的变量在编译后会生成对应的ConstantValue属性，虚拟机在准备阶段会根据ConstantValue属性直接赋值</li>
-<li>解析<br> JVM会将常量池中的符号引用替换成直接引用</li>
-<li>初始化<br> 主要通过执行类构造器的<client>方法为类进行初始化。<br><client>方法是在编译阶段由编译器自动收集类中静态代码块和静态变量的赋值操作组成的.<br>只有在父类的<client>方法都执行成功后,子类的<client>方法才可以被执行.<br>在一个类中既没有静态变量赋值操作也没有静态代码块时,编译器不会为该类生成<client>方法</client></client></client></client></client></li>
-</ol>
-<h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><pre><code>JVM提供了3种类加载器,分别是启动类加载器,扩展类加载器和应用程序类加载器</code></pre><ol>
-<li>启动类加载器: 负责加载Java_HOME/lib目录中的类库, 或通过-Xbootclasspath参数指定路径中被虚拟机认可的类库</li>
-<li>扩展类加载器: 负责加载Java_HOME/lib/ext 目录中的类库, 或通过java.ext.dirs系统变量加载指定路径中的类库</li>
-<li>应用程序类加载器: 负责加载用户路径(classpath)上的类库<br>除了上述三种类加载器,也可以通过继承java.lang.ClassLoader实现自定义的类加载器</li>
-</ol>
-<h3 id="双亲委派机制"><a href="#双亲委派机制" class="headerlink" title="双亲委派机制"></a>双亲委派机制</h3><pre><code>JVM通过双亲委派机制对类进行加载.</code></pre><p>双亲委派机制指一个类在收到类加载请求后不会尝试自己加载这个类,而是把该类加载请求向上委派给其父类去完成,<br>其父类在接收到该类加载请求后又会将其委派给自己的父类, 以此类推, 这样所有的类加载请求都被向上委派到启动类加载器中.<br>若父类加载器在接收到类加载请求后发现自己也无法加载该类(通常原因是该类的Class文件在父类的类加载路径中不存在),<br>则父类会将该信息反馈给子类并向下委派子类加载器加载该类,直到该类被成功加载,若找不到该类,则JVM会抛出ClassNotFound异常<br>    双亲委派机制的类加载流程</p>
-<p>1) 将自定义加载器挂载到应用程序类加载器.<br>2) 应用程序类加载器将类加载请求委托给扩展类加载器<br>3) 扩展类加载器将类加载请求委托给启动类加载器<br>4) 启动类加载器在加载路径下查找并加载Class文件, 如果未找到目标Class文件, 则交由扩展类加载器加载<br>5) 扩展类加载器在加载路径下查找并加载Class文件, 如果未找到目标Class文件, 则交由应用程序类加载器<br>6) 应用程序类加载器在加载路径下查找并加载Class文件, 如果未找到目标Class文件,则交由自定义加载器加载<br>7) 在自定义加载器下查找并加载用户指定目录下的Class文件,如果未找到Class文件,则抛出ClassNotFOund异常</p>
-<pre><code>双亲委派机制的核心是保障类的唯一性和安全性. 无论哪个类加载器加载该类, 最终都将类加载请求委托给启动类加载器加载, </code></pre><p>这样就保证了类加载的唯一性. 如果在JVM中存在包名和类名相同的两个类,则该类就无法被加载,JVM也无法完成类加载流程</p>
-<h3 id="实例初始化"><a href="#实例初始化" class="headerlink" title="实例初始化"></a>实例初始化</h3><pre><code>实例初始化就是执行&lt;init&gt;方法, &lt;init&gt;方法由编译器自动收集类中非静态代码块和非静态变量的赋值操作组成的.
-非静态实例变量显示赋值代码和非静态代码块从上而下顺序执行,而对应构造器代码最后执行.
-每次创建实例对象,调用对应构造器,执行的就是对应&lt;init&gt;方法</code></pre><script>
+                <h3 id="八大排序"><a href="#八大排序" class="headerlink" title="八大排序"></a>八大排序</h3><h2 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1. 冒泡排序"></a>1. 冒泡排序</h2><pre><code>冒泡排序原理：相邻元素两两比较，大的往后放，第一次完毕，最大值出现在了最大索引处</code></pre><p>public class 冒泡排序 {</p>
+<pre><code>public void maoPaoSort(ArrayList&lt;Integer&gt; arrayList) {
+    for (int i = arrayList.size(); i &gt; 0; i--) {
+        for (int j = 0; j &lt; i - 1; j++) {
+            if (arrayList.get(j) &gt; arrayList.get(j + 1)) {
+                int tmp = arrayList.get(j);
+                arrayList.set(j, arrayList.get(j + 1));
+                arrayList.set(j + 1, tmp);
+            }
+        }
+    }
+}
+
+
+public static void main(String[] args) {
+    冒泡排序 mp = new 冒泡排序();
+
+    Scanner sc = new Scanner(System.in);
+    ArrayList&lt;Integer&gt; arr = new ArrayList&lt;&gt;();
+    while (sc.hasNextInt()) {
+        arr.add(sc.nextInt());
+    }
+
+    mp.maoPaoSort(arr);
+    System.out.println(arr.toString());
+}</code></pre><p>}</p>
+<h2 id="2-选择排序"><a href="#2-选择排序" class="headerlink" title="2. 选择排序"></a>2. 选择排序</h2><pre><code>从0索引开始，依次和后面元素比较，小的往前放，第一次完毕，最小值出现在了最小索引处
+public void chooseSort(int[] arr){
+    for(int i = 0;i&lt;arr.length;i++){
+        //每一轮把后面最小的放到第i位上
+        for(int j=i;j&lt;arr.length;j++){
+
+            if(arr[j]&lt;arr[i]){
+                int temp = arr[j];
+                arr[j] = arr[i];
+                arr[i] = temp;
+            }
+        }
+    }
+}</code></pre><h2 id="3-插入排序"><a href="#3-插入排序" class="headerlink" title="3. 插入排序"></a>3. 插入排序</h2><pre><code>原理：从1索引处开始，将后面的元素插入到之前的有序列表中，使之仍保持有序
+
+public int[] insertSort(int[] arr) {
+    for (int i = 1; i &lt; arr.length; i++) {
+        int tmp = arr[i];
+        for (int j = i-1; j &gt;= 0; j--) {
+            if (tmp &lt; arr[j]) {
+                //后移一位
+                arr[j+1] = arr[j];
+            }else{
+                //插入
+                arr[j+1] = tmp;
+                break;
+            }
+        }
+    }
+    return arr;
+}</code></pre><h2 id="4-希尔排序"><a href="#4-希尔排序" class="headerlink" title="4. 希尔排序"></a>4. 希尔排序</h2><pre><code>希尔排序原理：他是对插入排序的一个优化，核心的思想就是合理的选取增量，
+经过一轮排序后，就会让序列大致有序，然后再不断地缩小增量，进行插入排序，直到增量为 1，那整个排序结束
+
+public int[] shellSort(int[] arr) {
+    //增量的大小最好定义为数组长度的一半，然后不断减半，直至为1
+    int len = arr.length;
+    for (int h = len / 2; h &gt; 0; h /= 2) {
+        //插入排序
+        for (int i = h; i &lt; arr.length; i+=h) {
+            int tmp = arr[i];
+            for (int j = i-h; j &gt;= 0; j-=h) {
+                if (tmp &lt; arr[j]) {
+                    //后移h位
+                    arr[j+h] = arr[j];
+
+                }else{
+                    //插入
+                    arr[j+h] = tmp;
+                    break;
+                }
+            }
+        }
+    }
+    return arr;
+}</code></pre><h2 id="5-快速排序"><a href="#5-快速排序" class="headerlink" title="5. 快速排序"></a>5. 快速排序</h2><pre><code>快速排序原理：分治法：比大小，再分区
+实现步骤：
+1.从数组中取出一个数，作为基准数
+2.分区：将比这个数大的数放在它的右边，比它小的数放在它的左边（挖坑填数的思想）
+挖坑填数思想：
+（1）：用基准数挖出形成第一个坑
+（2）：由后向前找比它小的数，找到后挖出此数填到前一个坑中
+（3）：由前向后找比它大或等于它的数，找到后挖出此数填到前一个坑中
+3.再对左右区间重复第二步，直到各区间只有一个数（用递归方法实现）
+
+public void quickSort(int[] arr,int start,int end){
+    if(start&gt;=end) return;
+    int key = arr[start];
+    int l = start,r = end-1;
+    while(l&lt;r){
+        while(l&lt;r&amp;&amp;arr[r]&gt;=key) r--;
+        while(l&lt;r&amp;&amp;arr[l]&lt;=key) l++;
+
+        if(l&lt;r){
+            int temp = arr[l];
+            arr[l] = arr[r];
+            arr[r] = temp;
+        }
+    }
+
+    arr[start] = arr[r];
+    arr[r] = key;
+
+    quickSort(arr,start,r);
+    quickSort(arr,r+1,end);
+}</code></pre><h2 id="6-归并排序"><a href="#6-归并排序" class="headerlink" title="6. 归并排序"></a>6. 归并排序</h2><pre><code>归并排序原理：假设初始序列有N个记录，则可以看成是N个有序的子序列（拆分思想，递归实现），
+每个子序列的长度是1，然后两两归并，得到N/2个长度为2或1的有序子序列，再两两归并.如此重复，直到一个长度为N的有序子序列为止
+mergeSort(array,0,array.length-1);
+
+
+public void mergeSort(int[] arr,int start,int end){
+    if(end&lt;=start) return;
+
+    //二分
+    int mid = start+(end-start)/2;
+    mergeSort(arr,start,mid);
+    mergeSort(arr,mid+1,end);
+
+    //归并
+    merge(arr,start,mid,end);
+
+}
+
+public void merge(int[] arr,int start,int mid,int end){
+    int[] temp = new int[arr.length];
+    for(int i=start;i&lt;=end;i++){
+        temp[i] = arr[i];
+    }
+
+    int l = start,r = mid+1;
+    for(int i=start;i&lt;=end;i++){
+        if(l&gt;mid){
+            arr[i] = temp[r];
+            r++;
+        }
+        else if(r&gt;end){
+            arr[i] = temp[l];
+            l++;
+        }
+        else if(temp[l]&lt;=temp[r]){
+            arr[i] = temp[l];
+            l++;
+        }
+        else{
+            arr[i] = temp[r];
+            r++;
+        }
+    }
+}</code></pre><h2 id="7-基数排序"><a href="#7-基数排序" class="headerlink" title="7. 基数排序"></a>7. 基数排序</h2><pre><code>基数排序原理：基数排序属于分配式排序，又称桶排序，通过分配再收集的方法进行排序，属于稳定式排序。
+1. 首先求出原数组中最大位数的位数,并建一个装数的二维数组和用来统计每个桶中有多少数的一维数组
+2. 最大数时几位数,则装桶几次(循环实现)
+3. 先将源数组的数装进桶中,再将装好的桶进行遍历,重新装回源数组
+
+
+//N位数桶排序
+public void bucketSort(ArrayList&lt;Integer&gt; arrayList){
+
+    //先找出最大数的位数,确定要做几次桶循环
+    int max = 0;
+    for (Integer integer:arrayList){
+        max=max&gt;integer?max:integer;
+    }
+
+    int len = String.valueOf(max).length();
+
+
+    //二维桶
+    for (int n = 0,x=1;n&lt;len;n++,x*=10){
+        //初始化一个二维的数组,一共十个桶,每个桶的列表存放该位下的数字
+        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; arrayLists = new ArrayList&lt;&gt;();
+        for (int k = 0;k&lt;10;k++){
+            arrayLists.add(new ArrayList&lt;Integer&gt;());
+        }
+
+
+        for (int i =0;i&lt;arrayList.size();i++){
+
+            //获取个十百位上的数确定放在第几个桶里: 模10的n次方余10
+            int key = arrayList.get(i) /x %10;
+            //存到对应得桶里
+            arrayLists.get(key).add(arrayList.get(i));
+
+        }
+
+        //把当前已排好的顺序放进临时列表
+        ArrayList&lt;Integer&gt; tmpArr = new ArrayList&lt;&gt;();
+        for (ArrayList&lt;Integer&gt; list : arrayLists) {
+            tmpArr.addAll(list);
+        }
+
+        //用临时list替换原先的列表
+        for (int t =0;t&lt;tmpArr.size();t++){
+            arrayList.set(t,tmpArr.get(t));
+        }
+    }
+}</code></pre><h2 id="8-堆排序"><a href="#8-堆排序" class="headerlink" title="8. 堆排序"></a>8. 堆排序</h2><pre><code>堆排序原理：堆排序是指利用堆这种数据结构所设计的一种排序算法。堆积是一个近似完全二叉树的结构，
+并同时满足堆积的性质：即子结点的键值或索引总是小于（或者大于）它的父节点。
+方法1. 利用最小堆存储,根节点为最小值,依次弹出,存放到临时数组里,但这需要额外的存储空间
+方法2. 利用最大堆,根节点是最大值,每次把根节点和末位交换,继续调整最大堆
+
+public static void heapSort(int[] arr) {
+    //求出最大非叶子结点的索引
+    int len = arr.length;
+    int startIndex = (len-1)/2;
+    //从最大非叶子节点开始调用最大堆函数,直到根节点为最大值
+    //根节点索引是0,i要&gt;=0,否则排最大堆时会忽视根节点
+    for (int i = startIndex; i &gt;= 0; i--) {
+        toMaxheap(arr, i, len);
+    }
+
+    // 以上的运行结果已经达到大顶堆的效果，
+    // 此时只需每次将根节点的元素与最后一个叶子节点的元素互换就行，并递归将剩余元素继续转化成大顶堆
+    for (int j = len - 1; j &gt; 0; j--) {
+        int max = arr[0];
+        arr[0] = arr[j];
+        arr[j] = max;
+
+        toMaxheap(arr, 0, j);
+    }
+
+
+}
+//生成最大堆的函数
+public static void toMaxheap(int[] arr, int start, int end) {
+    //先求出传入最大非叶子节点的左右节点索引
+    int leftIndex = start * 2 + 1;
+    int rightIndex = start * 2 + 2;
+    //比较这三个节点的值,得到最大值的索引
+    int maxIndex = start;
+    if(leftIndex&lt;end&amp;&amp;arr[leftIndex]&gt;arr[maxIndex]) maxIndex = leftIndex;
+    if(rightIndex&lt;end&amp;&amp;arr[rightIndex]&gt;arr[maxIndex]) maxIndex = rightIndex;
+
+
+    // 如果max不是在maxIndex，则调换位置，将最大节点放在大顶堆的根节点处
+    if(maxIndex!=start){
+        int temp = arr[start];
+        arr[start] = arr[maxIndex];
+        arr[maxIndex] = temp;
+
+        // 互换完之后可能会影响最大节点以下的大顶堆结构，即maxIndex下的子树,
+        // 所以这里需要递归调用方法，保证每个子树都是大顶堆结构
+        toMaxheap(arr, maxIndex,end);
+    }
+
+}</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1024,7 +1214,7 @@
                     </span>
                     <a href="https://sqtian-hhu.github.io" class="b-link-green">世庆的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2021/05/30/jvm/" class="b-link-green">JVM</a>
+                    <a href="/2021/04/26/ji-chu-zheng-li/sortsollutions/" class="b-link-green">SortSollutions.md</a>
                 </p>
             </div>
 
@@ -1047,7 +1237,7 @@
         repo: 'shw2018.github.io',
         owner: 'shw2018',
         admin: ["shw2018"],
-        id: '2021/05/30/jvm/',
+        id: '2021/04/26/ji-chu-zheng-li/sortsollutions/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1370,33 +1560,41 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/06/02/cheng-cheng-chou-bei-xiao-zhuan-lan/">
+                <a href="/2021/04/27/algorithm/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="呈呈抽背小专栏">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Algorithm">
                         
-                        <span class="card-title">呈呈抽背小专栏</span>
+                        <span class="card-title">Algorithm</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企业应用程序的开发，使开发人员只需关注业务需要本身
-主要包括七个模块：Spring Context：提供框架式的Bean访问方式以及企业级的功能Spring Cor
+                            五大常用算法一、分治分治策略：    1、将原始问题划分或归结为规模较小的子问题。
+2、递归或者迭代求解每个子问题
+
+3、将子问题的解综合得到原问题的解
+
+注意：
+1、子问题与原问题的性质完全一样
+
+2、子问题之间可以彼此独立求解
+
+3、递
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-06-02
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-27
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/呈呈专栏/" class="post-category" target="_blank">
-                                    呈呈专栏
+                            <a href="/categories/算法/" class="post-category" target="_blank">
+                                    算法
                                 </a>
                             
                             
@@ -1406,8 +1604,8 @@ SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/总结/" target="_blank">
-                        <span class="chip bg-color">总结</span>
+                    <a href="/tags/算法/" target="_blank">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>
@@ -1421,32 +1619,32 @@ SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企�
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/27/cao-zuo-xi-tong/cao-zuo-xi-tong-di-wu-zhang/">
+                <a href="/2021/04/23/java-kuang-jia/springjpa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="操作系统第五章">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="springJPA">
                         
-                        <span class="card-title">操作系统第五章</span>
+                        <span class="card-title">springJPA</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            I/O设备输入输出将数据输入到计算机或接受计算机输出数据的外部设备鼠标键盘–典型的输入设备显示器–输出移动硬盘–输入输出
-I/O设备的电子部件（I/O控制器）CPU无法直接控制I/O设备的机械部件，因此I/O设备还要有一个电子部件作为CPU
+                            day1：orm思想和hibernate以及jpa的概述和jpd的基本操作day2：springdatajpa的运行原理以及基本操作day3：多表操作，复杂查询
+##day1第一：orm（对象关系映射）思想    主要目的：操作实体类就相当
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-27
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-23
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/操作系统/" class="post-category" target="_blank">
-                                    操作系统
+                            <a href="/categories/Java/" class="post-category" target="_blank">
+                                    Java
                                 </a>
                             
                             
@@ -1456,8 +1654,8 @@ I/O设备的电子部件（I/O控制器）CPU无法直接控制I/O设备的机�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/I-O设备/" target="_blank">
-                        <span class="chip bg-color">I/O设备</span>
+                    <a href="/tags/SpringJPA/" target="_blank">
+                        <span class="chip bg-color">SpringJPA</span>
                     </a>
                     
                 </div>
@@ -1632,7 +1830,7 @@ I/O设备的电子部件（I/O控制器）CPU无法直接控制I/O设备的机�
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">192k</span> 字
+                <span class="white-color">193.8k</span> 字
             
 
             

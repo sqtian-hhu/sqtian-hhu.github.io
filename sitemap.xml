@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://sqtian-hhu.github.io/2021/08/08/ji-chu-zheng-li/ji-chu-zheng-li/</loc>
+    
+    <lastmod>2021-08-08T10:24:48.645Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://sqtian-hhu.github.io/2021/08/08/ji-chu-zheng-li/wei-xin-xiao-cheng-xu-zong-jie/</loc>
+    
+    <lastmod>2021-08-08T10:24:45.004Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://sqtian-hhu.github.io/2021/08/06/git/</loc>
     
     <lastmod>2021-08-06T12:23:41.022Z</lastmod>
@@ -9,7 +23,7 @@
   </url>
   
   <url>
-    <loc>https://sqtian-hhu.github.io/2021/06/02/cheng-cheng-chou-bei-xiao-zhuan-lan/</loc>
+    <loc>https://sqtian-hhu.github.io/2021/06/02/ji-chu-zheng-li/cheng-cheng-chou-bei-xiao-zhuan-lan/</loc>
     
     <lastmod>2021-06-18T11:58:35.512Z</lastmod>
     
@@ -30,7 +44,7 @@
   </url>
   
   <url>
-    <loc>https://sqtian-hhu.github.io/2021/05/30/jvm/</loc>
+    <loc>https://sqtian-hhu.github.io/2021/05/30/ji-chu-zheng-li/jvm/</loc>
     
     <lastmod>2021-05-31T04:28:50.045Z</lastmod>
     
@@ -79,7 +93,7 @@
   </url>
   
   <url>
-    <loc>https://sqtian-hhu.github.io/2021/04/26/sortsollutions/</loc>
+    <loc>https://sqtian-hhu.github.io/2021/04/26/ji-chu-zheng-li/sortsollutions/</loc>
     
     <lastmod>2021-04-26T12:25:57.833Z</lastmod>
     
@@ -443,14 +457,14 @@
   </url>
   
   <url>
-    <loc>https://sqtian-hhu.github.io/categories/index.html</loc>
+    <loc>https://sqtian-hhu.github.io/friends/index.html</loc>
     
     <lastmod>2020-06-30T18:09:44.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://sqtian-hhu.github.io/friends/index.html</loc>
+    <loc>https://sqtian-hhu.github.io/categories/index.html</loc>
     
     <lastmod>2020-06-30T18:09:44.000Z</lastmod>
     

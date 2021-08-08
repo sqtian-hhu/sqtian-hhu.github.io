@@ -6,11 +6,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="SortSollutions.md, 深度学习 故障诊断 Java">
+    <meta name="keywords" content="基础整理, 深度学习 故障诊断 Java">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="八大排序1. 冒泡排序冒泡排序原理：相邻元素两两比较，大的往后放，第一次完毕，最大值出现在了最大索引处public class 冒泡排序 {
-public void maoPaoSort(ArrayList&amp;lt;Integer&amp;gt; a">
+    <meta name="description" content="
+面向对象理解面向对象是相对于面向过程来讲的，举个例子来说，我想要做一件事，面向过程就是我去了解怎么做这件事，然后自己来做。面向对象就是找到一个会做这件事的人来替我做事。所谓面向对象，就是把相关数据和方法组织成一个整体来看待，从更高的层次来">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +18,7 @@ public void maoPaoSort(ArrayList&amp;lt;Integer&amp;gt; a">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>SortSollutions.md | 世庆的博客</title>
+    <title>基础整理 | 世庆的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -617,13 +617,13 @@ public void maoPaoSort(ArrayList&amp;lt;Integer&amp;gt; a">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        SortSollutions.md
+                        基础整理
                     </div>
                 </div>
             </div>
@@ -735,8 +735,8 @@ public void maoPaoSort(ArrayList&amp;lt;Integer&amp;gt; a">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/排序算法/" target="_blank">
-                                <span class="chip bg-color">排序算法</span>
+                            <a href="/tags/总结/" target="_blank">
+                                <span class="chip bg-color">总结</span>
                             </a>
                         
                     </div>
@@ -747,8 +747,8 @@ public void maoPaoSort(ArrayList&amp;lt;Integer&amp;gt; a">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/算法/" class="post-category" target="_blank">
-                                算法
+                            <a href="/categories/呈呈专栏/" class="post-category" target="_blank">
+                                呈呈专栏
                             </a>
                         
                     </div>
@@ -759,7 +759,7 @@ public void maoPaoSort(ArrayList&amp;lt;Integer&amp;gt; a">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-26
+                    2021-08-08
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -773,14 +773,14 @@ public void maoPaoSort(ArrayList&amp;lt;Integer&amp;gt; a">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.9k
+                        968
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        8 分
+                        3 分
                     </div>
                     
                 
@@ -797,256 +797,29 @@ public void maoPaoSort(ArrayList&amp;lt;Integer&amp;gt; a">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="八大排序"><a href="#八大排序" class="headerlink" title="八大排序"></a>八大排序</h3><h2 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1. 冒泡排序"></a>1. 冒泡排序</h2><pre><code>冒泡排序原理：相邻元素两两比较，大的往后放，第一次完毕，最大值出现在了最大索引处</code></pre><p>public class 冒泡排序 {</p>
-<pre><code>public void maoPaoSort(ArrayList&lt;Integer&gt; arrayList) {
-    for (int i = arrayList.size(); i &gt; 0; i--) {
-        for (int j = 0; j &lt; i - 1; j++) {
-            if (arrayList.get(j) &gt; arrayList.get(j + 1)) {
-                int tmp = arrayList.get(j);
-                arrayList.set(j, arrayList.get(j + 1));
-                arrayList.set(j + 1, tmp);
-            }
-        }
-    }
-}
-
-
-public static void main(String[] args) {
-    冒泡排序 mp = new 冒泡排序();
-
-    Scanner sc = new Scanner(System.in);
-    ArrayList&lt;Integer&gt; arr = new ArrayList&lt;&gt;();
-    while (sc.hasNextInt()) {
-        arr.add(sc.nextInt());
-    }
-
-    mp.maoPaoSort(arr);
-    System.out.println(arr.toString());
-}</code></pre><p>}</p>
-<h2 id="2-选择排序"><a href="#2-选择排序" class="headerlink" title="2. 选择排序"></a>2. 选择排序</h2><pre><code>从0索引开始，依次和后面元素比较，小的往前放，第一次完毕，最小值出现在了最小索引处
-public void chooseSort(int[] arr){
-    for(int i = 0;i&lt;arr.length;i++){
-        //每一轮把后面最小的放到第i位上
-        for(int j=i;j&lt;arr.length;j++){
-
-            if(arr[j]&lt;arr[i]){
-                int temp = arr[j];
-                arr[j] = arr[i];
-                arr[i] = temp;
-            }
-        }
-    }
-}</code></pre><h2 id="3-插入排序"><a href="#3-插入排序" class="headerlink" title="3. 插入排序"></a>3. 插入排序</h2><pre><code>原理：从1索引处开始，将后面的元素插入到之前的有序列表中，使之仍保持有序
-
-public int[] insertSort(int[] arr) {
-    for (int i = 1; i &lt; arr.length; i++) {
-        int tmp = arr[i];
-        for (int j = i-1; j &gt;= 0; j--) {
-            if (tmp &lt; arr[j]) {
-                //后移一位
-                arr[j+1] = arr[j];
-            }else{
-                //插入
-                arr[j+1] = tmp;
-                break;
-            }
-        }
-    }
-    return arr;
-}</code></pre><h2 id="4-希尔排序"><a href="#4-希尔排序" class="headerlink" title="4. 希尔排序"></a>4. 希尔排序</h2><pre><code>希尔排序原理：他是对插入排序的一个优化，核心的思想就是合理的选取增量，
-经过一轮排序后，就会让序列大致有序，然后再不断地缩小增量，进行插入排序，直到增量为 1，那整个排序结束
-
-public int[] shellSort(int[] arr) {
-    //增量的大小最好定义为数组长度的一半，然后不断减半，直至为1
-    int len = arr.length;
-    for (int h = len / 2; h &gt; 0; h /= 2) {
-        //插入排序
-        for (int i = h; i &lt; arr.length; i+=h) {
-            int tmp = arr[i];
-            for (int j = i-h; j &gt;= 0; j-=h) {
-                if (tmp &lt; arr[j]) {
-                    //后移h位
-                    arr[j+h] = arr[j];
-
-                }else{
-                    //插入
-                    arr[j+h] = tmp;
-                    break;
-                }
-            }
-        }
-    }
-    return arr;
-}</code></pre><h2 id="5-快速排序"><a href="#5-快速排序" class="headerlink" title="5. 快速排序"></a>5. 快速排序</h2><pre><code>快速排序原理：分治法：比大小，再分区
-实现步骤：
-1.从数组中取出一个数，作为基准数
-2.分区：将比这个数大的数放在它的右边，比它小的数放在它的左边（挖坑填数的思想）
-挖坑填数思想：
-（1）：用基准数挖出形成第一个坑
-（2）：由后向前找比它小的数，找到后挖出此数填到前一个坑中
-（3）：由前向后找比它大或等于它的数，找到后挖出此数填到前一个坑中
-3.再对左右区间重复第二步，直到各区间只有一个数（用递归方法实现）
-
-public void quickSort(int[] arr,int start,int end){
-    if(start&gt;=end) return;
-    int key = arr[start];
-    int l = start,r = end-1;
-    while(l&lt;r){
-        while(l&lt;r&amp;&amp;arr[r]&gt;=key) r--;
-        while(l&lt;r&amp;&amp;arr[l]&lt;=key) l++;
-
-        if(l&lt;r){
-            int temp = arr[l];
-            arr[l] = arr[r];
-            arr[r] = temp;
-        }
-    }
-
-    arr[start] = arr[r];
-    arr[r] = key;
-
-    quickSort(arr,start,r);
-    quickSort(arr,r+1,end);
-}</code></pre><h2 id="6-归并排序"><a href="#6-归并排序" class="headerlink" title="6. 归并排序"></a>6. 归并排序</h2><pre><code>归并排序原理：假设初始序列有N个记录，则可以看成是N个有序的子序列（拆分思想，递归实现），
-每个子序列的长度是1，然后两两归并，得到N/2个长度为2或1的有序子序列，再两两归并.如此重复，直到一个长度为N的有序子序列为止
-mergeSort(array,0,array.length-1);
-
-
-public void mergeSort(int[] arr,int start,int end){
-    if(end&lt;=start) return;
-
-    //二分
-    int mid = start+(end-start)/2;
-    mergeSort(arr,start,mid);
-    mergeSort(arr,mid+1,end);
-
-    //归并
-    merge(arr,start,mid,end);
-
-}
-
-public void merge(int[] arr,int start,int mid,int end){
-    int[] temp = new int[arr.length];
-    for(int i=start;i&lt;=end;i++){
-        temp[i] = arr[i];
-    }
-
-    int l = start,r = mid+1;
-    for(int i=start;i&lt;=end;i++){
-        if(l&gt;mid){
-            arr[i] = temp[r];
-            r++;
-        }
-        else if(r&gt;end){
-            arr[i] = temp[l];
-            l++;
-        }
-        else if(temp[l]&lt;=temp[r]){
-            arr[i] = temp[l];
-            l++;
-        }
-        else{
-            arr[i] = temp[r];
-            r++;
-        }
-    }
-}</code></pre><h2 id="7-基数排序"><a href="#7-基数排序" class="headerlink" title="7. 基数排序"></a>7. 基数排序</h2><pre><code>基数排序原理：基数排序属于分配式排序，又称桶排序，通过分配再收集的方法进行排序，属于稳定式排序。
-1. 首先求出原数组中最大位数的位数,并建一个装数的二维数组和用来统计每个桶中有多少数的一维数组
-2. 最大数时几位数,则装桶几次(循环实现)
-3. 先将源数组的数装进桶中,再将装好的桶进行遍历,重新装回源数组
-
-
-//N位数桶排序
-public void bucketSort(ArrayList&lt;Integer&gt; arrayList){
-
-    //先找出最大数的位数,确定要做几次桶循环
-    int max = 0;
-    for (Integer integer:arrayList){
-        max=max&gt;integer?max:integer;
-    }
-
-    int len = String.valueOf(max).length();
-
-
-    //二维桶
-    for (int n = 0,x=1;n&lt;len;n++,x*=10){
-        //初始化一个二维的数组,一共十个桶,每个桶的列表存放该位下的数字
-        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; arrayLists = new ArrayList&lt;&gt;();
-        for (int k = 0;k&lt;10;k++){
-            arrayLists.add(new ArrayList&lt;Integer&gt;());
-        }
-
-
-        for (int i =0;i&lt;arrayList.size();i++){
-
-            //获取个十百位上的数确定放在第几个桶里: 模10的n次方余10
-            int key = arrayList.get(i) /x %10;
-            //存到对应得桶里
-            arrayLists.get(key).add(arrayList.get(i));
-
-        }
-
-        //把当前已排好的顺序放进临时列表
-        ArrayList&lt;Integer&gt; tmpArr = new ArrayList&lt;&gt;();
-        for (ArrayList&lt;Integer&gt; list : arrayLists) {
-            tmpArr.addAll(list);
-        }
-
-        //用临时list替换原先的列表
-        for (int t =0;t&lt;tmpArr.size();t++){
-            arrayList.set(t,tmpArr.get(t));
-        }
-    }
-}</code></pre><h2 id="8-堆排序"><a href="#8-堆排序" class="headerlink" title="8. 堆排序"></a>8. 堆排序</h2><pre><code>堆排序原理：堆排序是指利用堆这种数据结构所设计的一种排序算法。堆积是一个近似完全二叉树的结构，
-并同时满足堆积的性质：即子结点的键值或索引总是小于（或者大于）它的父节点。
-方法1. 利用最小堆存储,根节点为最小值,依次弹出,存放到临时数组里,但这需要额外的存储空间
-方法2. 利用最大堆,根节点是最大值,每次把根节点和末位交换,继续调整最大堆
-
-public static void heapSort(int[] arr) {
-    //求出最大非叶子结点的索引
-    int len = arr.length;
-    int startIndex = (len-1)/2;
-    //从最大非叶子节点开始调用最大堆函数,直到根节点为最大值
-    //根节点索引是0,i要&gt;=0,否则排最大堆时会忽视根节点
-    for (int i = startIndex; i &gt;= 0; i--) {
-        toMaxheap(arr, i, len);
-    }
-
-    // 以上的运行结果已经达到大顶堆的效果，
-    // 此时只需每次将根节点的元素与最后一个叶子节点的元素互换就行，并递归将剩余元素继续转化成大顶堆
-    for (int j = len - 1; j &gt; 0; j--) {
-        int max = arr[0];
-        arr[0] = arr[j];
-        arr[j] = max;
-
-        toMaxheap(arr, 0, j);
-    }
-
-
-}
-//生成最大堆的函数
-public static void toMaxheap(int[] arr, int start, int end) {
-    //先求出传入最大非叶子节点的左右节点索引
-    int leftIndex = start * 2 + 1;
-    int rightIndex = start * 2 + 2;
-    //比较这三个节点的值,得到最大值的索引
-    int maxIndex = start;
-    if(leftIndex&lt;end&amp;&amp;arr[leftIndex]&gt;arr[maxIndex]) maxIndex = leftIndex;
-    if(rightIndex&lt;end&amp;&amp;arr[rightIndex]&gt;arr[maxIndex]) maxIndex = rightIndex;
-
-
-    // 如果max不是在maxIndex，则调换位置，将最大节点放在大顶堆的根节点处
-    if(maxIndex!=start){
-        int temp = arr[start];
-        arr[start] = arr[maxIndex];
-        arr[maxIndex] = temp;
-
-        // 互换完之后可能会影响最大节点以下的大顶堆结构，即maxIndex下的子树,
-        // 所以这里需要递归调用方法，保证每个子树都是大顶堆结构
-        toMaxheap(arr, maxIndex,end);
-    }
-
-}</code></pre><script>
+                <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://raw.githubusercontent.com/sqtian-hhu/images/main/images/friends/5.jpg" alt="冲冲冲"></p>
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><h3 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h3><p>面向对象是相对于面向过程来讲的，举个例子来说，我想要做一件事，面向过程就是我去了解怎么做这件事，然后自己来做。面向对象就是找到一个会做这件事的人来替我做事。所谓面向对象，就是把相关数据和方法组织成一个整体来看待，从更高的层次来系统建模。</p>
+<h3 id="面向对象的特征"><a href="#面向对象的特征" class="headerlink" title="面向对象的特征"></a>面向对象的特征</h3><p>封装继承多态</p>
+<p>封装：把对象的属性和方法包装起来，只通过约定好的接口来访问。</p>
+<p>java中主要通过private来实现封装，用private修饰属性或方法，然后通过geter，seter方法来访问，这样可以在seter方法中加入一些逻辑判断，保证属性的合理性。</p>
+<p>继承： 新的类吸收已有类的属性和方法，并且可以扩展新的功能。java中的类是单继承的，可以通过实现接口来实现多继承</p>
+<p>多态：指的是一个对象可以有多种状态。实现相同的类型调用相同的方法可以得到不同的结果。什么意思呢，举个例子就是学校里有全体在校人员，<br>学生类，老师类都继承自在校人员类，每个学生既是学生类也是在校人员类，我想要让在校人员都完成一件事，并不关心传入的是学生还是老师，此时传入参数类型就是在校人员类，可以通过isinstanceof方法来判断，然后实现不同德操作。</p>
+<h3 id="访问权限修饰符"><a href="#访问权限修饰符" class="headerlink" title="访问权限修饰符"></a>访问权限修饰符</h3><p>private 只能同一个类里访问<br>(default) 同一个包里可以访问<br>protected 如果不是在同一个包里,只有子类可以访问<br>public    全都可以访问</p>
+<h3 id="String是基础类型吗"><a href="#String是基础类型吗" class="headerlink" title="String是基础类型吗"></a>String是基础类型吗</h3><p>八个基本数据类型: byte,short,int,long,float,double,char,boolean.</p>
+<p>String是引用类型</p>
+<h3 id="Integer"><a href="#Integer" class="headerlink" title="Integer"></a>Integer</h3><pre><code>Integer f1 = 100,f2=100,f3==150,f4=150;
+sout(f1==f2); //true
+sout(f3==f4); //false</code></pre><p>用Integer接收int，会自动装箱。Integer源码里，有一个-128<del>127的缓存池，当int在这个范围里时，valueOf方法会直接返回缓存里已经创建好的Integer对象，==对于基本类型是比较值，对于对象是比较地址，由于-128</del>127内的数装箱得到的是同一个Integer对象，所以f1==f2为true；而对于超过这个范围的数，valueOf方法会返回一个新创建的Integer对象，f3和f4不是同一个对象，所以是false。</p>
+<h3 id="amp-和-amp-amp-的区别"><a href="#amp-和-amp-amp-的区别" class="headerlink" title="&amp;和&amp;&amp;的区别"></a>&amp;和&amp;&amp;的区别</h3><p>&amp;：</p>
+<p>按位与：二进制按位与运算</p>
+<p>逻辑与：if(a==0 &amp; a++&gt;0) 左边不管true或false，右边的判断都回执行</p>
+<p>&amp;&amp;：<br>短路与：左边如果是false，右边就不会执行了</p>
+<h3 id="构造器是否可以被重写"><a href="#构造器是否可以被重写" class="headerlink" title="构造器是否可以被重写"></a>构造器是否可以被重写</h3><p>构造器不能被继承，因此不能被重写。但可以重载。</p>
+<h3 id="String是否可以被继承"><a href="#String是否可以被继承" class="headerlink" title="String是否可以被继承"></a>String是否可以被继承</h3><p>String类是final类型，所以不能被继承</p>
+<h3 id="重载和重写的区别"><a href="#重载和重写的区别" class="headerlink" title="重载和重写的区别"></a>重载和重写的区别</h3><p>方法的重载和重写都是实现多态的方式，区别在于前者实现的是编译时的多态性，而后者实现的是运行时的多态性。</p>
+<p>重载：在同一个类中，同名的方法如果有不同的参数列表（参数类型，参数个数，参数顺序）视为重载，不同的返回类型不构成重载。</p>
+<p>重写：发生在父子关系的类中，子类重写父类的方法，参数列表一致，返回类型必须相同或者是父类方法返回类型的子类</p>
+<h3 id="抽象类的接口的区别"><a href="#抽象类的接口的区别" class="headerlink" title="抽象类的接口的区别"></a>抽象类的接口的区别</h3><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1214,7 +987,7 @@ public static void toMaxheap(int[] arr, int start, int end) {
                     </span>
                     <a href="https://sqtian-hhu.github.io" class="b-link-green">世庆的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2021/04/26/sortsollutions/" class="b-link-green">SortSollutions.md</a>
+                    <a href="/2021/08/08/ji-chu-zheng-li/ji-chu-zheng-li/" class="b-link-green">基础整理</a>
                 </p>
             </div>
 
@@ -1237,7 +1010,7 @@ public static void toMaxheap(int[] arr, int start, int end) {
         repo: 'shw2018.github.io',
         owner: 'shw2018',
         admin: ["shw2018"],
-        id: '2021/04/26/sortsollutions/',
+        id: '2021/08/08/ji-chu-zheng-li/ji-chu-zheng-li/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1560,41 +1333,32 @@ public static void toMaxheap(int[] arr, int start, int end) {
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/04/27/algorithm/">
+                <a href="/2021/08/08/ji-chu-zheng-li/wei-xin-xiao-cheng-xu-zong-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Algorithm">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="微信小程序总结">
                         
-                        <span class="card-title">Algorithm</span>
+                        <span class="card-title">微信小程序总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            五大常用算法一、分治分治策略：    1、将原始问题划分或归结为规模较小的子问题。
-2、递归或者迭代求解每个子问题
-
-3、将子问题的解综合得到原问题的解
-
-注意：
-1、子问题与原问题的性质完全一样
-
-2、子问题之间可以彼此独立求解
-
-3、递
+                            微信短视频分享小程序主程序
+这个项目后端是一个多模块maven聚合工程，所谓多模块聚合首先创建一个maven工程，他的pom文件主要导入的是各层通用的一些依赖，然后controller，service，dao这些层是各自新建的子工程，通过p
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-27
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-08
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category" target="_blank">
-                                    算法
+                            <a href="/categories/项目整理/" class="post-category" target="_blank">
+                                    项目整理
                                 </a>
                             
                             
@@ -1604,8 +1368,8 @@ public static void toMaxheap(int[] arr, int start, int end) {
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/算法/" target="_blank">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/项目整理/" target="_blank">
+                        <span class="chip bg-color">项目整理</span>
                     </a>
                     
                 </div>
@@ -1619,32 +1383,33 @@ public static void toMaxheap(int[] arr, int start, int end) {
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/04/23/java-kuang-jia/springjpa/">
+                <a href="/2021/08/06/git/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="springJPA">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="git">
                         
-                        <span class="card-title">springJPA</span>
+                        <span class="card-title">git</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            day1：orm思想和hibernate以及jpa的概述和jpd的基本操作day2：springdatajpa的运行原理以及基本操作day3：多表操作，复杂查询
-##day1第一：orm（对象关系映射）思想    主要目的：操作实体类就相当
+                            Git使用sshssh-keygen -t rsa -C “sqtian_hhu@163.com“
+github添加公钥
+初始化本地库设置用户签名git config –global user.name 用户名git config –glo
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-23
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category" target="_blank">
-                                    Java
+                            <a href="/categories/代码管理/" class="post-category" target="_blank">
+                                    代码管理
                                 </a>
                             
                             
@@ -1654,8 +1419,8 @@ public static void toMaxheap(int[] arr, int start, int end) {
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/SpringJPA/" target="_blank">
-                        <span class="chip bg-color">SpringJPA</span>
+                    <a href="/tags/代码管理/" target="_blank">
+                        <span class="chip bg-color">代码管理</span>
                     </a>
                     
                 </div>
@@ -1830,7 +1595,7 @@ public static void toMaxheap(int[] arr, int start, int end) {
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">192k</span> 字
+                <span class="white-color">193.8k</span> 字
             
 
             
