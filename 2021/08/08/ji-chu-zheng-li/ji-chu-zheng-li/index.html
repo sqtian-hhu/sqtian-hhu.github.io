@@ -773,14 +773,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        968
+                        1.6k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        5 分
                     </div>
                     
                 
@@ -819,7 +819,23 @@ sout(f3==f4); //false</code></pre><p>用Integer接收int，会自动装箱。Int
 <h3 id="重载和重写的区别"><a href="#重载和重写的区别" class="headerlink" title="重载和重写的区别"></a>重载和重写的区别</h3><p>方法的重载和重写都是实现多态的方式，区别在于前者实现的是编译时的多态性，而后者实现的是运行时的多态性。</p>
 <p>重载：在同一个类中，同名的方法如果有不同的参数列表（参数类型，参数个数，参数顺序）视为重载，不同的返回类型不构成重载。</p>
 <p>重写：发生在父子关系的类中，子类重写父类的方法，参数列表一致，返回类型必须相同或者是父类方法返回类型的子类</p>
-<h3 id="抽象类的接口的区别"><a href="#抽象类的接口的区别" class="headerlink" title="抽象类的接口的区别"></a>抽象类的接口的区别</h3><script>
+<h3 id="抽象类的接口的区别"><a href="#抽象类的接口的区别" class="headerlink" title="抽象类的接口的区别"></a>抽象类的接口的区别</h3><p>抽象类不能被实例化，可以声明普通的属性和方法，还可以定义抽象方法</p>
+<p>接口不能被实例化，属性只能是常量，默认是public final 修饰， 方法只能是抽象方法，jdk1.8之后也可以写default和static方法。</p>
+<h3 id="静态内部类和内部类的区别"><a href="#静态内部类和内部类的区别" class="headerlink" title="静态内部类和内部类的区别"></a>静态内部类和内部类的区别</h3><p>静态内部类被声明为static的内部类，可以不依赖外部类的实例被实例化，而内部类是需要通过外部类的实例才能实例化</p>
+<pre><code>Outter.InnerClass innerClass = new OutterClass().new InnerClass();
+Outter.StaticInnerClass staticInnerClass = new OutterClass.StaticInnerClass();</code></pre><h3 id="静态变量和实例变量的区别"><a href="#静态变量和实例变量的区别" class="headerlink" title="静态变量和实例变量的区别"></a>静态变量和实例变量的区别</h3><p>静态变量是被static修饰的变量，也称为类变量，他是属于类的变量，可以直接通过类.属性名来访问，是对象间共享的<br>实例变量属于具体的某个对象，必须先创建对象，才能通过对象访问实例变量</p>
+<h3 id="静态方法中是否可以访问普通方法"><a href="#静态方法中是否可以访问普通方法" class="headerlink" title="静态方法中是否可以访问普通方法"></a>静态方法中是否可以访问普通方法</h3><p>普通方法可以调用静态方法，静态方法不可以调用普通方法，因为静态方法是在类加载阶段就创建的，而普通方法是属于对象的，在类加载阶段还没有对象。</p>
+<h3 id="如何实现克隆"><a href="#如何实现克隆" class="headerlink" title="如何实现克隆"></a>如何实现克隆</h3><p>浅克隆：只拷贝本对象，其对象内部的数组，引用对象等都不拷贝，还要指向原生对象的内部元素地址<br>User类实现Clonable和Serializable接口，user.clone()即可<br>深克隆：把复制对象所有引用对象都复制了一次<br>第一种方法，重写clone方法，把所有引用的对象也clone一遍；<br>第二种方法，通过对象序列化和反序列化来实现，ByteArrayOutputStream和ObjectOutputStream把对象写到磁盘，再通过ByteArrayInputStream和ObjectInputStream读进来</p>
+<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><h3 id="进程和线程的区别"><a href="#进程和线程的区别" class="headerlink" title="进程和线程的区别"></a>进程和线程的区别</h3><ol>
+<li>进程是对运行时程序的封装,是系统进行资源调度和分配的基本单位,实现操作系统的并发。</li>
+<li>线程是进程的子任务,是CPU调度和分派的基本单位,用于保证程序的实时性,实现进程内部的并发。</li>
+<li>一个程序至少有一个进程,一个进程至少有一个线程,线程依赖进程的存在。</li>
+<li>进程执行过程中拥有独立的内存单元,而多个线程共享进程的内存。</li>
+</ol>
+<h3 id="存储与寻址"><a href="#存储与寻址" class="headerlink" title="存储与寻址"></a>存储与寻址</h3><p>存储结构： 硬盘-&gt;内存-&gt;缓存-&gt;寄存器</p>
+<p>寻址空间: 32位 -&gt; 逻辑内存 2^32 4g 64位 -&gt; 2^64</p>
+<h2 id="网络基础"><a href="#网络基础" class="headerlink" title="网络基础"></a>网络基础</h2><p>TCP保证传输可靠: 滑动窗口协议</p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1595,7 +1611,7 @@ github添加公钥
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">193.8k</span> 字
+                <span class="white-color">194.4k</span> 字
             
 
             

@@ -10,7 +10,8 @@
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
     <meta name="description" content="leetcode 剑指offer01.数组中重复的数字利用count数组存0~n-1出现的次数, 当其&amp;gt;1时说明是重复元素
-class Solution {    public int findRepeatNumber(int[] n">
+public int findRepeatNumber(int[] nums){
+    int[] coun">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -785,11 +786,16 @@ class Solution {    public int findRepeatNumber(int[] n">
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="leetcode-剑指offer"><a href="#leetcode-剑指offer" class="headerlink" title="leetcode 剑指offer"></a>leetcode 剑指offer</h3><h2 id="01-数组中重复的数字"><a href="#01-数组中重复的数字" class="headerlink" title="01.数组中重复的数字"></a>01.数组中重复的数字</h2><p>利用count数组存0~n-1出现的次数, 当其&gt;1时说明是重复元素</p>
-<p>class Solution {<br>    public int findRepeatNumber(int[] nums){<br>        int[] count = new int[nums.length];<br>        for(int n:nums){<br>            count[n]++;<br>            if(count[n]&gt;1) return n;<br>        }</p>
-<pre><code>    return -1;
+<pre><code>public int findRepeatNumber(int[] nums){
+    int[] count = new int[nums.length];
+    for(int n:nums){
+        count[n]++;
+        if(count[n]&gt;1) return n;
+    }
 
-}</code></pre><p>}</p>
-<h2 id="02-二维数组中的查找"><a href="#02-二维数组中的查找" class="headerlink" title="02.二维数组中的查找"></a>02.二维数组中的查找</h2><p>查找是否包含该数, 从右上角开始搜索</p>
+    return -1;
+
+}</code></pre><h2 id="02-二维数组中的查找"><a href="#02-二维数组中的查找" class="headerlink" title="02.二维数组中的查找"></a>02.二维数组中的查找</h2><p>查找是否包含该数, 从右上角开始搜索</p>
 <p>class Solution {<br>    public boolean findNumberIn2DArray(int[][] matrix, int target) {<br>        // 判空<br>        if(matrix==null||matrix.length==0||matrix[0].length==0) return false;</p>
 <pre><code>    int m = 0;
     int n = matrix[0].length-1;
@@ -2012,7 +2018,7 @@ public int pop_front() {
                     </span>
                     <a href="https://sqtian-hhu.github.io" class="b-link-green">世庆的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2021/06/14/li-kou/li-kou-jian-zhi/" class="b-link-green">力扣剑指</a>
+                    <a href="/2021/06/14/ji-chu-zheng-li/li-kou-jian-zhi/" class="b-link-green">力扣剑指</a>
                 </p>
             </div>
 
@@ -2035,7 +2041,7 @@ public int pop_front() {
         repo: 'shw2018.github.io',
         owner: 'shw2018',
         admin: ["shw2018"],
-        id: '2021/06/14/li-kou/li-kou-jian-zhi/',
+        id: '2021/06/14/ji-chu-zheng-li/li-kou-jian-zhi/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -2621,7 +2627,7 @@ SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企�
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">193.8k</span> 字
+                <span class="white-color">194.4k</span> 字
             
 
             
