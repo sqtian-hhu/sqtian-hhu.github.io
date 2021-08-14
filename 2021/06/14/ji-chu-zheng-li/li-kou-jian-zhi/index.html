@@ -2091,8 +2091,14 @@ TreeNode dfs(int[] pre,int[] in,TreeNode finish){
         return count;
 
     }
-}</code></pre><h2 id="51-两个链表的第一个公共节点"><a href="#51-两个链表的第一个公共节点" class="headerlink" title="51.两个链表的第一个公共节点"></a>51.两个链表的第一个公共节点</h2><p>双指针<br>p1走完A再走B，p2走完B再走A，相遇的就是公共点<br>    public class Solution {<br>        public ListNode getIntersectionNode(ListNode headA, ListNode headB) {<br>            if(headA==null|headB==null) return null;<br>            ListNode p1 = headA;<br>            ListNode p2 = headB;</p>
-<pre><code>        while(p1!=p2){
+}</code></pre><h2 id="51-两个链表的第一个公共节点"><a href="#51-两个链表的第一个公共节点" class="headerlink" title="51.两个链表的第一个公共节点"></a>51.两个链表的第一个公共节点</h2><p>双指针<br>p1走完A再走B，p2走完B再走A，相遇的就是公共点</p>
+<pre><code>public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if(headA==null|headB==null) return null;
+        ListNode p1 = headA;
+        ListNode p2 = headB;
+
+        while(p1!=p2){
             p1 = p1 == null?headB:p1.next;
             p2 = p2 == null?headA:p2.next;
         }
@@ -3310,7 +3316,7 @@ SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企�
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">194.5k</span> 字
+                <span class="white-color">197.8k</span> 字
             
 
             

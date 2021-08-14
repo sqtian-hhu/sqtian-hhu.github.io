@@ -773,14 +773,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        848
+                        1.2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        4 分
                     </div>
                     
                 
@@ -808,8 +808,11 @@
 <li>最后还有点赞收藏关注评论这些功能主要就是按部就班地改数据库信息就成。</li>
 </ol>
 <h3 id="后台管理网站"><a href="#后台管理网站" class="headerlink" title="后台管理网站"></a>后台管理网站</h3><ol>
-<li>用SSM框架写了一个后台管理网站，主要就是处理举报信息，禁播违规视频，管理bgm这些功能。管理bgm这边用到了zookeeper的一个监听功能，我在后台网站上传了bgm或者删除某个bgm后，小程序部署的服务器会监听到bgm库的改变，也会对数据库做相应的改变</li>
+<li>用SSM框架写了一个后台管理网站，主要就是展示用户列表，处理举报信息，禁播违规视频，管理bgm这些功能。管理bgm这边用到了zookeeper的一个监听功能，实现管理网站上传bgm后小程序后端能自动下载的功能。</li>
+<li>想实现后台服务器上传了bgm后，小程序能自动下载的功能，有三种方法：<br>1.小程序后端开放接口，管理系统每次增删bgm时调用小程序后端给的接口让其下载<br>2.使用MQ消息队列，生产者调用消费者<br>3.使用Zookeeper中间件，小程序后端监听并下载</li>
+<li>Zookeeper的使用：首先会有一个中间服务器配置好jdk环境并启动zookeeper服务，在管理系统里要配置client，这里使用的是apache curator插件，管理系统的zk客户端在每次增删bgm时会向zk服务端写入节点，所谓节点就是一段路径，该路径下存的是json数据，有对bgm的操作类型和bgm的url，然后小程序后端服务器上也会创建zk客户端，配置好对应的监听器，当监听到节点变化时会读取到节点里的数据，做出相应的增删操作。</li>
 </ol>
+<h3 id="分布式结构"><a href="#分布式结构" class="headerlink" title="分布式结构"></a>分布式结构</h3><p>整个项目可以说是一个小型的分布式结构，理论上一共涉及五台服务器，用户登录小程序访问的是小程序后端服务器，管理员登录管理网站访问后台管理服务器，两台服务器使用的是同一台mysql数据库服务器，登录时会先访问redis数据库看是否有最近的session记录，没有再去查询数据库。当管理员上传bgm到管理服务器时，会向zookeeper服务器写入新的节点，后端服务器会监听到变化并同步到本地。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1587,7 +1590,7 @@
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">194.5k</span> 字
+                <span class="white-color">197.8k</span> 字
             
 
             

@@ -773,14 +773,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.6k
+                        2.1k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        5 分
+                        7 分
                     </div>
                     
                 
@@ -804,6 +804,32 @@
 <p>java中主要通过private来实现封装，用private修饰属性或方法，然后通过geter，seter方法来访问，这样可以在seter方法中加入一些逻辑判断，保证属性的合理性。</p>
 <p>继承： 新的类吸收已有类的属性和方法，并且可以扩展新的功能。java中的类是单继承的，可以通过实现接口来实现多继承</p>
 <p>多态：指的是一个对象可以有多种状态。实现相同的类型调用相同的方法可以得到不同的结果。什么意思呢，举个例子就是学校里有全体在校人员，<br>学生类，老师类都继承自在校人员类，每个学生既是学生类也是在校人员类，我想要让在校人员都完成一件事，并不关心传入的是学生还是老师，此时传入参数类型就是在校人员类，可以通过isinstanceof方法来判断，然后实现不同德操作。</p>
+<h3 id="Objectl类的方法"><a href="#Objectl类的方法" class="headerlink" title="Objectl类的方法"></a>Objectl类的方法</h3><p>Object是所有类的父类，任何类都默认继承Object。Object类到底实现了哪些方法？</p>
+<p>（1）clone方法</p>
+<p>保护方法，实现对象的浅复制，只有实现了Cloneable接口才可以调用该方法，否则抛出CloneNotSupportedException异常。</p>
+<p>（2）getClass方法</p>
+<p>final方法，获得运行时类型。</p>
+<p>（3）toString方法</p>
+<p>该方法用得比较多，一般子类都有覆盖。</p>
+<p>（4）finalize方法</p>
+<p>该方法用于释放资源。因为无法确定该方法什么时候被调用，很少使用。</p>
+<p>（5）equals方法</p>
+<p>该方法是非常重要的一个方法。一般equals和==是不一样的，但是在Object中两者是一样的。子类一般都要重写这个方法。</p>
+<p>（6）hashCode方法</p>
+<p>该方法用于哈希查找，重写了equals方法一般都要重写hashCode方法。这个方法在一些具有哈希功能的Collection中用到。</p>
+<p>一般必须满足obj1.equals(obj2)==true。可以推出obj1.hash- Code()==obj2.hashCode()，但是hashCode相等不一定就满足equals。不过为了提高效率，应该尽量使上面两个条件接近等价。</p>
+<p>（7）wait方法</p>
+<p>wait方法就是使当前线程等待该对象的锁，当前线程必须是该对象的拥有者，也就是具有该对象的锁。wait()方法一直等待，直到获得锁或者被中断。wait(long timeout)设定一个超时间隔，如果在规定时间内没有获得锁就返回。</p>
+<p>调用该方法后当前线程进入睡眠状态，直到以下事件发生。</p>
+<p>（1）其他线程调用了该对象的notify方法。</p>
+<p>（2）其他线程调用了该对象的notifyAll方法。</p>
+<p>（3）其他线程调用了interrupt中断该线程。</p>
+<p>（4）时间间隔到了。</p>
+<p>此时该线程就可以被调度了，如果是被中断的话就抛出一个InterruptedException异常。</p>
+<p>（8）notify方法</p>
+<p>该方法唤醒在该对象上等待的某个线程。</p>
+<p>（9）notifyAll方法</p>
+<p>该方法唤醒在该对象上等待的所有线程</p>
 <h3 id="访问权限修饰符"><a href="#访问权限修饰符" class="headerlink" title="访问权限修饰符"></a>访问权限修饰符</h3><p>private 只能同一个类里访问<br>(default) 同一个包里可以访问<br>protected 如果不是在同一个包里,只有子类可以访问<br>public    全都可以访问</p>
 <h3 id="String是基础类型吗"><a href="#String是基础类型吗" class="headerlink" title="String是基础类型吗"></a>String是基础类型吗</h3><p>八个基本数据类型: byte,short,int,long,float,double,char,boolean.</p>
 <p>String是引用类型</p>
@@ -1611,7 +1637,7 @@ github添加公钥
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">194.5k</span> 字
+                <span class="white-color">197.8k</span> 字
             
 
             
