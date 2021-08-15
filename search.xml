@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>linux常用指令</title>
+      <link href="/2021/08/15/ji-chu-zheng-li/linux-chang-yong-zhi-ling/"/>
+      <url>/2021/08/15/ji-chu-zheng-li/linux-chang-yong-zhi-ling/</url>
+      
+        <content type="html"><![CDATA[<h2 id="查看目录内容"><a href="#查看目录内容" class="headerlink" title="查看目录内容"></a>查看目录内容</h2><p>ls</p><h2 id="切换目录"><a href="#切换目录" class="headerlink" title="切换目录"></a>切换目录</h2><p>cd</p><h2 id="创建和删除操作"><a href="#创建和删除操作" class="headerlink" title="创建和删除操作"></a>创建和删除操作</h2><p>touch<br>rm  -f 强制  -r 所有 递归<br>mkdir</p><h2 id="拷贝和移动文件"><a href="#拷贝和移动文件" class="headerlink" title="拷贝和移动文件"></a>拷贝和移动文件</h2><p>cp 源文件 目标文件  -i(提示覆盖)</p><p>mv</p><h2 id="查看文件内容"><a href="#查看文件内容" class="headerlink" title="查看文件内容"></a>查看文件内容</h2><p>cat 一次性显示<br>more 分屏显示<br>grep 文本搜索 -n 行号显示  -v 不包含的  -i 忽略大小写</p><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>echo 在终端中显示参数指定的文字<br>重定向 &gt;和&gt;&gt;: 将命令执行结果重定向到一个文件,将本应显示在终端的内容输出/追加到指定文件中<br>echo hello &gt; a: 把hello覆盖写到a文件里<br>echo hello &gt;&gt; a: 把hello追加写到a文件里<br>管道: 将一个命令的输出作为另一个命令的输入<br>ps -ef|grep java  查看java的进程<br>which xxx: 查看xxx命令保存在哪里</p><h2 id="远程管理"><a href="#远程管理" class="headerlink" title="远程管理"></a>远程管理</h2><p>ssh -keygen 生成sshkey<br>ssh [-p port] user@remoteIP 远程登陆</p><h2 id="组管理"><a href="#组管理" class="headerlink" title="组管理"></a>组管理</h2><p>groupadd 组名<br>groupdel 组名<br>cat/etc/group 查看组信息<br>chgrp 组名 文件/目录名 修改文件/目录所属组</p><h2 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h2><p>打包: tar -cvf 打包文件.tar 被打包文件/路径<br>解包: tar -xvf 打包文件.tar</p><p>tar只负责打包,但不压缩,与gzip结合使用<br>压缩: tar -zcvf 压缩文件.tar.gz 被压缩的文件<br>解压缩: tar -zxvf 压缩文件.targz (-C 目标路径)</p><h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><p>useradd -m -g 组 新建用户名<br>passwd 用户名<br>userdel -r 用户名<br>cat /etc/passwd/grep 用户名</p><h2 id="进程信息"><a href="#进程信息" class="headerlink" title="进程信息"></a>进程信息</h2><p>ps [aux] : 查看进程<br>top : 显示进程且排序<br>kill [-9] 进程代号 : 杀死进程,-9表示强行停止</p><h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><p>sudo apt install 安装包<br>sudo apt remove 软件名<br>sudo apt upgrade </p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 基础整理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>微信小程序总结</title>
       <link href="/2021/08/08/ji-chu-zheng-li/wei-xin-xiao-cheng-xu-zong-jie/"/>
       <url>/2021/08/08/ji-chu-zheng-li/wei-xin-xiao-cheng-xu-zong-jie/</url>
@@ -38,7 +63,7 @@
       
       <categories>
           
-          <category> 呈呈专栏 </category>
+          <category> 基础整理 </category>
           
       </categories>
       

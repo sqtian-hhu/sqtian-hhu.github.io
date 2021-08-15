@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sqtian-hhu.github.io/"/>
-  <updated>2021-08-14T07:20:19.185Z</updated>
+  <updated>2021-08-15T06:28:19.859Z</updated>
   <id>https://sqtian-hhu.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux常用指令</title>
+    <link href="https://sqtian-hhu.github.io/2021/08/15/ji-chu-zheng-li/linux-chang-yong-zhi-ling/"/>
+    <id>https://sqtian-hhu.github.io/2021/08/15/ji-chu-zheng-li/linux-chang-yong-zhi-ling/</id>
+    <published>2021-08-15T05:25:21.000Z</published>
+    <updated>2021-08-15T06:28:19.859Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;查看目录内容&quot;&gt;&lt;a href=&quot;#查看目录内容&quot; class=&quot;headerlink&quot; title=&quot;查看目录内容&quot;&gt;&lt;/a&gt;查看目录内容&lt;/h2&gt;&lt;p&gt;ls&lt;/p&gt;
+&lt;h2 id=&quot;切换目录&quot;&gt;&lt;a href=&quot;#切换目录&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="基础整理" scheme="https://sqtian-hhu.github.io/categories/%E5%9F%BA%E7%A1%80%E6%95%B4%E7%90%86/"/>
+    
+    
+      <category term="linux" scheme="https://sqtian-hhu.github.io/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>微信小程序总结</title>
@@ -47,7 +74,7 @@
     <link href="https://sqtian-hhu.github.io/2021/08/08/ji-chu-zheng-li/ji-chu-zheng-li/"/>
     <id>https://sqtian-hhu.github.io/2021/08/08/ji-chu-zheng-li/ji-chu-zheng-li/</id>
     <published>2021-08-08T05:03:07.000Z</published>
-    <updated>2021-08-13T08:54:57.691Z</updated>
+    <updated>2021-08-15T05:27:04.502Z</updated>
     
     <summary type="html">
     
@@ -61,7 +88,7 @@
     
     </summary>
     
-      <category term="呈呈专栏" scheme="https://sqtian-hhu.github.io/categories/%E5%91%88%E5%91%88%E4%B8%93%E6%A0%8F/"/>
+      <category term="基础整理" scheme="https://sqtian-hhu.github.io/categories/%E5%9F%BA%E7%A1%80%E6%95%B4%E7%90%86/"/>
     
     
       <category term="总结" scheme="https://sqtian-hhu.github.io/tags/%E6%80%BB%E7%BB%93/"/>
@@ -495,26 +522,6 @@
     
     
       <category term="代码管理" scheme="https://sqtian-hhu.github.io/tags/%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&#39;计算机网络复习&#39;</title>
-    <link href="https://sqtian-hhu.github.io/2020/11/12/ji-suan-ji-wang-luo-fu-xi/"/>
-    <id>https://sqtian-hhu.github.io/2020/11/12/ji-suan-ji-wang-luo-fu-xi/</id>
-    <published>2020-11-12T06:51:11.000Z</published>
-    <updated>2021-06-15T07:13:30.382Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;计算机网络之基础篇&quot;&gt;&lt;a href=&quot;#计算机网络之基础篇&quot; class=&quot;headerlink&quot; title=&quot;计算机网络之基础篇&quot;&gt;&lt;/a&gt;计算机网络之基础篇&lt;/h2&gt;&lt;p&gt;一、计算机网络概述&lt;br&gt;二、物理层&lt;br&gt;三、数据链路层&lt;br&gt;四、网络层&lt;br&gt;五、传输层&lt;br&gt;六、应用层&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="计算机网络" scheme="https://sqtian-hhu.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-    
-      <category term="计算机基础" scheme="https://sqtian-hhu.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
