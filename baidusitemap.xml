@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://sqtian-hhu.github.io/2021/08/15/ji-chu-zheng-li/linux-chang-yong-zhi-ling/</loc>
-    <lastmod>2021-08-15</lastmod>
+    <loc>https://sqtian-hhu.github.io/2021/05/30/ji-chu-zheng-li/jvm/</loc>
+    <lastmod>2021-08-21</lastmod>
   </url>  <url>
     <loc>https://sqtian-hhu.github.io/2021/08/08/ji-chu-zheng-li/ji-chu-zheng-li/</loc>
+    <lastmod>2021-08-20</lastmod>
+  </url>  <url>
+    <loc>https://sqtian-hhu.github.io/2021/08/15/ji-chu-zheng-li/linux-chang-yong-zhi-ling/</loc>
     <lastmod>2021-08-15</lastmod>
   </url>  <url>
     <loc>https://sqtian-hhu.github.io/2021/08/08/ji-chu-zheng-li/wei-xin-xiao-cheng-xu-zong-jie/</loc>
@@ -21,9 +24,6 @@
   </url>  <url>
     <loc>https://sqtian-hhu.github.io/2020/11/12/ji-suan-ji-wang-luo-fu-xi/</loc>
     <lastmod>2021-06-15</lastmod>
-  </url>  <url>
-    <loc>https://sqtian-hhu.github.io/2021/05/30/ji-chu-zheng-li/jvm/</loc>
-    <lastmod>2021-05-31</lastmod>
   </url>  <url>
     <loc>https://sqtian-hhu.github.io/2021/05/10/cao-zuo-xi-tong/cao-zuo-xi-tong-di-er-zhang/</loc>
     <lastmod>2021-05-31</lastmod>
