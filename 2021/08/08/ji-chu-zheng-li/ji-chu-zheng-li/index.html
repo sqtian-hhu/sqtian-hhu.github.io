@@ -10,7 +10,7 @@
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
     <meta name="description" content="
-面向对象理解面向对象是相对于面向过程来讲的，举个例子来说，我想要做一件事，面向过程就是我去了解怎么做这件事，然后自己来做。面向对象就是找到一个会做这件事的人来替我做事。所谓面向对象，就是把相关数据和方法组织成一个整体来看待，从更高的层次来">
+Java基础原理面向对象理解面向对象是相对于面向过程来讲的，举个例子来说，我想要做一件事，面向过程就是我去了解怎么做这件事，然后自己来做。面向对象就是找到一个会做这件事的人来替我做事。所谓面向对象，就是把相关数据和方法组织成一个整体来看待">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -773,14 +773,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.8k
+                        3.6k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        10 分
+                        12 分
                     </div>
                     
                 
@@ -798,7 +798,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://raw.githubusercontent.com/sqtian-hhu/images/main/images/friends/5.jpg" alt="冲冲冲"></p>
-<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><h3 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h3><p>面向对象是相对于面向过程来讲的，举个例子来说，我想要做一件事，面向过程就是我去了解怎么做这件事，然后自己来做。面向对象就是找到一个会做这件事的人来替我做事。所谓面向对象，就是把相关数据和方法组织成一个整体来看待，从更高的层次来系统建模。</p>
+<h1 id="Java基础原理"><a href="#Java基础原理" class="headerlink" title="Java基础原理"></a>Java基础原理</h1><h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><h3 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h3><p>面向对象是相对于面向过程来讲的，举个例子来说，我想要做一件事，面向过程就是我去了解怎么做这件事，然后自己来做。面向对象就是找到一个会做这件事的人来替我做事。所谓面向对象，就是把相关数据和方法组织成一个整体来看待，从更高的层次来系统建模。</p>
 <h3 id="面向对象的特征"><a href="#面向对象的特征" class="headerlink" title="面向对象的特征"></a>面向对象的特征</h3><p>封装继承多态</p>
 <p>封装：把对象的属性和方法包装起来，只通过约定好的接口来访问。</p>
 <p>java中主要通过private来实现封装，用private修饰属性或方法，然后通过geter，seter方法来访问，这样可以在seter方法中加入一些逻辑判断，保证属性的合理性。</p>
@@ -864,7 +864,35 @@ Outter.StaticInnerClass staticInnerClass = new OutterClass.StaticInnerClass();</
 <p>HashTable：线程安全<br>HashTable是遗留类，很多功能与HashMap类似。不同的是他继承自Dictionary类，并且是线程安全的，HashTable的key，value不允许是null。因为同一时刻只有一个线程写HashTable，并发性不如ConcurrentHashMap。</p>
 <p>TreeMap：基于二叉树<br>同时实现了SortedMap接口以保障元素顺序存取，默认按键值的升序排序。</p>
 <p>LinkedHashMap：基于HashTable数据结构，使用链表保存插入顺序<br>LinkedHashMap为HashMap的子类，多使用了链表来保存元素的插入顺序。</p>
-<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><script>
+<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><p> 异常是指程序在运行过程中发生的一些不正常事件。Throwale是所有错误或异常的父类，Throwable可分为Error和Exception。Error指Java程序运行错误，如果程序在启动时出现Error则启动失败，如果在运行过程中出现Error则系统将退出进程。Exception指Java程序运行异常，可以被Java异常处理机制处理。</p>
+<h3 id="常见异常"><a href="#常见异常" class="headerlink" title="常见异常"></a>常见异常</h3><p>RuntimeException： NullPointException，ArrayIndexOutOfBundsException</p>
+<p>CheckedException：IOException，SQLException，ClassNotFoundException</p>
+<h3 id="异常处理方式"><a href="#异常处理方式" class="headerlink" title="异常处理方式"></a>异常处理方式</h3><ol>
+<li>抛出异常： 遇到异常时不进行具体处理，而是将异常抛给调用者，有调用者根据情况处理。抛出异常有三种形式：throws、throw、系统自动抛出异常。throws作用在方法上，后面跟的是异常的类，用于定义方法可能抛出的异常。throw作用在方法内，后面跟的是异常信息的对象，表示明确抛出一个异常。</li>
+<li>捕获异常：使用try catch捕获异常，并在捕获到异常后根据不同的情况做不同的处理。</li>
+</ol>
+<h2 id="反射机制"><a href="#反射机制" class="headerlink" title="反射机制"></a>反射机制</h2><p>反射机制指在程序运行过程中，对任意一个类都能获取其所有属性和方法，并且对任意一个对象都能调用其任意一个方法。这种动态获取类和对象的信息，以及动态调用对象方法的功能就被称为反射机制。</p>
+<h3 id="获取Class类对象的三种方法"><a href="#获取Class类对象的三种方法" class="headerlink" title="获取Class类对象的三种方法"></a>获取Class类对象的三种方法</h3><ol>
+<li>调用对象的getClass方法</li>
+<li>调用类.Class</li>
+<li>调用Class.forName(“  “)  这是最安全，性能最好的方法</li>
+</ol>
+<h3 id="创建对象的两种方式"><a href="#创建对象的两种方式" class="headerlink" title="创建对象的两种方式"></a>创建对象的两种方式</h3><ol>
+<li>使用Class对象的newInstance方法，要求对应的类有默认的空构造器</li>
+<li>使用Class对象的getDeclaredConstructor( ) 获取构造方法，通过构造方法创建对象</li>
+</ol>
+<h3 id="Method的invoke方法"><a href="#Method的invoke方法" class="headerlink" title="Method的invoke方法"></a>Method的invoke方法</h3><p>调用Method的invoke方法可以在运行时动态地调用方法。</p>
+<ol>
+<li>获取Method对象：调用Class对象的getMethod()方法</li>
+<li>调用invoke方法：method.invoke(调用对象 , 调用对象的方法名)</li>
+</ol>
+<h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2><h3 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h3><p>定义在类内部的静态类。静态内部类可以访问外部类的静态变量和静态方法。通过外部类.静态内部类的方式进行调用。</p>
+<h3 id="成员内部类"><a href="#成员内部类" class="headerlink" title="成员内部类"></a>成员内部类</h3><p>定义在类内部的非静态类。成员内部类不能定义静态方法和变量。通过外部类.成员内部类进行调用。</p>
+<h3 id="局部内部类"><a href="#局部内部类" class="headerlink" title="局部内部类"></a>局部内部类</h3><p>定义在方法中的类。</p>
+<h3 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h3><p>指通过继承一个父类或者实现一个接口的方式直接定义并使用的类。在匿名内部类里面直接用new生成一个对象的引用。</p>
+<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p>Java对象在JVM运行时被创建，更新和销毁，当JVM退出时对象也会随之销毁。Java对象序列化原来持久化对象。</p>
+<p>类要实现序列化功能，需要实现Serializable接口。静态变量以及被Transient修饰的变量不会被序列化。Java中可以使用ObjectOutputStream和ObjectInputStream实现序列化和反序列化。</p>
+<h1 id="Java并发编程"><a href="#Java并发编程" class="headerlink" title="Java并发编程"></a>Java并发编程</h1><h2 id="线程创建"><a href="#线程创建" class="headerlink" title="线程创建"></a>线程创建</h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1640,7 +1668,7 @@ github添加公钥
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">204.3k</span> 字
+                <span class="white-color">205.1k</span> 字
             
 
             
