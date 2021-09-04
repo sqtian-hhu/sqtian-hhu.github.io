@@ -773,14 +773,14 @@ Java基础原理面向对象理解面向对象是相对于面向过程来讲的�
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        3.6k
+                        5.9k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        12 分
+                        20 分
                     </div>
                     
                 
@@ -804,7 +804,7 @@ Java基础原理面向对象理解面向对象是相对于面向过程来讲的�
 <p>java中主要通过private来实现封装，用private修饰属性或方法，然后通过geter，seter方法来访问，这样可以在seter方法中加入一些逻辑判断，保证属性的合理性。</p>
 <p>继承： 新的类吸收已有类的属性和方法，并且可以扩展新的功能。java中的类是单继承的，可以通过实现接口来实现多继承</p>
 <p>多态：指的是一个对象可以有多种状态。实现相同的类型调用相同的方法可以得到不同的结果。什么意思呢，举个例子就是学校里有全体在校人员，<br>学生类，老师类都继承自在校人员类，每个学生既是学生类也是在校人员类，我想要让在校人员都完成一件事，并不关心传入的是学生还是老师，此时传入参数类型就是在校人员类，可以通过isinstanceof方法来判断，然后实现不同德操作。</p>
-<h3 id="Objectl类的方法"><a href="#Objectl类的方法" class="headerlink" title="Objectl类的方法"></a>Objectl类的方法</h3><p>Object是所有类的父类，任何类都默认继承Object。Object类到底实现了哪些方法？</p>
+<h3 id="Object类的方法"><a href="#Object类的方法" class="headerlink" title="Object类的方法"></a>Object类的方法</h3><p>Object是所有类的父类，任何类都默认继承Object。Object类到底实现了哪些方法？</p>
 <p>（1）clone方法</p>
 <p>保护方法，实现对象的浅复制，只有实现了Cloneable接口才可以调用该方法，否则抛出CloneNotSupportedException异常。</p>
 <p>（2）getClass方法</p>
@@ -892,7 +892,77 @@ Outter.StaticInnerClass staticInnerClass = new OutterClass.StaticInnerClass();</
 <h3 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h3><p>指通过继承一个父类或者实现一个接口的方式直接定义并使用的类。在匿名内部类里面直接用new生成一个对象的引用。</p>
 <h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p>Java对象在JVM运行时被创建，更新和销毁，当JVM退出时对象也会随之销毁。Java对象序列化原来持久化对象。</p>
 <p>类要实现序列化功能，需要实现Serializable接口。静态变量以及被Transient修饰的变量不会被序列化。Java中可以使用ObjectOutputStream和ObjectInputStream实现序列化和反序列化。</p>
-<h1 id="Java并发编程"><a href="#Java并发编程" class="headerlink" title="Java并发编程"></a>Java并发编程</h1><h2 id="线程创建"><a href="#线程创建" class="headerlink" title="线程创建"></a>线程创建</h2><script>
+<h1 id="Java并发编程"><a href="#Java并发编程" class="headerlink" title="Java并发编程"></a>Java并发编程</h1><h2 id="线程创建"><a href="#线程创建" class="headerlink" title="线程创建"></a>线程创建</h2><ol>
+<li><p>继承Thread类</p>
+<p>创建一个类继承Thread类，重写Thread类的run方法，然后实例化线程对象并调用start方法启动线程</p>
+</li>
+<li><p>实现Runnable接口</p>
+<p>java单继承，继承了一个类的话就无法再继承Thread类，此时可通过实现Runnable接口，重写run方法来创建线程。实际上Thread也是实现了Runnable接口。</p>
+</li>
+<li><p>实现Callable接口</p>
+<p>实现Callable接口重写call方法，可以实现有返回值的线程。</p>
+</li>
+<li><p>基于线程池</p>
+<p>在每次需要线程时创建，在运行结束后销毁是十分浪费资源的，基于缓存策略使用线程池来创建线程。JVM先根据用户的参数创建一定数量的 可运行的线程任务，并将其放入队列中，在线程创建后启动这些任务。</p>
+</li>
+</ol>
+<h2 id="线程池工作原理"><a href="#线程池工作原理" class="headerlink" title="线程池工作原理"></a>线程池工作原理</h2><h3 id="方法参数"><a href="#方法参数" class="headerlink" title="方法参数"></a>方法参数</h3><p>Java中线程池是通过Executor实现的，核心方法是ThreadPoolExecutor，具体参数有（1）corePoolSize：线程池中核心线程的数量；（2）maximumPoolSize：线程池中最大线程的数量；（3）keepAliveTime：当前线程数量超过corePoolSize时，空闲线程的存活时间（4）workQueue：任务队列，被提交但尚未被执行的任务存放的地方；（5）unit：keepAliveTime的时间单位；（6）threadFactory：线程工厂，用于创建线程；（7）handler：由于任务过多或其他原因导致线程池无法处理时的任务拒绝策略。</p>
+<h3 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h3><p>线程池刚被创建时，向系统申请一个用于执行线程队列和管理线程池的线程资源。当添加一个任务时，如果正在运行的线程数少于核心线程数（core Pool Size），线程池就会立刻创建线程并执行该线程任务。如果正在运行的线程数量大于等于核心线程数，该任务就被放入阻塞队列中。在阻塞队列已满且正在运行的线程数量少于最大线程数（maximumPoolSize）时，线程池会创建非核心线程执行线程任务。当阻塞队列已满且正在运行的线程数超过最大线程数时，线程池将抛出拒绝执行异常。在线程任务执行完毕后，该任务将被从线程池队列中移除，线程池将从队列中取下一个线程任务继续执行。当线程处于空闲状态的时间超过keepAliveTime时间时，正在运行的线程数量超过corePoolSize，该线程将会被认定为空闲线程并停止，最终线程池大小会收缩到corePoolSize大小。</p>
+<h3 id="线程池的拒绝策略"><a href="#线程池的拒绝策略" class="headerlink" title="线程池的拒绝策略"></a>线程池的拒绝策略</h3><ol>
+<li><p>AbortPolicy</p>
+<p>直接抛出异常，阻止线程正常运行。</p>
+</li>
+<li><p>CallerRunsPolicy</p>
+<p>如果被丢弃的线程任务未关闭，则执行该线程任务。</p>
+</li>
+<li><p>DiscardOldestPolicy</p>
+<p>移除线程队列中最早的一个线程任务，并尝试提交当前任务。</p>
+</li>
+<li><p>DiscardPolicy</p>
+<p>丢弃当前的线程任务而不做任何处理。</p>
+</li>
+</ol>
+<h3 id="5种常用线程池"><a href="#5种常用线程池" class="headerlink" title="5种常用线程池"></a>5种常用线程池</h3><ol>
+<li>newCachedThreadPool：可缓存线程池</li>
+<li>newFixedThreadPool：固定大小的线程池</li>
+<li>newScheduledThreadPool：可做任务调度的线程池</li>
+<li>newSingleThreadExecutor：单个线程的线程池</li>
+<li>newWorkStealingPool：足够大小的线程池</li>
+</ol>
+<h3 id="线程池的生命周期"><a href="#线程池的生命周期" class="headerlink" title="线程池的生命周期"></a>线程池的生命周期</h3><p>分为新建、就绪、运行、阻塞和死亡五种状态。</p>
+<ol>
+<li>调用new方法新建一个线程，这时线程处于新建状态。</li>
+<li>调用start方法启动一个线程，这是线程处于就绪状态。</li>
+<li>处于就绪状态的线程等待获取CPU资源，在获取CPU资源后会执行run方法进入运行状态。</li>
+<li>正在执行的线程在调用了yield方法或失去CPU资源时，会再次进入到就绪状态。</li>
+<li>正在执行的线程在执行了sleep方法、I/O阻塞、等待同步锁、等待通知、调用suspend方法等操作后会挂起并进入阻塞状态。</li>
+<li>阻塞状态的线程由于出现sleep时间已到、I/O方法返回、获得同步锁、收到通知、调用resume方法等情况，会再次进入就绪状态等待CPU时间片轮转。该线程在获取CPU资源后会再次进入运行状态。</li>
+<li>处于运行状态的线程在调用run方法或call方法正常执行完成、调用stop方法停止线程或者程序执行错误导致异常退出时，会进入死亡状态。</li>
+</ol>
+<h3 id="线程的常见方法"><a href="#线程的常见方法" class="headerlink" title="线程的常见方法"></a>线程的常见方法</h3><p>wait方法：Object类方法，调用wait方法的线程会进入WAITING状态，会释放对象的锁只有等到其他线程的通知或被中断后才会返回。</p>
+<p>sleep方法：Thread类方法，调用sleep方法的线程会进入TIMED-WATING状态，不会释放对象的锁。</p>
+<p>yield方法：调用yield方法会让当前线程让出CPU时间片，与其他线程一起重新竞争CPU时间片。</p>
+<p>interrupt方法：线程中断？</p>
+<p>join方法：用于等待其他线程终止，如果当前线程调用一个线程的join方法，则当前线程转为阻塞状态，等到另一个线程结束，该线程再由阻塞状态转为就绪状态。</p>
+<p>notify方法：Object方法，用于唤醒此对象监视器上等待的一个线程，如果所有线程都在此对象上等待，则会任意选择其中一个。</p>
+<p><strong>sleep方法与wait方法的区别：</strong></p>
+<p>sleep属于Thread类，wait属于Object。sleep方法暂停指定的时间，让出cpu给其他线程，但其监控状态依然保持，不会释放对象锁。而wait方法会自动放弃对象锁，进入等待此对象的等待锁池，只有针对此对象调用notify方法后，该线程才能进入对象锁池准备获取对象锁。</p>
+<p><strong>start方法和run方法的区别：</strong></p>
+<p>start方法用于启动线程，真正实行多线程运行。在调用了线程的start方法后，线程处于就绪状态，并没有运行。run方法也叫做线程体，包含要执行的线程的逻辑代码，在调用run方法后，线程进入运行状态，开始运行run方法中的代码。</p>
+<h3 id="终止线程的四种方式"><a href="#终止线程的四种方式" class="headerlink" title="终止线程的四种方式"></a>终止线程的四种方式</h3><ol>
+<li>正常运行结束</li>
+<li>使用退出标志退出线程</li>
+<li>使用interrupt方法终止线程</li>
+<li>使用stop方法终止线程（不安全）</li>
+</ol>
+<h2 id="Java中的锁"><a href="#Java中的锁" class="headerlink" title="Java中的锁"></a>Java中的锁</h2><p>琐主要用于保障多并发线程情况下数据的一致性，在多线程编程中为了保障数据的一致性，我们通常需要在使用对象或者方法之前加锁，这时如果有其他线程也需要使用该对象或该方法，则首先要获得锁，如果某个线程发现锁正在被其他线程使用，就会进入阻塞队列等待锁的释放，直到其他线程执行完成并释放锁，该线程才有机会再次获取锁进行操作。</p>
+<h3 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h3><p>采用乐观的思想处理数据，在每次读取数据时都认为别人不会修改该数据，所以不会上锁，而是在更新时检查数据有没有被别人修改。</p>
+<p><strong>CAS算法</strong>就是采用了乐观锁的思想，总是认为自己可以成功完成操作。在有多个线程同时操作数据时，只有一个会胜出并成功更新，其余均会失败。失败的线程不会被挂起，进被告知失败并且允许再次尝试。CAS包含三个参数，V表示要更新的变量，E表示预期的值，N表示新值。在且仅在V值等于E值时才会将V值设为N，如果V和E不同，说明已经有其他线程做了更新，当前线程就不会再操作了。</p>
+<p><strong>ABA</strong>问题指第一个线程从内存中取出A，然后第二个线程也取出A，第二个线程先将A更新为B，再把B更新回A。这个时候对于第一个线程来说进行CAS操作时会发现内存中的值还是A，和他取出的预期值相等，就认为没有其他线程对数据做过更新，然后第一个线程也操作成功了。但实际上这个值是发生过变化的，在某些场景里可能就会出现数据不一致的问题。</p>
+<p>乐观锁里通常是通过版本号来解决ABA问题的，具体操作就是乐观锁在每次执行数据修改操作时都会带上一个版本号，在预期的版本号和数据的版本号一致时就可以执行修改操作，并对版本号执行加1操作，否则执行失败。</p>
+<h3 id="悲观锁"><a href="#悲观锁" class="headerlink" title="悲观锁"></a>悲观锁</h3><p>悲观锁采用悲观思想处理数据，在每次读取数据时都认为别人回修改数据，所以每次在读写数据时都会加锁，别的线程想写这个数据时就会阻塞等待直到拿到锁。</p>
+<p><strong>AQS算法</strong>就是采用了悲观锁的思想</p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1668,7 +1738,7 @@ github添加公钥
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">204.9k</span> 字
+                <span class="white-color">207.7k</span> 字
             
 
             
@@ -1892,5 +1962,5 @@ $(function () {
             </script>
         
 
-    <script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>

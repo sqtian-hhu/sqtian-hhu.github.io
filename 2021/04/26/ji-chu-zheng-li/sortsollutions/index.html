@@ -9,8 +9,10 @@
     <meta name="keywords" content="SortSollutions.md, 深度学习 故障诊断 Java">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="八大排序1. 冒泡排序冒泡排序原理：相邻元素两两比较，大的往后放，第一次完毕，最大值出现在了最大索引处public class 冒泡排序 {
-public void maoPaoSort(ArrayList&amp;lt;Integer&amp;gt; a">
+    <meta name="description" content="八大排序空间复杂度除了快排是O（nlogn），其他都是O（1）。
+时间复杂度平均情况下，冒泡，选择，插入是O（n^2)，快排，归并，堆排序是O（nlogn），
+稳定的有冒泡，插入，归并，基数。
+1. 冒泡排序冒泡排序原理：相邻元素两两比较，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -773,14 +775,14 @@ public void maoPaoSort(ArrayList&amp;lt;Integer&amp;gt; a">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.9k
+                        2.3k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        8 分
+                        10 分
                     </div>
                     
                 
@@ -797,256 +799,278 @@ public void maoPaoSort(ArrayList&amp;lt;Integer&amp;gt; a">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="八大排序"><a href="#八大排序" class="headerlink" title="八大排序"></a>八大排序</h3><h2 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1. 冒泡排序"></a>1. 冒泡排序</h2><pre><code>冒泡排序原理：相邻元素两两比较，大的往后放，第一次完毕，最大值出现在了最大索引处</code></pre><p>public class 冒泡排序 {</p>
-<pre><code>public void maoPaoSort(ArrayList&lt;Integer&gt; arrayList) {
-    for (int i = arrayList.size(); i &gt; 0; i--) {
-        for (int j = 0; j &lt; i - 1; j++) {
-            if (arrayList.get(j) &gt; arrayList.get(j + 1)) {
-                int tmp = arrayList.get(j);
-                arrayList.set(j, arrayList.get(j + 1));
-                arrayList.set(j + 1, tmp);
-            }
-        }
-    }
-}
+                <h3 id="八大排序"><a href="#八大排序" class="headerlink" title="八大排序"></a>八大排序</h3><p><strong>空间复杂度除了快排是O（nlogn），其他都是O（1）。</strong></p>
+<p><strong>时间复杂度平均情况下，冒泡，选择，插入是O（n^2)，快排，归并，堆排序是O（nlogn），</strong></p>
+<p><strong>稳定的有冒泡，插入，归并，基数。</strong></p>
+<h2 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1. 冒泡排序"></a>1. 冒泡排序</h2><p>冒泡排序原理：相邻元素两两比较，大的往后放，第一次完毕，最大值出现在了最大索引处</p>
+<p>时间复杂度：平均情况<strong>O(n^2)</strong>，最差情况O(n^2)，最好情况O(n)</p>
+<p>空间复杂度： <strong>O(1)</strong></p>
+<p>稳定性:：<strong>稳定</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> 冒泡排序 <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">maoPaoSort</span><span class="token punctuation">(</span>ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">></span> arrayList<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> arrayList<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>arrayList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span> <span class="token operator">></span> arrayList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">int</span> tmp <span class="token operator">=</span> arrayList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    arrayList<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>j<span class="token punctuation">,</span> arrayList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    arrayList<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> tmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        冒泡排序 mp <span class="token operator">=</span> <span class="token keyword">new</span> 冒泡排序<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
+        Scanner sc <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Scanner</span><span class="token punctuation">(</span>System<span class="token punctuation">.</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">></span> arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>sc<span class="token punctuation">.</span><span class="token function">hasNextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            arr<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>sc<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-public static void main(String[] args) {
-    冒泡排序 mp = new 冒泡排序();
+        mp<span class="token punctuation">.</span><span class="token function">maoPaoSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>arr<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-选择排序"><a href="#2-选择排序" class="headerlink" title="2. 选择排序"></a>2. 选择排序</h2><p>从0索引开始，依次和后面元素比较，小的往前放，第一次完毕，最小值出现在了最小索引处</p>
+<p>时间复杂度：平均情况<strong>O(n^2)</strong>，最差情况O(n^2)，最好情况O(n)</p>
+<p>空间复杂度：<strong>O(1)</strong></p>
+<p>稳定性：<strong>不稳定</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">chooseSort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//每一轮把后面最小的放到第i位上</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span>i<span class="token punctuation">;</span>j<span class="token operator">&lt;</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 
-    Scanner sc = new Scanner(System.in);
-    ArrayList&lt;Integer&gt; arr = new ArrayList&lt;&gt;();
-    while (sc.hasNextInt()) {
-        arr.add(sc.nextInt());
-    }
+            <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&lt;</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">int</span> temp <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>​    </p>
+<h2 id="3-插入排序"><a href="#3-插入排序" class="headerlink" title="3. 插入排序"></a>3. 插入排序</h2><p>原理：从1索引处开始，将后面的元素插入到之前的有序列表中，使之仍保持有序</p>
+<p>时间复杂度：平均情况<strong>O(n^2)</strong>，最差情况O(n^2)，最好情况O(n)</p>
+<p>空间复杂度：<strong>O(1)</strong></p>
+<p>稳定性：<strong>稳定</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">insertSort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> tmp <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>tmp <span class="token operator">&lt;</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//后移一位</span>
+                arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//插入</span>
+                arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="4-希尔排序"><a href="#4-希尔排序" class="headerlink" title="4. 希尔排序"></a>4. 希尔排序</h2><p>希尔排序原理：他是对插入排序的一个优化，核心的思想就是合理的选取增量，经过一轮排序后，就会让序列大致有序，然后再不断地缩小增量，进行插入排序，直到增量为 1，那整个排序结束。</p>
+<p>时间复杂度：平均情况<strong>O(n^1.3)</strong>，最差情况O(n^2)，最好情况O(n)</p>
+<p>空间复杂度：<strong>O(1)</strong></p>
+<p>稳定性：<strong>不稳定</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">shellSort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//增量的大小最好定义为数组长度的一半，然后不断减半，直至为1</span>
+    <span class="token keyword">int</span> len <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> h <span class="token operator">=</span> len <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span> h <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">;</span> h <span class="token operator">/=</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//插入排序</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> h<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">+=</span>h<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> tmp <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token operator">-</span>h<span class="token punctuation">;</span> j <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">-=</span>h<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>tmp <span class="token operator">&lt;</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token comment" spellcheck="true">//后移h位</span>
+                    arr<span class="token punctuation">[</span>j<span class="token operator">+</span>h<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-    mp.maoPaoSort(arr);
-    System.out.println(arr.toString());
-}</code></pre><p>}</p>
-<h2 id="2-选择排序"><a href="#2-选择排序" class="headerlink" title="2. 选择排序"></a>2. 选择排序</h2><pre><code>从0索引开始，依次和后面元素比较，小的往前放，第一次完毕，最小值出现在了最小索引处
-public void chooseSort(int[] arr){
-    for(int i = 0;i&lt;arr.length;i++){
-        //每一轮把后面最小的放到第i位上
-        for(int j=i;j&lt;arr.length;j++){
+                <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                    <span class="token comment" spellcheck="true">//插入</span>
+                    arr<span class="token punctuation">[</span>j<span class="token operator">+</span>h<span class="token punctuation">]</span> <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="5-快速排序"><a href="#5-快速排序" class="headerlink" title="5. 快速排序"></a>5. 快速排序</h2><p>快速排序原理：分治法：比大小，再分区</p>
+<p>实现步骤：</p>
+<ol>
+<li><p>从数组中取出一个数，作为基准数</p>
+</li>
+<li><p>分区：将比这个数大的数放在它的右边，比它小的数放在它的左边（挖坑填数的思想）</p>
+</li>
+</ol>
+<p>挖坑填数思想：</p>
+<p>（1）：用基准数挖出形成第一个坑</p>
+<p>（2）：由后向前找比它小的数，找到后挖出此数填到前一个坑中</p>
+<p>（3）：由前向后找比它大或等于它的数，找到后挖出此数填到前一个坑中</p>
+<ol start="3">
+<li>再对左右区间重复第二步，直到各区间只有一个数（用递归方法实现）</li>
+</ol>
+<p>时间复杂度：平均情况<strong>O(nlogn)</strong>，最差情况O(n^2)，最好情况O(nlogn)</p>
+<p>空间复杂度：<strong>O(nlogn)</strong></p>
+<p>稳定性：<strong>不稳定</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">quickSort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span><span class="token keyword">int</span> start<span class="token punctuation">,</span><span class="token keyword">int</span> end<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>start<span class="token operator">>=</span>end<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> key <span class="token operator">=</span> arr<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> l <span class="token operator">=</span> start<span class="token punctuation">,</span>r <span class="token operator">=</span> end<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>l<span class="token operator">&lt;</span>r<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>l<span class="token operator">&lt;</span>r<span class="token operator">&amp;&amp;</span>arr<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token operator">>=</span>key<span class="token punctuation">)</span> r<span class="token operator">--</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>l<span class="token operator">&lt;</span>r<span class="token operator">&amp;&amp;</span>arr<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token operator">&lt;=</span>key<span class="token punctuation">)</span> l<span class="token operator">++</span><span class="token punctuation">;</span>
 
-            if(arr[j]&lt;arr[i]){
-                int temp = arr[j];
-                arr[j] = arr[i];
-                arr[i] = temp;
-            }
-        }
-    }
-}</code></pre><h2 id="3-插入排序"><a href="#3-插入排序" class="headerlink" title="3. 插入排序"></a>3. 插入排序</h2><pre><code>原理：从1索引处开始，将后面的元素插入到之前的有序列表中，使之仍保持有序
+        <span class="token keyword">if</span><span class="token punctuation">(</span>l<span class="token operator">&lt;</span>r<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">int</span> temp <span class="token operator">=</span> arr<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            arr<span class="token punctuation">[</span>l<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            arr<span class="token punctuation">[</span>r<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-public int[] insertSort(int[] arr) {
-    for (int i = 1; i &lt; arr.length; i++) {
-        int tmp = arr[i];
-        for (int j = i-1; j &gt;= 0; j--) {
-            if (tmp &lt; arr[j]) {
-                //后移一位
-                arr[j+1] = arr[j];
-            }else{
-                //插入
-                arr[j+1] = tmp;
-                break;
-            }
-        }
-    }
-    return arr;
-}</code></pre><h2 id="4-希尔排序"><a href="#4-希尔排序" class="headerlink" title="4. 希尔排序"></a>4. 希尔排序</h2><pre><code>希尔排序原理：他是对插入排序的一个优化，核心的思想就是合理的选取增量，
-经过一轮排序后，就会让序列大致有序，然后再不断地缩小增量，进行插入排序，直到增量为 1，那整个排序结束
+    arr<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    arr<span class="token punctuation">[</span>r<span class="token punctuation">]</span> <span class="token operator">=</span> key<span class="token punctuation">;</span>
 
-public int[] shellSort(int[] arr) {
-    //增量的大小最好定义为数组长度的一半，然后不断减半，直至为1
-    int len = arr.length;
-    for (int h = len / 2; h &gt; 0; h /= 2) {
-        //插入排序
-        for (int i = h; i &lt; arr.length; i+=h) {
-            int tmp = arr[i];
-            for (int j = i-h; j &gt;= 0; j-=h) {
-                if (tmp &lt; arr[j]) {
-                    //后移h位
-                    arr[j+h] = arr[j];
+    <span class="token function">quickSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>start<span class="token punctuation">,</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">quickSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>r<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="6-归并排序"><a href="#6-归并排序" class="headerlink" title="6. 归并排序"></a>6. 归并排序</h2><p>归并排序原理：假设初始序列有N个记录，则可以看成是N个有序的子序列（拆分思想，递归实现），每个子序列的长度是1，然后两两归并，得到N/2个长度为2或1的有序子序列，再两两归并.如此重复，直到一个长度为N的有序子序列为止</p>
+<p>时间复杂度：平均情况<strong>O(nlogn)</strong>，最差情况O(nlogn)，最好情况O(nlogn)</p>
+<p>空间复杂度：<strong>O(1)</strong></p>
+<p>稳定性：<strong>稳定</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">// mergeSort( array, 0, array.length-1);</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">mergeSort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span><span class="token keyword">int</span> start<span class="token punctuation">,</span><span class="token keyword">int</span> end<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>end<span class="token operator">&lt;=</span>start<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
 
-                }else{
-                    //插入
-                    arr[j+h] = tmp;
-                    break;
-                }
-            }
-        }
-    }
-    return arr;
-}</code></pre><h2 id="5-快速排序"><a href="#5-快速排序" class="headerlink" title="5. 快速排序"></a>5. 快速排序</h2><pre><code>快速排序原理：分治法：比大小，再分区
-实现步骤：
-1.从数组中取出一个数，作为基准数
-2.分区：将比这个数大的数放在它的右边，比它小的数放在它的左边（挖坑填数的思想）
-挖坑填数思想：
-（1）：用基准数挖出形成第一个坑
-（2）：由后向前找比它小的数，找到后挖出此数填到前一个坑中
-（3）：由前向后找比它大或等于它的数，找到后挖出此数填到前一个坑中
-3.再对左右区间重复第二步，直到各区间只有一个数（用递归方法实现）
+    <span class="token comment" spellcheck="true">//二分</span>
+    <span class="token keyword">int</span> mid <span class="token operator">=</span> start<span class="token operator">+</span><span class="token punctuation">(</span>end<span class="token operator">-</span>start<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token function">mergeSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>start<span class="token punctuation">,</span>mid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">mergeSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span>end<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-public void quickSort(int[] arr,int start,int end){
-    if(start&gt;=end) return;
-    int key = arr[start];
-    int l = start,r = end-1;
-    while(l&lt;r){
-        while(l&lt;r&amp;&amp;arr[r]&gt;=key) r--;
-        while(l&lt;r&amp;&amp;arr[l]&lt;=key) l++;
+    <span class="token comment" spellcheck="true">//归并</span>
+    <span class="token function">merge</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>start<span class="token punctuation">,</span>mid<span class="token punctuation">,</span>end<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        if(l&lt;r){
-            int temp = arr[l];
-            arr[l] = arr[r];
-            arr[r] = temp;
-        }
-    }
+<span class="token punctuation">}</span>
 
-    arr[start] = arr[r];
-    arr[r] = key;
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">merge</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span><span class="token keyword">int</span> start<span class="token punctuation">,</span><span class="token keyword">int</span> mid<span class="token punctuation">,</span><span class="token keyword">int</span> end<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> temp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>arr<span class="token punctuation">.</span>length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>start<span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>end<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        temp<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    quickSort(arr,start,r);
-    quickSort(arr,r+1,end);
-}</code></pre><h2 id="6-归并排序"><a href="#6-归并排序" class="headerlink" title="6. 归并排序"></a>6. 归并排序</h2><pre><code>归并排序原理：假设初始序列有N个记录，则可以看成是N个有序的子序列（拆分思想，递归实现），
-每个子序列的长度是1，然后两两归并，得到N/2个长度为2或1的有序子序列，再两两归并.如此重复，直到一个长度为N的有序子序列为止
-mergeSort(array,0,array.length-1);
+    <span class="token keyword">int</span> l <span class="token operator">=</span> start<span class="token punctuation">,</span>r <span class="token operator">=</span> mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>start<span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>end<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>l<span class="token operator">></span>mid<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            r<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>r<span class="token operator">></span>end<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            l<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>temp<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token operator">&lt;=</span>temp<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            l<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span><span class="token punctuation">{</span>
+            arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            r<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="7-基数排序"><a href="#7-基数排序" class="headerlink" title="7. 基数排序"></a>7. 基数排序</h2><p>基数排序原理：基数排序属于分配式排序，又称桶排序，通过分配再收集的方法进行排序，属于稳定式排序。</p>
+<ol>
+<li>首先求出原数组中最大位数的位数,并建一个装数的二维数组和用来统计每个桶中有多少数的一维数组</li>
+<li>最大数时几位数,则装桶几次(循环实现)</li>
+<li>先将源数组的数装进桶中,再将装好的桶进行遍历,重新装回源数组</li>
+</ol>
+<p>时间复杂度：平均情况<strong>O(d(r+n))</strong>，最差情况O(d(n+r))，最好情况O(d(n+rd))。r代表关键字的基数，d代表长度，n代表关键字的个数</p>
+<p>空间复杂度：<strong>O(1)</strong></p>
+<p>稳定性：<strong>稳定</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">//N位数桶排序</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">bucketSort</span><span class="token punctuation">(</span>ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">></span> arrayList<span class="token punctuation">)</span><span class="token punctuation">{</span>
 
+    <span class="token comment" spellcheck="true">//先找出最大数的位数,确定要做几次桶循环</span>
+    <span class="token keyword">int</span> max <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>Integer integer<span class="token operator">:</span>arrayList<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        max<span class="token operator">=</span>max<span class="token operator">></span>integer<span class="token operator">?</span>max<span class="token operator">:</span>integer<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-public void mergeSort(int[] arr,int start,int end){
-    if(end&lt;=start) return;
+    <span class="token keyword">int</span> len <span class="token operator">=</span> String<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>max<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//二维桶</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>x<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>n<span class="token operator">&lt;</span>len<span class="token punctuation">;</span>n<span class="token operator">++</span><span class="token punctuation">,</span>x<span class="token operator">*=</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//初始化一个二维的数组,一共十个桶,每个桶的列表存放该位下的数字</span>
+        ArrayList<span class="token operator">&lt;</span>ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">>></span> arrayLists <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>k<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">;</span>k<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            arrayLists<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>Integer<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>arrayList<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
 
-    //二分
-    int mid = start+(end-start)/2;
-    mergeSort(arr,start,mid);
-    mergeSort(arr,mid+1,end);
+            <span class="token comment" spellcheck="true">//获取个十百位上的数确定放在第几个桶里: 模10的n次方余10</span>
+            <span class="token keyword">int</span> key <span class="token operator">=</span> arrayList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span> <span class="token operator">/</span>x <span class="token operator">%</span><span class="token number">10</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//存到对应得桶里</span>
+            arrayLists<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>arrayList<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    //归并
-    merge(arr,start,mid,end);
+        <span class="token punctuation">}</span>
 
-}
+        <span class="token comment" spellcheck="true">//把当前已排好的顺序放进临时列表</span>
+        ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">></span> tmpArr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">></span> list <span class="token operator">:</span> arrayLists<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            tmpArr<span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-public void merge(int[] arr,int start,int mid,int end){
-    int[] temp = new int[arr.length];
-    for(int i=start;i&lt;=end;i++){
-        temp[i] = arr[i];
-    }
+        <span class="token comment" spellcheck="true">//用临时list替换原先的列表</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> t <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>t<span class="token operator">&lt;</span>tmpArr<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>t<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            arrayList<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>t<span class="token punctuation">,</span>tmpArr<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="8-堆排序"><a href="#8-堆排序" class="headerlink" title="8. 堆排序"></a>8. 堆排序</h2><p>堆排序原理：堆排序是指利用堆这种数据结构所设计的一种排序算法。堆积是一个近似完全二叉树的结构，并同时满足堆积的性质：即子结点的键值或索引总是小于（或者大于）它的父节点。<br>方法1. 利用最小堆存储,根节点为最小值,依次弹出,存放到临时数组里,但这需要额外的存储空间<br>方法2. 利用最大堆,根节点是最大值,每次把根节点和末位交换,继续调整最大堆</p>
+<p>时间复杂度：平均情况<strong>O(nlogn)</strong>，最差情况O(nlogn)，最好情况O(nlogn)</p>
+<p>空间复杂度：<strong>O(1)</strong></p>
+<p>稳定性：<strong>不稳定</strong></p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">heapSort</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//求出最大非叶子结点的索引</span>
+    <span class="token keyword">int</span> len <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> startIndex <span class="token operator">=</span> <span class="token punctuation">(</span>len<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//从最大非叶子节点开始调用最大堆函数,直到根节点为最大值</span>
+    <span class="token comment" spellcheck="true">//根节点索引是0,i要>=0,否则排最大堆时会忽视根节点</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> startIndex<span class="token punctuation">;</span> i <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">toMaxheap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> i<span class="token punctuation">,</span> len<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    int l = start,r = mid+1;
-    for(int i=start;i&lt;=end;i++){
-        if(l&gt;mid){
-            arr[i] = temp[r];
-            r++;
-        }
-        else if(r&gt;end){
-            arr[i] = temp[l];
-            l++;
-        }
-        else if(temp[l]&lt;=temp[r]){
-            arr[i] = temp[l];
-            l++;
-        }
-        else{
-            arr[i] = temp[r];
-            r++;
-        }
-    }
-}</code></pre><h2 id="7-基数排序"><a href="#7-基数排序" class="headerlink" title="7. 基数排序"></a>7. 基数排序</h2><pre><code>基数排序原理：基数排序属于分配式排序，又称桶排序，通过分配再收集的方法进行排序，属于稳定式排序。
-1. 首先求出原数组中最大位数的位数,并建一个装数的二维数组和用来统计每个桶中有多少数的一维数组
-2. 最大数时几位数,则装桶几次(循环实现)
-3. 先将源数组的数装进桶中,再将装好的桶进行遍历,重新装回源数组
+    <span class="token comment" spellcheck="true">// 以上的运行结果已经达到大顶堆的效果，</span>
+    <span class="token comment" spellcheck="true">// 此时只需每次将根节点的元素与最后一个叶子节点的元素互换就行，并递归将剩余元素继续转化成大顶堆</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> len <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">;</span> j<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> max <span class="token operator">=</span> arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> max<span class="token punctuation">;</span>
 
+        <span class="token function">toMaxheap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//生成最大堆的函数</span>
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">toMaxheap</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">,</span> <span class="token keyword">int</span> start<span class="token punctuation">,</span> <span class="token keyword">int</span> end<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//先求出传入最大非叶子节点的左右节点索引</span>
+    <span class="token keyword">int</span> leftIndex <span class="token operator">=</span> start <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> rightIndex <span class="token operator">=</span> start <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//比较这三个节点的值,得到最大值的索引</span>
+    <span class="token keyword">int</span> maxIndex <span class="token operator">=</span> start<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>leftIndex<span class="token operator">&lt;</span>end<span class="token operator">&amp;&amp;</span>arr<span class="token punctuation">[</span>leftIndex<span class="token punctuation">]</span><span class="token operator">></span>arr<span class="token punctuation">[</span>maxIndex<span class="token punctuation">]</span><span class="token punctuation">)</span> maxIndex <span class="token operator">=</span> leftIndex<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>rightIndex<span class="token operator">&lt;</span>end<span class="token operator">&amp;&amp;</span>arr<span class="token punctuation">[</span>rightIndex<span class="token punctuation">]</span><span class="token operator">></span>arr<span class="token punctuation">[</span>maxIndex<span class="token punctuation">]</span><span class="token punctuation">)</span> maxIndex <span class="token operator">=</span> rightIndex<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// 如果max不是在maxIndex，则调换位置，将最大节点放在大顶堆的根节点处</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>maxIndex<span class="token operator">!=</span>start<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">int</span> temp <span class="token operator">=</span> arr<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        arr<span class="token punctuation">[</span>start<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>maxIndex<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        arr<span class="token punctuation">[</span>maxIndex<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
 
-//N位数桶排序
-public void bucketSort(ArrayList&lt;Integer&gt; arrayList){
+        <span class="token comment" spellcheck="true">// 互换完之后可能会影响最大节点以下的大顶堆结构，即maxIndex下的子树,</span>
+        <span class="token comment" spellcheck="true">// 所以这里需要递归调用方法，保证每个子树都是大顶堆结构</span>
+        <span class="token function">toMaxheap</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> maxIndex<span class="token punctuation">,</span>end<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    //先找出最大数的位数,确定要做几次桶循环
-    int max = 0;
-    for (Integer integer:arrayList){
-        max=max&gt;integer?max:integer;
-    }
-
-    int len = String.valueOf(max).length();
-
-
-    //二维桶
-    for (int n = 0,x=1;n&lt;len;n++,x*=10){
-        //初始化一个二维的数组,一共十个桶,每个桶的列表存放该位下的数字
-        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; arrayLists = new ArrayList&lt;&gt;();
-        for (int k = 0;k&lt;10;k++){
-            arrayLists.add(new ArrayList&lt;Integer&gt;());
-        }
-
-
-        for (int i =0;i&lt;arrayList.size();i++){
-
-            //获取个十百位上的数确定放在第几个桶里: 模10的n次方余10
-            int key = arrayList.get(i) /x %10;
-            //存到对应得桶里
-            arrayLists.get(key).add(arrayList.get(i));
-
-        }
-
-        //把当前已排好的顺序放进临时列表
-        ArrayList&lt;Integer&gt; tmpArr = new ArrayList&lt;&gt;();
-        for (ArrayList&lt;Integer&gt; list : arrayLists) {
-            tmpArr.addAll(list);
-        }
-
-        //用临时list替换原先的列表
-        for (int t =0;t&lt;tmpArr.size();t++){
-            arrayList.set(t,tmpArr.get(t));
-        }
-    }
-}</code></pre><h2 id="8-堆排序"><a href="#8-堆排序" class="headerlink" title="8. 堆排序"></a>8. 堆排序</h2><pre><code>堆排序原理：堆排序是指利用堆这种数据结构所设计的一种排序算法。堆积是一个近似完全二叉树的结构，
-并同时满足堆积的性质：即子结点的键值或索引总是小于（或者大于）它的父节点。
-方法1. 利用最小堆存储,根节点为最小值,依次弹出,存放到临时数组里,但这需要额外的存储空间
-方法2. 利用最大堆,根节点是最大值,每次把根节点和末位交换,继续调整最大堆
-
-public static void heapSort(int[] arr) {
-    //求出最大非叶子结点的索引
-    int len = arr.length;
-    int startIndex = (len-1)/2;
-    //从最大非叶子节点开始调用最大堆函数,直到根节点为最大值
-    //根节点索引是0,i要&gt;=0,否则排最大堆时会忽视根节点
-    for (int i = startIndex; i &gt;= 0; i--) {
-        toMaxheap(arr, i, len);
-    }
-
-    // 以上的运行结果已经达到大顶堆的效果，
-    // 此时只需每次将根节点的元素与最后一个叶子节点的元素互换就行，并递归将剩余元素继续转化成大顶堆
-    for (int j = len - 1; j &gt; 0; j--) {
-        int max = arr[0];
-        arr[0] = arr[j];
-        arr[j] = max;
-
-        toMaxheap(arr, 0, j);
-    }
-
-
-}
-//生成最大堆的函数
-public static void toMaxheap(int[] arr, int start, int end) {
-    //先求出传入最大非叶子节点的左右节点索引
-    int leftIndex = start * 2 + 1;
-    int rightIndex = start * 2 + 2;
-    //比较这三个节点的值,得到最大值的索引
-    int maxIndex = start;
-    if(leftIndex&lt;end&amp;&amp;arr[leftIndex]&gt;arr[maxIndex]) maxIndex = leftIndex;
-    if(rightIndex&lt;end&amp;&amp;arr[rightIndex]&gt;arr[maxIndex]) maxIndex = rightIndex;
-
-
-    // 如果max不是在maxIndex，则调换位置，将最大节点放在大顶堆的根节点处
-    if(maxIndex!=start){
-        int temp = arr[start];
-        arr[start] = arr[maxIndex];
-        arr[maxIndex] = temp;
-
-        // 互换完之后可能会影响最大节点以下的大顶堆结构，即maxIndex下的子树,
-        // 所以这里需要递归调用方法，保证每个子树都是大顶堆结构
-        toMaxheap(arr, maxIndex,end);
-    }
-
-}</code></pre><script>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1830,7 +1854,7 @@ public static void toMaxheap(int[] arr, int start, int end) {
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">204.9k</span> 字
+                <span class="white-color">207.7k</span> 字
             
 
             
@@ -2054,5 +2078,5 @@ $(function () {
             </script>
         
 
-    <script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>
