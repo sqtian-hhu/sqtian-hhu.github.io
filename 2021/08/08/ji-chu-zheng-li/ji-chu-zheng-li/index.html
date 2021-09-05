@@ -773,14 +773,14 @@ Java基础原理面向对象理解面向对象是相对于面向过程来讲的�
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        5.9k
+                        6.9k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        20 分
+                        24 分
                     </div>
                     
                 
@@ -961,8 +961,22 @@ Outter.StaticInnerClass staticInnerClass = new OutterClass.StaticInnerClass();</
 <p><strong>ABA</strong>问题指第一个线程从内存中取出A，然后第二个线程也取出A，第二个线程先将A更新为B，再把B更新回A。这个时候对于第一个线程来说进行CAS操作时会发现内存中的值还是A，和他取出的预期值相等，就认为没有其他线程对数据做过更新，然后第一个线程也操作成功了。但实际上这个值是发生过变化的，在某些场景里可能就会出现数据不一致的问题。</p>
 <p>乐观锁里通常是通过版本号来解决ABA问题的，具体操作就是乐观锁在每次执行数据修改操作时都会带上一个版本号，在预期的版本号和数据的版本号一致时就可以执行修改操作，并对版本号执行加1操作，否则执行失败。</p>
 <h3 id="悲观锁"><a href="#悲观锁" class="headerlink" title="悲观锁"></a>悲观锁</h3><p>悲观锁采用悲观思想处理数据，在每次读取数据时都认为别人回修改数据，所以每次在读写数据时都会加锁，别的线程想写这个数据时就会阻塞等待直到拿到锁。</p>
-<p><strong>AQS算法</strong>就是采用了悲观锁的思想</p>
-<script>
+<p><strong>AQS算法</strong>就是采用了悲观锁的思想，是一个抽象的队列同步器，通过维护一个共享资源状态和一个先入先出的线程等待队列来实现一个多线程访问共享资源的同步框架。AQS为每个共享资源都设置一个共享资源锁，线程在需要访问共享资源时首先需要获取共享资源锁，如果获取到了共享资源锁，便可以在当前线程中使用该共享资源，如果获取不到，则将该线程放入线程等待队列，等待下一次调度。</p>
+<h3 id="自旋锁"><a href="#自旋锁" class="headerlink" title="自旋锁"></a>自旋锁</h3><p>如果持有锁的线程能在很短的时间内释放锁资源，那么那些等待竞争锁的线程就不需要做内核态和用户态之间的切换进入阻塞、挂起状态，只需等一等（即自旋），在等待持有锁的线程释放锁后即可立即获取锁，这样就避免了用户线程在内核状态的切换上导致的锁时间消耗。但是线程自旋时会占用cpu，如果线程长时间自旋获取不到锁时就会产生cpu的浪费，甚至有时线程永远无法获取锁而导致cpu资源被永久占用，所以需要设定一个自旋等待的最大时间，一般认为一个上下文切换的时间就是最佳时间。</p>
+<p><strong>优点：</strong>减少CPU上下文切换，对于占用锁时间短或锁竞争不激烈的代码块性能大幅提升</p>
+<p><strong>缺点：</strong>在持有锁的线程占用锁时间过长或锁的竞争过于激烈时，线程在自旋过程中会长时间获取不到锁，造成cpu资源浪费。</p>
+<h3 id="Synchronized"><a href="#Synchronized" class="headerlink" title="Synchronized"></a>Synchronized</h3><p>synchronized关键字用于为java对象、方法、代码块提供线程安全的操作。synchronized属于独占式的悲观锁，同时属于可重入锁。在使用synchronized修饰对象时，同一时刻只能有一个线程对该对象进行访问；修饰方法、代码块时，同一时刻只能有一个线程执行该方法体或代码块。</p>
+<p><strong>synchronized作用范围：</strong>作用于成员变量和非静态方法时锁住的是对象的实例，即this对象。作用于静态方法时锁住的是Class实例。作用于一个代码块时锁住的是所有代码块中配置的对象。</p>
+<p><strong>synchronized的实现原理：</strong>synchronized内部包括ContentionList、EntryList、WaitSet、OnDeck、Owner、！Owner这6个区域，每个区域的数据都代表锁的不同状态。</p>
+<p>ContentionList：锁竞争队列，所有请求锁的线程都被放在竞争队列中；</p>
+<p>EntryList：竞争候选列表，在Contention List中有资格成为候选者来竞争锁资源的线程被移动到了EntryList中。</p>
+<p>WaitSet：等待集合，调用wait方法后被阻塞的线程将被放在WaitSet中；</p>
+<p>OnDeck：竞争候选者，在同一时刻最多只有一个线程在竞争锁资源，该线程的状态被称为OnDeck；</p>
+<p>Owner：竞争到锁资源的线程被称为Owner状态线程；</p>
+<p>！Owner：在Owner线程释放锁后，会从Owner的状态变成！Owner。</p>
+<p>synchronized在收到新的锁请求时首先自旋，如果通过自旋也没有获取锁资源，则将被放入锁竞争队列ContentionList中。Owner线程会在释放资源时将ContentionList中的部分线程移动到EntryList中，并指定EntryList中的某个线程（一般是最先进入的线程）为OnDeck线程。OnDeck线程不会直接获取到锁，而是可以重新竞争锁。获取到锁资源的OnDeck线程会变成Owner线程，而未获取到锁资源的线程仍然停留在EntryList中。Owner线程在被wait方法阻塞后，会被转移到WaitSet队列中，直到某个时刻被notify方法或者notifyAll方法唤醒，会再次进入到EntryList中。Owner线程在执行完毕后会释放锁的资源并变为！Owner状态。</p>
+<h3 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h3><p><strong>ReentrantLock和Synchronized的区别：</strong></p>
+<h3 id="Semaphore"><a href="#Semaphore" class="headerlink" title="Semaphore"></a>Semaphore</h3><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1738,7 +1752,7 @@ github添加公钥
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">209.9k</span> 字
+                <span class="white-color">210.7k</span> 字
             
 
             
@@ -1962,5 +1976,5 @@ $(function () {
             </script>
         
 
-    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
+    <script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
 </html>
