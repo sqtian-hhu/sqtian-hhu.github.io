@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sqtian-hhu.github.io/"/>
-  <updated>2021-08-15T06:28:19.859Z</updated>
+  <updated>2021-09-05T07:30:38.815Z</updated>
   <id>https://sqtian-hhu.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>全排列</title>
+    <link href="https://sqtian-hhu.github.io/2021/09/05/ji-chu-zheng-li/quan-pai-lie/"/>
+    <id>https://sqtian-hhu.github.io/2021/09/05/ji-chu-zheng-li/quan-pai-lie/</id>
+    <published>2021-09-05T06:45:45.000Z</published>
+    <updated>2021-09-05T07:30:38.815Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;全排列合集&quot;&gt;&lt;a href=&quot;#全排列合集&quot; class=&quot;headerlink&quot; title=&quot;全排列合集&quot;&gt;&lt;/a&gt;全排列合集&lt;/h2&gt;&lt;h3 id=&quot;leetcode17-电话号码的字母组合&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="https://sqtian-hhu.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="全排列" scheme="https://sqtian-hhu.github.io/tags/%E5%85%A8%E6%8E%92%E5%88%97/"/>
+    
+  </entry>
   
   <entry>
     <title>linux常用指令</title>
@@ -126,7 +152,7 @@
     <link href="https://sqtian-hhu.github.io/2021/06/14/ji-chu-zheng-li/li-kou-jian-zhi/"/>
     <id>https://sqtian-hhu.github.io/2021/06/14/ji-chu-zheng-li/li-kou-jian-zhi/</id>
     <published>2021-06-14T05:52:59.000Z</published>
-    <updated>2021-08-28T08:29:27.106Z</updated>
+    <updated>2021-09-05T06:54:35.435Z</updated>
     
     <summary type="html">
     
@@ -139,6 +165,8 @@
       
     
     </summary>
+    
+      <category term="算法" scheme="https://sqtian-hhu.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
   </entry>
@@ -502,26 +530,6 @@
     
     
       <category term="Java框架" scheme="https://sqtian-hhu.github.io/tags/Java%E6%A1%86%E6%9E%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>&#39;github_upload&#39;</title>
-    <link href="https://sqtian-hhu.github.io/2020/11/14/github-upload/"/>
-    <id>https://sqtian-hhu.github.io/2020/11/14/github-upload/</id>
-    <published>2020-11-14T08:43:06.000Z</published>
-    <updated>2021-04-23T04:26:50.772Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;github上传项目&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="代码管理" scheme="https://sqtian-hhu.github.io/categories/%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86/"/>
-    
-    
-      <category term="代码管理" scheme="https://sqtian-hhu.github.io/tags/%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86/"/>
     
   </entry>
   
