@@ -773,14 +773,14 @@ Java基础原理面向对象理解面向对象是相对于面向过程来讲的�
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        6.9k
+                        7.8k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        24 分
+                        27 分
                     </div>
                     
                 
@@ -975,8 +975,39 @@ Outter.StaticInnerClass staticInnerClass = new OutterClass.StaticInnerClass();</
 <p>Owner：竞争到锁资源的线程被称为Owner状态线程；</p>
 <p>！Owner：在Owner线程释放锁后，会从Owner的状态变成！Owner。</p>
 <p>synchronized在收到新的锁请求时首先自旋，如果通过自旋也没有获取锁资源，则将被放入锁竞争队列ContentionList中。Owner线程会在释放资源时将ContentionList中的部分线程移动到EntryList中，并指定EntryList中的某个线程（一般是最先进入的线程）为OnDeck线程。OnDeck线程不会直接获取到锁，而是可以重新竞争锁。获取到锁资源的OnDeck线程会变成Owner线程，而未获取到锁资源的线程仍然停留在EntryList中。Owner线程在被wait方法阻塞后，会被转移到WaitSet队列中，直到某个时刻被notify方法或者notifyAll方法唤醒，会再次进入到EntryList中。Owner线程在执行完毕后会释放锁的资源并变为！Owner状态。</p>
-<h3 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h3><p><strong>ReentrantLock和Synchronized的区别：</strong></p>
-<h3 id="Semaphore"><a href="#Semaphore" class="headerlink" title="Semaphore"></a>Semaphore</h3><script>
+<h3 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h3><p>ReentrantLock实现了Lock接口，是一个可重入的独占锁。ReentrantLock有显式的操作过程，何时加锁（lock），何时释放锁（unlock）都在程序员的控制之下。ReentrantLock还可以响应中断，即在等待锁的过程中，线程可以根据需要取消对锁的请求。</p>
+<p>独占锁指同一时刻只能被一个线程获取，而获取锁的其它线程只能在同步队列中等待；</p>
+<p>可重入锁指该锁能够支持一个线程对同一个资源执行多次加锁操作；</p>
+<p><strong>ReentrantLock和Synchronized的比较：</strong></p>
+<p>共同点：都用于控制多线程对共享对象的访问，都是可重入锁，都保证了可见性和互斥性。</p>
+<p>不同点：</p>
+<ol>
+<li>Lock是一个接口，ReentrantLock是Lock的一个实现类，而synchronized是Java中的关键字，是由内置语言实现的</li>
+<li>ReentrantLock是API级别的，synchronized是JVM级别的</li>
+<li>synchronized是同步阻塞，采用的是悲观并发策略，ReentrantLock是同步非阻塞，采用的是乐观并发策略</li>
+<li>ReenTrantLock显示获取和释放锁，Synchronized隐式获取和释放锁。</li>
+<li>ReentrankLock可响应中断，而synchronized中如果一个线程尝试获取一把锁，则其结果是要么获取锁继续执行，要么保持等待。</li>
+<li>ReentrantLock支持公平锁和非公平锁的实现，而synchronized是非公平锁</li>
+</ol>
+<h3 id="Semaphore"><a href="#Semaphore" class="headerlink" title="Semaphore"></a>Semaphore</h3><p>Semaphore是一种基于计数的信号量，在定义信号量对象时可以设定一个阈值，基于该阈值，多个线程竞争获取许可信号（acquire），线程竞争到许可信号后执行具体的业务逻辑，业务逻辑在执行完成后释放该许可信号（release）。在许可信号的竞争队列超过阈值后，新加入的申请许可信号的线程将被阻塞，直到有其它许可信号被释放。</p>
+<h3 id="Atomic"><a href="#Atomic" class="headerlink" title="Atomic"></a>Atomic</h3><p>多线程程序中诸如i++这样的操作运算不具有原子性，是不安全的线程操作，我们可以通过synchronized或ReetrantLock将该操作变成原子操作，但是synchronized的ReetrantLock均属于重量级锁。因此JVM为此类操作提供了一些原子操作同步类：AtomicInteger，AtomicBoolean，AtomicLong，AtomicReference等；</p>
+<h3 id="volatile关键字"><a href="#volatile关键字" class="headerlink" title="volatile关键字"></a>volatile关键字</h3><p>volatile是一种比synchronized关键字更轻量级的同步机制。主要适用于一个变量被多个线程共享，多个线程均可针对这个变量执行赋值或者读取的操作。将变量声明为volatile，JVM每次读取变量时就直接从内存中读取，跳过了CPU cache。一般满足以下两个条件时可以替代synchronized使用：1）对变量的写操作不依赖于当前值，或者说就是单纯的赋值。2）不同的volatile变量之间不能互相依赖。</p>
+<h2 id="上下文切换"><a href="#上下文切换" class="headerlink" title="上下文切换"></a>上下文切换</h2><p>CPU利用时间片轮转来为每个任务都服务一段时间，然后把当前任务的状态保存下来继续服务下一个任务。任务的状态保存及再加载就叫作线程的上下文切换。</p>
+<p>流程：</p>
+<ol>
+<li>挂起一个进程，将这个进程在cpu中的状态（上下文信息）存储于内存的PCB中；</li>
+<li>在PCB中检索下一个进程的上下文并将其在CPU的寄存器中恢复；</li>
+<li>跳转到程序计数器所指向的位置（即跳转到进程被中断时的代码行）并恢复该进程。</li>
+</ol>
+<h3 id="进程调度算法"><a href="#进程调度算法" class="headerlink" title="进程调度算法"></a>进程调度算法</h3><ol>
+<li>先来先服务</li>
+<li>短作业优先</li>
+<li>优先级调度算法（抢占式/非抢占式）</li>
+<li>高响应比优先</li>
+<li>时间片轮转</li>
+<li>多级反馈队列</li>
+</ol>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1752,7 +1783,7 @@ github添加公钥
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">210.7k</span> 字
+                <span class="white-color">211.8k</span> 字
             
 
             
@@ -1976,5 +2007,5 @@ $(function () {
             </script>
         
 
-    <script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script></body>
+    <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":200},"mobile":{"show":false},"react":{"opacity":0.7}});</script><script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>
