@@ -773,14 +773,14 @@ Java基础原理面向对象理解面向对象是相对于面向过程来讲的�
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        8.9k
+                        10.4k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        31 分
+                        36 分
                     </div>
                     
                 
@@ -1029,7 +1029,52 @@ Outter.StaticInnerClass staticInnerClass = new OutterClass.StaticInnerClass();</
 </ol>
 <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h2><h3 id="MyIASM"><a href="#MyIASM" class="headerlink" title="MyIASM"></a>MyIASM</h3><p>MyIASM是MySQL默认的存储引擎，不支持数据库事务、行级锁和外键，因此在写操作时需要锁定整张表，效率较低。MyISAM的特点是读取操作的速度快，且占用的内存和存储资源较少。MyISAM假设数据被组织成固定长度的记录，并且是按顺序存储的。在查找数据时，可以直接查找文件的OFFSET，定位比InnoDB快。</p>
 <h3 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h3><p>InnoDB为MySQL提供了事务支持，回滚，事务安全等操作。InnoDB的底层存储结构为B+树，B+树的每个节点都对应InnoDB的Page，Page大小是固定的，一般被设定为16KB。其中，非叶子结点只有键值，叶子结点包含完整的数据。</p>
-<p>B+树：</p>
+<h2 id="数据库三范式"><a href="#数据库三范式" class="headerlink" title="数据库三范式"></a>数据库三范式</h2><p>第一范式：保证每列都是不可再分的最小数据单元；</p>
+<p>第二范式：在第一范式的基础上消除部分依赖，即所有非主键列必须完全依赖于主键；</p>
+<p>第三范式：在第二范式的基础上消除传递依赖，即所有非主属性不能依赖于其他非主属性。</p>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>事务是一个不可分割的数据库操作序列，也是数据库并发控制的基本单位。</p>
+<p>事务具备四个属性（ACID）：</p>
+<ol>
+<li><strong>原子性：</strong>事务是一个完整操作，事务中的逻辑单元要么都执行，要么都不执行；</li>
+<li><strong>一致性：</strong>事务无论执行完毕还是异常退出，数据都必须处于一致性状态；</li>
+<li><strong>隔离性(Isolation)</strong>：并发执行的事务之间不能相互影响；</li>
+<li><strong>持久性(Durability)</strong>：事务一旦提交，对数据库中数据的改变是永久性的。</li>
+</ol>
+<p>一致性是对数据可见性的约束, 保证在一个事务中的多项操作的数据中间状态对其他事务是不可见的.<br>因为这些中间状态是一个过渡状态, 与事务的开始状态和事务的结束状态是不一致的.</p>
+<h3 id="事务并发带来的问题"><a href="#事务并发带来的问题" class="headerlink" title="事务并发带来的问题"></a>事务并发带来的问题</h3><p><strong>脏读</strong>：一个事务读取到了另一个事务未提交的数据；<br><strong>不可重复读</strong>：不可重复读的重点是修改，同样条件下两次读取结果不同，也就是说，被读取的数据可以被其它事务修改；<br><strong>幻读</strong>：幻读的重点在于新增或者删除，同样条件下两次读出来的记录数不一样。</p>
+<h3 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h3><ol>
+<li><strong>读未提交(READ UNCOMMITTED)：</strong>最低级别的隔离，通常又称为dirty read，它允许一个事务读取另一个事务还没提交的数据.<br>产生的问题: 脏读, 不可重复读, 幻读</li>
+<li><strong>读已提交(READ COMMITTED)：</strong>在一个事务中只允许对其它事务已经commit的记录可见.<br>产生的问题: 不可重复读, 幻读 (Oracle默认)</li>
+<li><strong>可重复读(REPEATABLE READ)：</strong>在一个事务开始后，其他事务对数据库的修改在本事务中不可见，直到本事务提交或回滚。<br>但是，其他事务的insert/delete操作对该事务是可见的，也就是说，该隔离级别并不能避免幻读问题。<br>(MySQL默认)</li>
+<li><strong>串行化(SERIALIZABLE)：</strong>最高级别的隔离，只允许事务串行执行</li>
+</ol>
+<h2 id="存储过程和触发器"><a href="#存储过程和触发器" class="headerlink" title="存储过程和触发器"></a>存储过程和触发器</h2><h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p>存储过程指一组用于完成特定功能的SQL语法集，他被存储在数据库中，经过第一次编译后再次调用就不需要再次编译。用户通过指定存储过程的名字并给出参数来调用他。（个人感觉就很像平常编程用的函数）</p>
+<h3 id="触发器"><a href="#触发器" class="headerlink" title="触发器"></a>触发器</h3><p>触发器是一段能自动执行的程序，和普通存储过程的区别是触发器在对某一个表或者数据进行操作时触发。</p>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>索引是对数据库表中一个或多个列的值进行排序的数据结构，以协助快速查询，更新数据库表中数据。</p>
+<p>创建索引的原则：</p>
+<ol>
+<li>为经常需要排序、分组和联合操作的字段建立索引；</li>
+<li>为常作为查询条件的字段建立索引</li>
+<li></li>
+</ol>
+<h3 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h3><p>B树和AVL树(平衡二叉树) 的差别就是 B树 属于多叉树，又名平衡多路查找树，即一个结点的查找路径不止左、右两个，而是有多个。每个结点的值(索引) 都是按递增次序排列存放的，并遵循左小右大原则。</p>
+<p>B树的好处：</p>
+<ol>
+<li><p>在数据库查询中，以树存储数据。树有多少层，就意味着要读多少次磁盘IO。所以树的高度越矮，就意味着查询数据时，需要读IO的次数就越少。（众所周知，读IO是一件费事的操作）当数据量大的时候，用AVL树存的话，就算AVL是平衡树，但是也扛不住数据量大，数据量大，AVL树的树高肯定很高，那么读取数据的IO次数也会多。那么有没有办法能压缩AVL树的树高呢？这时候B树就出来了。B树的一个结点可以装多个值，读取时，是把整个结点读到内存，然后在内存中，对结点的值进行处理，在内存中处理速度肯定比磁盘快。所以只要树的高度低，IO少，就能够提升查询效率，这是B树的好处之一。</p>
+</li>
+<li><p>B树的每一个结点都包含key(索引值) 和 value(对应数据)，因此方位离根结点近的元素会更快速。（相对于B+树）</p>
+</li>
+</ol>
+<h3 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h3><p>B+树是基于B树的基础提出的。</p>
+<p>B+树和B树最大的不同是：</p>
+<ol>
+<li>B+树内部有两种结点，一种是索引结点，一种是叶子结点。</li>
+<li>B+树的索引结点并不会保存记录，只用于索引，所有的数据都保存在B+树的叶子结点中。而B树则是所有结点都会保存数据。</li>
+<li>B+树的叶子结点都会被连成一条链表。叶子本身按索引值的大小从小到大进行排序。即这条链表是 从小到大的。多了条链表方便范围查找数据。</li>
+<li>B树的所有索引值是不会重复的，而B+树 非叶子结点的索引值 最终一定会全部出现在 叶子结点中。</li>
+</ol>
+<p><strong>为什么要有B+树：</strong></p>
+<p>B树的每一个结点都包含key(索引值) 和 value(对应数据)，因此方位离根结点近的元素会更快速。（相对于B+树）但是，B树不利于范围查找(区间查找)，如果要找 0~100的索引值，那么B树需要多次从根结点开始逐个查找。而B+树由于叶子结点都有链表，且链表是以从小到大的顺序排好序的，因此可以直接通过遍历链表实现范围查找。</p>
 <h1 id="缓存式数据库"><a href="#缓存式数据库" class="headerlink" title="缓存式数据库"></a>缓存式数据库</h1><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1806,7 +1851,7 @@ github添加公钥
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">212.8k</span> 字
+                <span class="white-color">214.4k</span> 字
             
 
             
