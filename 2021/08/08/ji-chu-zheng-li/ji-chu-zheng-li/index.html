@@ -773,14 +773,14 @@ Java基础原理面向对象理解面向对象是相对于面向过程来讲的�
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        11.7k
+                        13.2k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        40 分
+                        45 分
                     </div>
                     
                 
@@ -1132,7 +1132,60 @@ Outter.StaticInnerClass staticInnerClass = new OutterClass.StaticInnerClass();</
 <p>进行真正的事务提交。</p>
 </li>
 </ol>
-<h1 id="缓存式数据库"><a href="#缓存式数据库" class="headerlink" title="缓存式数据库"></a>缓存式数据库</h1><script>
+<h1 id="缓存式数据库"><a href="#缓存式数据库" class="headerlink" title="缓存式数据库"></a>缓存式数据库</h1><h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><p>Redis(Remote Dictionary Server) 是一个使用 C 语言编写的，开源的高性能非关系型（NoSQL）的键值对数据库。Redis 可以存储键和五种不同类型的值之间的映射。键的类型只能为字符串，值支持五种数据类型：字符串、列表、集合、散列表、有序集合。与传统数据库不同的是 Redis 的数据是存在内存中的，所以读写速度非常快，因此 redis 被广泛应用于缓存方向。另外，Redis 也经常用来做分布式锁。</p>
+<h3 id="Redis优点"><a href="#Redis优点" class="headerlink" title="Redis优点"></a>Redis优点</h3><ul>
+<li>读写性能优异， Redis能读的速度是110000次/s，写的速度是81000次/s。</li>
+<li>支持数据持久化，支持AOF和RDB两种持久化方式。</li>
+<li>支持事务，Redis的所有操作都是原子性的，同时Redis还支持对几个操作合并后的原子性执行。</li>
+<li>数据结构丰富，除了支持string类型的value外还支持hash、set、zset、list等数据结构。</li>
+<li>支持主从复制，主机会自动将数据同步到从机，可以进行读写分离。</li>
+</ul>
+<h3 id="Redis为什么这么快"><a href="#Redis为什么这么快" class="headerlink" title="Redis为什么这么快"></a>Redis为什么这么快</h3><p>1、完全基于内存，绝大部分请求是纯粹的内存操作，非常快速。</p>
+<p>2、数据结构简单，对数据操作也简单，Redis 中的数据结构是专门进行设计的；</p>
+<p>3、采用单线程，避免了不必要的上下文切换和竞争条件，也不存在多进程或者多线程导致的切换而消耗 CPU，不用去考虑各种锁的问题，不存在加锁释放锁操作，没有因为可能出现死锁而导致的性能消耗；</p>
+<p>4、使用多路 I/O 复用模型，非阻塞 IO；</p>
+<p>5、使用底层模型不同，它们之间底层实现方式以及与客户端之间通信的应用协议不一样，Redis 直接自己构建了 VM 机制 ，因为一般的系统调用系统函数的话，会浪费一定的时间去移动和请求；</p>
+<h3 id="Redis持久化"><a href="#Redis持久化" class="headerlink" title="Redis持久化"></a>Redis持久化</h3><p>Redis 提供两种持久化机制 RDB（默认） 和 AOF 机制:</p>
+<p><strong>RDB：</strong>RDB是Redis默认的持久化方式。按照一定的时间将内存的数据以快照的形式保存到硬盘中。</p>
+<p><strong>AOF：</strong>将Redis执行的每次写命令记录到单独的日志文件中，当重启Redis会利用持久化的日志文件恢复数据。</p>
+<ul>
+<li>AOF文件比RDB更新频率高，优先使用AOF还原数据。</li>
+<li>AOF比RDB更安全也更大</li>
+<li>RDB性能比AOF好</li>
+<li>如果两个都配了优先加载AOF</li>
+</ul>
+<h2 id="缓存设计"><a href="#缓存设计" class="headerlink" title="缓存设计"></a>缓存设计</h2><h3 id="缓存预热"><a href="#缓存预热" class="headerlink" title="缓存预热"></a>缓存预热</h3><p>在用户请求之前先将数据加载到缓存系统中，用户查询被预热的缓存数据以提高系统查询效率</p>
+<h3 id="缓存更新"><a href="#缓存更新" class="headerlink" title="缓存更新"></a>缓存更新</h3><p>缓存更新指在数据发生变化后及时将变化后的数据更新到缓存中。常见的缓存更新策略有以下四种：</p>
+<ol>
+<li>定时更新：定时将数据库中的数据更新到缓存中</li>
+<li>过期更新：定时将缓存中过期的数据更新为最新的数据</li>
+<li>写请求更新：在用户有写请求时先写数据库同时更新缓存</li>
+<li>读请求更新：在用户有读请求时先判断请求的数据缓存是否存在或是否已过期，如果不存在或已过期，则先查询数据库，再把查询结果更新到缓存，同时将查询结果返回给用户。</li>
+</ol>
+<h3 id="缓存淘汰策略"><a href="#缓存淘汰策略" class="headerlink" title="缓存淘汰策略"></a>缓存淘汰策略</h3><ol>
+<li>先进先出（FIFO）：判断被缓存的时间，离现在最远的数据先淘汰。</li>
+<li>最近最少使用（LRU）：判断缓存最近被使用的时间，距离当前时间最远的数据优先被淘汰。</li>
+<li>最不经常使用（LFU）：在一段时间内被使用次数最少的缓存优先淘汰。</li>
+</ol>
+<h3 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h3><p>缓存雪崩指在同一时刻由于大量缓存失效，导致大量原本应该访问缓存的请求都去访问数据库造成了巨大压力，可能导致数据库服务器宕机，从而使整个系统崩溃。</p>
+<p>处理方法：</p>
+<ol>
+<li>请求加锁：对于并发量不多的应用使用请求加锁排队的方案防止过多请求数据库</li>
+<li>失效更新：为每一个缓存数据都加上过期标记来记录是否失效，及时更新缓存</li>
+<li>设置不同的失效时间：为不同的数据设置不同的失效时间，防止同一时刻有大量数据失效。</li>
+</ol>
+<h3 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h3><p>指由于缓存系统故障或者用户频繁访问系统中不存在的数据，导致请求穿过缓存区访问数据库造成数据库过载。</p>
+<p>处理方法：</p>
+<ol>
+<li>布隆过滤器：将所有可能的数据都映射到一个足够大的BitMap上，用户发送请求时首先经过布隆过滤器拦截，一个一定不存在的数据就会被拦截避免去访问数据库。</li>
+<li>cache null策略：如果一个查询返回的结果为null，我们仍然缓存这个结果，但过期时间会设置比较短。再有这样的请求就直接返回null，而不会继续访问数据库。</li>
+</ol>
+<h3 id="缓存降级"><a href="#缓存降级" class="headerlink" title="缓存降级"></a>缓存降级</h3><p>指访问量剧增导致服务出现问题时优先保障核心业务的运行。</p>
+<ol>
+<li>写降级：在写请求增大时，可以只对缓存更新，再异步更新到数据库，即将写请求从数据库降级为Cache；</li>
+<li>读降级：只对缓存进行读取，不去访问数据库，等数据库服务正常后再恢复访问，即将读请求从数据库降级为Cache。</li>
+</ol>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1908,7 +1961,7 @@ github添加公钥
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">215.7k</span> 字
+                <span class="white-color">217.2k</span> 字
             
 
             
