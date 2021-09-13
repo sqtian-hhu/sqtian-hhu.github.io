@@ -1027,8 +1027,8 @@ Outter.StaticInnerClass staticInnerClass = new OutterClass.StaticInnerClass();</
 <li>时间片轮转</li>
 <li>多级反馈队列</li>
 </ol>
-<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h2><h3 id="MyIASM"><a href="#MyIASM" class="headerlink" title="MyIASM"></a>MyIASM</h3><p>MyIASM是MySQL默认的存储引擎，不支持数据库事务、行级锁和外键，因此在写操作时需要锁定整张表，效率较低。MyISAM的特点是读取操作的速度快，且占用的内存和存储资源较少。MyISAM假设数据被组织成固定长度的记录，并且是按顺序存储的。在查找数据时，可以直接查找文件的OFFSET，定位比InnoDB快。</p>
-<h3 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h3><p>InnoDB为MySQL提供了事务支持，回滚，事务安全等操作。InnoDB的底层存储结构为B+树，B+树的每个节点都对应InnoDB的Page，Page大小是固定的，一般被设定为16KB。其中，非叶子结点只有键值，叶子结点包含完整的数据。</p>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h2><h3 id="MyIASM"><a href="#MyIASM" class="headerlink" title="MyIASM"></a>MyIASM</h3><p>MyIASM是MySQL5.5版本之前默认的存储引擎，会保存具体的行数，不支持数据库事务、行级锁和外键，因此在写操作时需要锁定整张表，效率较低。MyISAM是非聚集索引，索引和数据文件是分离的，索引保存的是数据的指针。MyISAM的特点是读取操作的速度快，且占用的内存和存储资源较少。</p>
+<h3 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h3><p>InnoDB为MySQL提供了事务支持，回滚，事务安全，行级锁和外键等功能，不会保存具体的行数，是MySQL现在的默认存储引擎。InnoDB是聚集索引，索引和数据文件绑定在一起。</p>
 <h2 id="数据库三范式"><a href="#数据库三范式" class="headerlink" title="数据库三范式"></a>数据库三范式</h2><p>第一范式：保证每列都是不可再分的最小数据单元；</p>
 <p>第二范式：在第一范式的基础上消除部分依赖，即所有非主键列必须完全依赖于主键；</p>
 <p>第三范式：在第二范式的基础上消除传递依赖，即所有非主属性不能依赖于其他非主属性。</p>
@@ -1961,7 +1961,7 @@ github添加公钥
 
             
                 &nbsp; | &nbsp;字数统计:&nbsp;
-                <span class="white-color">217.2k</span> 字
+                <span class="white-color">217.8k</span> 字
             
 
             

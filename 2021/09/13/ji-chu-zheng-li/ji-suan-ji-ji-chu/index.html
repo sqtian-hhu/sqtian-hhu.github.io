@@ -6,14 +6,16 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="&#39;JavaNote08_Stream&#39;, 深度学习 故障诊断 Java">
+    <meta name="keywords" content="计算机基础, 深度学习 故障诊断 Java">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="Stream流/*    使用传统的方式遍历集合，对集合中的数据进行过滤
- */
- 
+    <meta name="description" content="数据结构红黑树红黑树是一种自平衡的二叉搜索树，红黑树的每个节点上都多出一个存储位表示节点的颜色（红/黑）
+特性：
 
-public class Demo01List {    public static void main(String[] args) {       ">
+根节点是黑色的
+每个叶子节点都是黑色的空节点
+如果一个节点是红色的，则他的子节点必须是黑色的
+从一个节点到他子孙节点的所有路">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +23,7 @@ public class Demo01List {    public static void main(String[] args) {       ">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>&#39;JavaNote08_Stream&#39; | 世庆的博客</title>
+    <title>计算机基础 | 世庆的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -620,13 +622,13 @@ public class Demo01List {    public static void main(String[] args) {       ">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        &#39;JavaNote08_Stream&#39;
+                        计算机基础
                     </div>
                 </div>
             </div>
@@ -736,25 +738,12 @@ public class Demo01List {    public static void main(String[] args) {       ">
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Java基础/" target="_blank">
-                                <span class="chip bg-color">Java基础</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Java/" class="post-category" target="_blank">
-                                Java
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -762,13 +751,13 @@ public class Demo01List {    public static void main(String[] args) {       ">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-02
+                    2021-09-13
                 </div>
 
                 <div class="post-author info-break-policy">
                     <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
                     
-                        ShiQing
+                        世庆
                     
                 </div>
 
@@ -776,14 +765,14 @@ public class Demo01List {    public static void main(String[] args) {       ">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2k
+                        5.4k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        9 分
+                        18 分
                     </div>
                     
                 
@@ -800,134 +789,128 @@ public class Demo01List {    public static void main(String[] args) {       ">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Stream流"><a href="#Stream流" class="headerlink" title="Stream流"></a>Stream流</h2><p>/*<br>    使用传统的方式遍历集合，对集合中的数据进行过滤</p>
-<p> */</p>
- <a id="more"></a>
-
-<p>public class Demo01List {<br>    public static void main(String[] args) {<br>        //创建一个List集合存储姓名<br>        List<string> list = new ArrayList&lt;&gt;();<br>        list.add(“张无忌”);<br>        list.add(“周芷若”);<br>        list.add(“赵敏”);<br>        list.add(“张强”);<br>        list.add(“张三丰”);</string></p>
-<pre><code>    //对list集合中的元素进行过滤,只要以张开头的元素,存储到一个新的集合中
-    List&lt;String&gt; listA = new ArrayList&lt;&gt;();
-    for (String s : list) {
-        if(s.startsWith("张")){
-            listA.add(s);
-        }
-    }
-
-    //对ListA过滤,只要姓名长度为三
-    List&lt;String&gt; listB = new ArrayList&lt;&gt;();
-    for (String s : listA) {
-        if(s.length()==3){
-            listB.add(s);
-        }
-    }
-
-    for (String s : listB) {
-        System.out.println(s);
-    }
-}</code></pre><h2 id=""><a href="#" class="headerlink" title="}"></a>}</h2><p>/*<br>    使用Stream流的方式,遍历集合,对集合中的数据进行过滤<br>    关注的是做什么而不是怎么做<br> */<br>public class Demo02Stream {<br>    public static void main(String[] args) {<br>        List<string> list = new ArrayList&lt;&gt;();<br>        list.add(“张无忌”);<br>        list.add(“周芷若”);<br>        list.add(“赵敏”);<br>        list.add(“张强”);<br>        list.add(“张三丰”);</string></p>
-<pre><code>    list.stream()
-        .filter(name-&gt;name.startsWith("张"))
-        .filter(name-&gt;name.length()==3)
-        .forEach(name-&gt; System.out.println(name));
-
-}</code></pre><p>}</p>
-<p>整体来看，流式思想类似于工厂车间的生产流水线<br>Stream流是一个来自数据源的元素队列<br>元素是特定类型的对象，形成一个队列<br>数据源：流的来源，可以是集合，数组等<br>pipelining：之间操作都会返回流对象本身。这样多个操作可以串联成一个管道，对操作进行优化<br>内部迭代：流可以直接调用遍历方法</p>
-<p>1.3 获取流<br>所以Collection集合都可以通过stream默认方法获取流<br>Stream接口的静态方法of可以获取数组对应的流<br>public class Demo02GetStream {<br>    public static void main(String[] args) {<br>        //把集合转换为Stream流<br>        List<string> list = new ArrayList&lt;&gt;();<br>        Stream<string> stream1 = list.stream();</string></string></p>
-<pre><code>    Set&lt;String&gt; set = new HashSet&lt;&gt;();
-    Stream&lt;String&gt; stream2 = set.stream();
-
-    Map&lt;String,String&gt; map = new HashMap&lt;&gt;();
-    //获取键,存储到一个Set集合中
-    Set&lt;String&gt; keySet = map.keySet();
-    Stream&lt;String&gt; stream3 = keySet.stream();
-    //获取值,存储到一个Collection集合
-    Collection&lt;String&gt; values = map.values();
-    Stream&lt;String&gt; stream4 = values.stream();
-    //获取键值对,entrySet
-    Set&lt;Map.Entry&lt;String,String&gt;&gt; entries = map.entrySet();
-    Stream&lt;Map.Entry&lt;String,String&gt;&gt; stream5 = entries.stream();
-
-    //把数组转换为Stream流
-    Stream&lt;Integer&gt; stream6 = Stream.of(1,2,3,4,5);
-    //可变参数可以传递数组
-    Integer[] arr = {1,2,3,4,5};
-    Stream&lt;Integer&gt; stream7 = Stream.of(arr);
-}</code></pre><h2 id="-1"><a href="#-1" class="headerlink" title="}"></a>}</h2><p>1.4 常用方法<br>延迟方法：返回值类型仍然是Stream接口自身类型的方法，因此支持链式调用。除了终结方法，其余方法均为延迟方法<br>终结方法：返回值类型不再是Stream接口自身类型的方法，不再支持链式调用。常用有count，forEach</p>
-<p>逐一处理：forEach<br>/*<br>    forEach方法用来遍历流中的数据<br>    是一个终结方法,遍历之后就不能再调用Stream流中的其他方法<br>    该方法接收一个Consumer接口函数,会将每一个流元素交给该函数进行处理,Consumer接口可传递Lambda表达式</p>
-<p> */<br>public class Demo02Stream_forEach {<br>    public static void main(String[] args) {<br>        //获取一个Stream流<br>        Stream<string> stream = Stream.of(“张三”, “李四”, “王五”, “赵六”, “田七”);<br>//        //使用forEach遍历<br>//        stream.forEach((String name) -&gt; {<br>//            System.out.println(name);<br>//        });<br>        //化简<br>        stream.forEach(name -&gt;System.out.println(name));<br>    }<br>}</string></p>
-<hr>
-<p>过滤：filter<br>/*<br>    过滤:filter,接收Predicate接口<br> */<br>public class Demo03Stream_filter {<br>    public static void main(String[] args) {<br>        Stream<string> stream = Stream.of(“张三丰”,”张无忌”,”西门吹雪”,”周芷若”,”赵敏”);<br>        //对Stream流中的元素进行过滤,只要姓张的<br>//        Stream<string> stream2 = stream.filter((String name)-&gt;{<br>//            return name.startsWith(“张”);<br>//        });<br>        //简化<br>//        Stream<string> stream2 = stream.filter(name-&gt; name.startsWith(“张”));<br>//        stream2.forEach(name-&gt; System.out.println(name));<br>        //链式<br>        stream.filter(name-&gt; name.startsWith(“张”))<br>            .forEach(name-&gt; System.out.println(name));<br>    }<br>}</string></string></string></p>
-<hr>
-<p>Stream流属于管道流，只能被消费(使用)一次<br>第一个Stream流调用完毕后,数据就会流到下一个Stream上,此时第一个流已经使用完毕,就会关闭<br>所以第一个流不能再调用方法了</p>
-<p>映射:map<br>如果需要将流中的元素映射到另一个流中，可以使用map方法<br>需要Function函数式接口<br>public class Demo04Stream_map {<br>    public static void main(String[] args) {<br>        Stream<string> stream = Stream.of(“1”,”2”,”3”,”4”);<br>        //使用map方法,把字符串类型的整数,转换为Integer类型的整数<br>        Stream<integer> stream2 = stream.map((String s)-&gt;{<br>            return Integer.parseInt(s);<br>        });<br>        //遍历Stream2流<br>        stream2.forEach(i-&gt; System.out.println(i));<br>    }<br>}</integer></string></p>
-<hr>
-<p>统计个数：count<br>计数流中的元素个数<br>/*<br>    long count();<br>    count是一个终结方法,返回值是一个long类型的整数<br> */<br>public class Demo05Stream_count {<br>    public static void main(String[] args) {<br>        ArrayList<integer> list = new ArrayList&lt;&gt;();<br>        list.add(1);<br>        list.add(2);<br>        list.add(3);<br>        list.add(4);<br>        list.add(5);<br>        list.add(6);<br>        list.add(7);<br>        Stream<integer> stream = list.stream();<br>        long count = stream.count();<br>        System.out.println(count);<br>    }<br>}</integer></integer></p>
-<hr>
-<p>取用前几个：limit<br>对流进行截取，只取用前n个。<br>/*<br>    limit是一个延迟方法,用于截取流中的元素<br> */<br>public class Demo06Stream_limit {<br>    public static void main(String[] args) {<br>        String[] arr = {“西门吹雪”,”叶孤城”,”陆小凤”,”楚留香”,”李寻欢”,””};<br>        Stream<string> stream = Stream.of(arr);<br>        Stream<string> stream2 = stream.limit(3);//前三个<br>        stream2.forEach(name-&gt; System.out.println(name));<br>    }<br>}</string></string></p>
-<hr>
-<p>跳过前几个：skip<br>public class Demo07Stream_skip {<br>    public static void main(String[] args) {<br>        String[] arr = {“西门吹雪”,”叶孤城”,”陆小凤”,”楚留香”,”李寻欢”};<br>        Stream<string> stream = Stream.of(arr);<br>        //使用skip方法跳过前3个元素<br>        Stream<string> stream2 = stream.skip(3);//跳过前三<br>        stream2.forEach(name-&gt; System.out.println(name));//楚留香,李寻欢<br>    }<br>}</string></string></p>
-<hr>
-<p>组合：concat<br>public class Demo08Stream_concat {<br>    public static void main(String[] args) {<br>        Stream<string> stream1 = Stream.of(“西门吹雪”, “叶孤城”, “陆小凤”, “楚留香”, “李寻欢”);<br>        Stream<string> stream2 = Stream.of(“杨过”, “小龙女”, “郭靖”, “黄蓉”, “周伯通”);<br>        //合并<br>        Stream<string> concat = Stream.concat(stream1, stream2);<br>        concat.forEach(name-&gt; System.out.println(name));<br>    }<br>}</string></string></string></p>
-<hr>
-<p>练习：集合元素处理<br>传统方法：<br>/*<br>    现有两个ArrayList集合存储队伍当中的多个成员姓名，要求使用传统for循环<br>    1. 第一个队伍只要名字为3个字的成员姓名，存储到一个新集合中<br>    2. 第一个队伍筛选之后，只要前3个人，存储到一个新集合<br>    3. 第二个队伍只要姓张的成员姓名，存储到一个新集合<br>    4. 第二个队伍筛选之后不要前2个人，存储到一个新集合中<br>    5. 将两个队伍合并为一个队伍，存储到一个新集合中<br>    6. 根据姓名创建Person对象，存储到一个新集合中<br>    7. 打印整个队伍的Person对象信息</p>
-<p> */<br>public class Demo01StreamTest {<br>    public static void main(String[] args) {<br>        //第一支队伍<br>        ArrayList<string> one = new ArrayList&lt;&gt;();<br>        one.add(“西门吹雪”);<br>        one.add(“陆小凤”);<br>        one.add(“叶孤城”);<br>        one.add(“李寻欢”);<br>        one.add(“楚留香”);<br>        ArrayList<string> one1 = new ArrayList&lt;&gt;();<br>        for (String name : one) {<br>            if(name.length()==3){<br>                one1.add(name);<br>            }<br>        }</string></string></p>
-<pre><code>    ArrayList&lt;String&gt; one2 = new ArrayList&lt;&gt;();
-    for (int i = 0; i &lt; 3; i++) {
-        one2.add(one1.get(i));
-    }
-
-
-    //第二支队伍
-    ArrayList&lt;String&gt; two = new ArrayList&lt;&gt;();
-    two.add("杨过");
-    two.add("郭襄");
-    two.add("小龙女");
-    two.add("郭靖");
-    two.add("郭嘉");
-    two.add("郭奕");
-    two.add("黄蓉");
-
-    ArrayList&lt;String&gt; two1 = new ArrayList&lt;&gt;();
-    for (String name : two) {
-        if(name.startsWith("郭")){
-            two1.add(name);
-        }
-    }
-    ArrayList&lt;String&gt; two2 = new ArrayList&lt;&gt;();
-    for (int i = 0; i &lt; 2; i++) {
-        two2.add(two1.get(i));
-    }
-
-    ArrayList&lt;String&gt; all = new ArrayList&lt;&gt;();
-    all.addAll(one2);
-    all.addAll(two2);
-
-    ArrayList&lt;Person&gt; list = new ArrayList&lt;&gt;();
-    for (String name : all) {
-        list.add(new Person(name,18));
-    }
-    for (Person person : list) {
-        System.out.println(person);
-    }
-}</code></pre><h2 id="-2"><a href="#-2" class="headerlink" title="}"></a>}</h2><p>Stream流<br>public class Demo02StreamTest {<br>    public static void main(String[] args) {<br>        //第一支队伍<br>        ArrayList<string> one = new ArrayList&lt;&gt;();<br>        one.add(“西门吹雪”);<br>        one.add(“陆小凤”);<br>        one.add(“叶孤城”);<br>        one.add(“李寻欢”);<br>        one.add(“楚留香”);</string></p>
-<pre><code>    Stream&lt;String&gt; oneStream = one.stream().filter(name-&gt;name.length()==3).limit(3);
-
-    //第二支队伍
-    ArrayList&lt;String&gt; two = new ArrayList&lt;&gt;();
-    two.add("杨过");
-    two.add("郭襄");
-    two.add("小龙女");
-    two.add("郭靖");
-    two.add("郭嘉");
-    two.add("郭奕");
-    two.add("黄蓉");
-
-    Stream&lt;String&gt; twoStream = two.stream().filter(name-&gt;name.startsWith("郭")).limit(2);
-    Stream.concat(oneStream,twoStream)
-        .map(name-&gt;new Person(name,18))
-        .forEach(person-&gt; System.out.println(person));
-}</code></pre><p>}</p>
-<script>
+                <h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h2><p>红黑树是一种自平衡的二叉搜索树，红黑树的每个节点上都多出一个存储位表示节点的颜色（红/黑）</p>
+<p>特性：</p>
+<ol>
+<li>根节点是黑色的</li>
+<li>每个叶子节点都是黑色的空节点</li>
+<li>如果一个节点是红色的，则他的子节点必须是黑色的</li>
+<li>从一个节点到他子孙节点的所有路径上都包含相同数量的黑色节点。</li>
+</ol>
+<p>在特性约束的前提下通过变色或者旋转来调整二叉树，使其重新回到平衡的状态。</p>
+<h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><h3 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h3><p>生成树：最小连通子图，边最少且包含所有节点</p>
+<p>最小生成树：边的权值和最小的生成树</p>
+<ol>
+<li>Prim算法：保持连通，每次选最小的边</li>
+<li>Kruskal算法：保持无圈，每次选最小的边</li>
+</ol>
+<h3 id="最短路径"><a href="#最短路径" class="headerlink" title="最短路径"></a>最短路径</h3><ol>
+<li>Dijkstra算法求单源最短路径：选取最小的顶点加进集合，修改由此点的出边的终点值</li>
+<li>Floyd算法求各顶点之间最短路径问题：动态规划</li>
+</ol>
+<h3 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h3><p>所有前驱完成才能进入下一步</p>
+<p>选一个入度为0的点，删除该点及出边，重复操作。</p>
+<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h2 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h2><p>进程：进程是程序的一次执行过程，是对运行时程序的封装。他是系统进行资源调度和分配的基本单位，实现操作系统的并发。</p>
+<p>线程：线程是进程的子任务，一个进程至少有一个线程。他是CPU调度和分派的基本单位，用于实现进程内部的并发。</p>
+<h2 id="进程间通信的方式"><a href="#进程间通信的方式" class="headerlink" title="进程间通信的方式"></a>进程间通信的方式</h2><p>指进程之间的信息交换<br>进程是分配系统资源的单位,因此各进程拥有的内存地址空间相互独立<br>为了保证安全,一个进程不能直接访问另一个进程的地址空间.<br>但是进程之间的信息交换又是必须实现的. 为了保证进程间的安全通信,操作系统提供了一些方法</p>
+<ol>
+<li><p>管道（pipe）：<br>管道是指用于连接读写进程的一个共享文件,实际上就是在内存中开辟一个大小固定的缓冲区<br>进程1写数据到管道,进程2从管道读数据<br>1没写满2不能读,2没读空1不能写<br>各进程互斥访问，速度慢、容量有限</p>
+</li>
+<li><p>消息队列：<br>消息队列是消息的链接表，具有写权限得进程可以按照一定得规则向消息队列中添加新信息；对消息队列有读权限得进程则可以从消息队列中读取信息；</p>
+</li>
+<li><p>共享内存：<br>在内存中画出一块共享存储区，多个进程可以访问同一块内存空间，不同进程可以及时看到对方进程中对共享内存中数据得更新。<br>这种方式需要依靠某种同步操作，如互斥锁和信号量等；</p>
+</li>
+<li><p>信号量：<br>主要作为进程之间及同一种进程的不同线程之间得同步和互斥手段；</p>
+</li>
+<li><p>套接字：<br>这是一种更为一般得进程间通信机制，它可用于网络中不同机器之间的进程间通信，应用非常广泛。</p>
+</li>
+</ol>
+<h2 id="线程间通信"><a href="#线程间通信" class="headerlink" title="线程间通信"></a>线程间通信</h2><ol>
+<li>同步<br>多个线程通过synchronized通讯</li>
+<li>while轮询<br>线程A不断改变条件，线程B不断查看条件是否满足需求（比方说=5），从而实现通讯。<br>效率不高，因为B一直在查看，没做别的</li>
+<li>wait/notify<br>进入阻塞，而不是像轮询一样一直占用CPU资源</li>
+<li>管道通信<br>通过管道，将一个线程的消息发送个另一个线程</li>
+</ol>
+<h2 id="进程调度的策略"><a href="#进程调度的策略" class="headerlink" title="进程调度的策略"></a>进程调度的策略</h2><ol>
+<li>FCFS(先来先服务，队列实现，非抢占的)：先请求CPU的进程先分配到CPU</li>
+<li>SJF(最短作业优先调度算法)：平均等待时间最短，但难以知道下一个CPU区间长度</li>
+<li>优先级调度算法(可以是抢占的，也可以是非抢占的)：优先级越高越先分配到CPU，相同优先级先到先服务，存在的主要问题是：低优先级进程无穷等待CPU，会导致无穷阻塞或饥饿；解决方案：老化</li>
+<li>时间片轮转调度算法(可抢占的)：队列中没有进程被分配超过一个时间片的CPU时间，除非它是唯一可运行的进程。如果进程的CPU区间超过了一个时间片，那么该进程就被抢占并放回就绪队列。</li>
+<li>多级队列调度算法：将就绪队列分成多个独立的队列，每个队列都有自己的调度算法，队列之间采用固定优先级抢占调度。其中，一个进程根据自身属性被永久地分配到一个队列中。</li>
+<li>多级反馈队列调度算法：与多级队列调度算法相比，其允许进程在队列之间移动：若进程使用过多CPU时间，那么它会被转移到更低的优先级队列；在较低优先级队列等待时间过长的进程会被转移到更高优先级队列，以防止饥饿发生。</li>
+</ol>
+<h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><p>在两个或者多个并发进程中，如果每个进程持有某种资源而又等待其它进程释放它或它们现在保持着的资源，在未改变这种状态之前都不能向前推进，称这一组进程产生了死锁。</p>
+<p><strong>死锁产生的四个必要条件</strong></p>
+<ol>
+<li>互斥：至少有一个资源必须属于非共享模式，即一次只能被一个进程使用；若其他申请使用该资源，那么申请进程必须等到该资源被释放为止；</li>
+<li>占有并等待：一个进程必须占有至少一个资源，并等待另一个资源，而该资源为其他进程所占有；</li>
+<li>非抢占：进程不能被抢占，即资源只能被进程在完成任务后自愿释放</li>
+<li>循环等待：若干进程之间形成一种头尾相接的环形等待资源关系</li>
+</ol>
+<p>死锁的处理策略：</p>
+<ol>
+<li>预防死锁：破坏死锁四个必要条件</li>
+<li>避免死锁：用某种方法防止系统进入到不安全状态</li>
+<li>死锁的检测和解除：允许死锁的发生，然后采取措施解除死锁。</li>
+</ol>
+<p><strong>银行家算法：</strong></p>
+<p>如果系统按照某种序列分配资源时每个进程都能顺利完成，那这种序列就是安全序列。只要找出一个安全序列，系统就处于安全状态。安全状态一定不会死锁，不安全状态可能会死锁。银行家算法核心思想就是，在进程提出资源申请时，先用安全性算法检查此次分配是否会导致系统进入不安全状态。如果会进入不安全状态就暂不答应这次请求，让该进程先阻塞等待。</p>
+<p>安全性算法：检查当前的剩余可用资源是否满足某个进程的最大需求，如果可以就把该进程加入安全序列，并把该线程持有的资源全部回收，不断重复步骤，看最终是否能让所有进程都加入安全序列。</p>
+<h2 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h2><p>虚拟内存允许执行进程不必完全在内存中。<br>虚拟内存的基本思想是：每个进程拥有独立的地址空间，这个空间被分为大小相等的多个块，称为页(Page)，每个页都是一段连续的地址。<br>这些页被映射到物理内存，但并不是所有的页都必须在内存中才能运行程序。<br>当程序引用到一部分在物理内存中的地址空间时，由硬件立刻进行必要的映射；<br>当程序引用到一部分不在物理内存中的地址空间时，由操作系统负责将缺失的部分装入物理内存并重新执行失败的命令。<br>这样，对于进程而言，逻辑上似乎有很大的内存空间，实际上其中一部分对应物理内存上的一块(称为帧，通常页和帧大小相等)，<br>还有一些没加载在内存中的对应在硬盘上</p>
+<h2 id="页面置换算法"><a href="#页面置换算法" class="headerlink" title="页面置换算法"></a>页面置换算法</h2><ol>
+<li>FIFO先进先出算法：在操作系统中经常被用到，比如作业调度（主要实现简单，很容易想到）；</li>
+<li>LRU（Least recently use）最近最少使用算法：根据使用时间到现在的长短来判断；</li>
+<li>LFU（Least frequently use）最少使用次数算法：根据使用次数来判断；</li>
+<li>OPT（Optimal replacement）最优置换算法：理论的最优，理论；就是要保证置换出去的是不再被使用的页，或者是在实际内存中最晚使用的算法。</li>
+</ol>
+<h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1><h2 id="网络分层"><a href="#网络分层" class="headerlink" title="网络分层"></a>网络分层</h2><p>OSI七层模型(法定标准):<br>物理层-&gt;链路层-&gt;网络层-&gt;传输控制层-&gt;会话层-&gt;表示层-&gt;应用层</p>
+<p>TCP/IP五层模型(事实标准):<br>应用层: 支持各种网络应用  TFTP, SMTP, HTTP，Telnet，DNS<br>传输层: 进程-进程的数据传输  TCP, UDP<br>网络层: 源主机到目的主机的数据分组路由与转发  IP, ICMP，ARP，RARP<br>数据链路层: 把网络层传下来的数据报组装成帧<br>物理层: 比特传输</p>
+<p>发送数据的过程：</p>
+<ol>
+<li>应用层程序发送数据</li>
+<li>传输层把发送的数据分成多个报文段</li>
+<li>网络层对每个报文段加上源主机ip地址和目的主机ip地址（DNS获取），封装成IP数据报</li>
+<li>数据链路层在IP数据报上再加上源主机MAC地址和目的主机MAC地址（ARP协议获取）</li>
+<li>物理层传输数据</li>
+</ol>
+<h2 id="TCP-和-UDP的区别（传输层）"><a href="#TCP-和-UDP的区别（传输层）" class="headerlink" title="TCP 和 UDP的区别（传输层）"></a>TCP 和 UDP的区别（传输层）</h2><p>TCP提供面向连接的、可靠的数据流传输，而UDP提供的是非面向连接的、不可靠的数据流传输<br>TCP借助三次握手建立连接四次挥手断开连接来保障传输的可靠性，而UDP在传输数据前不建立连接，想传送时就直接抓取来自应用程序的数据并尽可能快地发送到网络上。<br>TCP传输单位成为TCP报文段，UDP传输单位成为用户数据包；<br>TCP注重数据安全性，UDP数据传输快，更具实时性；<br>TCP是面向字节流，UDP面向报文<br>TCP是点对点连接，UDP一对一，一对多，多对多传输都可以<br>TCP适合用于网页，邮件等，UDP适合用于视频，语音广播等</p>
+<p>TCP对应的协议：<br>FTP:定义了文件传输协议，使用21端口<br>Telnet：一种用于远程登录的端口，使用23端口，用户可以以自己的身份连接到远程的计算机上。<br>SMTP：邮件传送协议，用于发送邮件。服务器开放的是25端口<br>POP3：它是和SMTP对应，POP3用于接收邮件。POP3协议所用的是110端口。<br>HTTP ：是从Web服务器传输超文本到本地浏览器的传送协议<br>UDP对应的协议：<br>DNS协议：用于域名解析服务，将域名地址转换为IP地址。DNS用的是53号端口。<br>SNMP：简单网络管理协议，使用161号端口，使用来管理网络设备<br>TFTP ：简单文件传输协议，该协议是在熟知的端口69上使用UDP服务。</p>
+<h2 id="TCP三次握手四次挥手"><a href="#TCP三次握手四次挥手" class="headerlink" title="TCP三次握手四次挥手"></a>TCP三次握手四次挥手</h2><p>TCP协议是面向连接的,可靠的传输协议<br>面向连接: 三次握手之后, 双方当开辟资源接收信息</p>
+<p>为什么三次?<br>当客户端第一次发送连接请求syn后, 服务器端接收成功后返回一个syn和ack响应.<br>此时两端完成了两次握手, 从客户端的角度, 客户端已经确认了往返连接是相通的.<br>但从服务器角度, 只接收到了客户端的syn,还不确定服务器端回复的syn和ack响应是否被客户端收到,<br>即还不确定服务器端向客户端是否连通. 因此客户端收到服务器端的返回后需要在发送一次ack,<br>服务器端接收到此ack响应后即完成了三次握手, 此时就保证了连接的可靠.</p>
+<p>为什么四次挥手?<br>端口资源是有限的, 如果一个程序不断申请端口号建立连接, 那资源总会消耗光,因此数据传输完毕需要断开连接</p>
+<ol>
+<li>客户端应用进程调用断开连接的请求, 向服务器端发送一个终止标志位FIN, 表示要发送的数据已经安全发送完毕,可以开始关闭链路操作</li>
+<li>服务器端收到FIN后返回一个ACK, 表示收到了断开链路的请求, 并关闭客户端到服务器端的链路.</li>
+<li>服务器端将关闭链路前需要发送的数据发给客户端, 完成后发送一个终止标志位FIN, 表示数据发送完毕, 请求关闭服务器到客户端的链路</li>
+<li>客户端在接收到这个最终FIN后, 发送一个ACK=1的消息给服务器端, 并断开服务器到客户端的链路.</li>
+</ol>
+<h2 id="HTTP原理（应用层）"><a href="#HTTP原理（应用层）" class="headerlink" title="HTTP原理（应用层）"></a>HTTP原理（应用层）</h2><p>HTTP是一个无状态的协议, 无状态指在客户端和服务器之间不需要建立持久的连接,在一个客户端向服务器发出请求且服务器端收到该请求并返回响应后, 本次通信结束, HTTP连接将被关闭, 服务器不保留连接的相关信息.</p>
+<p>HTTPS是以安全为目标的HTTP通道, 它在HTTP中加入SSL层以提高数据传输的安全性.<br>HTTP被用于在Web浏览器和网站服务器之间传递信息, 但以明文方式发送内容, 不提供任何方式的数据加密,<br>如果攻击者截取了Web浏览器和网站服务器之间的传输报文, 就可以直接读懂.<br>为了数据安全, HTTPS在HTTP基础上加入了SSL协议, SSL依靠证书来验证服务器的身份,<br>并对浏览器和服务器之间的通信进行数据加密, 以保障传输的安全性.</p>
+<h2 id="路由器和交换机的区别"><a href="#路由器和交换机的区别" class="headerlink" title="路由器和交换机的区别"></a>路由器和交换机的区别</h2><ol>
+<li>路由器工作在网络层，而交换机一般工作在链路层;</li>
+<li>路由器根据IP地址转发, 交换机根据MAC地址转发;</li>
+<li>交换机主要用于组建局域网，而路由主要功能是将由交换机组好的局域网相互连接起来，或者接入外网。</li>
+<li>路由器还可以提供防火墙的功能, 交换机提供不了。</li>
+</ol>
+<h2 id="简述ICMP、TFTP、HTTP、NAT、DHCP协议"><a href="#简述ICMP、TFTP、HTTP、NAT、DHCP协议" class="headerlink" title="简述ICMP、TFTP、HTTP、NAT、DHCP协议"></a>简述ICMP、TFTP、HTTP、NAT、DHCP协议</h2><p>ICMP : 因特网控制报文协议。它是TCP/IP协议族的一个子协议，用于在IP主机、路由器之间传递控制消息<br>TFTP：是TCP/IP协议族中的一个用来在客户机和服务器之间进行简单的文件传输的协议，提供不复杂、开销不大的文件传输服务<br>HTTP：超文本传输层协议，是一个属于应用层的面向对象的协议<br>NAT协议：网络地址转换接入广域网（WAN）技术，是一种将私有地址转换为合法IP地址的转换技术<br>DHCP协议：动态主机配置协议，使用UDP协议工作。给内部的网络和网络服务供应商自动的分配IP地址。</p>
+<h2 id="get与post请求的区别"><a href="#get与post请求的区别" class="headerlink" title="get与post请求的区别"></a>get与post请求的区别</h2><ol>
+<li>get重点在从服务器上获取资源,post重点在想服务器发送数据;</li>
+<li>get传输数据是通过URL请求,以filed(字段)=value的形式,置于URL后,并用”?”连接,多个请求数据之间用”&amp;”连接,如<a href="http://127.0.0.1/Test/login.a...，这个过程用户是可见的" target="_blank" rel="noopener">http://127.0.0.1/Test/login.a...，这个过程用户是可见的</a></li>
+<li>get传输量小,因为受URL长度限制,但效率较低, post可以传输大量数据,所以上传文件时只能用post方式</li>
+<li>get是不安全的,因为URL是可见的,可能会泄露私密信息,如密码等, post较get安全</li>
+</ol>
+<h2 id="DNS域名系统（应用层）"><a href="#DNS域名系统（应用层）" class="headerlink" title="DNS域名系统（应用层）"></a>DNS域名系统（应用层）</h2><p>根域名服务器<br>顶级域名服务器：管理该顶级域名服务器注册的所有二级域名<br>权限域名服务器：负责一个区的域名服务器<br>本地域名服务器</p>
+<p>当需要把主机名解析成IP地址时，应用进程调用解析程序，并成为DNS的一个客户，把待解析的域名放在DNS请求报文中，以UDP用户数据报方式发给本地域名服务器，本地域名服务器查找域名后，把对应的IP地址放在回答报文中返回，应用进程获得目的主机的IP地址后即可进行。<br>递归查询：（靠别人）比较少用<br>    首先当一个主机发出DNS查询请求时，先查找本机缓存，查询不到再把这个查询请求报文发给本地域名服务器，<br>    如果在本地域名服务器的高速缓存中没有查询到，本地域名服务器会向根域名服务器发送请求<br>    根域名服务器根据顶级域名向下查询顶级域名服务器，顶级域名服务器再根据二级域名向下查询权限域名服务器，直到查询出域名对应的IP。<br>迭代查询：（靠自己）<br>    首先当一个主机发出DNS查询请求时，先查找本机缓存，查询不到再把这个查询请求报文发给本地域名服务器，<br>    如果在本地域名服务器的高速缓存中没有查询到，本地域名服务器会向根域名服务器发送请求，<br>    根域名服务器告诉本地域名服务器顶级域名对应的顶级域名服务器，本地域名服务器再向顶级域名服务器发送请求，<br>    顶级域名服务器告诉本地服务器二级域名对应的权限域名服务器，本地服务器再向权限域名服务器发送请求，<br>    直到查询出域名对应的IP。</p>
+<h2 id="NAT网络地址转换（网络层）"><a href="#NAT网络地址转换（网络层）" class="headerlink" title="NAT网络地址转换（网络层）"></a>NAT网络地址转换（网络层）</h2><p>NAT：网络地址转换技术，将私网地址和公网地址进行转换，实现私网用户能在公网上通信，一般配置在网络路由器或防火墙上。<br>NAT实际上实现的是私有地址和公有地址的一对一映射，并不能很好的解决公有地址短缺的问题。<br>现在的网络地址转换技术更多的是指NAPT网络端口地址转换技术，主机中利用IP：端口号来表示进程，IP数据报送达NAT路由器，NAT路由器会根据NAT转换表查找数据报中IP端口号映射的NAT路由器中的端口号，让后用NAT路由器的公网IP和查到的端口号替换原来数据报中的源主机IP和端口号，然后把更新的IP数据报发送出去，实现在公网上的通信。</p>
+<h2 id="ARP协议（网络层）"><a href="#ARP协议（网络层）" class="headerlink" title="ARP协议（网络层）"></a>ARP协议（网络层）</h2><p>在实际网络的链路上传送数据帧时，最终必须使用MAC地址。ARP协议实现IP地址与MAC地址的映射，用来获取目的IP对应的MAC地址<br>IP数据报中包含源主机IP地址和目的主机IP地址，首先检查ARP高速缓存，有对应表项则写入MAC帧，没有先把源主机IP地址和目的IP相与，看是否是同一个网段下，<br>如果是同一个网段，就广播ARP请求分组：源IP|目的IP|源MAC|全1广播地址, 目的主机收到后返回单播ARP响应分组: 目的IP|目的MAC, 源主机获取到目的MAC后加入封装。<br>如果不是同一个网段，下一跳就应该是默认网关，广播ARP请求分组：主机IP|网关IP|主机MAC|全1广播地址, 网关返回单播ARP响应分组: 网关IP|网关MAC,源主机获取网关MAC后封装进IP数据报。</p>
+<h2 id="DHCP协议（应用层）"><a href="#DHCP协议（应用层）" class="headerlink" title="DHCP协议（应用层）"></a>DHCP协议（应用层）</h2><p>动态主机配置协议，使用UDP协议工作。给内部的网络和网络服务供应商自动的分配IP地址。</p>
+<ol>
+<li>主机广播DHCP发现报文，尝试找到网络中的服务器获取一个IP地址。</li>
+<li>DHCP服务器广播DHCP提供报文，服务器拟分配给主机一个IP地址及相关配置，先到先得。</li>
+<li>主机广播DHCP请求报文，主机向服务器请求提供IP地址</li>
+<li>DHCP服务器广播DHCP确认报文，正式将IP地址分配给主机。</li>
+</ol>
+<h2 id="链路状态路由算法OSPF"><a href="#链路状态路由算法OSPF" class="headerlink" title="链路状态路由算法OSPF"></a>链路状态路由算法OSPF</h2><h2 id="距离向量路由算法RIP"><a href="#距离向量路由算法RIP" class="headerlink" title="距离向量路由算法RIP"></a>距离向量路由算法RIP</h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1095,7 +1078,7 @@ public class Demo01List {    public static void main(String[] args) {       ">
                     </span>
                     <a href="https://sqtian-hhu.github.io" class="b-link-green">世庆的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2020/04/02/java-ji-chu/javanote08-stream/" class="b-link-green">&#39;JavaNote08_Stream&#39;</a>
+                    <a href="/2021/09/13/ji-chu-zheng-li/ji-suan-ji-ji-chu/" class="b-link-green">计算机基础</a>
                 </p>
             </div>
 
@@ -1118,7 +1101,7 @@ public class Demo01List {    public static void main(String[] args) {       ">
         repo: 'shw2018.github.io',
         owner: 'shw2018',
         admin: ["shw2018"],
-        id: '2020/04/02/java-ji-chu/javanote08-stream/',
+        id: '2021/09/13/ji-chu-zheng-li/ji-suan-ji-ji-chu/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1437,49 +1420,42 @@ public class Demo01List {    public static void main(String[] args) {       ">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/04/02/java-ji-chu/javanote09-reference/">
+                <a href="/2021/09/13/ji-chu-zheng-li/ji-suan-ji-ji-chu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="'JavaNote09_Reference'">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="计算机基础">
                         
-                        <span class="card-title">'JavaNote09_Reference'</span>
+                        <span class="card-title">计算机基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            方法引用如果在Lambda中所指定的操作方案，已经有地方存在相同方案，是否还有必要再写重复逻辑方法引用符: 双冒号::如果Lambda要表达的函数方案已经存在与某个方法的实现中,那么则可以通过双冒号来引用该方法作为Lambda替代者方法引用
+                            数据结构红黑树红黑树是一种自平衡的二叉搜索树，红黑树的每个节点上都多出一个存储位表示节点的颜色（红/黑）
+特性：
+
+根节点是黑色的
+每个叶子节点都是黑色的空节点
+如果一个节点是红色的，则他的子节点必须是黑色的
+从一个节点到他子孙节点的所有路
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-09-13
+                            </span>
                         <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Java/" class="post-category" target="_blank">
-                                    Java
-                                </a>
-                            
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java基础/" target="_blank">
-                        <span class="chip bg-color">Java基础</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -1490,31 +1466,33 @@ public class Demo01List {    public static void main(String[] args) {       ">
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/30/java-ji-chu/javanote07-tcpip/">
+                <a href="/2021/09/05/ji-chu-zheng-li/quan-pai-lie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="'JavaNote07_TCPIP'">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="全排列">
                         
-                        <span class="card-title">'JavaNote07_TCPIP'</span>
+                        <span class="card-title">全排列</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            网络编程1.1 软件结构C/S结构：全称Client/Server结构，客户端和服务器结构。QQ迅雷等B/S结构：全称Browser/Server结构，浏览器和服务器结构。谷歌火狐1.2 网络通信协议计算机在连接和通信时要遵守一定的规则,这
+                            全排列合集leetcode17-电话号码的字母组合给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。数字到字母的映射为9键输入法。
+class Solution {
+    ArrayList&l
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-03-30
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-09-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category" target="_blank">
-                                    Java
+                            <a href="/categories/算法/" class="post-category" target="_blank">
+                                    算法
                                 </a>
                             
                             
@@ -1524,8 +1502,8 @@ public class Demo01List {    public static void main(String[] args) {       ">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java基础/" target="_blank">
-                        <span class="chip bg-color">Java基础</span>
+                    <a href="/tags/全排列/" target="_blank">
+                        <span class="chip bg-color">全排列</span>
                     </a>
                     
                 </div>
