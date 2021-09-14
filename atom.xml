@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sqtian-hhu.github.io/"/>
-  <updated>2021-09-13T09:44:18.780Z</updated>
+  <updated>2021-09-14T09:57:31.085Z</updated>
   <id>https://sqtian-hhu.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Spring</title>
+    <link href="https://sqtian-hhu.github.io/2021/09/14/ji-chu-zheng-li/spring/"/>
+    <id>https://sqtian-hhu.github.io/2021/09/14/ji-chu-zheng-li/spring/</id>
+    <published>2021-09-14T07:43:57.000Z</published>
+    <updated>2021-09-14T09:57:31.085Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Spring&quot;&gt;&lt;a href=&quot;#Spring&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="基础整理" scheme="https://sqtian-hhu.github.io/categories/%E5%9F%BA%E7%A1%80%E6%95%B4%E7%90%86/"/>
+    
+    
+      <category term="Spring基础" scheme="https://sqtian-hhu.github.io/tags/Spring%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
     <title>计算机基础</title>
     <link href="https://sqtian-hhu.github.io/2021/09/13/ji-chu-zheng-li/ji-suan-ji-ji-chu/"/>
     <id>https://sqtian-hhu.github.io/2021/09/13/ji-chu-zheng-li/ji-suan-ji-ji-chu/</id>
     <published>2021-09-13T07:11:18.000Z</published>
-    <updated>2021-09-13T09:44:18.780Z</updated>
+    <updated>2021-09-14T07:48:47.036Z</updated>
     
     <summary type="html">
     
@@ -35,6 +61,10 @@
     
     </summary>
     
+      <category term="基础整理" scheme="https://sqtian-hhu.github.io/categories/%E5%9F%BA%E7%A1%80%E6%95%B4%E7%90%86/"/>
+    
+    
+      <category term="计算机基础" scheme="https://sqtian-hhu.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
@@ -510,28 +540,6 @@
     
     
       <category term="Redis" scheme="https://sqtian-hhu.github.io/tags/Redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://sqtian-hhu.github.io/2021/04/21/hello-world/"/>
-    <id>https://sqtian-hhu.github.io/2021/04/21/hello-world/</id>
-    <published>2021-04-21T08:50:57.078Z</published>
-    <updated>2020-02-07T06:48:43.865Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
-        
-      
-    
-    </summary>
-    
     
   </entry>
   

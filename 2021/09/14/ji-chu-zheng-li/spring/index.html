@@ -6,16 +6,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Redis, 深度学习 故障诊断 Java">
+    <meta name="keywords" content="Spring, 深度学习 故障诊断 Java">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="KeoTn_OFy4ndJwXNmm2gMeQfPhd7alqE9vQDwI32KCY">
-    <meta name="description" content="今日内容1. redis
-    1. 概念
-    2. 下载安装
-    3. 命令操作
-        1. 数据结构
-    4. 持久化操作
-    5. 使用java客户端操作redisredis1. 概念：redis是一款高性">
+    <meta name="description" content="SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企业应用程序的开发，使开发人员只需关注业务需要本身
+主要包括七个模块：Spring Context：提供框架式的Bean访问方式以及企业级的功能Spring Core">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Redis | 世庆的博客</title>
+    <title>Spring | 世庆的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -622,13 +617,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Redis
+                        Spring
                     </div>
                 </div>
             </div>
@@ -740,8 +735,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Redis/" target="_blank">
-                                <span class="chip bg-color">Redis</span>
+                            <a href="/tags/Spring基础/" target="_blank">
+                                <span class="chip bg-color">Spring基础</span>
                             </a>
                         
                     </div>
@@ -752,8 +747,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/数据库/" class="post-category" target="_blank">
-                                数据库
+                            <a href="/categories/基础整理/" class="post-category" target="_blank">
+                                基础整理
                             </a>
                         
                     </div>
@@ -764,7 +759,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-23
+                    2021-09-14
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -778,14 +773,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.6k
+                        3.1k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        6 分
+                        10 分
                     </div>
                     
                 
@@ -802,246 +797,94 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="今日内容"><a href="#今日内容" class="headerlink" title="今日内容"></a>今日内容</h2><pre><code>1. redis
-    1. 概念
-    2. 下载安装
-    3. 命令操作
-        1. 数据结构
-    4. 持久化操作
-    5. 使用java客户端操作redis</code></pre><h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><pre><code>1. 概念：redis是一款高性能的NOSQL系列的非关系型数据库
-关系型数据库：mysql、oracle...
-    1. 数据之间有关联关系
-    2. 数据存储在硬盘的文件上
-
-非关系型数据库：redis、hbase...
-    存储key: value
-    name: 张三
-    age: 23
-
-    1. 数据之间没有关联关系
-    2. 数据存储在内存中
-
-经常查询一些不太经常变化的数据, 操作关系型数据库非常耗时, 缓存思想解决这个问题
-    1. 从缓存中获取数据
-        有缓存: 直接返回
-        没有数据: 从数据库中查询-&gt;放入缓存-&gt;返回数据
-redis可用作缓存
-
-2. 下载安装
-    1. 官网: https://redis.io
-    2. 中文网: https://www.redis.net.cn/
-    3. 解压直接可以使用
-        redis.windows.conf: 配置文件
-        redis-cli.exe: redis的客户端
-        redis-server.exe: redis服务器端
-
-3. 命令操作
-    1. redis的数据结构:
-        redis存储的是: key, value格式的数据, 其中key都是字符串, value有5种不同的数据结构
-            value的数据结构
-                1) 字符串类型: string
-                2) 哈希类型: hash map格式
-                3) 列表类型: list linkedlist格式
-                4) 集合类型: set
-                5) 有序集合类型: sortedset
-
-    2. 字符串类型: string
-        存储: set key value
-        获取: get key
-        删除: del key
-
-    3. 哈希类型: hash
-        存储: hset key field value
-        获取: 
-            hget key field: 获取指定的field对应的值
-            hgetall key: 获取所有的field和value
-        删除: hdel key field
-
-    4. 列表类型: list
-        可以添加一个元素到列表的头部(左边) 或者尾部(右边)
-        添加:
-            lpush key value: 将元素加入列表左边
-            rpush key value: 将元素加入列表右边
-        获取:
-            lrange key start end: 范围获取
-        删除:
-            lpop key: 删除列表最左边的元素, 并将元素返回
-            rpop key: 删除列表最右边的元素, 并将元素返回
-
-    5. 集合类型: set
-        不允许重复元素
-        存储: 
-            sadd key value
-        获取: 
-            smembers key: 获取set集合中的所有元素
-        删除:
-            srem key value: 删除set集合中的某个元素
-
-    6. 有序集合类型: sortedset
-        不允许重复元素, 且元素有序, 赋值时要赋上分数由于从小到大排序
-        存储:
-            zadd key score value;
-        获取:
-            zrange key start end;
-        删除:
-            zrem key value
-
-    7. 通用命令
-        keys * : 查询所有的键
-        type key: 获取键对应的value的类型
-        del key: 删除指定的key value
-
-
-4. 持久化操作
-    1. redis是一个内存数据库,当redis服务器或者电脑重启, 数据会丢失,
-       我们可以将redis内存中的数据持久化保存到硬盘的文件中
-    2. redis持久化机制
-        1. RDB: 默认方式
-            在一定的间隔时间中, 检测key的变化情况, 然后持久化数据
-            编辑redis.windows.conf文件可以修改
-            重启redis服务器并指定配置文件名称
-
-        2. AOF: 日志记录的方式, 可以记录每一条命令的操作. 每一次命令操作后持久化数据
-            编辑redis.windows.conf文件
-                appendonly no(关闭aof) appendonly yes(开启aof) 
-
-
-
-5. Java客户端 Jedis
-    Jedis: 一款java操作redis数据库的工具        
-    jedis操作各种redis中的数据结构
-        1) 字符串类型
-            get
-            set
-        2) 哈希类型 
-            hset
-            hget
-            hgetall
-        3) 列表类型
-            lpush/rpush
-            lpop/rpop
-        4) 集合类型
-            sadd
-        5) 有序集合类型
-            zadd
-    使用步骤:    
-        //1. 获取连接
-        Jedis jedis = new Jedis("localhost",6379);//如果使用空参构造,默认值就是"localhost",6379
-        //2. 操作
-            //存储String
-        jedis.set("username","张三");
-            //获取
-        String username = jedis.get("username");
-            //使用setex()方法存储可以指定过期时间的key value,可以用来存储激活码
-        jedis.setex("activatecode",20,"hehe"); //将activatecode: hehe键值对存入redis,并且20秒后自动删除该键值对
-
-            //存储hash
-        jedis.hset("user", "name", "lisi");
-        jedis.hset("user", "age", "23");
-        jedis.hset("user", "gender", "male");
-            //获取hash
-        String name = jedis.hget("user", "name");
-            //获取hash的所有map中的数据
-        Map&lt;String,String&gt; user = jedis.hgetAll("user");
-            //keyset
-        Set&lt;String&gt; keyset = user.keySet();
-        for(String key: keySet){
-            String value = user.get(key);
-            sout(key+ ":" + value);
-        }
-
-            //存储list
-        jedis.lpush("mlist","a","b","c"); //从左边存
-        jedis.rpush("mlist","a","b","c"); //从右边存
-            //范围获取
-        List&lt;String&gt; mylist = jedis.lrange("mylist", 0, -1);
-            //弹出
-        String element1 = jedis.lpop("mylist"); //c
-        String element2 = jedis.rpop("mylist"); //c
-
-            //存储 set
-        jedis.sadd("myset","java","php","c++"):
-            //获取set
-        Set&lt;String&gt; myset = jediis.smember("myset");
-
-            //存储 sortedset
-        jedis.zadd("mysortedset", 3, "剑心");
-        jedis.zadd("mysortedset", 5, "李白");
-        jedis.zadd("mysortedset", 10, "西门");
-            //获取
-        Set&lt;String&gt; mysortedset = jedis.zrange("mysortedset", 0, -1);
-
-        //3. 关闭连接
-        jedis.close();
-
-
-    jedis连接池: JedisPool
-        使用:
-            //0. 创建一个配置对象
-            JedisPoolConfig config = new JedisPoolConfig();
-            config.setMaxTotal(50);
-            config.setMaxIdle(10);
-
-            //1. 创建JedisPool连接池对象
-            JedisPool jedisPool = new JedisPool(config, "localhost", 6379);
-            //2. 调用方法 getResource()方法获取jedis连接
-            Jedis jedis = jedisPool.getResource();
-            //3. 使用
-            jedis.set("hehe", "haha");
-            //4. 关闭 归还到连接池中
-            jedis.close();
-
-
-
-    抽取Jedis连接池工具类
-    加载配置文件,配置连接池的参数
-    提供获取连接的方法
-    public class JedisPoolUtils{
-        private static JedisPool jedisPool;
-
-        static{
-            //读取配置文件
-            InputStream is = JedisPoolUtils.class.getClassLoader().getResourceAsStream("jedis.properties");
-            //创建Properties对象
-            Properties properties = new Properties();
-            //关联文件
-            try{
-                properties.load(is);
-            }catch(IOException e){
-                e.printStackTrace();
-            }
-            //获取数据, 设置到JedisPoolConfig中
-            JedisPoolConfig config = new JedisPoolConfig();
-            config.setMaxTotal(Integer.parseInt(properties.getProperty("maxTotal")));
-            config.setMaxIdle(Integer.parseInt(properties.getProperty("maxIdle")));
-            //初始化JedisPool
-            jedisPool = new JedisPool(config,properties.get("host"),Integer.parseInt(pro.getProperty("port")));
-
-        }
-        public static Jedis getJedis(){
-            return jedisPool.getResource();
-        }
-
-
-    }
-
-    jedis.properties
-
-    host=127.0.0.1
-    port=6379
-    maxTotal=50
-    maxIdle=10
-
-
-    //通过连接池工具类获取
-     Jedis jedis = JedisPoolUtils.getJedis();</code></pre><h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><pre><code>    1. 提供index.html页面,页面中有一个省份 下拉列表
-    2. 当页面加载完成后 发送ajax请求,夹在所有省份
-
-
-注意: 使用redis缓存一些不经常发生变化的数据
-      数据库的数据一旦发生改变,则需要更新缓存
-        数据库的表执行 增删改的相关操作, 需要将redis缓存数据情况再次存入
-        在service对应的增删改方法中,将redis数据删除</code></pre><script>
+                <h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><p>Spring是一个轻量级的IOC容器和AOP容器框架<br>目的是简化企业应用程序的开发，使开发人员只需关注业务需要本身</p>
+<p>主要包括七个模块：<br>Spring Context：提供框架式的Bean访问方式以及企业级的功能<br>Spring Core：核心类库，所有功能都依赖于该类库，提供IOC和DI服务<br>Spring MVC：提供面向Web应用的Model-view-controller<br>Spring Web：提供基本的面向Web的综合特性<br>Spring AOP：提供AOP服务<br>Spring Dao：对JDBC的抽象封装，简化了数据访问异常的处理，并能统一管理JDBC事务<br>Spring ORM：对现有的ORM框架的支持</p>
+<h2 id="Spring的优点"><a href="#Spring的优点" class="headerlink" title="Spring的优点"></a>Spring的优点</h2><ol>
+<li>Spring属于<strong>低侵入式</strong>框架, 代码污染率较低<br>低侵入式: 去除此框架后, 只需要修改一些配置信息,不需要大量修改代码</li>
+<li>Spring的依赖注入机制将对象之间的依赖关系交由框架处理, 降低了组件的耦合度</li>
+<li>Spring提供了<strong>AOP</strong>技术, 能够对一些通用任务集中式管理, 从而提供更好的复用</li>
+<li>Spring提供了对主流框架的集成支持</li>
+</ol>
+<h2 id="Spring-IOC"><a href="#Spring-IOC" class="headerlink" title="Spring IOC"></a>Spring IOC</h2><p>IOC就是控制反转, 指将创建对象的控制转移给Spring框架来管理, Spring利用Java反射机制, 根据配置文件创建实例并管理实例之间的依赖关系<br>Spring IOC有三种注入方式: 构造器注入, Setter方法注入, 根据注解注入</p>
+<p>DI指依赖注入, 和控制反转是同一个概念的不同角度的描述, 即应用程序在运行时利用IOC容器来动态地注入对象需要的外部依赖。</p>
+<p>控制的什么反转了? 其实就是获得依赖对象的方式反转了</p>
+<h2 id="Spring-AOP"><a href="#Spring-AOP" class="headerlink" title="Spring AOP"></a>Spring AOP</h2><p>OOP指面向对象, 面向对象允许开发者定义纵向的关系, 但不适用于定义横向的关系, 会导致大量代码重复, 不利于各个模块的重用</p>
+<p>AOP指面向切面, 就是对面向对象的一种补充, 用于将那些与业务无关,但对多个对象产生影响的公共行为逻辑抽取封装成一个可重用模块,<br>这个模块就被称为”切面”, 利用切面减少系统中的重复代码, 降低了模块间的耦合度, 提高了系统的可维护性.</p>
+<p>AOP实现的关键在于代理模式, AOP代理主要分为静态代理和动态代理. 静态代理的代表是AspectJ, 动态代理则以Spring AOP为代表</p>
+<ol>
+<li>AspectJ是静态代理, 又称编译时增强. AOP框架会在编译阶段生成AOP代理类, 并将切面织入到Java字节码中,<br>运行时就是增强之后的AOP对象</li>
+<li>Spring AOP是动态代理, AOP框架不会去修改字节码, 而是每次运行时临时为方法生成一个AOP对象,<br>这个AOP对象包含了目标对象的所有方法, 并且在特定的切点做了增强处理.</li>
+</ol>
+<p>Spring AOP代理主要有两种形式: JDK动态代理和CGLIB动态代理</p>
+<ol>
+<li>JDK动态代理只提供接口的代理, 不支持类的代理,要求被代理类实现接口.<br>JDK动态代理的核心是InvocationHandler接口和Proxy类, 在获取代理对象时使用Proxy类来动态创建目标类的代理类<br>即最终真正的代理类, 这个类继承自Proxy类并实现了我们定义的接口,当代理对象调用真实对象的方法时,<br>InvocationHandler通过invoke()方法反射来调用目标类中的代码, 动态地将横切逻辑和业务编织在一起</li>
+<li>如果代理类没有实现接口,那么Spring AOP会选择使用CGLIB来动态代理目标类.<br>CGLIB是一个代码生成的类库, 可以在运行时动态地生成指定类的一个子类对象,<br>并覆盖其中特定方法以及添加增强代码,从而实现AOP<br>CGLIB是用继承的方式做的动态代理, 因此, 如果某个类被标记为final, 那么它无法使用CGLIB做动态代里</li>
+</ol>
+<h2 id="Spring-Bean的生命周期"><a href="#Spring-Bean的生命周期" class="headerlink" title="Spring Bean的生命周期"></a>Spring Bean的生命周期</h2><p>Spring Bean的完整生命周期从创建Spring容器开始，直到最终Spring容器销毁Bean，这其中包含了一系列关键点。</p>
+<ol>
+<li>Spring启动，查找并加载需要被Spring管理的bean，进行Bean的实例化</li>
+<li>spring按bean定义信息配置bean的所有属性</li>
+<li>检查Aware相关接口并设置相关依赖:<br>(如果Bean实现了BeanNameAware接口的话，Spring将Bean的Id传递给setBeanName()方法<br>如果Bean实现了BeanFactoryAware接口的话，Spring将调用setBeanFactory()方法，将BeanFactory容器实例传入<br>如果Bean实现了ApplicationContextAware接口的话，Spring将调用Bean的setApplicationContext()方法，将bean所在应用上下文引用传入进来。)</li>
+<li>如果Bean实现了BeanPostProcessor接口，Spring就将调用他们的postProcessBeforeInitialization()方法进行前置处理。</li>
+<li>如果Bean实现了InitializingBean接口，Spring将调用他们的afterPropertiesSet()方法。类似的，</li>
+<li>如果bean使用init-method声明了初始化方法，该方法也会被调用</li>
+<li>如果Bean实现了BeanPostProcessor接口，Spring就将调用他们的postProcessAfterInitialization()方法进行后置处理。</li>
+<li>此时，Bean已经准备就绪，可以被应用程序使用了。他们将一直保留在Bean工厂中直到不再需要为止。</li>
+<li>如果bean实现了DisposableBean接口，Spring将调用它的destory()接口方法，同样，如果bean使用了destory-method 声明销毁方法，该方法也会被调用</li>
+</ol>
+<h2 id="Spring-事务"><a href="#Spring-事务" class="headerlink" title="Spring 事务"></a>Spring 事务</h2><h3 id="Spring事务的实现方式"><a href="#Spring事务的实现方式" class="headerlink" title="Spring事务的实现方式"></a>Spring事务的实现方式</h3><p><strong>编程式事务管理：</strong>这意味着你可以通过编程的方式管理事务，这种方式带来了很大的灵活性，但很难维护。</p>
+<p><strong>声明式事务管理：</strong>这种方式意味着你可以将事务管理和业务代码分离。你只需要通过注解或者XML配置管理事务。</p>
+<h3 id="Spring事务底层原理"><a href="#Spring事务底层原理" class="headerlink" title="Spring事务底层原理"></a>Spring事务底层原理</h3><p>Spring事务处理模块是通过AOP功能来实现声明式事务处理的，动态地将事务处理的功能编织到指定方法里。</p>
+<h3 id="Spring事务定义的传播机制"><a href="#Spring事务定义的传播机制" class="headerlink" title="Spring事务定义的传播机制"></a>Spring事务定义的传播机制</h3><ol>
+<li>PROPAGATION_REQUIRED: 支持当前事务，如果当前没有事务，就新建一个事务。这是最常见的选择。</li>
+<li>PROPAGATION_SUPPORTS: 支持当前事务，如果当前没有事务，就以非事务方式执行。</li>
+<li>PROPAGATION_MANDATORY: 支持当前事务，如果当前没有事务，就抛出异常。</li>
+<li>PROPAGATION_REQUIRES_NEW: 新建事务，如果当前存在事务，把当前事务挂起。</li>
+<li>PROPAGATION_NOT_SUPPORTED: 以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。</li>
+<li>PROPAGATION_NEVER: 以非事务方式执行，如果当前存在事务，则抛出异常。</li>
+<li>PROPAGATION_NESTED: 如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则进行与</li>
+<li>PROPAGATION_REQUIRED类似的操作。</li>
+</ol>
+<h2 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h2><h3 id="Spring-MVC运行流程"><a href="#Spring-MVC运行流程" class="headerlink" title="Spring MVC运行流程"></a>Spring MVC运行流程</h3><ol>
+<li>用户发送请求至DispatcherServlet;</li>
+<li>DispatcherServlet收到请求后, 调用HandlerMapping处理器映射器,请求获取Handler;</li>
+<li>处理器映射器根据url请求找到具体的处理器Handler, 生成处理器对象及处理器拦截器, 一并返回给前端控制器;</li>
+<li>前端控制器调用HandlerAdapter处理器适配器,请求执行Handler;</li>
+<li>HandlerAdapter经过适配调用具体的处理器处理业务逻辑;</li>
+<li>处理器处理完成返回ModelAndView</li>
+<li>处理器适配器将处理器执行结果返回给前端控制器</li>
+<li>前端控制器将ModelAndView传给视图解析器ViewResolver进行解析</li>
+<li>视图解析器解析之后返回具体View</li>
+<li>前端控制器对View进行渲染视图, 即将Model数据填充到View中去</li>
+<li>前端控制器响应用户<br><img src="https://cdn.jsdelivr.net/gh/shw2018/cdn@1.0/sakura/img/loader/orange.progress-bar-stripe-loader.svg" data-original="https://raw.githubusercontent.com/sqtian-hhu/images/main/images/friends/springMVC.png" alt="SpringMVC流程"></li>
+</ol>
+<h3 id="Spring-MVC常用注解"><a href="#Spring-MVC常用注解" class="headerlink" title="Spring MVC常用注解"></a>Spring MVC常用注解</h3><p>@RequestMapping:<br>用于处理请求url映射的注解, 可用在类或方法上.用在类上表示类中的所有响应请求的方法都是以该地址作为父路径.<br>@RequestBody:<br>注解实现接收http请求的json数据, 将json转换为java对象<br>@ResponseBody:<br>注解实现将Controller方法返回对象转化为json对象响应给客户</p>
+<h3 id="如何解决POST请求以及GET请求中文乱码问题"><a href="#如何解决POST请求以及GET请求中文乱码问题" class="headerlink" title="如何解决POST请求以及GET请求中文乱码问题"></a>如何解决POST请求以及GET请求中文乱码问题</h3><p>POST: 在配置文件中配置一个CharacterEncodingFilter过滤器, 编码设置成UTF-8<br>GET: 修改tomcat配置文件添加编码与工程编码一致</p>
+<h1 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h1><p>Mybatis是一个半ORM框架, 它内部封装了JDBC, 开发时只需要关注SQL语句本身, 不需要花费精力去处理加载驱动, 创建连接, 创建statement等繁杂的过程. 程序员直接编写原生态SQL语句, 可以严格控制SQL执行性能, 灵活度高</p>
+<p>ORM思想: 指对象关系映射, 主要目的是操作实体类就相当于操作数据库表.<br>         需要建立两个映射思想: 1. 建立实体类到表的关系 2. 建立实体类中属性和表中字段的关系</p>
+<h3 id="Mybatis的优点"><a href="#Mybatis的优点" class="headerlink" title="Mybatis的优点"></a>Mybatis的优点</h3><ol>
+<li>基于SQL语句编程，相当灵活，不会对应用程序或者数据库的现有设计造成任何影响，SQL写在XML里，解除sql与程序代码的耦合，便于统一管理；<br>提供XML标签，支持编写动态SQL语句，并可重用。</li>
+<li>与JDBC相比，减少了50%以上的代码量，消除了JDBC大量冗余的代码，不需要手动开关连接；</li>
+<li>很好的与各种数据库兼容（因为MyBatis使用JDBC来连接数据库，所以只要JDBC支持的数据库MyBatis都支持）。</li>
+<li>能够与Spring很好的集成；</li>
+<li>提供映射标签，支持对象与数据库的ORM字段关系映射；提供对象关系映射标签，支持对象关系组件维护。</li>
+</ol>
+<h3 id="Mybatis的缺点"><a href="#Mybatis的缺点" class="headerlink" title="Mybatis的缺点"></a>Mybatis的缺点</h3><ol>
+<li>SQL语句的编写工作量较大，尤其当字段多、关联表多时，对开发人员编写SQL语句的功底有一定要求。</li>
+<li>SQL语句依赖于数据库，导致数据库移植性差，不能随意更换数据库。</li>
+</ol>
+<h1 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h1><p>SpringBoot是Spring开源组织下的子项目, 是Spring组件一站式解决方案, 主要是简化了使用Spring的难度, 减省了繁重的配置.<br>提供了各种启动器, 开发者能快速上手</p>
+<h3 id="Spring-Boot的优势"><a href="#Spring-Boot的优势" class="headerlink" title="Spring Boot的优势"></a>Spring Boot的优势</h3><p>SpringBoot最大的优势就是”约定优于配置”. 约定优于配置是一种软件开发范式, 开发人员按照约定的方式来进行编程, 可以减少开发人员需做决定的数量, 让开发更简单灵活<br>具体的优点有</p>
+<ol>
+<li>容易上手, 提升开发效率, 为Spring开发提供一个更快更广泛的入门体验</li>
+<li>开箱即用, 远离繁琐的配置</li>
+<li>提供了一系列大型项目通用的非业务性功能, 例如: 内嵌服务器, 安全管理, 运行数据监控, 运行状态检查和外部化配置</li>
+<li>避免大量的Maven导入和各种版本冲突</li>
+</ol>
+<h3 id="“约定优于配置”的具体产品体现在哪里"><a href="#“约定优于配置”的具体产品体现在哪里" class="headerlink" title="“约定优于配置”的具体产品体现在哪里"></a>“约定优于配置”的具体产品体现在哪里</h3><p>SpringBoot Starter, SpringBoot JPA都是”约定优于配置”的一种体现. 都是通过”约定优于配置”的设计思路来设计的<br>SpringBoot Starter在启动的过程中会根据约定的信息对资源进行初始化<br>SpringBoot JPA通过约定的方式来自动生成sql, 避免大量无效代码编写.</p>
+<h3 id="Spring-Boot-核心注解-主要是由哪几个注解组成的"><a href="#Spring-Boot-核心注解-主要是由哪几个注解组成的" class="headerlink" title="Spring Boot 核心注解, 主要是由哪几个注解组成的?"></a>Spring Boot 核心注解, 主要是由哪几个注解组成的?</h3><p>启动类注解: @SpringBootApplication<br>主要包含了以下三个注解:<br>@SpringBootConfiguration: 组合了@Configuration注解, 实现配置文件功能<br>@EnableAutoConfiguration: 打开自动配置的功能, 也可以关闭某个自动配置的选项<br>@ComponentScan: Spring组件扫描</p>
+<h3 id="SpringBoot-Starter的工作原理"><a href="#SpringBoot-Starter的工作原理" class="headerlink" title="SpringBoot Starter的工作原理"></a>SpringBoot Starter的工作原理</h3><p>SpringBoot在启动的时候,按照约定去读取SpringBoot Starter中的配置信息, 再根据配置信息对资源进行初始化, 并注入到Spring容器中.<br>这样Spring Boot启动完毕后, 就已经准备好了一切资源, 使用过程直接注入对应的Bean资源即可.</p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1209,7 +1052,7 @@ redis可用作缓存
                     </span>
                     <a href="https://sqtian-hhu.github.io" class="b-link-green">世庆的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2021/04/23/redis/" class="b-link-green">Redis</a>
+                    <a href="/2021/09/14/ji-chu-zheng-li/spring/" class="b-link-green">Spring</a>
                 </p>
             </div>
 
@@ -1232,7 +1075,7 @@ redis可用作缓存
         repo: 'shw2018.github.io',
         owner: 'shw2018',
         admin: ["shw2018"],
-        id: '2021/04/23/redis/',
+        id: '2021/09/14/ji-chu-zheng-li/spring/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1551,46 +1394,49 @@ redis可用作缓存
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/04/23/tensorflow2/">
+                <a href="/2021/09/14/ji-chu-zheng-li/spring/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="tensorflow2">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Spring">
                         
-                        <span class="card-title">tensorflow2</span>
+                        <span class="card-title">Spring</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ##创建一个Tensor    创建全为0的张量: tf.zeros(维度)        维度: 一维 直接写个数              二维 [行,列]              多维 [n,m,j,k…]    创建全为1的张量:
+                            SpringSpring是一个轻量级的IOC容器和AOP容器框架目的是简化企业应用程序的开发，使开发人员只需关注业务需要本身
+主要包括七个模块：Spring Context：提供框架式的Bean访问方式以及企业级的功能Spring Core
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-23
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-09-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category" target="_blank">
-                                    Python
+                            <a href="/categories/基础整理/" class="post-category" target="_blank">
+                                    基础整理
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Tensorflow/" target="_blank">
-                        <span class="chip bg-color">Tensorflow</span>
+                    <a href="/tags/Spring基础/" target="_blank">
+                        <span class="chip bg-color">Spring基础</span>
                     </a>
                     
                 </div>
@@ -1604,29 +1450,50 @@ redis可用作缓存
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/04/21/hello-world/">
+                <a href="/2021/09/13/ji-chu-zheng-li/ji-suan-ji-ji-chu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="计算机基础">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">计算机基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            数据结构红黑树红黑树是一种自平衡的二叉搜索树，红黑树的每个节点上都多出一个存储位表示节点的颜色（红/黑）
+特性：
+
+根节点是黑色的
+每个叶子节点都是黑色的空节点
+如果一个节点是红色的，则他的子节点必须是黑色的
+从一个节点到他子孙节点的所有路
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-21
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-09-13
                             </span>
                         <span class="publish-author">
                             
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/基础整理/" class="post-category" target="_blank">
+                                    基础整理
+                                </a>
+                            
+                            
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/计算机基础/" target="_blank">
+                        <span class="chip bg-color">计算机基础</span>
+                    </a>
+                    
                 </div>
                 
             </div>
